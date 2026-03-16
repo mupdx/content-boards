@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Content Board - Eyestyle Zwickau</title>
+  <title>Content Board</title>
   <style>
     * {
       margin: 0;
@@ -21,7 +21,7 @@
       /* Borders */
       --border: rgba(255, 255, 255, 0.06);
       --border-hover: rgba(255, 255, 255, 0.12);
-      --border-active: rgba(99, 102, 241, 0.5);
+      --border-active: rgba(156, 163, 175, 0.5);
 
       /* Text */
       --text-primary: #f0f0f5;
@@ -29,8 +29,8 @@
       --text-muted: #5a5a6e;
 
       /* Accents */
-      --accent: #6366f1;
-      --accent-hover: #818cf8;
+      --accent: #6b7280;
+      --accent-hover: #9ca3af;
       --success: #34d399;
       --warning: #fbbf24;
       --error: #f87171;
@@ -43,7 +43,7 @@
       --linkedin: #38bdf8;
 
       /* Special */
-      --glow: rgba(99, 102, 241, 0.15);
+      --glow: rgba(156, 163, 175, 0.15);
       --holiday-bg: rgba(251, 191, 36, 0.08);
     }
 
@@ -73,6 +73,137 @@
 
     ::-webkit-scrollbar-thumb:hover {
       background: rgba(255, 255, 255, 0.15);
+    }
+
+    /* Client Selector */
+    .client-selector {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .client-selector select {
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 6px 28px 6px 10px;
+      font-size: 13px;
+      font-family: inherit;
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238b8b9e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 8px center;
+      min-width: 180px;
+      transition: all 0.2s;
+    }
+
+    .client-selector select:hover {
+      border-color: var(--border-hover);
+    }
+
+    .client-selector select:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(156, 163, 175, 0.15);
+    }
+
+    .btn-icon {
+      background: var(--bg-tertiary);
+      color: var(--text-secondary);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-icon:hover {
+      background: var(--bg-elevated);
+      border-color: var(--border-hover);
+      color: var(--text-primary);
+    }
+
+    /* Client Manager in Settings */
+    .client-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      max-height: 200px;
+      overflow-y: auto;
+      margin-bottom: 12px;
+    }
+
+    .client-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 13px;
+      color: var(--text-primary);
+    }
+
+    .client-item.active {
+      border-color: var(--accent);
+      background: rgba(156, 163, 175, 0.08);
+    }
+
+    .client-item-name {
+      flex: 1;
+    }
+
+    .client-item button {
+      background: transparent;
+      color: var(--text-muted);
+      border: none;
+      padding: 2px 6px;
+      font-size: 14px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .client-item button:hover {
+      color: var(--error);
+      background: rgba(248, 113, 113, 0.1);
+    }
+
+    .add-client-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .add-client-row input {
+      flex: 1;
+    }
+
+    .settings-section {
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .settings-section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .settings-section-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 12px;
     }
 
     a {
@@ -195,13 +326,13 @@
     .btn-primary {
       background: var(--accent);
       color: white;
-      box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.3), 0 4px 12px rgba(99, 102, 241, 0.2);
+      box-shadow: 0 0 0 1px rgba(156, 163, 175, 0.3), 0 4px 12px rgba(156, 163, 175, 0.2);
     }
 
     .btn-primary:hover:not(:disabled) {
       background: var(--accent-hover);
       transform: translateY(-2px);
-      box-shadow: 0 0 0 1px rgba(129, 140, 248, 0.4), 0 8px 24px rgba(99, 102, 241, 0.3);
+      box-shadow: 0 0 0 1px rgba(180, 188, 199, 0.4), 0 8px 24px rgba(156, 163, 175, 0.3);
     }
 
     .btn-secondary {
@@ -211,7 +342,7 @@
     }
 
     .btn-secondary:hover:not(:disabled) {
-      background: rgba(99, 102, 241, 0.1);
+      background: rgba(156, 163, 175, 0.1);
       border-color: var(--border-hover);
       color: var(--text-primary);
     }
@@ -245,7 +376,7 @@
 
     .filter-btn:hover {
       border-color: var(--border-hover);
-      background: rgba(99, 102, 241, 0.08);
+      background: rgba(156, 163, 175, 0.08);
       color: var(--text-primary);
     }
 
@@ -253,7 +384,7 @@
       background: var(--accent);
       color: white;
       border-color: var(--accent);
-      box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.3), 0 4px 12px rgba(99, 102, 241, 0.2);
+      box-shadow: 0 0 0 1px rgba(156, 163, 175, 0.3), 0 4px 12px rgba(156, 163, 175, 0.2);
     }
 
     /* Posting Calendar */
@@ -466,7 +597,7 @@
 
     .post-card:hover {
       border-color: var(--border-active);
-      box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.5), 0 8px 32px rgba(99, 102, 241, 0.15);
+      box-shadow: 0 0 0 1px rgba(156, 163, 175, 0.5), 0 8px 32px rgba(156, 163, 175, 0.15);
       transform: translateY(-2px);
     }
 
@@ -713,13 +844,13 @@
       width: 100%;
       line-height: 1.5;
       background: rgba(26, 26, 37, 0.8);
-      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+      box-shadow: 0 0 0 3px rgba(156, 163, 175, 0.1);
     }
 
     .caption-textarea:focus {
       outline: none;
       border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+      box-shadow: 0 0 0 3px rgba(156, 163, 175, 0.15);
     }
 
     .caption-textarea.editing {
@@ -752,9 +883,9 @@
     .tag {
       display: inline-block;
       padding: 4px 8px;
-      background: rgba(99, 102, 241, 0.1);
+      background: rgba(156, 163, 175, 0.1);
       color: var(--accent);
-      border: 1px solid rgba(99, 102, 241, 0.2);
+      border: 1px solid rgba(156, 163, 175, 0.2);
       border-radius: 4px;
       font-size: 12px;
     }
@@ -778,13 +909,13 @@
       font-weight: 600;
       cursor: pointer;
       transition: all 0.2s ease;
-      box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.3), 0 4px 12px rgba(99, 102, 241, 0.2);
+      box-shadow: 0 0 0 1px rgba(156, 163, 175, 0.3), 0 4px 12px rgba(156, 163, 175, 0.2);
     }
 
     .btn-save:hover:not(:disabled) {
       background: var(--accent-hover);
       transform: translateY(-1px);
-      box-shadow: 0 0 0 1px rgba(129, 140, 248, 0.4), 0 8px 24px rgba(99, 102, 241, 0.3);
+      box-shadow: 0 0 0 1px rgba(180, 188, 199, 0.4), 0 8px 24px rgba(156, 163, 175, 0.3);
     }
 
     .empty-state {
@@ -871,7 +1002,7 @@
       outline: none;
       border-color: var(--border-active);
       background: rgba(26, 26, 37, 0.8);
-      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+      box-shadow: 0 0 0 3px rgba(156, 163, 175, 0.15);
     }
 
     .modal-footer {
@@ -1001,12 +1132,14 @@
         <div class="header-title">
           <h1>📱 Content Board</h1>
           <div class="header-meta">
-            <div class="header-meta-item">
-              <span class="header-meta-label">Agentur:</span>
-              <span id="agencyName">-</span>
+            <div class="client-selector">
+              <select id="clientSelect" onchange="switchClient(this.value)">
+                <option value="">— Kunde wählen —</option>
+              </select>
+              <button class="btn-icon" onclick="promptNewClient()" title="Neuer Kunde">+</button>
             </div>
             <div class="header-meta-item">
-              <span class="header-meta-label">Konto:</span>
+              <span class="header-meta-label">Woche:</span>
               <span id="accountName">-</span>
             </div>
           </div>
@@ -1089,23 +1222,30 @@
   <!-- Settings Modal -->
   <div id="settingsModal" class="modal">
     <div class="modal-content">
-      <div class="modal-header">⚙️ GitHub Einstellungen</div>
+      <div class="modal-header">⚙️ Einstellungen</div>
       <div class="modal-body">
-        <div class="form-group">
-          <label class="form-label">GitHub Token</label>
-          <input type="password" id="githubToken" placeholder="ghp_...">
+        <div class="settings-section">
+          <div class="settings-section-title">Kunden verwalten</div>
+          <div class="client-list" id="clientList"></div>
+          <div class="add-client-row">
+            <input type="text" id="newClientName" placeholder="Neuer Kundenname...">
+            <button class="btn-primary" onclick="addClient()" style="white-space:nowrap;">+ Hinzufügen</button>
+          </div>
         </div>
-        <div class="form-group">
-          <label class="form-label">Repository Owner</label>
-          <input type="text" id="githubOwner" placeholder="z.B. username">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Repository Name</label>
-          <input type="text" id="githubRepo" placeholder="z.B. content-board">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Dateipfad</label>
-          <input type="text" id="githubPath" placeholder="z.B. data/content.json">
+        <div class="settings-section">
+          <div class="settings-section-title">GitHub Verbindung</div>
+          <div class="form-group">
+            <label class="form-label">GitHub Token</label>
+            <input type="password" id="githubToken" placeholder="ghp_...">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Repository Owner</label>
+            <input type="text" id="githubOwner" placeholder="z.B. username">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Repository Name</label>
+            <input type="text" id="githubRepo" placeholder="z.B. content-board">
+          </div>
         </div>
       </div>
       <div class="modal-footer">
@@ -1192,15 +1332,121 @@
       github: {
         token: '',
         owner: '',
-        repo: '',
-        path: ''
+        repo: ''
       },
+      clients: [],          // [{name: "Eyestyle Zwickau", slug: "eyestyle-zwickau"}, ...]
+      activeClient: null,   // slug of active client
       currentSha: null,
       currentFilter: {
         channel: 'all',
         status: null
       }
     };
+
+    // ===== CLIENT MANAGEMENT =====
+    function slugify(name) {
+      return name.toLowerCase()
+        .replace(/[äÄ]/g, 'ae').replace(/[öÖ]/g, 'oe').replace(/[üÜ]/g, 'ue').replace(/ß/g, 'ss')
+        .replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    }
+
+    function getClientPath(slug) {
+      return `clients/${slug}.json`;
+    }
+
+    function renderClientSelect() {
+      const select = document.getElementById('clientSelect');
+      const current = APP.activeClient;
+      select.innerHTML = '<option value="">— Kunde wählen —</option>';
+      APP.clients.forEach(c => {
+        const opt = document.createElement('option');
+        opt.value = c.slug;
+        opt.textContent = c.name;
+        if (c.slug === current) opt.selected = true;
+        select.appendChild(opt);
+      });
+    }
+
+    function renderClientList() {
+      const list = document.getElementById('clientList');
+      if (!list) return;
+      list.innerHTML = '';
+      APP.clients.forEach(c => {
+        const div = document.createElement('div');
+        div.className = 'client-item' + (c.slug === APP.activeClient ? ' active' : '');
+        div.innerHTML = `<span class="client-item-name">${c.name}</span>
+          <button onclick="removeClient('${c.slug}')" title="Kunde entfernen">✕</button>`;
+        list.appendChild(div);
+      });
+    }
+
+    function addClient(nameOverride) {
+      const input = document.getElementById('newClientName');
+      const name = nameOverride || (input ? input.value.trim() : '');
+      if (!name) { showToast('Bitte einen Namen eingeben', 'error'); return; }
+
+      const slug = slugify(name);
+      if (APP.clients.find(c => c.slug === slug)) {
+        showToast('Kunde existiert bereits', 'warning');
+        return;
+      }
+
+      APP.clients.push({ name, slug });
+      localStorage.setItem('clients', JSON.stringify(APP.clients));
+      if (input) input.value = '';
+      renderClientSelect();
+      renderClientList();
+      showToast(`"${name}" hinzugefügt`, 'success');
+
+      // Auto-switch to the new client
+      switchClient(slug);
+    }
+
+    function removeClient(slug) {
+      APP.clients = APP.clients.filter(c => c.slug !== slug);
+      localStorage.setItem('clients', JSON.stringify(APP.clients));
+      if (APP.activeClient === slug) {
+        APP.activeClient = APP.clients.length > 0 ? APP.clients[0].slug : null;
+        localStorage.setItem('activeClient', APP.activeClient || '');
+      }
+      renderClientSelect();
+      renderClientList();
+      if (APP.activeClient) {
+        switchClient(APP.activeClient);
+      } else {
+        APP.data = null;
+        document.getElementById('postsGrid').innerHTML = '';
+        document.getElementById('calendarHead').innerHTML = '';
+        document.getElementById('calendarBody').innerHTML = '';
+        document.getElementById('accountName').textContent = '-';
+      }
+      showToast('Kunde entfernt', 'success');
+    }
+
+    function promptNewClient() {
+      const name = prompt('Neuer Kundenname:');
+      if (name && name.trim()) addClient(name.trim());
+    }
+
+    async function switchClient(slug) {
+      if (!slug) return;
+
+      // Warn about unsaved changes
+      if (APP.unsavedChanges.size > 0) {
+        if (!confirm('Es gibt ungespeicherte Änderungen. Trotzdem wechseln?')) {
+          document.getElementById('clientSelect').value = APP.activeClient || '';
+          return;
+        }
+      }
+
+      APP.activeClient = slug;
+      APP.unsavedChanges.clear();
+      localStorage.setItem('activeClient', slug);
+      renderClientSelect();
+
+      // Load client data
+      await initApp();
+    }
 
     // ===== UTILITY FUNCTIONS =====
     function parsePostDate(dateStr, timeStr) {
@@ -1235,21 +1481,39 @@
 
     // ===== INIT APP: GitHub → fetch('./data.json') → EMBEDDED_DATA fallback =====
     async function initApp() {
+      const clientPath = APP.activeClient ? getClientPath(APP.activeClient) : null;
+
       try {
-        const hasGitHub = APP.github.token && APP.github.owner && APP.github.repo && APP.github.path;
+        const hasGitHub = APP.github.token && APP.github.owner && APP.github.repo && clientPath;
         if (hasGitHub) {
-          const data = await fetchFromGitHub();
+          const data = await fetchFromGitHub(clientPath);
           if (data) {
             APP.data = data;
-            showToast('Daten von GitHub geladen', 'success');
+            const clientObj = APP.clients.find(c => c.slug === APP.activeClient);
+            showToast(`${clientObj ? clientObj.name : 'Daten'} geladen`, 'success');
             renderUI();
             return;
           }
         }
       } catch (err) {
-        console.warn('GitHub fetch failed, trying local data.json:', err);
+        console.warn('GitHub fetch failed:', err);
+        // If 404, this client just doesn't have data yet — create empty
+        if (err.message.includes('404')) {
+          const clientObj = APP.clients.find(c => c.slug === APP.activeClient);
+          APP.data = {
+            client: clientObj ? clientObj.name : APP.activeClient,
+            week: '',
+            brand: '',
+            lastModified: new Date().toISOString(),
+            posts: []
+          };
+          showToast('Neues Board erstellt (noch keine Daten auf GitHub)', 'info');
+          renderUI();
+          return;
+        }
       }
 
+      // Fallback: try local data.json (legacy support)
       try {
         const res = await fetch('./data.json');
         if (res.ok) {
@@ -1267,8 +1531,9 @@
       renderUI();
     }
 
-    async function fetchFromGitHub() {
-      const { token, owner, repo, path } = APP.github;
+    async function fetchFromGitHub(pathOverride) {
+      const { token, owner, repo } = APP.github;
+      const path = pathOverride || getClientPath(APP.activeClient);
       const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
       const res = await fetch(url, {
         headers: { 'Authorization': `token ${token}` }
@@ -1542,42 +1807,55 @@
 
     // ===== SAVE SINGLE POST =====
     async function savePost(postId) {
-      const { token, owner, repo, path } = APP.github;
+      const { token, owner, repo } = APP.github;
+      const path = APP.activeClient ? getClientPath(APP.activeClient) : null;
       if (!token || !owner || !repo || !path) {
-        showToast('GitHub nicht verbunden. Einstellungen prüfen.', 'error');
+        showToast('GitHub nicht verbunden oder kein Kunde gewählt.', 'error');
         return;
       }
 
       try {
-        const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
-        const getRes = await fetch(url, {
-          headers: { 'Authorization': `token ${token}` }
-        });
-        if (!getRes.ok) throw new Error('Datei nicht auf GitHub gefunden');
-        const { sha } = await getRes.json();
-
-        const content = btoa(unescape(encodeURIComponent(JSON.stringify(APP.data, null, 2))));
-        const putRes = await fetch(url, {
-          method: 'PUT',
-          headers: {
-            'Authorization': `token ${token}`,
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            message: `Update ${APP.data.client} ${APP.data.week}`,
-            content,
-            sha
-          })
-        });
-
-        if (!putRes.ok) throw new Error('Speichern fehlgeschlagen');
-
+        await saveDataToGitHub(path, `Update ${APP.data.client} ${APP.data.week}`);
         APP.unsavedChanges.delete(postId);
         showToast('Gespeichert ✓', 'success');
         renderPosts();
       } catch (err) {
         showToast('Fehler: ' + err.message, 'error');
       }
+    }
+
+    // ===== SAVE DATA TO GITHUB (shared helper) =====
+    async function saveDataToGitHub(path, commitMsg) {
+      const { token, owner, repo } = APP.github;
+      const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
+
+      // Try to get existing file for sha
+      let sha = null;
+      try {
+        const getRes = await fetch(url, {
+          headers: { 'Authorization': `token ${token}` }
+        });
+        if (getRes.ok) {
+          const json = await getRes.json();
+          sha = json.sha;
+        }
+      } catch (e) { /* new file, no sha needed */ }
+
+      const content = btoa(unescape(encodeURIComponent(JSON.stringify(APP.data, null, 2))));
+      const body = { message: commitMsg, content };
+      if (sha) body.sha = sha;
+
+      const putRes = await fetch(url, {
+        method: 'PUT',
+        headers: {
+          'Authorization': `token ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+      });
+
+      if (!putRes.ok) throw new Error('Speichern fehlgeschlagen');
+      return putRes.json();
     }
 
     // ===== SAVE ALL POSTS =====
@@ -1587,36 +1865,15 @@
         return;
       }
 
-      const { token, owner, repo, path } = APP.github;
+      const { token, owner, repo } = APP.github;
+      const path = APP.activeClient ? getClientPath(APP.activeClient) : null;
       if (!token || !owner || !repo || !path) {
-        showToast('GitHub nicht verbunden. Einstellungen prüfen.', 'error');
+        showToast('GitHub nicht verbunden oder kein Kunde gewählt.', 'error');
         return;
       }
 
       try {
-        const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
-        const getRes = await fetch(url, {
-          headers: { 'Authorization': `token ${token}` }
-        });
-        if (!getRes.ok) throw new Error('Datei nicht auf GitHub gefunden');
-        const { sha } = await getRes.json();
-
-        const content = btoa(unescape(encodeURIComponent(JSON.stringify(APP.data, null, 2))));
-        const putRes = await fetch(url, {
-          method: 'PUT',
-          headers: {
-            'Authorization': `token ${token}`,
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            message: `Update ${APP.data.client} ${APP.data.week} - ${APP.unsavedChanges.size} post(s)`,
-            content,
-            sha
-          })
-        });
-
-        if (!putRes.ok) throw new Error('Speichern fehlgeschlagen');
-
+        await saveDataToGitHub(path, `Update ${APP.data.client} ${APP.data.week} - ${APP.unsavedChanges.size} post(s)`);
         APP.unsavedChanges.clear();
         showToast('Alle Posts gespeichert! ✓', 'success');
         renderPosts();
@@ -1705,7 +1962,7 @@
       document.getElementById('githubToken').value = APP.github.token;
       document.getElementById('githubOwner').value = APP.github.owner;
       document.getElementById('githubRepo').value = APP.github.repo;
-      document.getElementById('githubPath').value = APP.github.path;
+      renderClientList();
     }
 
     function hideSettings() {
@@ -1716,16 +1973,15 @@
       const token = document.getElementById('githubToken').value;
       const owner = document.getElementById('githubOwner').value;
       const repo = document.getElementById('githubRepo').value;
-      const path = document.getElementById('githubPath').value;
 
-      if (token && owner && repo && path) {
-        APP.github = { token, owner, repo, path };
+      if (token && owner && repo) {
+        APP.github = { token, owner, repo };
         localStorage.setItem('githubSettings', JSON.stringify(APP.github));
         showToast('Einstellungen gespeichert!', 'success');
         hideSettings();
         checkConnection();
       } else {
-        showToast('Bitte alle Felder ausfüllen', 'error');
+        showToast('Bitte Token, Owner und Repo ausfüllen', 'error');
       }
     }
 
@@ -1782,8 +2038,7 @@
     // ===== RENDER UI =====
     function renderUI() {
       if (APP.data) {
-        document.getElementById('agencyName').textContent = APP.data.client || 'Eyestyle Zwickau';
-        document.getElementById('accountName').textContent = APP.data.brand || APP.data.week || 'Content Board';
+        document.getElementById('accountName').textContent = APP.data.brand || APP.data.week || '-';
       }
       generateCalendar();
       renderPosts();
@@ -1800,16 +2055,42 @@
 
     // ===== INITIALIZATION =====
     document.addEventListener('DOMContentLoaded', async () => {
+      // Load GitHub settings
       const saved = localStorage.getItem('githubSettings');
       if (saved) {
-        APP.github = JSON.parse(saved);
+        const parsed = JSON.parse(saved);
+        APP.github = { token: parsed.token || '', owner: parsed.owner || '', repo: parsed.repo || '' };
       }
 
+      // Load client list
+      const savedClients = localStorage.getItem('clients');
+      if (savedClients) {
+        APP.clients = JSON.parse(savedClients);
+      } else {
+        // Migrate: if old path was set, create initial client from EMBEDDED_DATA
+        APP.clients = [{ name: 'Eyestyle Zwickau', slug: 'eyestyle-zwickau' }];
+        localStorage.setItem('clients', JSON.stringify(APP.clients));
+      }
+
+      // Load active client
+      const savedActive = localStorage.getItem('activeClient');
+      APP.activeClient = savedActive || (APP.clients.length > 0 ? APP.clients[0].slug : null);
+      localStorage.setItem('activeClient', APP.activeClient || '');
+
+      renderClientSelect();
       await initApp();
 
       document.getElementById('settingsModal').addEventListener('click', (e) => {
         if (e.target.id === 'settingsModal') hideSettings();
       });
+
+      // Allow Enter key in new client input
+      const newClientInput = document.getElementById('newClientName');
+      if (newClientInput) {
+        newClientInput.addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') addClient();
+        });
+      }
     });
   </script>
 </body>
