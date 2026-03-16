@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- v2.3 Neu-Button: Auto-Save + lila Markierung für Regen-Requests -->
+<!-- v2.4 Slider → sofort orange -->
 <html lang="de">
 <head>
   <meta charset="UTF-8">
@@ -2047,6 +2047,10 @@
       if (card) {
         const img = card.querySelector('.post-image');
         if (img) img.style.objectPosition = v + '% center';
+        // Sofort orange markieren
+        card.classList.add('unsaved');
+        const saveBtn = card.querySelector('.btn-save-primary');
+        if (saveBtn) saveBtn.textContent = '💾 Speichern';
       }
       if (sliderEl.tagName === 'INPUT') sliderEl.value = v;
       const post = APP.data.posts.find(p => p.id === postId);
