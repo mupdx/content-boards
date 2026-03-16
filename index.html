@@ -523,6 +523,48 @@
       font-weight: 500;
     }
 
+    .holiday-banner {
+      background: rgba(251, 191, 36, 0.12);
+      border: 1px solid rgba(251, 191, 36, 0.3);
+      border-radius: 6px;
+      padding: 6px 10px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--warning);
+      font-weight: 600;
+    }
+    .holiday-banner .holiday-icon {
+      font-size: 14px;
+    }
+
+    .post-card.holiday-post {
+      border: 1px solid rgba(251, 191, 36, 0.25);
+    }
+
+    .panorama-container {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      aspect-ratio: 4/5;
+    }
+    .panorama-container .panorama-img {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 200%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .panorama-container .panorama-img.slide-left {
+      transform: translateX(0);
+    }
+    .panorama-container .panorama-img.slide-right {
+      transform: translateX(-50%);
+    }
+
     .time-pill {
       display: inline-block;
       padding: 2px 7px;
@@ -1343,6 +1385,13 @@
     };
 
     // ===== APP STATE OBJECT =====
+    // Feiertage Sachsen 2026
+    const HOLIDAYS_SACHSEN = {
+      '2026-04-03': 'Karfreitag',
+      '2026-04-05': 'Ostersonntag',
+      '2026-04-06': 'Ostermontag'
+    };
+
     const APP = {
       data: null,
       unsavedChanges: new Set(),
@@ -1606,12 +1655,7 @@
 
       const totalDays = Math.ceil((endDate - startDate) / (1000*60*60*24)) + 1;
 
-      // Holidays Sachsen 2026
-      const holidays = {
-        '2026-04-03': 'Karfreitag',
-        '2026-04-05': 'Ostersonntag',
-        '2026-04-06': 'Ostermontag'
-      };
+      const holidays = HOLIDAYS_SACHSEN;
 
       const channelLabels = {
         'instagram_feed': 'IG Feed',
@@ -1722,20 +1766,32 @@
           const isSaved = !APP.unsavedChanges.has(post.id);
           const imgUrls = post.image_urls || [];
           const currentImg = imgUrls[0] || '';
+          const holidayName = HOLIDAYS_SACHSEN[post.date] || '';
+          const isPanorama = post.panorama === true;
 
           html += `
-            <div class="post-card ${!isSaved ? 'unsaved' : ''}" id="post-${post.id}">
+            <div class="post-card ${!isSaved ? 'unsaved' : ''} ${holidayName ? 'holiday-post' : ''}" id="post-${post.id}">
+              ${holidayName ? `<div class="holiday-banner"><span class="holiday-icon">⚠️</span> Feiertag: ${holidayName}</div>` : ''}
               <div class="post-image-container feed">
-                <img src="${currentImg}" alt="Post" class="post-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23333%22 width=%22200%22 height=%22200%22/%3E%3Ctext fill=%22%23666%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22%3EBild nicht verfügbar%3C/text%3E%3C/svg%3E'">
+                ${isPanorama ? `
+                  <div class="panorama-container">
+                    <img src="${currentImg}" alt="Panorama" class="panorama-img slide-left">
+                  </div>
+                  <div class="carousel-counter">1/2</div>
+                  <button class="carousel-arrow prev" onclick="panSlide('${post.id}', 'prev')">‹</button>
+                  <button class="carousel-arrow next" onclick="panSlide('${post.id}', 'next')">›</button>
+                ` : `
+                  <img src="${currentImg}" alt="Post" class="post-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23333%22 width=%22200%22 height=%22200%22/%3E%3Ctext fill=%22%23666%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22%3EBild nicht verfügbar%3C/text%3E%3C/svg%3E'">
+                  ${imgUrls.length > 1 ? `
+                    <div class="carousel-counter">${1}/${imgUrls.length}</div>
+                    <button class="carousel-arrow prev" onclick="prevSlide('${post.id}')">‹</button>
+                    <button class="carousel-arrow next" onclick="nextSlide('${post.id}')">›</button>
+                  ` : ''}
+                `}
                 <div class="channel-badge ${getChannelClassname(post.channel)}">
                   ${getChannelIcon(post.channel)}
                   ${post.channel.replace(/_/g, ' ').toUpperCase()}
                 </div>
-                ${imgUrls.length > 1 ? `
-                  <div class="carousel-counter">${1}/${imgUrls.length}</div>
-                  <button class="carousel-arrow prev" onclick="prevSlide('${post.id}')">‹</button>
-                  <button class="carousel-arrow next" onclick="nextSlide('${post.id}')">›</button>
-                ` : ''}
               </div>
               <div class="post-content">
                 <div class="post-header">
@@ -1808,6 +1864,25 @@
       currentIdx = (currentIdx + 1) % imgUrls.length;
       img.src = imgUrls[currentIdx];
       counter.textContent = `${currentIdx + 1}/${imgUrls.length}`;
+    }
+
+    // ===== PANORAMA SPLIT NAVIGATION =====
+    function panSlide(postId, dir) {
+      const container = document.querySelector(`#post-${postId} .panorama-container`);
+      if (!container) return;
+      const img = container.querySelector('.panorama-img');
+      const counter = container.closest('.post-image-container').querySelector('.carousel-counter');
+      const isLeft = img.classList.contains('slide-left');
+
+      if (dir === 'next' && isLeft) {
+        img.classList.remove('slide-left');
+        img.classList.add('slide-right');
+        counter.textContent = '2/2';
+      } else if (dir === 'prev' && !isLeft) {
+        img.classList.remove('slide-right');
+        img.classList.add('slide-left');
+        counter.textContent = '1/2';
+      }
     }
 
     // ===== FILTERING =====
@@ -2091,6 +2166,9 @@
     function renderUI() {
       if (APP.data) {
         document.getElementById('accountName').textContent = APP.data.brand || APP.data.week || '-';
+        // Mark panorama posts
+        const pan = APP.data.posts.find(p => p.id === 'ig_feed_9');
+        if (pan) pan.panorama = true;
       }
       generateCalendar();
       renderPosts();
