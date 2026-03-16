@@ -1181,7 +1181,61 @@
         width: 95%;
       }
     }
-  </style>
+  
+  .img-position-control {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    bottom: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .post-image-container:hover .img-position-control {
+    opacity: 1;
+  }
+  .img-position-control input[type="range"] {
+    writing-mode: vertical-lr;
+    direction: rtl;
+    height: 80%;
+    width: 24px;
+    accent-color: #ff6b35;
+    cursor: pointer;
+    background: rgba(0,0,0,0.3);
+    border-radius: 12px;
+    padding: 4px;
+  }
+  .img-position-label {
+    color: #fff;
+    font-size: 10px;
+    background: rgba(0,0,0,0.6);
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-top: 4px;
+    white-space: nowrap;
+  }
+  .first-comment-textarea {
+    width: 100%;
+    min-height: 40px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 6px;
+    color: #e0e0e0;
+    font-size: 12px;
+    padding: 6px 8px;
+    resize: vertical;
+    font-family: inherit;
+    margin-top: 4px;
+  }
+  .first-comment-textarea:focus {
+    border-color: #ff6b35;
+    outline: none;
+  }
+
+    </style>
 </head>
 <body>
   <header>
@@ -2229,5 +2283,121 @@
       }
     });
   </script>
+
+<script id="admin-panel-script">
+(function() {
+  // Store original renderPosts
+  const _origRenderPosts = window.renderPosts;
+  
+  // Override renderPosts to add position controls after rendering
+  window.renderPosts = function() {
+    _origRenderPosts.apply(this, arguments);
+    setTimeout(addPositionControls, 100);
+    setTimeout(addFirstCommentEditing, 100);
+  };
+
+  function addPositionControls() {
+    const posts = APP.data.posts || [];
+    document.querySelectorAll('.post-card').forEach(card => {
+      // Skip if already has control
+      if (card.querySelector('.img-position-control')) return;
+      
+      const postId = card.id.replace('post-', '');
+      const post = posts.find(p => p.id === postId);
+      if (!post) return;
+      
+      const imgContainer = card.querySelector('.post-image-container');
+      const img = card.querySelector('.post-image');
+      if (!imgContainer || !img) return;
+      
+      // Parse current position
+      let yPercent = 50;
+      if (post.img_position) {
+        const match = post.img_position.match(/(\d+)%/g);
+        if (match && match.length >= 2) yPercent = parseInt(match[1]);
+        else if (match && match.length === 1) yPercent = parseInt(match[0]);
+      }
+      
+      // Create slider control
+      const control = document.createElement('div');
+      control.className = 'img-position-control';
+      
+      const slider = document.createElement('input');
+      slider.type = 'range';
+      slider.min = 0;
+      slider.max = 100;
+      slider.value = yPercent;
+      slider.title = 'Bildausschnitt verschieben';
+      
+      const label = document.createElement('div');
+      label.className = 'img-position-label';
+      label.textContent = yPercent + '%';
+      
+      slider.addEventListener('input', function() {
+        const val = this.value;
+        label.textContent = val + '%';
+        img.style.objectPosition = 'center ' + val + '%';
+        post.img_position = 'center ' + val + '%';
+        APP.unsavedChanges = true;
+        card.classList.add('unsaved');
+      });
+      
+      control.appendChild(slider);
+      control.appendChild(label);
+      imgContainer.style.position = 'relative';
+      imgContainer.appendChild(control);
+      
+      // Apply current position
+      if (post.img_position) {
+        img.style.objectPosition = post.img_position;
+      }
+    });
+  }
+
+  function addFirstCommentEditing() {
+    const posts = APP.data.posts || [];
+    document.querySelectorAll('.post-card').forEach(card => {
+      const fcSection = card.querySelector('.first-comment');
+      if (!fcSection || fcSection.querySelector('.first-comment-textarea')) return;
+      
+      const postId = card.id.replace('post-', '');
+      const post = posts.find(p => p.id === postId);
+      if (!post) return;
+      
+      // Find the text content div and replace with textarea
+      const textDiv = fcSection.querySelector('.caption-text, .first-comment-text, div:last-child');
+      if (!textDiv) return;
+      
+      const textarea = document.createElement('textarea');
+      textarea.className = 'first-comment-textarea';
+      textarea.value = post.first_comment || '';
+      textarea.rows = 2;
+      textarea.addEventListener('input', function() {
+        post.first_comment = this.value;
+        APP.unsavedChanges = true;
+        card.classList.add('unsaved');
+      });
+      
+      textDiv.replaceWith(textarea);
+    });
+  }
+
+  // Patch savePost to include img_position
+  const _origSavePost = window.savePost;
+  window.savePost = function(postId) {
+    const post = APP.data.posts.find(p => p.id === postId);
+    if (post && !post.img_position) {
+      post.img_position = 'center 50%';
+    }
+    return _origSavePost.apply(this, arguments);
+  };
+
+  // Run on initial load
+  setTimeout(addPositionControls, 500);
+  setTimeout(addFirstCommentEditing, 500);
+  
+  console.log('Admin Panel loaded successfully');
+})();
+</script>
 </body>
 </html>
