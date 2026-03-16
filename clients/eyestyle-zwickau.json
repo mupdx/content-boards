@@ -105,6 +105,12 @@
       "tags": [
         "@Gucci",
         "Eyestyle Zwickau"
+      ],
+      "regen_requests": [
+        {
+          "what": "Nur Bild/Crop neu",
+          "timestamp": "2026-03-16T15:50:12.500Z"
+        }
       ]
     },
     {
@@ -149,14 +155,14 @@
       "image_urls": [
         "https://drive.google.com/thumbnail?id=1V5wHjUkqVanegQbqqho1NS3wv6drCtno&sz=w360"
       ],
-      "status": "draft",
+      "status": "approved",
       "tags": [
         "@Gucci",
         "Eyestyle Zwickau"
       ],
       "original_image_url": "originals/eyestyle-zwickau/A7R09195.jpg",
       "img_position": {
-        "x": 70
+        "x": 21
       }
     },
     {
@@ -270,7 +276,7 @@
         "Eyestyle Zwickau"
       ],
       "img_position": {
-        "x": 46
+        "x": 60
       },
       "original_image_url": "originals/eyestyle-zwickau/A7R09093.jpg"
     },
