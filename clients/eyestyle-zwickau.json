@@ -1,0 +1,315 @@
+{
+  "client": "Eyestyle Zwickau",
+  "week": "KW13",
+  "brand": "Gucci Eyewear",
+  "lastModified": "2026-03-16T10:00:00Z",
+  "posts": [
+    {
+      "id": "ig_feed_1",
+      "date": "2026-03-16",
+      "time": "11:00",
+      "channel": "instagram_feed",
+      "caption": "Drei Styles. Ein Statement. Swipe durch die neue @gucci Kollektion und finde deinen Look.\n\n📍 Eyestyle Zwickau",
+      "first_comment": "#gucci #guccieyewear #brillen #zwickau #eyestyle #sonnenbrillen #luxusbrillen #optiker #handwerk #madeinzwickau",
+      "images": [
+        "1D_ciGbWyu5VLpEigwTBsmOOGkxVQGemg",
+        "1AoOo2Ex-MzKQxD_6ln0t1YmPC0M3ArBN",
+        "1ccXsEczQjt9t23_aWQPBnmuAZ60R9Xli"
+      ],
+      "image_urls": [
+        "https://drive.google.com/thumbnail?id=1D_ciGbWyu5VLpEigwTBsmOOGkxVQGemg&sz=w800",
+        "https://drive.google.com/thumbnail?id=1AoOo2Ex-MzKQxD_6ln0t1YmPC0M3ArBN&sz=w800",
+        "https://drive.google.com/thumbnail?id=1ccXsEczQjt9t23_aWQPBnmuAZ60R9Xli&sz=w800"
+      ],
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "w": 1080,
+        "h": 1350,
+        "target": "feed"
+      },
+      "status": "draft",
+      "tags": [
+        "@Gucci",
+        "Eyestyle Zwickau"
+      ],
+      "unsavedChanges": false
+    },
+    {
+      "id": "ig_feed_2",
+      "date": "2026-03-17",
+      "time": "18:00",
+      "channel": "instagram_feed",
+      "caption": "Wenn die Brille den ganzen Look macht. 👌\n\n@gucci 📍 Eyestyle Zwickau",
+      "first_comment": "#gucci #eyewear #brillenstyle #zwickau #eyestyle #optiker #fashion #mensfashion #brillen #guccieyewear",
+      "images": [
+        "19lQam1W9WmngecL4JAbAfXGL8286KEPk"
+      ],
+      "image_urls": [
+        "https://drive.google.com/thumbnail?id=19lQam1W9WmngecL4JAbAfXGL8286KEPk&sz=w800"
+      ],
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "w": 1080,
+        "h": 1350,
+        "target": "feed"
+      },
+      "status": "draft",
+      "tags": [
+        "@Gucci",
+        "Eyestyle Zwickau"
+      ],
+      "unsavedChanges": false
+    },
+    {
+      "id": "ig_feed_3",
+      "date": "2026-03-19",
+      "time": "17:00",
+      "channel": "instagram_feed",
+      "caption": "Elegant. Dunkel. Zeitlos. Manche Sonnenbrillen brauchen keine lauten Töne.\n\n@gucci 📍 Eyestyle Zwickau",
+      "first_comment": "#gucci #guccieyewear #brille #brillentrend #transparent #optiker #zwickau #eyestyle #brillenliebe #fashioneyewear",
+      "images": [
+        "1_ozZJZdF0I8SkDnfBds99IdyTJdAkMzk"
+      ],
+      "image_urls": [
+        "https://drive.google.com/thumbnail?id=1_ozZJZdF0I8SkDnfBds99IdyTJdAkMzk&sz=w800"
+      ],
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "w": 1080,
+        "h": 1350,
+        "target": "feed"
+      },
+      "status": "draft",
+      "tags": [
+        "@Gucci",
+        "Eyestyle Zwickau"
+      ],
+      "unsavedChanges": false
+    },
+    {
+      "id": "ig_feed_4",
+      "date": "2026-03-21",
+      "time": "10:00",
+      "channel": "instagram_feed",
+      "caption": "Samstag! Wir haben heute bis 16 Uhr für euch geöffnet. ☕\nKommt vorbei und lasst euch von der neuen @gucci Kollektion begeistern.\n\n📍 Eyestyle Zwickau",
+      "first_comment": "#gucci #samstag #shopping #zwickau #eyestyle #optiker #brillen #sonnenbrillen #wochenende #guccieyewear",
+      "images": [
+        "1jIXbXio0dkPObXW2_E0cTxdfXrly-ca2"
+      ],
+      "image_urls": [
+        "https://drive.google.com/thumbnail?id=1jIXbXio0dkPObXW2_E0cTxdfXrly-ca2&sz=w800"
+      ],
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "w": 1080,
+        "h": 1350,
+        "target": "feed"
+      },
+      "status": "approved",
+      "tags": [
+        "@Gucci",
+        "Eyestyle Zwickau",
+        "Samstag"
+      ],
+      "unsavedChanges": false
+    },
+    {
+      "id": "ig_feed_5",
+      "date": "2026-03-23",
+      "time": "11:00",
+      "channel": "instagram_feed",
+      "caption": "Style kennt keine Grenzen. Drei Persönlichkeiten, drei Sonnenbrillen, ein Name: @gucci. Swipe →\n\n📍 Eyestyle Zwickau",
+      "first_comment": "#gucci #guccieyewear #diversity #brillen #style #zwickau #eyestyle #optiker #sonnenbrillen #fashion",
+      "images": [
+        "1EZuiLeho16atXOmaBi8T9MYAw1YW7Y33",
+        "18Tt4S9FWU8lPtClw5BNTGj_J8lLJguIA",
+        "1g16ULaaauNyEWPDmlRDibfxMGpEtTTk"
+      ],
+      "image_urls": [
+        "https://drive.google.com/thumbnail?id=1EZuiLeho16atXOmaBi8T9MYAw1YW7Y33&sz=w800",
+        "https://drive.google.com/thumbnail?id=18Tt4S9FWU8lPtClw5BNTGj_J8lLJguIA&sz=w800",
+        "https://drive.google.com/thumbnail?id=1g16ULaaauNyEWPDmlRDibfxMGpEtTTk&sz=w800"
+      ],
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "w": 1080,
+        "h": 1350,
+        "target": "feed"
+      },
+      "status": "draft",
+      "tags": [
+        "@Gucci",
+        "Eyestyle Zwickau"
+      ],
+      "unsavedChanges": false
+    },
+    {
+      "id": "ig_story_1",
+      "date": "2026-03-16",
+      "time": "11:15",
+      "channel": "instagram_story",
+      "caption": "Neue Woche, neuer Look. 🔥 @gucci jetzt bei uns.\n📍 Eyestyle Zwickau",
+      "first_comment": "",
+      "images": [
+        "1ERe2GuW6mlzvZBOFP9Om7qG4Bjk27Bmx"
+      ],
+      "image_urls": [
+        "https://drive.google.com/thumbnail?id=1ERe2GuW6mlzvZBOFP9Om7qG4Bjk27Bmx&sz=w360"
+      ],
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "w": 1080,
+        "h": 1920,
+        "target": "story"
+      },
+      "status": "draft",
+      "tags": [
+        "@Gucci",
+        "Eyestyle Zwickau"
+      ],
+      "unsavedChanges": false
+    },
+    {
+      "id": "ig_story_2",
+      "date": "2026-03-18",
+      "time": "12:00",
+      "channel": "instagram_story",
+      "caption": "Detail-Verliebt. Markante Rahmen, starker Auftritt. ✨\n@gucci 📍 Eyestyle Zwickau",
+      "first_comment": "",
+      "images": [
+        "1iAhrksV_SEgMoUBmdTGqERlpj3OteWOB"
+      ],
+      "image_urls": [
+        "https://drive.google.com/thumbnail?id=1iAhrksV_SEgMoUBmdTGqERlpj3OteWOB&sz=w360"
+      ],
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "w": 1080,
+        "h": 1920,
+        "target": "story"
+      },
+      "status": "draft",
+      "tags": [
+        "@Gucci",
+        "Eyestyle Zwickau"
+      ],
+      "unsavedChanges": false
+    },
+    {
+      "id": "ig_story_3",
+      "date": "2026-03-20",
+      "time": "15:00",
+      "channel": "instagram_story",
+      "caption": "Weekend-Vibes incoming. 😎 Oversized ist das neue Normal.\n@gucci 📍 Eyestyle Zwickau",
+      "first_comment": "",
+      "images": [
+        "1JCq9ZmPdNSbH697-TK99phSPFV-VJ3wl"
+      ],
+      "image_urls": [
+        "https://drive.google.com/thumbnail?id=1JCq9ZmPdNSbH697-TK99phSPFV-VJ3wl&sz=w360"
+      ],
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "w": 1080,
+        "h": 1920,
+        "target": "story"
+      },
+      "status": "draft",
+      "tags": [
+        "@Gucci",
+        "Eyestyle Zwickau"
+      ],
+      "unsavedChanges": false
+    },
+    {
+      "id": "fb_1",
+      "date": "2026-03-18",
+      "time": "10:00",
+      "channel": "facebook",
+      "caption": "Wenn eine Brille mehr als nur eine Brille ist. 😎 Das ikonische GG-Logo auf dem markanten roten Rahmen — @Gucci versteht es einfach, Sonnenbrillen zum Statement-Piece zu machen.\n\nWir schleifen übrigens alle Gläser selbst in unserer Werkstatt hier in Zwickau. Handwerk trifft Luxus, sozusagen.\n\nKommt vorbei und probiert die neuen Modelle!",
+      "first_comment": "",
+      "images": [
+        "1mq4cPtM5BK75lslZA-HU7a_vFCM9bM05"
+      ],
+      "image_urls": [
+        "https://drive.google.com/thumbnail?id=1mq4cPtM5BK75lslZA-HU7a_vFCM9bM05&sz=w800"
+      ],
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "w": 1200,
+        "h": 630,
+        "target": "feed"
+      },
+      "status": "draft",
+      "tags": [
+        "@Gucci",
+        "Eyestyle Zwickau"
+      ],
+      "unsavedChanges": false
+    },
+    {
+      "id": "fb_2",
+      "date": "2026-03-19",
+      "time": "12:00",
+      "channel": "facebook",
+      "caption": "Cool, cooler, @Gucci. Diese markante Sonnenbrille mit den dunklen Gläsern und dem cleanen schwarzen Rahmen ist für alle, die wissen, was sie wollen.\n\nBei Eyestyle bekommt ihr nicht einfach nur eine Brille. Wir schleifen jedes Glas selbst in unserer Werkstatt hier in Zwickau. Handarbeit trifft auf Luxusdesign.\n\nSchaut vorbei! 👋",
+      "first_comment": "",
+      "images": [
+        "1E9p50ByLuPirrBODq8d0c9KMKNAC457t"
+      ],
+      "image_urls": [
+        "https://drive.google.com/thumbnail?id=1E9p50ByLuPirrBODq8d0c9KMKNAC457t&sz=w800"
+      ],
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "w": 1200,
+        "h": 630,
+        "target": "feed"
+      },
+      "status": "draft",
+      "tags": [
+        "@Gucci",
+        "Eyestyle Zwickau"
+      ],
+      "unsavedChanges": false
+    },
+    {
+      "id": "fb_3",
+      "date": "2026-03-21",
+      "time": "11:00",
+      "channel": "facebook",
+      "caption": "Samstag! Wir haben bis 16 Uhr für euch geöffnet. ☕\n\nDiese runde @Gucci Sonnenbrille in Havana-Optik ist echtes Understatement — klassisch, warm, zeitlos. Das goldene GG-Logo am Bügel setzt den dezenten Akzent.\n\nAlle Gläser schleifen wir übrigens selbst in unserer Werkstatt. Handwerk made in Zwickau. ❤️",
+      "first_comment": "",
+      "images": [
+        "12HrocJh4mAsJm5_gZjC-kpOaduGfFpVH"
+      ],
+      "image_urls": [
+        "https://drive.google.com/thumbnail?id=12HrocJh4mAsJm5_gZjC-kpOaduGfFpVH&sz=w800"
+      ],
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "w": 1200,
+        "h": 630,
+        "target": "feed"
+      },
+      "status": "approved",
+      "tags": [
+        "@Gucci",
+        "Eyestyle Zwickau",
+        "Samstag"
+      ],
+      "unsavedChanges": false
+    }
+  ]
+}
