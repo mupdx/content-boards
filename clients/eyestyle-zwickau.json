@@ -87,12 +87,11 @@
         "@Gucci",
         "Eyestyle Zwickau"
       ],
-      "regen_requests": [
-        {
-          "what": "Nur Bild/Crop neu",
-          "timestamp": "2026-03-16T15:50:25.477Z"
-        }
-      ]
+      "regen_requests": [],
+      "img_position": {
+        "x": 50,
+        "y": 42
+      }
     },
     {
       "id": "fb_2",
@@ -112,19 +111,18 @@
         "@Gucci",
         "Eyestyle Zwickau"
       ],
-      "regen_requests": [
-        {
-          "what": "Nur Bild/Crop neu",
-          "timestamp": "2026-03-16T15:50:12.500Z"
-        }
-      ]
+      "regen_requests": [],
+      "img_position": {
+        "x": 50,
+        "y": 40
+      }
     },
     {
       "id": "ig_feed_3",
       "date": "2026-03-19",
       "time": "17:00",
       "channel": "instagram_feed",
-      "caption": "Elegant. Transparent. Zeitlos. Manche Brillen brauchen keine lauten Töne.\n\n@gucci 📍 Eyestyle Zwickau",
+      "caption": "Starker Look. Dunkle Gläser, klare Linien, pure Attitude. @gucci macht's möglich. 😎 📍 Eyestyle Zwickau",
       "first_comment": "#gucci #guccieyewear #brille #brillentrend #zeitlos #optiker #zwickau #eyestyle #brillenliebe #fashioneyewear",
       "images": [
         "1_ozZJZdF0I8SkDnfBds99IdyTJdAkMzk"
@@ -137,16 +135,7 @@
         "@Gucci",
         "Eyestyle Zwickau"
       ],
-      "regen_requests": [
-        {
-          "what": "Nur Caption neu",
-          "timestamp": "2026-03-16T15:38:07.648Z"
-        },
-        {
-          "what": "Nur Caption neu",
-          "timestamp": "2026-03-16T15:39:30.492Z"
-        }
-      ]
+      "regen_requests": []
     },
     {
       "id": "ig_story_3",
@@ -176,7 +165,7 @@
       "date": "2026-03-20",
       "time": "10:00",
       "channel": "facebook",
-      "caption": "Ein Look, der sitzt. Markante Linien, dunkle Gläser und dieses gewisse Etwas — die neue @Gucci Kollektion macht einfach Spaß.\n\nBei uns bekommt ihr nicht nur die Brille, sondern auch die perfekt geschliffenen Gläser dazu. Alles aus einer Hand, direkt hier in Zwickau.\n\nSchaut mal vorbei! 👋",
+      "caption": "Der perfekte Rahmen für den perfekten Blick. Diese @Gucci Brille vereint feminines Design mit modernem Charakter – der Rosé-Ton setzt dezente Akzente, während die klare Linienführung pure Eleganz ausstrahlt. Ein Statement, das subtil wirkt und trotzdem auffällt.",
       "first_comment": "",
       "images": [
         "19lQam1W9WmngecL4JAbAfXGL8286KEPk"
@@ -189,16 +178,7 @@
         "@Gucci",
         "Eyestyle Zwickau"
       ],
-      "regen_requests": [
-        {
-          "what": "Nur Caption neu",
-          "timestamp": "2026-03-16T15:38:44.195Z"
-        },
-        {
-          "what": "Nur Caption neu",
-          "timestamp": "2026-03-16T15:40:21.580Z"
-        }
-      ]
+      "regen_requests": []
     },
     {
       "id": "fb_4",
@@ -291,7 +271,7 @@
       "date": "2026-03-24",
       "time": "10:00",
       "channel": "facebook",
-      "caption": "Manchmal ist weniger wirklich mehr. Transparente Rahmen, dezente Eleganz — diese @Gucci Brille ist für alle, die es lieber subtil mögen.\n\nDas Besondere bei uns: Jedes Glas wird individuell in unserer Werkstatt geschliffen. So sitzt nicht nur der Rahmen, sondern auch die Sicht.\n\nTermin oder einfach vorbeikommen — wir freuen uns! 🙏",
+      "caption": "Wenn Mode auf Sonnenbrille trifft. Diese @Gucci Sonnenbrille in Schwarz mit großzügigem Rahmen ist der perfekte Begleiter für den selbstbewussten Look. Die breite Form gibt extra Schutz und Style – genau richtig für alle, die nicht unbemerkt bleiben möchten.",
       "first_comment": "",
       "images": [
         "1_ozZJZdF0I8SkDnfBds99IdyTJdAkMzk"
@@ -304,16 +284,7 @@
         "@Gucci",
         "Eyestyle Zwickau"
       ],
-      "regen_requests": [
-        {
-          "what": "Nur Caption neu",
-          "timestamp": "2026-03-16T15:38:36.334Z"
-        },
-        {
-          "what": "Nur Caption neu",
-          "timestamp": "2026-03-16T15:40:28.353Z"
-        }
-      ]
+      "regen_requests": []
     },
     {
       "id": "fb_6",
@@ -402,7 +373,7 @@
       "date": "2026-03-27",
       "time": "10:00",
       "channel": "facebook",
-      "caption": "Oversized und trotzdem elegant — diese @Gucci Sonnenbrille macht einfach gute Laune. Große, runde Gläser für den perfekten Sommer-Look.\n\nWir bei Eyestyle sind übrigens einer der wenigen Optiker in Zwickau, die Premium-Marken wie Gucci führen. Dazu kommt: Jedes Glas aus unserer eigenen Werkstatt.\n\nKommt vorbei! 👋",
+      "caption": "Bold und unvergesslich. Diese @Gucci Sonnenbrille im Oversized-Format mit massivem schwarzem Rahmen definiert Selbstsicherheit neu. Großzügig in der Form, stark in der Ausstrahlung – für jeden, der Sonnenschutz mit Attitude trägt.",
       "first_comment": "",
       "images": [
         "1-WaFNvreJ4XXgGy7tvUY-GYW3d7E-R9U"
@@ -415,12 +386,7 @@
         "@Gucci",
         "Eyestyle Zwickau"
       ],
-      "regen_requests": [
-        {
-          "what": "Nur Caption neu",
-          "timestamp": "2026-03-16T15:41:15.528Z"
-        }
-      ]
+      "regen_requests": []
     },
     {
       "id": "ig_feed_7",
@@ -446,7 +412,7 @@
       "date": "2026-03-28",
       "time": "11:00",
       "channel": "facebook",
-      "caption": "Samstag und Lust auf was Besonderes? 🫠 Runde @Gucci Sonnenbrille mit richtig viel Charakter.\n\nWir lieben es, wenn unsere Kunden sich trauen, etwas Besonderes zu wählen. Und das Beste: Alle Gläser kommen direkt aus unserer Werkstatt in Zwickau.\n\nBis 16 Uhr für euch da! ❤️",
+      "caption": "Samstag. Zeit für was Besonderes. Diese @Gucci Sonnenbrille mit ihrer großzügigen, rundlichen Form ist genau der richtige Begleiter für den perfekten Wochenend-Look. Komm vorbei – bis 16 Uhr sind wir für dich da und zeigen dir die neuesten Styles!",
       "first_comment": "",
       "images": [
         "1tYN8KJEq39EjHNHK1RgTnwAmFhQEZ9Kr"
@@ -460,12 +426,7 @@
         "Eyestyle Zwickau",
         "Samstag"
       ],
-      "regen_requests": [
-        {
-          "what": "Nur Caption neu",
-          "timestamp": "2026-03-16T15:40:45.439Z"
-        }
-      ]
+      "regen_requests": []
     },
     {
       "id": "ig_feed_8",
@@ -550,7 +511,7 @@
       "date": "2026-03-31",
       "time": "18:00",
       "channel": "instagram_feed",
-      "caption": "Filigran trifft @gucci. Diese Brille flüstert Luxus. ✨\n\n📍 Eyestyle Zwickau",
+      "caption": "Klein aber oho. Diese @gucci Brille beweist: Manchmal braucht es keine breite Form, um Stil zu transportieren. Der zartem Rahmen in warmen Tönen flüstert Eleganz – dezent, aber unübersehbar. ✨ 📍 Eyestyle Zwickau",
       "first_comment": "#gucci #filigran #brille #luxus #zwickau #eyestyle #optiker #guccieyewear #brillenliebe #fashion",
       "images": [
         "1r0CL5hiGwIQfeX3Ifi1k7aOFrqz5MoKl"
@@ -563,16 +524,7 @@
         "@Gucci",
         "Eyestyle Zwickau"
       ],
-      "regen_requests": [
-        {
-          "what": "Nur Caption neu",
-          "timestamp": "2026-03-16T15:37:52.949Z"
-        },
-        {
-          "what": "Nur Caption neu",
-          "timestamp": "2026-03-16T15:39:43.832Z"
-        }
-      ]
+      "regen_requests": []
     },
     {
       "id": "ig_story_9",
@@ -725,7 +677,7 @@
       "date": "2026-04-07",
       "time": "10:00",
       "channel": "facebook",
-      "caption": "Oversized ist das neue Normal. 😎 Diese @Gucci Sonnenbrille macht jedes Outfit zum Statement — große Gläser, großer Auftritt.\n\nDas Besondere bei uns: Alle Brillengläser werden in unserer eigenen Werkstatt hier in Zwickau geschliffen. Handarbeit trifft Luxus.\n\nKommt vorbei und findet euer Modell!",
+      "caption": "Überdimensional, überzeugt, über alles. Diese @Gucci Sonnenbrille zeigt, dass größer tatsächlich besser sein kann. Der massive, schwarze Rahmen und die großzügigen Gläser schaffen einen Look, der sofort Aufmerksamkeit erregt – modern, kraftvoll und unverwechselbar.",
       "first_comment": "",
       "images": [
         "1Y0g5Eeu38lxzxaAgzHfj-v0danTyGgk5"
@@ -738,12 +690,7 @@
         "@Gucci",
         "Eyestyle Zwickau"
       ],
-      "regen_requests": [
-        {
-          "what": "Nur Caption neu",
-          "timestamp": "2026-03-16T15:38:58.160Z"
-        }
-      ]
+      "regen_requests": []
     },
     {
       "id": "ig_story_5",
