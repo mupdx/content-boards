@@ -1188,10 +1188,20 @@
     display: flex; align-items: center; gap: 6px;
     padding: 5px 10px; background: rgba(0,0,0,0.85);
     border-radius: 0 0 8px 8px; margin-top: -4px; margin-bottom: 8px;
+    position: relative; z-index: 10;
   }
   .img-control-bar label { color: #aaa; font-size: 11px; font-weight: 600; }
   .img-control-bar input[type="range"] {
-    flex: 1; height: 18px; cursor: pointer; accent-color: #ff6b35; margin: 0;
+    flex: 1; height: 22px; cursor: pointer; accent-color: #ff6b35; margin: 0;
+    -webkit-appearance: none; appearance: none; background: transparent;
+    position: relative; z-index: 11;
+  }
+  .img-control-bar input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; width: 20px; height: 20px;
+    background: #ff6b35; border-radius: 50%; cursor: grab;
+  }
+  .img-control-bar input[type="range"]::-webkit-slider-runnable-track {
+    height: 6px; background: rgba(255,255,255,0.3); border-radius: 3px;
   }
   .img-control-bar .img-reset-btn {
     background: rgba(255,107,53,0.8); color: #fff; border: none;
@@ -1838,18 +1848,18 @@
                   </button>
                 </div>
 
+                <div class="caption-section">
+                  <div class="caption-label">Bildunterschrift</div>
+                  <div class="caption-text" onclick="editCaption('${post.id}')">${formatCaption(post.caption)}</div>
+                  <textarea class="caption-textarea" id="caption-${post.id}" onblur="saveCaption('${post.id}', this.value)">${(post.caption || '').trim()}</textarea>
+                </div>
+
                 ${post.first_comment ? `
                   <div class="first-comment">
                     <div class="caption-label">Erster Kommentar</div>
                     <div class="first-comment-text">${formatHashtags(post.first_comment)}</div>
                   </div>
                 ` : ''}
-
-                <div class="caption-section">
-                  <div class="caption-label">Bildunterschrift</div>
-                  <div class="caption-text" onclick="editCaption('${post.id}')">${formatCaption(post.caption)}</div>
-                  <textarea class="caption-textarea" id="caption-${post.id}" onblur="saveCaption('${post.id}', this.value)">${(post.caption || '').trim()}</textarea>
-                </div>
 
                 ${post.tags && post.tags.length > 0 ? `
                   <div class="tags">
