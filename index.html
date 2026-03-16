@@ -12,21 +12,21 @@
     }
 
     :root {
-      /* Backgrounds */
-      --bg-primary: #0a0a0f;
-      --bg-secondary: #12121a;
-      --bg-tertiary: #1a1a25;
-      --bg-elevated: #1e1e2a;
+      /* Backgrounds — warm grey (Cowork / Photoshop style) */
+      --bg-primary: #1e1e1e;
+      --bg-secondary: #252525;
+      --bg-tertiary: #2d2d2d;
+      --bg-elevated: #333333;
 
       /* Borders */
-      --border: rgba(255, 255, 255, 0.06);
-      --border-hover: rgba(255, 255, 255, 0.12);
-      --border-active: rgba(156, 163, 175, 0.5);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(255, 255, 255, 0.16);
+      --border-active: rgba(180, 180, 180, 0.5);
 
       /* Text */
-      --text-primary: #f0f0f5;
-      --text-secondary: #8b8b9e;
-      --text-muted: #5a5a6e;
+      --text-primary: #ffffff;
+      --text-secondary: #d4d4d4;
+      --text-muted: #888888;
 
       /* Accents */
       --accent: #6b7280;
@@ -224,7 +224,7 @@
       top: 0;
       z-index: 100;
       backdrop-filter: blur(12px);
-      background: rgba(18, 18, 26, 0.95);
+      background: rgba(0, 0, 0, 0.95);
       box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 4px 24px rgba(0, 0, 0, 0.4);
     }
 
@@ -281,7 +281,7 @@
       align-items: center;
       gap: 8px;
       padding: 8px 12px;
-      background: rgba(18, 18, 26, 0.6);
+      background: rgba(0, 0, 0, 0.6);
       border: 1px solid var(--border);
       border-radius: 6px;
       font-size: 12px;
@@ -389,7 +389,7 @@
 
     /* Posting Calendar */
     .posting-calendar-section {
-      background: rgba(18, 18, 26, 0.8);
+      background: rgba(0, 0, 0, 0.8);
       border: 1px solid var(--border);
       border-radius: 8px;
       padding: 12px;
@@ -463,7 +463,7 @@
       overflow-x: auto;
       border: 1px solid var(--border);
       border-radius: 6px;
-      background: rgba(10, 10, 15, 0.5);
+      background: rgba(0, 0, 0, 0.5);
     }
 
     .calendar-table {
@@ -473,7 +473,7 @@
     }
 
     .calendar-table thead {
-      background: rgba(26, 26, 37, 0.8);
+      background: rgba(0, 0, 0, 0.8);
       position: sticky;
       top: 0;
       z-index: 10;
@@ -496,11 +496,11 @@
       text-align: center;
       height: 32px;
       vertical-align: middle;
-      background: rgba(18, 18, 26, 0.4);
+      background: rgba(0, 0, 0, 0.4);
     }
 
     .calendar-table tbody th {
-      background: rgba(26, 26, 37, 0.8);
+      background: rgba(0, 0, 0, 0.8);
       font-weight: 600;
       color: var(--text-secondary);
       text-align: left;
@@ -584,7 +584,7 @@
     }
 
     .post-card {
-      background: rgba(18, 18, 26, 0.8);
+      background: rgba(0, 0, 0, 0.8);
       border: 1px solid var(--border);
       border-radius: 12px;
       overflow: hidden;
@@ -608,7 +608,7 @@
 
     .post-image-container {
       position: relative;
-      background: rgba(26, 26, 37, 0.6);
+      background: rgba(0, 0, 0, 0.6);
       overflow: hidden;
       display: flex;
       align-items: center;
@@ -769,7 +769,7 @@
     .status-toggle {
       padding: 6px 12px;
       border: 1px solid var(--border);
-      background: rgba(26, 26, 37, 0.6);
+      background: rgba(0, 0, 0, 0.6);
       border-radius: 6px;
       font-size: 11px;
       font-weight: 600;
@@ -811,20 +811,20 @@
 
     .caption-text {
       font-size: 13px;
-      color: var(--text-secondary);
-      line-height: 1.5;
+      color: var(--text-primary);
+      line-height: 1.6;
       word-break: break-word;
       white-space: pre-wrap;
       cursor: text;
-      padding: 8px;
+      padding: 8px 10px;
       border-radius: 6px;
       transition: all 0.2s ease;
       min-height: 40px;
-      background: rgba(26, 26, 37, 0.5);
+      background: rgba(0, 0, 0, 0.2);
     }
 
     .caption-text:hover:not(.editing) {
-      background: rgba(26, 26, 37, 0.8);
+      background: rgba(0, 0, 0, 0.3);
     }
 
     .caption-text.editing {
@@ -843,7 +843,7 @@
       display: none;
       width: 100%;
       line-height: 1.5;
-      background: rgba(26, 26, 37, 0.8);
+      background: rgba(0, 0, 0, 0.8);
       box-shadow: 0 0 0 3px rgba(156, 163, 175, 0.1);
     }
 
@@ -863,11 +863,11 @@
 
     .first-comment-text {
       font-size: 12px;
-      color: var(--text-secondary);
-      font-style: italic;
+      color: var(--text-primary);
+      font-style: normal;
       line-height: 1.5;
-      padding: 8px;
-      background: rgba(26, 26, 37, 0.6);
+      padding: 8px 10px;
+      background: rgba(0, 0, 0, 0.2);
       border-radius: 6px;
       white-space: pre-wrap;
       word-break: break-word;
@@ -882,12 +882,13 @@
 
     .tag {
       display: inline-block;
-      padding: 4px 8px;
-      background: rgba(156, 163, 175, 0.1);
-      color: var(--accent);
-      border: 1px solid rgba(156, 163, 175, 0.2);
+      padding: 4px 10px;
+      background: rgba(96, 165, 250, 0.15);
+      color: #60a5fa;
+      border: 1px solid rgba(96, 165, 250, 0.25);
       border-radius: 4px;
       font-size: 12px;
+      font-weight: 500;
     }
 
     .post-actions {
@@ -950,7 +951,7 @@
     }
 
     .modal-content {
-      background: rgba(18, 18, 26, 0.95);
+      background: rgba(0, 0, 0, 0.95);
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 32px;
@@ -993,7 +994,7 @@
       font-size: 14px;
       font-family: inherit;
       color: var(--text-primary);
-      background: rgba(26, 26, 37, 0.6);
+      background: rgba(0, 0, 0, 0.6);
       transition: all 0.2s ease;
     }
 
@@ -1001,7 +1002,7 @@
     input[type="password"]:focus {
       outline: none;
       border-color: var(--border-active);
-      background: rgba(26, 26, 37, 0.8);
+      background: rgba(0, 0, 0, 0.8);
       box-shadow: 0 0 0 3px rgba(156, 163, 175, 0.15);
     }
 
@@ -1036,7 +1037,7 @@
       box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 8px 24px rgba(0, 0, 0, 0.4);
       animation: slideIn 0.3s ease-out;
       backdrop-filter: blur(12px);
-      background: rgba(18, 18, 26, 0.95);
+      background: rgba(0, 0, 0, 0.95);
     }
 
     @keyframes slideIn {
@@ -1471,6 +1472,22 @@
       return '📱';
     }
 
+    function formatCaption(text) {
+      if (!text) return '';
+      let escaped = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      // Highlight @mentions in blue
+      escaped = escaped.replace(/@(\w+)/g, '<span style="color:#60a5fa;font-weight:500;">@$1</span>');
+      return escaped;
+    }
+
+    function formatHashtags(text) {
+      if (!text) return '';
+      let escaped = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      // Highlight #hashtags in soft teal
+      escaped = escaped.replace(/#(\w+)/g, '<span style="color:#34d399;">#$1</span>');
+      return escaped;
+    }
+
     function getChannelClassname(channel) {
       if (channel.includes('instagram_feed')) return 'ig-feed';
       if (channel.includes('instagram_story')) return 'ig-story';
@@ -1541,7 +1558,7 @@
       if (!res.ok) throw new Error(`GitHub API error: ${res.status}`);
       const json = await res.json();
       APP.currentSha = json.sha;
-      const content = atob(json.content);
+      const content = decodeURIComponent(escape(atob(json.content)));
       return JSON.parse(content);
     }
 
@@ -1699,14 +1716,14 @@
                 ${post.first_comment ? `
                   <div class="first-comment">
                     <div class="caption-label">Erster Kommentar</div>
-                    <div class="first-comment-text">${post.first_comment}</div>
+                    <div class="first-comment-text">${formatHashtags(post.first_comment)}</div>
                   </div>
                 ` : ''}
 
                 <div class="caption-section">
                   <div class="caption-label">Bildunterschrift</div>
                   <div class="caption-text" onclick="editCaption('${post.id}')">
-                    ${post.caption}
+                    ${formatCaption(post.caption)}
                   </div>
                   <textarea class="caption-textarea" id="caption-${post.id}" onblur="saveCaption('${post.id}', this.value)">${post.caption}</textarea>
                 </div>
