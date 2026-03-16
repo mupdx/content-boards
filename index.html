@@ -664,6 +664,36 @@
       background: rgba(251, 191, 36, 0.08);
     }
 
+    .post-card.changed-since-load {
+      border-left: 4px solid #10b981;
+    }
+
+    .change-badge {
+      display: inline-block;
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-left: 6px;
+      font-weight: 600;
+    }
+    .change-badge.changed { background: #10b981; color: #fff; }
+    .change-badge.unchanged { background: #374151; color: #9ca3af; }
+
+    .changes-summary-overlay {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.7); z-index: 9999;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .changes-summary-box {
+      background: var(--bg-secondary); border: 1px solid var(--border);
+      border-radius: 12px; padding: 24px; max-width: 500px; width: 90%;
+      max-height: 80vh; overflow-y: auto;
+    }
+    .changes-summary-box h3 { margin: 0 0 16px; color: var(--text-primary); }
+    .changes-summary-item { padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 13px; color: var(--text-secondary); }
+    .changes-summary-item .field { color: #10b981; font-weight: 600; }
+    .changes-summary-close { margin-top: 16px; padding: 8px 20px; background: var(--accent); color: #fff; border: none; border-radius: 6px; cursor: pointer; }
+
     .post-image-container {
       position: relative;
       background: var(--bg-tertiary);
@@ -1411,6 +1441,7 @@
 
     const APP = {
       data: null,
+      originalData: null,  // Snapshot at load time for change tracking
       unsavedChanges: new Set(),
       github: {
         token: '',
@@ -1599,6 +1630,7 @@
           const data = await fetchFromGitHub(clientPath);
           if (data) {
             APP.data = data;
+            APP.originalData = JSON.parse(JSON.stringify(data));
             const clientObj = APP.clients.find(c => c.slug === APP.activeClient);
             showToast(`${clientObj ? clientObj.name : 'Daten'} geladen`, 'success');
             renderUI();
@@ -1628,6 +1660,7 @@
         const res = await fetch('./data.json');
         if (res.ok) {
           APP.data = await res.json();
+          APP.originalData = JSON.parse(JSON.stringify(APP.data));
           showToast('Daten geladen', 'success');
           renderUI();
           return;
@@ -1637,6 +1670,7 @@
       }
 
       APP.data = EMBEDDED_DATA;
+      APP.originalData = JSON.parse(JSON.stringify(EMBEDDED_DATA));
       showToast('Eingebettete Daten geladen (Offline-Modus)', 'warning');
       renderUI();
     }
@@ -1866,6 +1900,7 @@
 
                 <div class="post-actions">
                   <button class="btn-save" onclick="savePost('${post.id}')">💾 Speichern</button>
+                  <button class="btn-save" style="background:#6366f1;margin-left:4px;" onclick="requestRegenerate('${post.id}')" title="Bild oder Caption neu generieren lassen">🔄 Neu</button>
                 </div>
               </div>
             </div>
@@ -1977,6 +2012,35 @@
       }
     }
 
+    // ===== REQUEST REGENERATION =====
+    function requestRegenerate(postId) {
+      const post = APP.data.posts.find(p => p.id === postId);
+      if (!post) return;
+      const ch = post.channel.replace(/_/g, ' ').toUpperCase();
+      const options = ['Nur Caption neu', 'Nur Bild/Crop neu', 'Beides neu'];
+      let html = '<div class="changes-summary-overlay" onclick="if(event.target===this)this.remove()">';
+      html += '<div class="changes-summary-box">';
+      html += `<h3>🔄 ${post.id} neu generieren</h3>`;
+      html += `<p style="color:var(--text-secondary);margin-bottom:12px;">${ch} — ${post.date}</p>`;
+      html += `<p style="color:var(--text-secondary);margin-bottom:16px;">Was soll neu erstellt werden?</p>`;
+      options.forEach(opt => {
+        html += `<button style="display:block;width:100%;padding:10px;margin-bottom:8px;background:var(--bg-tertiary);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);cursor:pointer;text-align:left;" onclick="submitRegenRequest('${postId}','${opt}');this.closest('.changes-summary-overlay').remove();">${opt}</button>`;
+      });
+      html += '<button class="changes-summary-close" style="background:#6b7280;" onclick="this.closest(\'.changes-summary-overlay\').remove()">Abbrechen</button>';
+      html += '</div></div>';
+      document.body.insertAdjacentHTML('beforeend', html);
+    }
+
+    function submitRegenRequest(postId, what) {
+      const post = APP.data.posts.find(p => p.id === postId);
+      if (!post) return;
+      if (!post.regen_requests) post.regen_requests = [];
+      post.regen_requests.push({ what, timestamp: new Date().toISOString() });
+      APP.unsavedChanges.add(postId);
+      showToast(`🔄 "${what}" für ${postId} vorgemerkt — wird beim nächsten Speichern übermittelt`, 'success');
+      renderPosts();
+    }
+
     function saveCaption(postId, value) {
       const post = APP.data.posts.find(p => p.id === postId);
       if (post) {
@@ -2041,6 +2105,56 @@
       return putRes.json();
     }
 
+    // ===== CHANGE DETECTION =====
+    function getChangedFields(postId) {
+      if (!APP.originalData) return [];
+      const orig = APP.originalData.posts.find(p => p.id === postId);
+      const curr = APP.data.posts.find(p => p.id === postId);
+      if (!orig || !curr) return [];
+      const changes = [];
+      if ((orig.caption || '') !== (curr.caption || '')) changes.push('Caption');
+      if ((orig.first_comment || '') !== (curr.first_comment || '')) changes.push('Erster Kommentar');
+      if ((orig.status || '') !== (curr.status || '')) changes.push('Status');
+      if (JSON.stringify(orig.img_position || {}) !== JSON.stringify(curr.img_position || {})) changes.push('Bildposition');
+      if ((orig.date || '') !== (curr.date || '')) changes.push('Datum');
+      if ((orig.time || '') !== (curr.time || '')) changes.push('Uhrzeit');
+      return changes;
+    }
+
+    function showChangesSummary() {
+      const changed = [];
+      const unchanged = [];
+      APP.data.posts.forEach(p => {
+        const fields = getChangedFields(p.id);
+        if (fields.length > 0) {
+          changed.push({ id: p.id, date: p.date, channel: p.channel, fields });
+        } else {
+          unchanged.push({ id: p.id });
+        }
+      });
+
+      let html = '<div class="changes-summary-overlay" onclick="if(event.target===this)this.remove()">';
+      html += '<div class="changes-summary-box">';
+      html += `<h3>Änderungs-Übersicht</h3>`;
+      html += `<p style="color:var(--text-secondary);margin-bottom:12px;">${changed.length} geändert, ${unchanged.length} unverändert</p>`;
+
+      if (changed.length === 0) {
+        html += '<p style="color:#9ca3af;">Keine Änderungen seit dem Laden.</p>';
+      } else {
+        changed.forEach(c => {
+          const ch = c.channel.replace(/_/g, ' ').toUpperCase();
+          html += `<div class="changes-summary-item">`;
+          html += `<strong>${c.id}</strong> (${ch}, ${c.date})<br>`;
+          html += c.fields.map(f => `<span class="field">${f}</span>`).join(', ');
+          html += `</div>`;
+        });
+      }
+
+      html += '<button class="changes-summary-close" onclick="this.closest(\'.changes-summary-overlay\').remove()">Schließen</button>';
+      html += '</div></div>';
+      document.body.insertAdjacentHTML('beforeend', html);
+    }
+
     // ===== SAVE ALL POSTS =====
     async function saveAllPosts() {
       if (APP.unsavedChanges.size === 0) {
@@ -2059,6 +2173,7 @@
         await saveDataToGitHub(path, `Update ${APP.data.client} ${APP.data.week} - ${APP.unsavedChanges.size} post(s)`);
         APP.unsavedChanges.clear();
         showToast('Alle Posts gespeichert! ✓', 'success');
+        showChangesSummary();
         renderPosts();
       } catch (err) {
         showToast('Fehler: ' + err.message, 'error');
