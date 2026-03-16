@@ -1816,6 +1816,16 @@
                   ${post.channel.replace(/_/g, ' ').toUpperCase()}
                 </div>
               </div>
+              ${post.channel === "instagram_story" ? `
+              <div class="img-control-bar">
+                <label>Position:</label>
+                <input type="range" min="0" max="100" value="50"
+                  oninput="this.closest('.post-card').querySelector('.post-image').style.objectPosition='center '+this.value+'%'"
+                  onmousedown="event.stopPropagation()"
+                  ontouchstart="event.stopPropagation()">
+                <button class="img-reset-btn" onclick="var s=this.parentElement.querySelector('input');s.value=50;s.dispatchEvent(new Event('input'))">Reset</button>
+              </div>
+              ` : ""}
               <div class="post-content">
                 <div class="post-header">
                   <div class="post-meta">
@@ -2247,74 +2257,6 @@
     });
   </script>
 
-<script id="admin-panel-script">
-(function() {
-  function getAPP() { return (typeof APP !== "undefined") ? APP : null; }
 
-  function addControlBars() {
-    document.querySelectorAll(".img-control-bar").forEach(function(el) { el.remove(); });
-    var storyCards = [];
-    document.querySelectorAll(".post-card, .card").forEach(function(card) {
-      var txt = card.textContent.substring(0, 300);
-      if (txt.indexOf("INSTAGRAM STORY") >= 0 || txt.indexOf("STORY") >= 0) storyCards.push(card);
-    });
-    storyCards.forEach(function(card) {
-      var container = card.querySelector(".post-image-container");
-      if (!container) return;
-      var img = container.querySelector("img");
-      if (!img) return;
-      var bar = document.createElement("div");
-      bar.className = "img-control-bar";
-      var label = document.createElement("label");
-      label.textContent = "Position:";
-      var slider = document.createElement("input");
-      slider.type = "range"; slider.min = "0"; slider.max = "100";
-      var curPos = img.style.objectPosition || "center center";
-      var m = curPos.match(/(\d+)%/);
-      slider.value = m ? m[1] : "50";
-      slider.addEventListener("input", function() {
-        img.style.objectPosition = "center " + this.value + "%";
-      });
-      var resetBtn = document.createElement("button");
-      resetBtn.className = "img-reset-btn";
-      resetBtn.textContent = "Reset";
-      resetBtn.addEventListener("click", function() {
-        slider.value = "50"; img.style.objectPosition = "center 50%";
-      });
-      bar.appendChild(label); bar.appendChild(slider); bar.appendChild(resetBtn);
-      container.parentNode.insertBefore(bar, container.nextSibling);
-    });
-  }
-
-  function addFirstCommentEditing() {
-    document.querySelectorAll(".first-comment, .fc-text, [class*=first-comment]").forEach(function(el) {
-      if (el.getAttribute("contenteditable")) return;
-      el.setAttribute("contenteditable", "true");
-      el.style.cursor = "text";
-    });
-  }
-
-  function applyAll() {
-    if (!getAPP()) return;
-    addControlBars();
-    addFirstCommentEditing();
-    if (typeof renderPosts === "function" && !renderPosts._patched) {
-      var orig = renderPosts;
-      renderPosts = function() {
-        orig.apply(this, arguments);
-        setTimeout(function() { addControlBars(); addFirstCommentEditing(); }, 300);
-      };
-      renderPosts._patched = true;
-    }
-  }
-
-  var retries = 0;
-  var iv = setInterval(function() {
-    retries++;
-    if (getAPP()) { clearInterval(iv); setTimeout(applyAll, 500); }
-    if (retries > 30) clearInterval(iv);
-  }, 500);
-})();
-</script>
 </body>
 </html>
