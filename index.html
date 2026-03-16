@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- v2.2 Save-Feedback: orange=unsaved, grün=saved -->
+<!-- v2.3 Neu-Button: Auto-Save + lila Markierung für Regen-Requests -->
 <html lang="de">
 <head>
   <meta charset="UTF-8">
@@ -1019,6 +1019,24 @@
       50% { box-shadow: 0 2px 16px rgba(245, 158, 11, 0.7); }
     }
 
+    /* Regen-Request beantragt — dauerhaft lila Rand */
+    .post-card.regen-requested {
+      border: 2px solid #8b5cf6 !important;
+      box-shadow: 0 0 0 1px rgba(139, 92, 246, 0.3), 0 2px 8px rgba(0,0,0,0.25) !important;
+    }
+    .regen-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: #8b5cf6;
+      color: #fff;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
     /* Saved flash — green for 2s */
     .btn-save-primary.just-saved {
       background: #10b981 !important;
@@ -1856,9 +1874,12 @@
           const containerClass = isStory ? 'story' : 'feed';
           const imgPosX = post.img_position && post.img_position.x != null ? post.img_position.x : null;
           const imgPosStyle = imgPosX != null ? ` style="object-position: ${imgPosX}% center"` : '';
+          const hasRegenRequest = post.regen_requests && post.regen_requests.length > 0;
+          const lastRegen = hasRegenRequest ? post.regen_requests[post.regen_requests.length - 1] : null;
 
           html += `
-            <div class="post-card ${!isSaved ? 'unsaved' : ''} ${holidayName ? 'holiday-post' : ''}" id="post-${post.id}">
+            <div class="post-card ${!isSaved ? 'unsaved' : ''} ${hasRegenRequest ? 'regen-requested' : ''} ${holidayName ? 'holiday-post' : ''}" id="post-${post.id}">
+              ${hasRegenRequest ? `<div class="regen-badge">🔄 Neu beantragt: ${lastRegen.what}</div>` : ''}
               ${holidayName ? `<div class="holiday-banner"><span class="holiday-icon">⚠️</span> Feiertag: ${holidayName}</div>` : ''}
               <div class="post-image-container ${containerClass}">
                 ${isPanorama ? `
@@ -2055,14 +2076,29 @@
       document.body.insertAdjacentHTML('beforeend', html);
     }
 
-    function submitRegenRequest(postId, what) {
+    async function submitRegenRequest(postId, what) {
       const post = APP.data.posts.find(p => p.id === postId);
       if (!post) return;
       if (!post.regen_requests) post.regen_requests = [];
       post.regen_requests.push({ what, timestamp: new Date().toISOString() });
       APP.unsavedChanges.add(postId);
-      showToast(`🔄 "${what}" für ${postId} vorgemerkt — wird beim nächsten Speichern übermittelt`, 'success');
       renderPosts();
+
+      // Auto-Save sofort nach Auswahl
+      const { token, owner, repo } = APP.github;
+      const path = APP.activeClient ? getClientPath(APP.activeClient) : null;
+      if (token && owner && repo && path) {
+        try {
+          await saveDataToGitHub(path, `Regen-Request: ${what} für ${postId}`);
+          APP.unsavedChanges.delete(postId);
+          showToast(`🔄 "${what}" für ${postId} beantragt und gespeichert ✓`, 'success');
+          renderPosts();
+        } catch (err) {
+          showToast('Fehler beim Speichern: ' + err.message, 'error');
+        }
+      } else {
+        showToast(`🔄 "${what}" vorgemerkt — bitte manuell speichern (GitHub nicht verbunden)`, 'warning');
+      }
     }
 
     function saveCaption(postId, value) {
