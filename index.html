@@ -1185,18 +1185,16 @@
   
 
     
-  /* Admin Panel - Image Position Controls */
+  
+
+  /* Admin Panel v3 - Image Position Controls */
   .post-image-container {
     position: relative;
     overflow: hidden;
   }
-  .post-image-container .post-image {
-    transform: scale(1.3);
-    transform-origin: center center;
-    transition: transform-origin 0.15s ease;
-  }
   .img-position-controls {
     position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
     z-index: 10;
     opacity: 0;
     transition: opacity 0.2s;
@@ -1225,24 +1223,23 @@
     align-items: center;
     gap: 4px;
   }
-  .img-pos-x-wrap input[type="range"] {
-    flex: 1;
-    height: 20px;
+  .img-pos-x-wrap input[type="range"],
+  .img-pos-y-wrap input[type="range"] {
     accent-color: #ff6b35;
     cursor: pointer;
-    background: rgba(0,0,0,0.4);
+    background: rgba(0,0,0,0.5);
     border-radius: 10px;
+  }
+  .img-pos-x-wrap input[type="range"] {
+    flex: 1;
+    height: 22px;
     padding: 2px 4px;
   }
   .img-pos-y-wrap input[type="range"] {
     writing-mode: vertical-lr;
     direction: rtl;
     flex: 1;
-    width: 20px;
-    accent-color: #ff6b35;
-    cursor: pointer;
-    background: rgba(0,0,0,0.4);
-    border-radius: 10px;
+    width: 22px;
     padding: 4px 2px;
   }
   .img-pos-label {
@@ -1265,10 +1262,20 @@
     padding: 2px 6px;
     font-size: 10px;
     cursor: pointer;
-    z-index: 11;
   }
-  .img-pos-reset:hover {
-    background: rgba(255,107,53,0.8);
+  .img-pos-reset:hover { background: rgba(255,107,53,0.8); }
+  .story-alt-badge {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255,107,53,0.85);
+    color: #fff;
+    font-size: 9px;
+    padding: 2px 8px;
+    border-radius: 3px;
+    z-index: 12;
+    pointer-events: none;
   }
     </style>
 </head>
@@ -2321,101 +2328,155 @@
 
 
 
+
+
 <script id="admin-panel-script">
 (function() {
   const _origRenderPosts = window.renderPosts;
   
   window.renderPosts = function() {
     _origRenderPosts.apply(this, arguments);
-    setTimeout(addPositionControls, 100);
-    setTimeout(addFirstCommentEditing, 100);
+    setTimeout(function() {
+      swapStoryImages();
+      reorderFeedSections();
+      addPositionControls();
+      addFirstCommentEditing();
+    }, 150);
   };
 
+  // === 1. Swap story images to 4:5 feed versions ===
+  function swapStoryImages() {
+    const posts = APP.data.posts || [];
+    const feedPosts = posts.filter(function(p) { return p.channel === 'instagram_feed'; });
+    
+    posts.filter(function(p) { return p.channel === 'instagram_story'; }).forEach(function(storyPost) {
+      const matchingFeed = feedPosts.find(function(f) { return f.date === storyPost.date; });
+      if (!matchingFeed) return;
+      
+      const card = document.querySelector('#post-' + storyPost.id);
+      if (!card || card.dataset.swapped) return;
+      
+      const img = card.querySelector('.post-image');
+      if (!img) return;
+      
+      // Use feed image URL (4:5) instead of story image (9:16)
+      const feedUrl = matchingFeed.image_urls[0];
+      if (feedUrl) {
+        img.src = feedUrl;
+        card.dataset.swapped = 'true';
+        card.dataset.originalSrc = storyPost.image_urls[0];
+        
+        // Add badge
+        const badge = document.createElement('div');
+        badge.className = 'story-alt-badge';
+        badge.textContent = '4:5 Vorlage';
+        const container = card.querySelector('.post-image-container');
+        if (container && !container.querySelector('.story-alt-badge')) {
+          container.appendChild(badge);
+        }
+      }
+    });
+  }
+
+  // === 2. Reorder feed sections: Caption before First Comment ===
+  function reorderFeedSections() {
+    const posts = APP.data.posts || [];
+    document.querySelectorAll('.post-card').forEach(function(card) {
+      const postId = card.id.replace('post-', '');
+      const post = posts.find(function(p) { return p.id === postId; });
+      if (!post || post.channel !== 'instagram_feed') return;
+      if (card.dataset.reordered) return;
+      
+      const content = card.querySelector('.post-content');
+      const firstComment = content.querySelector('.first-comment');
+      const captionSection = content.querySelector('.caption-section');
+      
+      if (firstComment && captionSection) {
+        // Move caption before first-comment
+        content.insertBefore(captionSection, firstComment);
+        card.dataset.reordered = 'true';
+      }
+    });
+  }
+
+  // === 3. Position controls with object-position ===
   function parsePosition(pos) {
     if (!pos) return { x: 50, y: 50 };
-    const parts = pos.match(/(\d+)%/g);
+    var parts = pos.match(/(\d+)%/g);
     if (parts && parts.length >= 2) return { x: parseInt(parts[0]), y: parseInt(parts[1]) };
     if (parts && parts.length === 1) return { x: 50, y: parseInt(parts[0]) };
     return { x: 50, y: 50 };
   }
 
   function addPositionControls() {
-    const posts = APP.data.posts || [];
-    document.querySelectorAll('.post-card').forEach(card => {
+    var posts = APP.data.posts || [];
+    document.querySelectorAll('.post-card').forEach(function(card) {
       if (card.querySelector('.img-position-controls')) return;
       
-      const postId = card.id.replace('post-', '');
-      const post = posts.find(p => p.id === postId);
+      var postId = card.id.replace('post-', '');
+      var post = posts.find(function(p) { return p.id === postId; });
       if (!post) return;
       
-      const imgContainer = card.querySelector('.post-image-container');
-      const img = card.querySelector('.post-image');
+      var imgContainer = card.querySelector('.post-image-container');
+      var img = card.querySelector('.post-image');
       if (!imgContainer || !img) return;
 
-      const pos = parsePosition(post.img_position);
+      var pos = parsePosition(post.img_position);
       
-      // Apply initial transform
-      img.style.transformOrigin = pos.x + '% ' + pos.y + '%';
+      // Use object-position for cropping control
+      img.style.objectPosition = pos.x + '% ' + pos.y + '%';
 
-      // Create controls wrapper
-      const controls = document.createElement('div');
+      var controls = document.createElement('div');
       controls.className = 'img-position-controls';
-      controls.style.cssText = 'position:absolute;top:0;left:0;right:0;bottom:0;';
 
-      // X slider (horizontal - bottom)
-      const xWrap = document.createElement('div');
+      // X slider (horizontal)
+      var xWrap = document.createElement('div');
       xWrap.className = 'img-pos-x-wrap';
-      const xSlider = document.createElement('input');
+      var xSlider = document.createElement('input');
       xSlider.type = 'range'; xSlider.min = 0; xSlider.max = 100; xSlider.value = pos.x;
-      const xLabel = document.createElement('div');
+      var xLabel = document.createElement('div');
       xLabel.className = 'img-pos-label';
       xLabel.textContent = 'X:' + pos.x;
       xWrap.appendChild(xSlider);
       xWrap.appendChild(xLabel);
 
-      // Y slider (vertical - right)
-      const yWrap = document.createElement('div');
+      // Y slider (vertical)
+      var yWrap = document.createElement('div');
       yWrap.className = 'img-pos-y-wrap';
-      const ySlider = document.createElement('input');
+      var ySlider = document.createElement('input');
       ySlider.type = 'range'; ySlider.min = 0; ySlider.max = 100; ySlider.value = pos.y;
-      const yLabel = document.createElement('div');
+      var yLabel = document.createElement('div');
       yLabel.className = 'img-pos-label';
       yLabel.textContent = 'Y:' + pos.y;
       yWrap.appendChild(ySlider);
       yWrap.appendChild(yLabel);
 
       // Reset button
-      const resetBtn = document.createElement('button');
+      var resetBtn = document.createElement('button');
       resetBtn.className = 'img-pos-reset';
       resetBtn.textContent = 'Reset';
       resetBtn.addEventListener('click', function(e) {
         e.stopPropagation();
         xSlider.value = 50; ySlider.value = 50;
         xLabel.textContent = 'X:50'; yLabel.textContent = 'Y:50';
-        img.style.transformOrigin = '50% 50%';
+        img.style.objectPosition = '50% 50%';
         post.img_position = '50% 50%';
         APP.unsavedChanges = true;
       });
 
-      xSlider.addEventListener('input', function() {
-        const xv = this.value;
-        const yv = ySlider.value;
+      function updatePosition() {
+        var xv = xSlider.value;
+        var yv = ySlider.value;
         xLabel.textContent = 'X:' + xv;
-        img.style.transformOrigin = xv + '% ' + yv + '%';
-        post.img_position = xv + '% ' + yv + '%';
-        APP.unsavedChanges = true;
-        card.classList.add('unsaved');
-      });
-
-      ySlider.addEventListener('input', function() {
-        const xv = xSlider.value;
-        const yv = this.value;
         yLabel.textContent = 'Y:' + yv;
-        img.style.transformOrigin = xv + '% ' + yv + '%';
+        img.style.objectPosition = xv + '% ' + yv + '%';
         post.img_position = xv + '% ' + yv + '%';
         APP.unsavedChanges = true;
         card.classList.add('unsaved');
-      });
+      }
+
+      xSlider.addEventListener('input', updatePosition);
+      ySlider.addEventListener('input', updatePosition);
 
       controls.appendChild(xWrap);
       controls.appendChild(yWrap);
@@ -2424,17 +2485,18 @@
     });
   }
 
+  // === 4. First comment editing ===
   function addFirstCommentEditing() {
-    const posts = APP.data.posts || [];
-    document.querySelectorAll('.post-card').forEach(card => {
-      const fcSection = card.querySelector('.first-comment');
+    var posts = APP.data.posts || [];
+    document.querySelectorAll('.post-card').forEach(function(card) {
+      var fcSection = card.querySelector('.first-comment');
       if (!fcSection || fcSection.querySelector('.first-comment-textarea')) return;
-      const postId = card.id.replace('post-', '');
-      const post = posts.find(p => p.id === postId);
+      var postId = card.id.replace('post-', '');
+      var post = posts.find(function(p) { return p.id === postId; });
       if (!post) return;
-      const textDiv = fcSection.querySelector('.caption-text, .first-comment-text, div:last-child');
+      var textDiv = fcSection.querySelector('.caption-text, .first-comment-text, div:last-child');
       if (!textDiv) return;
-      const textarea = document.createElement('textarea');
+      var textarea = document.createElement('textarea');
       textarea.className = 'first-comment-textarea';
       textarea.value = post.first_comment || '';
       textarea.rows = 2;
@@ -2444,22 +2506,27 @@
         APP.unsavedChanges = true;
         card.classList.add('unsaved');
       });
-      textarea.addEventListener('focus', function() { this.style.borderColor = '#ff6b35'; this.style.outline = 'none'; });
-      textarea.addEventListener('blur', function() { this.style.borderColor = 'rgba(255,255,255,0.15)'; });
       textDiv.replaceWith(textarea);
     });
   }
 
-  const _origSavePost = window.savePost;
+  // Patch savePost
+  var _origSavePost = window.savePost;
   window.savePost = function(postId) {
-    const post = APP.data.posts.find(p => p.id === postId);
+    var post = APP.data.posts.find(function(p) { return p.id === postId; });
     if (post && !post.img_position) post.img_position = '50% 50%';
     return _origSavePost.apply(this, arguments);
   };
 
-  setTimeout(addPositionControls, 500);
-  setTimeout(addFirstCommentEditing, 500);
-  console.log('Admin Panel v2 loaded - zoom + 2D controls');
+  // Run on initial load
+  setTimeout(function() {
+    swapStoryImages();
+    reorderFeedSections();
+    addPositionControls();
+    addFirstCommentEditing();
+  }, 500);
+  
+  console.log('Admin Panel v3: 4:5 story images + reordered feed + 2D slider');
 })();
 </script>
 </body>
