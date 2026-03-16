@@ -1182,59 +1182,94 @@
       }
     }
   
-  .img-position-control {
+  
+
+    
+  /* Admin Panel - Image Position Controls */
+  .post-image-container {
+    position: relative;
+    overflow: hidden;
+  }
+  .post-image-container .post-image {
+    transform: scale(1.3);
+    transform-origin: center center;
+    transition: transform-origin 0.15s ease;
+  }
+  .img-position-controls {
     position: absolute;
-    right: 8px;
-    top: 8px;
-    bottom: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     z-index: 10;
     opacity: 0;
     transition: opacity 0.2s;
+    pointer-events: none;
   }
-  .post-image-container:hover .img-position-control {
+  .post-image-container:hover .img-position-controls {
     opacity: 1;
+    pointer-events: auto;
   }
-  .img-position-control input[type="range"] {
-    writing-mode: vertical-lr;
-    direction: rtl;
-    height: 80%;
-    width: 24px;
+  .img-pos-x-wrap {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    right: 8px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .img-pos-y-wrap {
+    position: absolute;
+    top: 8px;
+    bottom: 40px;
+    right: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+  .img-pos-x-wrap input[type="range"] {
+    flex: 1;
+    height: 20px;
     accent-color: #ff6b35;
     cursor: pointer;
-    background: rgba(0,0,0,0.3);
-    border-radius: 12px;
-    padding: 4px;
+    background: rgba(0,0,0,0.4);
+    border-radius: 10px;
+    padding: 2px 4px;
   }
-  .img-position-label {
+  .img-pos-y-wrap input[type="range"] {
+    writing-mode: vertical-lr;
+    direction: rtl;
+    flex: 1;
+    width: 20px;
+    accent-color: #ff6b35;
+    cursor: pointer;
+    background: rgba(0,0,0,0.4);
+    border-radius: 10px;
+    padding: 4px 2px;
+  }
+  .img-pos-label {
     color: #fff;
-    font-size: 10px;
-    background: rgba(0,0,0,0.6);
-    padding: 2px 6px;
-    border-radius: 4px;
-    margin-top: 4px;
+    font-size: 9px;
+    background: rgba(0,0,0,0.7);
+    padding: 2px 5px;
+    border-radius: 3px;
     white-space: nowrap;
+    font-family: monospace;
   }
-  .first-comment-textarea {
-    width: 100%;
-    min-height: 40px;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 6px;
-    color: #e0e0e0;
-    font-size: 12px;
-    padding: 6px 8px;
-    resize: vertical;
-    font-family: inherit;
-    margin-top: 4px;
+  .img-pos-reset {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 10px;
+    cursor: pointer;
+    z-index: 11;
   }
-  .first-comment-textarea:focus {
-    border-color: #ff6b35;
-    outline: none;
+  .img-pos-reset:hover {
+    background: rgba(255,107,53,0.8);
   }
-
     </style>
 </head>
 <body>
@@ -2284,23 +2319,30 @@
     });
   </script>
 
+
+
 <script id="admin-panel-script">
 (function() {
-  // Store original renderPosts
   const _origRenderPosts = window.renderPosts;
   
-  // Override renderPosts to add position controls after rendering
   window.renderPosts = function() {
     _origRenderPosts.apply(this, arguments);
     setTimeout(addPositionControls, 100);
     setTimeout(addFirstCommentEditing, 100);
   };
 
+  function parsePosition(pos) {
+    if (!pos) return { x: 50, y: 50 };
+    const parts = pos.match(/(\d+)%/g);
+    if (parts && parts.length >= 2) return { x: parseInt(parts[0]), y: parseInt(parts[1]) };
+    if (parts && parts.length === 1) return { x: 50, y: parseInt(parts[0]) };
+    return { x: 50, y: 50 };
+  }
+
   function addPositionControls() {
     const posts = APP.data.posts || [];
     document.querySelectorAll('.post-card').forEach(card => {
-      // Skip if already has control
-      if (card.querySelector('.img-position-control')) return;
+      if (card.querySelector('.img-position-controls')) return;
       
       const postId = card.id.replace('post-', '');
       const post = posts.find(p => p.id === postId);
@@ -2309,48 +2351,76 @@
       const imgContainer = card.querySelector('.post-image-container');
       const img = card.querySelector('.post-image');
       if (!imgContainer || !img) return;
+
+      const pos = parsePosition(post.img_position);
       
-      // Parse current position
-      let yPercent = 50;
-      if (post.img_position) {
-        const match = post.img_position.match(/(\d+)%/g);
-        if (match && match.length >= 2) yPercent = parseInt(match[1]);
-        else if (match && match.length === 1) yPercent = parseInt(match[0]);
-      }
-      
-      // Create slider control
-      const control = document.createElement('div');
-      control.className = 'img-position-control';
-      
-      const slider = document.createElement('input');
-      slider.type = 'range';
-      slider.min = 0;
-      slider.max = 100;
-      slider.value = yPercent;
-      slider.title = 'Bildausschnitt verschieben';
-      
-      const label = document.createElement('div');
-      label.className = 'img-position-label';
-      label.textContent = yPercent + '%';
-      
-      slider.addEventListener('input', function() {
-        const val = this.value;
-        label.textContent = val + '%';
-        img.style.objectPosition = 'center ' + val + '%';
-        post.img_position = 'center ' + val + '%';
+      // Apply initial transform
+      img.style.transformOrigin = pos.x + '% ' + pos.y + '%';
+
+      // Create controls wrapper
+      const controls = document.createElement('div');
+      controls.className = 'img-position-controls';
+      controls.style.cssText = 'position:absolute;top:0;left:0;right:0;bottom:0;';
+
+      // X slider (horizontal - bottom)
+      const xWrap = document.createElement('div');
+      xWrap.className = 'img-pos-x-wrap';
+      const xSlider = document.createElement('input');
+      xSlider.type = 'range'; xSlider.min = 0; xSlider.max = 100; xSlider.value = pos.x;
+      const xLabel = document.createElement('div');
+      xLabel.className = 'img-pos-label';
+      xLabel.textContent = 'X:' + pos.x;
+      xWrap.appendChild(xSlider);
+      xWrap.appendChild(xLabel);
+
+      // Y slider (vertical - right)
+      const yWrap = document.createElement('div');
+      yWrap.className = 'img-pos-y-wrap';
+      const ySlider = document.createElement('input');
+      ySlider.type = 'range'; ySlider.min = 0; ySlider.max = 100; ySlider.value = pos.y;
+      const yLabel = document.createElement('div');
+      yLabel.className = 'img-pos-label';
+      yLabel.textContent = 'Y:' + pos.y;
+      yWrap.appendChild(ySlider);
+      yWrap.appendChild(yLabel);
+
+      // Reset button
+      const resetBtn = document.createElement('button');
+      resetBtn.className = 'img-pos-reset';
+      resetBtn.textContent = 'Reset';
+      resetBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        xSlider.value = 50; ySlider.value = 50;
+        xLabel.textContent = 'X:50'; yLabel.textContent = 'Y:50';
+        img.style.transformOrigin = '50% 50%';
+        post.img_position = '50% 50%';
+        APP.unsavedChanges = true;
+      });
+
+      xSlider.addEventListener('input', function() {
+        const xv = this.value;
+        const yv = ySlider.value;
+        xLabel.textContent = 'X:' + xv;
+        img.style.transformOrigin = xv + '% ' + yv + '%';
+        post.img_position = xv + '% ' + yv + '%';
         APP.unsavedChanges = true;
         card.classList.add('unsaved');
       });
-      
-      control.appendChild(slider);
-      control.appendChild(label);
-      imgContainer.style.position = 'relative';
-      imgContainer.appendChild(control);
-      
-      // Apply current position
-      if (post.img_position) {
-        img.style.objectPosition = post.img_position;
-      }
+
+      ySlider.addEventListener('input', function() {
+        const xv = xSlider.value;
+        const yv = this.value;
+        yLabel.textContent = 'Y:' + yv;
+        img.style.transformOrigin = xv + '% ' + yv + '%';
+        post.img_position = xv + '% ' + yv + '%';
+        APP.unsavedChanges = true;
+        card.classList.add('unsaved');
+      });
+
+      controls.appendChild(xWrap);
+      controls.appendChild(yWrap);
+      controls.appendChild(resetBtn);
+      imgContainer.appendChild(controls);
     });
   }
 
@@ -2359,44 +2429,37 @@
     document.querySelectorAll('.post-card').forEach(card => {
       const fcSection = card.querySelector('.first-comment');
       if (!fcSection || fcSection.querySelector('.first-comment-textarea')) return;
-      
       const postId = card.id.replace('post-', '');
       const post = posts.find(p => p.id === postId);
       if (!post) return;
-      
-      // Find the text content div and replace with textarea
       const textDiv = fcSection.querySelector('.caption-text, .first-comment-text, div:last-child');
       if (!textDiv) return;
-      
       const textarea = document.createElement('textarea');
       textarea.className = 'first-comment-textarea';
       textarea.value = post.first_comment || '';
       textarea.rows = 2;
+      textarea.style.cssText = 'width:100%;min-height:40px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.15);border-radius:6px;color:#e0e0e0;font-size:12px;padding:6px 8px;resize:vertical;font-family:inherit;margin-top:4px;';
       textarea.addEventListener('input', function() {
         post.first_comment = this.value;
         APP.unsavedChanges = true;
         card.classList.add('unsaved');
       });
-      
+      textarea.addEventListener('focus', function() { this.style.borderColor = '#ff6b35'; this.style.outline = 'none'; });
+      textarea.addEventListener('blur', function() { this.style.borderColor = 'rgba(255,255,255,0.15)'; });
       textDiv.replaceWith(textarea);
     });
   }
 
-  // Patch savePost to include img_position
   const _origSavePost = window.savePost;
   window.savePost = function(postId) {
     const post = APP.data.posts.find(p => p.id === postId);
-    if (post && !post.img_position) {
-      post.img_position = 'center 50%';
-    }
+    if (post && !post.img_position) post.img_position = '50% 50%';
     return _origSavePost.apply(this, arguments);
   };
 
-  // Run on initial load
   setTimeout(addPositionControls, 500);
   setTimeout(addFirstCommentEditing, 500);
-  
-  console.log('Admin Panel loaded successfully');
+  console.log('Admin Panel v2 loaded - zoom + 2D controls');
 })();
 </script>
 </body>
