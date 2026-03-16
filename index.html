@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- v2.4 Slider → sofort orange -->
+<!-- v2.5 Entwurf-Badge entfernt, Slider→orange -->
 <html lang="de">
 <head>
   <meta charset="UTF-8">
@@ -1314,8 +1314,7 @@
       <button class="filter-btn" onclick="filterByChannel('ig-story')">📖 Instagram Story</button>
       <button class="filter-btn" onclick="filterByChannel('facebook')">👍 Facebook</button>
       <button class="filter-btn" onclick="filterByChannel('linkedin')">💼 LinkedIn</button>
-      <button class="filter-btn" onclick="filterByStatus('draft')">✏️ Entwürfe</button>
-      <button class="filter-btn" onclick="filterByStatus('approved')">✅ Freigegeben</button>
+      <!-- Entwurf/Freigegeben-Filter entfernt -->
     </div>
 
     <div class="posting-calendar-section">
@@ -1919,9 +1918,7 @@
                     <span class="post-meta-dot">•</span>
                     <span>${post.time}</span>
                   </div>
-                  <button class="status-toggle ${post.status}" onclick="toggleStatus('${post.id}')">
-                    ${post.status === 'draft' ? '✏️ Entwurf' : '✅ Freigegeben'}
-                  </button>
+                  <!-- Status-Toggle entfernt — nicht benötigt -->
                 </div>
 
                 <div class="caption-section">
