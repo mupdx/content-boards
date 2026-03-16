@@ -577,29 +577,6 @@
       ]
     },
     {
-      "id": "ig_story_7",
-      "date": "2026-04-03",
-      "time": "10:15",
-      "channel": "instagram_story",
-      "caption": "Samstag! Bis 16 Uhr für euch da. 👋 Neue @gucci Modelle warten.\n📍 Eyestyle Zwickau",
-      "first_comment": "",
-      "images": [
-        "1Jx6cCK_ttvm8kI0fYP7Ir7zGYFePvFpD"
-      ],
-      "image_urls": [
-        "https://drive.google.com/thumbnail?id=1Jx6cCK_ttvm8kI0fYP7Ir7zGYFePvFpD&sz=w360"
-      ],
-      "status": "draft",
-      "tags": [
-        "@Gucci",
-        "Eyestyle Zwickau",
-        "Samstag"
-      ],
-      "img_position": {
-        "x": 86
-      }
-    },
-    {
       "id": "fb_14",
       "date": "2026-04-04",
       "time": "11:00",
@@ -642,6 +619,29 @@
       ]
     },
     {
+      "id": "ig_story_7",
+      "date": "2026-04-07",
+      "time": "10:15",
+      "channel": "instagram_story",
+      "caption": "Samstag! Bis 16 Uhr für euch da. 👋 Neue @gucci Modelle warten.\n📍 Eyestyle Zwickau",
+      "first_comment": "",
+      "images": [
+        "1Jx6cCK_ttvm8kI0fYP7Ir7zGYFePvFpD"
+      ],
+      "image_urls": [
+        "https://drive.google.com/thumbnail?id=1Jx6cCK_ttvm8kI0fYP7Ir7zGYFePvFpD&sz=w360"
+      ],
+      "status": "draft",
+      "tags": [
+        "@Gucci",
+        "Eyestyle Zwickau",
+        "Samstag"
+      ],
+      "img_position": {
+        "x": 86
+      }
+    },
+    {
       "id": "fb_15",
       "date": "2026-04-07",
       "time": "10:00",
@@ -661,6 +661,47 @@
       ]
     },
     {
+      "id": "ig_story_5",
+      "date": "2026-04-08",
+      "time": "11:15",
+      "channel": "instagram_story",
+      "caption": "Montag, aber make it klassisch. ✨ Zeitlose Formen, die einfach passen.\n@gucci 📍 Eyestyle Zwickau",
+      "first_comment": "",
+      "images": [
+        "1N-KTsEmx7amcxfa9O4Hdp9UtYnF5j_gN"
+      ],
+      "image_urls": [
+        "https://drive.google.com/thumbnail?id=1N-KTsEmx7amcxfa9O4Hdp9UtYnF5j_gN&sz=w360"
+      ],
+      "status": "draft",
+      "tags": [
+        "@Gucci",
+        "Eyestyle Zwickau"
+      ]
+    },
+    {
+      "id": "ig_story_6",
+      "date": "2026-04-09",
+      "time": "14:00",
+      "channel": "instagram_story",
+      "caption": "Dezent und doch besonders. Markante @gucci Brillen.\n📍 Eyestyle Zwickau",
+      "first_comment": "",
+      "images": [
+        "1Mlc7jQSWXKv3QuOfaei7MOdJDD6ZCz6l"
+      ],
+      "image_urls": [
+        "https://drive.google.com/thumbnail?id=1Mlc7jQSWXKv3QuOfaei7MOdJDD6ZCz6l&sz=w360"
+      ],
+      "status": "draft",
+      "tags": [
+        "@Gucci",
+        "Eyestyle Zwickau"
+      ],
+      "img_position": {
+        "x": 0
+      }
+    },
+    {
       "id": "fb_16",
       "date": "2026-04-09",
       "time": "12:00",
@@ -678,6 +719,28 @@
         "@Gucci",
         "Eyestyle Zwickau"
       ]
+    },
+    {
+      "id": "ig_story_8",
+      "date": "2026-04-10",
+      "time": "11:15",
+      "channel": "instagram_story",
+      "caption": "Neue Woche, frischer Look. Die Details machen den Unterschied.\n@gucci 📍 Eyestyle Zwickau",
+      "first_comment": "",
+      "images": [
+        "1PvWDXNT8bEnMrCcGS6kLhBDvBVRlwAzw"
+      ],
+      "image_urls": [
+        "https://drive.google.com/thumbnail?id=1PvWDXNT8bEnMrCcGS6kLhBDvBVRlwAzw&sz=w360"
+      ],
+      "status": "draft",
+      "tags": [
+        "@Gucci",
+        "Eyestyle Zwickau"
+      ],
+      "img_position": {
+        "x": 54
+      }
     }
   ]
 }
