@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- v2.1 Änderungs-Übersicht + Neu-Button -->
+<!-- v2.2 Save-Feedback: orange=unsaved, grün=saved -->
 <html lang="de">
 <head>
   <meta charset="UTF-8">
@@ -661,8 +661,9 @@
     }
 
     .post-card.unsaved {
-      border-color: rgba(251, 191, 36, 0.4);
-      background: rgba(251, 191, 36, 0.08);
+      border: 2px solid #f59e0b;
+      background: rgba(251, 191, 36, 0.06);
+      box-shadow: 0 0 0 1px rgba(245, 158, 11, 0.2), 0 2px 8px rgba(0,0,0,0.25);
     }
 
     .post-card.changed-since-load {
@@ -1005,6 +1006,28 @@
       background: #60a5fa;
       transform: translateY(-1px);
       box-shadow: 0 4px 16px rgba(59, 130, 246, 0.35);
+    }
+
+    /* Unsaved state — orange pulsing save button */
+    .post-card.unsaved .btn-save-primary {
+      background: #f59e0b !important;
+      box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
+      animation: pulse-orange 2s infinite;
+    }
+    @keyframes pulse-orange {
+      0%, 100% { box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4); }
+      50% { box-shadow: 0 2px 16px rgba(245, 158, 11, 0.7); }
+    }
+
+    /* Saved flash — green for 2s */
+    .btn-save-primary.just-saved {
+      background: #10b981 !important;
+      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.5) !important;
+      animation: none !important;
+    }
+    .post-card.just-saved-card {
+      border-color: #10b981 !important;
+      box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.3), 0 2px 8px rgba(0,0,0,0.25) !important;
     }
 
     .empty-state {
@@ -1900,7 +1923,7 @@
                 ` : ''}
 
                 <div class="post-actions">
-                  <button class="btn-save" onclick="savePost('${post.id}')">💾 Speichern</button>
+                  <button class="btn-save btn-save-primary" id="save-btn-${post.id}" onclick="savePost('${post.id}')">${isSaved ? '✅ Gespeichert' : '💾 Speichern'}</button>
                   <button class="btn-save" style="background:#6366f1;margin-left:4px;" onclick="requestRegenerate('${post.id}')" title="Bild oder Caption neu generieren lassen">🔄 Neu</button>
                 </div>
               </div>
@@ -2062,13 +2085,28 @@
         return;
       }
 
+      // Show loading state
+      const saveBtn = document.getElementById(`save-btn-${postId}`);
+      if (saveBtn) { saveBtn.textContent = '⏳ Speichert...'; saveBtn.disabled = true; }
+
       try {
         await saveDataToGitHub(path, `Update ${APP.data.client} ${APP.data.week}`);
         APP.unsavedChanges.delete(postId);
         showToast('Gespeichert ✓', 'success');
         renderPosts();
+
+        // Green flash feedback on the saved card
+        const card = document.getElementById(`post-${postId}`);
+        const btn = document.getElementById(`save-btn-${postId}`);
+        if (card) card.classList.add('just-saved-card');
+        if (btn) { btn.classList.add('just-saved'); btn.textContent = '✅ Gespeichert'; }
+        setTimeout(() => {
+          if (card) card.classList.remove('just-saved-card');
+          if (btn) btn.classList.remove('just-saved');
+        }, 2500);
       } catch (err) {
         showToast('Fehler: ' + err.message, 'error');
+        if (saveBtn) { saveBtn.textContent = '💾 Speichern'; saveBtn.disabled = false; }
       }
     }
 
