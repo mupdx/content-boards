@@ -12,7 +12,7 @@
     }
 
     :root {
-      /* Backgrounds ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ warm grey (Cowork / Photoshop style) */
+      /* Backgrounds — warm grey (Cowork / Photoshop style) */
       --bg-primary: #1e1e1e;
       --bg-secondary: #252525;
       --bg-tertiary: #2d2d2d;
@@ -1182,29 +1182,20 @@
       }
     }
   
-  
-
-    
-  
-
-  /* Admin Panel v6 - X Slider Only */
+  /* Admin Panel v7 */
   .post-image-container { position: relative; overflow: hidden; }
   .img-control-bar {
     display: flex; align-items: center; gap: 6px;
     padding: 5px 10px; background: rgba(0,0,0,0.85);
     border-radius: 0 0 8px 8px; margin-top: -4px; margin-bottom: 8px;
   }
-  .img-control-bar label {
-    color: #aaa; font-size: 11px; font-weight: 600;
-  }
+  .img-control-bar label { color: #aaa; font-size: 11px; font-weight: 600; }
   .img-control-bar input[type="range"] {
-    flex: 1; height: 18px; cursor: pointer;
-    accent-color: #ff6b35; margin: 0;
+    flex: 1; height: 18px; cursor: pointer; accent-color: #ff6b35; margin: 0;
   }
   .img-control-bar .img-reset-btn {
     background: rgba(255,107,53,0.8); color: #fff; border: none;
-    border-radius: 4px; padding: 2px 8px; font-size: 11px;
-    cursor: pointer; white-space: nowrap;
+    border-radius: 4px; padding: 2px 8px; font-size: 11px; cursor: pointer;
   }
   .img-control-bar .img-reset-btn:hover { background: #ff6b35; }
   .story-alt-badge {
@@ -1219,11 +1210,11 @@
     <div class="header-content">
       <div class="header-left">
         <div class="header-title">
-          <h1>ÃÂÃÂÃÂÃÂ°ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ± Content Board</h1>
+          <h1>📱 Content Board</h1>
           <div class="header-meta">
             <div class="client-selector">
               <select id="clientSelect" onchange="switchClient(this.value)">
-                <option value="">ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ Kunde wÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¤hlen ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ</option>
+                <option value="">— Kunde wählen —</option>
               </select>
               <button class="btn-icon" onclick="promptNewClient()" title="Neuer Kunde">+</button>
             </div>
@@ -1237,12 +1228,12 @@
       <div class="header-right">
         <div class="connection-status">
           <span class="status-dot" id="statusDot"></span>
-          <span id="connectionStatus">Verbindung wird ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¼berprÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¼ft...</span>
+          <span id="connectionStatus">Verbindung wird überprüft...</span>
         </div>
         <div class="header-buttons">
-          <button class="btn-secondary" onclick="exportCSV()">ÃÂÃÂÃÂÃÂ°ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¥ CSV Export</button>
-          <button class="btn-secondary" onclick="saveAllPosts()">ÃÂÃÂÃÂÃÂ°ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¾ Alle speichern</button>
-          <button class="btn-secondary" onclick="showSettings()">ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¯ÃÂÃÂÃÂÃÂ¸ÃÂÃÂÃÂÃÂ Einstellungen</button>
+          <button class="btn-secondary" onclick="exportCSV()">📥 CSV Export</button>
+          <button class="btn-secondary" onclick="saveAllPosts()">💾 Alle speichern</button>
+          <button class="btn-secondary" onclick="showSettings()">⚙️ Einstellungen</button>
         </div>
       </div>
     </div>
@@ -1251,19 +1242,19 @@
   <div class="main-container">
     <div class="filters">
       <button class="filter-btn active" onclick="filterByChannel('all')">Alle</button>
-      <button class="filter-btn" onclick="filterByChannel('ig-feed')">ÃÂÃÂÃÂÃÂ°ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¸ Instagram Feed</button>
-      <button class="filter-btn" onclick="filterByChannel('ig-story')">ÃÂÃÂÃÂÃÂ°ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ Instagram Story</button>
-      <button class="filter-btn" onclick="filterByChannel('facebook')">ÃÂÃÂÃÂÃÂ°ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ Facebook</button>
-      <button class="filter-btn" onclick="filterByChannel('linkedin')">ÃÂÃÂÃÂÃÂ°ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¼ LinkedIn</button>
-      <button class="filter-btn" onclick="filterByStatus('draft')">ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¯ÃÂÃÂÃÂÃÂ¸ÃÂÃÂÃÂÃÂ EntwÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¼rfe</button>
-      <button class="filter-btn" onclick="filterByStatus('approved')">ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ Freigegeben</button>
+      <button class="filter-btn" onclick="filterByChannel('ig-feed')">📸 Instagram Feed</button>
+      <button class="filter-btn" onclick="filterByChannel('ig-story')">📖 Instagram Story</button>
+      <button class="filter-btn" onclick="filterByChannel('facebook')">👍 Facebook</button>
+      <button class="filter-btn" onclick="filterByChannel('linkedin')">💼 LinkedIn</button>
+      <button class="filter-btn" onclick="filterByStatus('draft')">✏️ Entwürfe</button>
+      <button class="filter-btn" onclick="filterByStatus('approved')">✅ Freigegeben</button>
     </div>
 
     <div class="posting-calendar-section">
       <div class="calendar-header">
         <div>
-          <div class="calendar-title">ÃÂÃÂÃÂÃÂ°ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ Publikationstermine</div>
-          <div class="calendar-date-range" id="calendarDateRange">LÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¤dt...</div>
+          <div class="calendar-title">📅 Publikationstermine</div>
+          <div class="calendar-date-range" id="calendarDateRange">Lädt...</div>
         </div>
       </div>
 
@@ -1299,10 +1290,10 @@
     </div>
 
     <div class="posts-section">
-      <div class="posts-section-title">EntwÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¼rfe und Posts</div>
+      <div class="posts-section-title">Entwürfe und Posts</div>
       <div class="posts-grid" id="postsGrid"></div>
       <div class="empty-state" id="emptyState" style="display: none;">
-        <div class="empty-state-icon">ÃÂÃÂÃÂÃÂ°ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ­</div>
+        <div class="empty-state-icon">📭</div>
         <p>Keine Posts gefunden. Erstelle einen neuen Post, um zu starten!</p>
       </div>
     </div>
@@ -1311,14 +1302,14 @@
   <!-- Settings Modal -->
   <div id="settingsModal" class="modal">
     <div class="modal-content">
-      <div class="modal-header">ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¯ÃÂÃÂÃÂÃÂ¸ÃÂÃÂÃÂÃÂ Einstellungen</div>
+      <div class="modal-header">⚙️ Einstellungen</div>
       <div class="modal-body">
         <div class="settings-section">
           <div class="settings-section-title">Kunden verwalten</div>
           <div class="client-list" id="clientList"></div>
           <div class="add-client-row">
             <input type="text" id="newClientName" placeholder="Neuer Kundenname...">
-            <button class="btn-primary" onclick="addClient()" style="white-space:nowrap;">+ HinzufÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¼gen</button>
+            <button class="btn-primary" onclick="addClient()" style="white-space:nowrap;">+ Hinzufügen</button>
           </div>
         </div>
         <div class="settings-section">
@@ -1360,7 +1351,7 @@
           "date": "2026-03-16",
           "time": "11:00",
           "channel": "instagram_feed",
-          "caption": "Drei Styles. Ein Statement. Swipe durch die neue @gucci Kollektion und finde deinen Look.\n\nÃÂÃÂÃÂÃÂ°ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ Eyestyle Zwickau",
+          "caption": "Drei Styles. Ein Statement. Swipe durch die neue @gucci Kollektion und finde deinen Look.\n\n📍 Eyestyle Zwickau",
           "first_comment": "#gucci #guccieyewear #brillen #zwickau #eyestyle #sonnenbrillen #luxusbrillen #optiker #handwerk #madeinzwickau",
           "images": ["1D_ciGbWyu5VLpEigwTBsmOOGkxVQGemg", "1AoOo2Ex-MzKQxD_6ln0t1YmPC0M3ArBN", "1ccXsEczQjt9t23_aWQPBnmuAZ60R9Xli"],
           "image_urls": ["https://drive.google.com/thumbnail?id=1D_ciGbWyu5VLpEigwTBsmOOGkxVQGemg&sz=w800", "https://drive.google.com/thumbnail?id=1AoOo2Ex-MzKQxD_6ln0t1YmPC0M3ArBN&sz=w800", "https://drive.google.com/thumbnail?id=1ccXsEczQjt9t23_aWQPBnmuAZ60R9Xli&sz=w800"],
@@ -1374,7 +1365,7 @@
           "date": "2026-03-17",
           "time": "18:00",
           "channel": "instagram_feed",
-          "caption": "Wenn die Brille den ganzen Look macht. ÃÂÃÂÃÂÃÂ°ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ\n\n@gucci ÃÂÃÂÃÂÃÂ°ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ Eyestyle Zwickau",
+          "caption": "Wenn die Brille den ganzen Look macht. 👌\n\n@gucci 📍 Eyestyle Zwickau",
           "first_comment": "#gucci #eyewear #brillenstyle #zwickau #eyestyle #optiker #fashion #womensfashion #brillen #guccieyewear",
           "images": ["19lQam1W9WmngecL4JAbAfXGL8286KEPk"],
           "image_urls": ["https://drive.google.com/thumbnail?id=19lQam1W9WmngecL4JAbAfXGL8286KEPk&sz=w800"],
@@ -1388,7 +1379,7 @@
           "date": "2026-03-16",
           "time": "11:15",
           "channel": "instagram_story",
-          "caption": "Neue Woche, neuer Look. ÃÂÃÂÃÂÃÂ°ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¥ @gucci jetzt bei uns.\nÃÂÃÂÃÂÃÂ°ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ Eyestyle Zwickau",
+          "caption": "Neue Woche, neuer Look. 🔥 @gucci jetzt bei uns.\n📍 Eyestyle Zwickau",
           "first_comment": "",
           "images": ["1ERe2GuW6mlzvZBOFP9Om7qG4Bjk27Bmx"],
           "image_urls": ["https://drive.google.com/thumbnail?id=1ERe2GuW6mlzvZBOFP9Om7qG4Bjk27Bmx&sz=w360"],
@@ -1402,7 +1393,7 @@
           "date": "2026-03-18",
           "time": "10:00",
           "channel": "facebook",
-          "caption": "Wenn eine Brille mehr als nur eine Brille ist. ÃÂÃÂÃÂÃÂ°ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ Das ikonische GG-Logo auf dem markanten roten Rahmen ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ @Gucci versteht es einfach, Sonnenbrillen zum Statement-Piece zu machen.\n\nWir schleifen ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¼brigens alle GlÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¤ser selbst in unserer Werkstatt hier in Zwickau. Handwerk trifft Luxus, sozusagen.\n\nKommt vorbei und probiert die neuen Modelle!",
+          "caption": "Wenn eine Brille mehr als nur eine Brille ist. 😎 Das ikonische GG-Logo auf dem markanten roten Rahmen — @Gucci versteht es einfach, Sonnenbrillen zum Statement-Piece zu machen.\n\nWir schleifen übrigens alle Gläser selbst in unserer Werkstatt hier in Zwickau. Handwerk trifft Luxus, sozusagen.\n\nKommt vorbei und probiert die neuen Modelle!",
           "first_comment": "",
           "images": ["1mq4cPtM5BK75lslZA-HU7a_vFCM9bM05"],
           "image_urls": ["https://drive.google.com/thumbnail?id=1mq4cPtM5BK75lslZA-HU7a_vFCM9bM05&sz=w800"],
@@ -1442,7 +1433,7 @@
     // ===== CLIENT MANAGEMENT =====
     function slugify(name) {
       return name.toLowerCase()
-        .replace(/[ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¤ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ]/g, 'ae').replace(/[ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¶ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ]/g, 'oe').replace(/[ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¼ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ]/g, 'ue').replace(/ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ/g, 'ss')
+        .replace(/[äÄ]/g, 'ae').replace(/[öÖ]/g, 'oe').replace(/[üÜ]/g, 'ue').replace(/ß/g, 'ss')
         .replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
     }
 
@@ -1453,7 +1444,7 @@
     function renderClientSelect() {
       const select = document.getElementById('clientSelect');
       const current = APP.activeClient;
-      select.innerHTML = '<option value="">ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ Kunde wÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¤hlen ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ</option>';
+      select.innerHTML = '<option value="">— Kunde wählen —</option>';
       APP.clients.forEach(c => {
         const opt = document.createElement('option');
         opt.value = c.slug;
@@ -1471,7 +1462,7 @@
         const div = document.createElement('div');
         div.className = 'client-item' + (c.slug === APP.activeClient ? ' active' : '');
         div.innerHTML = `<span class="client-item-name">${c.name}</span>
-          <button onclick="removeClient('${c.slug}')" title="Kunde entfernen">ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ</button>`;
+          <button onclick="removeClient('${c.slug}')" title="Kunde entfernen">✕</button>`;
         list.appendChild(div);
       });
     }
@@ -1492,7 +1483,7 @@
       if (input) input.value = '';
       renderClientSelect();
       renderClientList();
-      showToast(`"${name}" hinzugefÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¼gt`, 'success');
+      showToast(`"${name}" hinzugefügt`, 'success');
 
       // Auto-switch to the new client
       switchClient(slug);
@@ -1529,7 +1520,7 @@
 
       // Warn about unsaved changes
       if (APP.unsavedChanges.size > 0) {
-        if (!confirm('Es gibt ungespeicherte ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂnderungen. Trotzdem wechseln?')) {
+        if (!confirm('Es gibt ungespeicherte Änderungen. Trotzdem wechseln?')) {
           document.getElementById('clientSelect').value = APP.activeClient || '';
           return;
         }
@@ -1556,7 +1547,7 @@
     }
 
     function formatGermanDate(isoDate) {
-      // Converts "2026-03-17" ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ "Mo, 17.03.2026"
+      // Converts "2026-03-17" → "Mo, 17.03.2026"
       if (!isoDate) return '';
       const parts = isoDate.split('-');
       if (parts.length !== 3) return isoDate;
@@ -1571,11 +1562,11 @@
     }
 
     function getChannelIcon(channel) {
-      if (channel.includes('instagram_feed')) return 'ÃÂÃÂÃÂÃÂ°ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¸';
-      if (channel.includes('instagram_story')) return 'ÃÂÃÂÃÂÃÂ°ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ';
-      if (channel.includes('facebook')) return 'ÃÂÃÂÃÂÃÂ°ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ';
-      if (channel.includes('linkedin')) return 'ÃÂÃÂÃÂÃÂ°ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¼';
-      return 'ÃÂÃÂÃÂÃÂ°ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ±';
+      if (channel.includes('instagram_feed')) return '📸';
+      if (channel.includes('instagram_story')) return '📖';
+      if (channel.includes('facebook')) return '👍';
+      if (channel.includes('linkedin')) return '💼';
+      return '📱';
     }
 
     function formatCaption(text) {
@@ -1602,7 +1593,7 @@
       return 'ig-feed';
     }
 
-    // ===== INIT APP: GitHub ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ fetch('./data.json') ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ EMBEDDED_DATA fallback =====
+    // ===== INIT APP: GitHub → fetch('./data.json') → EMBEDDED_DATA fallback =====
     async function initApp() {
       const clientPath = APP.activeClient ? getClientPath(APP.activeClient) : null;
 
@@ -1620,7 +1611,7 @@
         }
       } catch (err) {
         console.warn('GitHub fetch failed:', err);
-        // If 404, this client just doesn't have data yet ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ create empty
+        // If 404, this client just doesn't have data yet — create empty
         if (err.message.includes('404')) {
           const clientObj = APP.clients.find(c => c.slug === APP.activeClient);
           APP.data = {
@@ -1714,7 +1705,7 @@
       headHtml += '</tr>';
       thead.innerHTML = headHtml;
 
-      // Build body rows ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ one per channel
+      // Build body rows — one per channel
       const tbody = document.querySelector('#calendarBody');
       let bodyHtml = '';
       channels.forEach(channel => {
@@ -1781,10 +1772,10 @@
 
       const channelOrder = ['instagram_feed', 'instagram_story', 'facebook', 'linkedin'];
       const channelTitles = {
-        'instagram_feed': 'ÃÂÃÂÃÂÃÂ°ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¸ Instagram Feed',
-        'instagram_story': 'ÃÂÃÂÃÂÃÂ°ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ Instagram Story',
-        'facebook': 'ÃÂÃÂÃÂÃÂ°ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ Facebook',
-        'linkedin': 'ÃÂÃÂÃÂÃÂ°ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¼ LinkedIn'
+        'instagram_feed': '📸 Instagram Feed',
+        'instagram_story': '📖 Instagram Story',
+        'facebook': '👍 Facebook',
+        'linkedin': '💼 LinkedIn'
       };
 
       let html = '';
@@ -1808,21 +1799,21 @@
 
           html += `
             <div class="post-card ${!isSaved ? 'unsaved' : ''} ${holidayName ? 'holiday-post' : ''}" id="post-${post.id}">
-              ${holidayName ? `<div class="holiday-banner"><span class="holiday-icon">ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ ÃÂÃÂÃÂÃÂ¯ÃÂÃÂÃÂÃÂ¸ÃÂÃÂÃÂÃÂ</span> Feiertag: ${holidayName}</div>` : ''}
+              ${holidayName ? `<div class="holiday-banner"><span class="holiday-icon">⚠️</span> Feiertag: ${holidayName}</div>` : ''}
               <div class="post-image-container ${containerClass}">
                 ${isPanorama ? `
                   <div class="panorama-container">
                     <img src="${currentImg}" alt="Panorama" class="panorama-img slide-left">
                   </div>
                   <div class="carousel-counter">1/2</div>
-                  <button class="carousel-arrow prev" onclick="panSlide('${post.id}', 'prev')">ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¹</button>
-                  <button class="carousel-arrow next" onclick="panSlide('${post.id}', 'next')">ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂº</button>
+                  <button class="carousel-arrow prev" onclick="panSlide('${post.id}', 'prev')">‹</button>
+                  <button class="carousel-arrow next" onclick="panSlide('${post.id}', 'next')">›</button>
                 ` : `
-                  <img src="${currentImg}" alt="Post" class="post-image"${imgPosStyle} onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23333%22 width=%22200%22 height=%22200%22/%3E%3Ctext fill=%22%23666%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22%3EBild nicht verfÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¼gbar%3C/text%3E%3C/svg%3E'">
+                  <img src="${currentImg}" alt="Post" class="post-image"${imgPosStyle} onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23333%22 width=%22200%22 height=%22200%22/%3E%3Ctext fill=%22%23666%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22%3EBild nicht verfügbar%3C/text%3E%3C/svg%3E'">
                   ${imgUrls.length > 1 ? `
                     <div class="carousel-counter">${1}/${imgUrls.length}</div>
-                    <button class="carousel-arrow prev" onclick="prevSlide('${post.id}')">ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¹</button>
-                    <button class="carousel-arrow next" onclick="nextSlide('${post.id}')">ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂº</button>
+                    <button class="carousel-arrow prev" onclick="prevSlide('${post.id}')">‹</button>
+                    <button class="carousel-arrow next" onclick="nextSlide('${post.id}')">›</button>
                   ` : ''}
                 `}
                 <div class="channel-badge ${getChannelClassname(post.channel)}">
@@ -1834,11 +1825,11 @@
                 <div class="post-header">
                   <div class="post-meta">
                     <span>${formatGermanDate(post.date)}</span>
-                    <span class="post-meta-dot">ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢</span>
+                    <span class="post-meta-dot">•</span>
                     <span>${post.time}</span>
                   </div>
                   <button class="status-toggle ${post.status}" onclick="toggleStatus('${post.id}')">
-                    ${post.status === 'draft' ? 'ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¯ÃÂÃÂÃÂÃÂ¸ÃÂÃÂÃÂÃÂ Entwurf' : 'ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ Freigegeben'}
+                    ${post.status === 'draft' ? '✏️ Entwurf' : '✅ Freigegeben'}
                   </button>
                 </div>
 
@@ -1862,7 +1853,7 @@
                 ` : ''}
 
                 <div class="post-actions">
-                  <button class="btn-save" onclick="savePost('${post.id}')">ÃÂÃÂÃÂÃÂ°ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¾ Speichern</button>
+                  <button class="btn-save" onclick="savePost('${post.id}')">💾 Speichern</button>
                 </div>
               </div>
             </div>
@@ -1974,14 +1965,14 @@
       const { token, owner, repo } = APP.github;
       const path = APP.activeClient ? getClientPath(APP.activeClient) : null;
       if (!token || !owner || !repo || !path) {
-        showToast('GitHub nicht verbunden oder kein Kunde gewÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¤hlt.', 'error');
+        showToast('GitHub nicht verbunden oder kein Kunde gewählt.', 'error');
         return;
       }
 
       try {
         await saveDataToGitHub(path, `Update ${APP.data.client} ${APP.data.week}`);
         APP.unsavedChanges.delete(postId);
-        showToast('Gespeichert ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ', 'success');
+        showToast('Gespeichert ✓', 'success');
         renderPosts();
       } catch (err) {
         showToast('Fehler: ' + err.message, 'error');
@@ -2025,21 +2016,21 @@
     // ===== SAVE ALL POSTS =====
     async function saveAllPosts() {
       if (APP.unsavedChanges.size === 0) {
-        showToast('Keine ungespeicherten ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂnderungen', 'info');
+        showToast('Keine ungespeicherten Änderungen', 'info');
         return;
       }
 
       const { token, owner, repo } = APP.github;
       const path = APP.activeClient ? getClientPath(APP.activeClient) : null;
       if (!token || !owner || !repo || !path) {
-        showToast('GitHub nicht verbunden oder kein Kunde gewÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¤hlt.', 'error');
+        showToast('GitHub nicht verbunden oder kein Kunde gewählt.', 'error');
         return;
       }
 
       try {
         await saveDataToGitHub(path, `Update ${APP.data.client} ${APP.data.week} - ${APP.unsavedChanges.size} post(s)`);
         APP.unsavedChanges.clear();
-        showToast('Alle Posts gespeichert! ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ', 'success');
+        showToast('Alle Posts gespeichert! ✓', 'success');
         renderPosts();
       } catch (err) {
         showToast('Fehler: ' + err.message, 'error');
@@ -2117,7 +2108,7 @@
       document.body.removeChild(link);
       URL.revokeObjectURL(url);
 
-      showToast('CSV exportiert ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ', 'success');
+      showToast('CSV exportiert ✓', 'success');
     }
 
     // ===== SETTINGS MODAL =====
@@ -2145,7 +2136,7 @@
         hideSettings();
         checkConnection();
       } else {
-        showToast('Bitte Token, Owner und Repo ausfÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¼llen', 'error');
+        showToast('Bitte Token, Owner und Repo ausfüllen', 'error');
       }
     }
 
@@ -2261,151 +2252,135 @@
     });
   </script>
 
-
-
-
-
 <script id="admin-panel-script">
-// Admin Panel v6 - Global functions with retry loop
 (function() {
   var retryCount = 0;
-  var maxRetries = 30;
+  function getAPP() { return (typeof APP !== "undefined") ? APP : null; }
 
   function swapStoryImages() {
-    if (typeof APP === 'undefined' || !APP.data || !APP.data.posts) return 0;
-    var feedPosts = APP.data.posts.filter(function(p) { return p.channel === 'instagram_feed'; });
-    var storyPosts = APP.data.posts.filter(function(p) { return p.channel === 'instagram_story'; });
-    var swapped = 0;
+    var app = getAPP();
+    if (!app || !app.data || !app.data.posts) return 0;
+    var feedPosts = app.data.posts.filter(function(p) { return p.channel === "instagram_feed"; });
+    var storyPosts = app.data.posts.filter(function(p) { return p.channel === "instagram_story"; });
+    var count = 0;
     storyPosts.forEach(function(story) {
-      var card = document.getElementById('post-' + story.id);
-      if (!card || card.dataset.swapped === 'true') return;
+      var card = document.getElementById("post-" + story.id);
+      if (!card || card.dataset.swapped === "true") return;
       var matchFeed = feedPosts.find(function(f) { return f.date === story.date; });
       if (!matchFeed || !matchFeed.image_urls || !matchFeed.image_urls[0]) return;
-      var img = card.querySelector('.post-image');
+      var img = card.querySelector(".post-image");
       if (!img) return;
       img.src = matchFeed.image_urls[0];
-      img.style.objectFit = 'cover';
-      if (story.img_position) {
-        img.style.objectPosition = story.img_position.x + '% 50%';
-      }
-      var container = card.querySelector('.post-image-container');
-      if (container && !container.querySelector('.story-alt-badge')) {
-        var badge = document.createElement('div');
-        badge.className = 'story-alt-badge';
-        badge.textContent = '4:5 Vorlage';
+      img.style.objectFit = "cover";
+      if (story.img_position) img.style.objectPosition = story.img_position.x + "% 50%";
+      var container = card.querySelector(".post-image-container");
+      if (container && !container.querySelector(".story-alt-badge")) {
+        var badge = document.createElement("div");
+        badge.className = "story-alt-badge";
+        badge.textContent = "4:5 Vorlage";
         container.appendChild(badge);
       }
-      card.dataset.swapped = 'true';
-      card.dataset.feedImageUrl = matchFeed.image_urls[0];
-      swapped++;
+      card.dataset.swapped = "true";
+      count++;
     });
-    return swapped;
+    return count;
   }
 
   function reorderFeedSections() {
-    document.querySelectorAll('.post-card').forEach(function(card) {
-      if (card.dataset.reordered === 'true') return;
-      var content = card.querySelector('.post-content');
+    document.querySelectorAll(".post-card").forEach(function(card) {
+      if (card.dataset.reordered === "true") return;
+      var content = card.querySelector(".post-content");
       if (!content) return;
-      var captionSection = content.querySelector('.caption-section');
-      var firstComment = content.querySelector('.first-comment');
-      if (captionSection && firstComment) {
-        content.insertBefore(captionSection, firstComment);
-      }
-      card.dataset.reordered = 'true';
+      var cs = content.querySelector(".caption-section");
+      var fc = content.querySelector(".first-comment");
+      if (cs && fc) content.insertBefore(cs, fc);
+      card.dataset.reordered = "true";
     });
   }
 
   function addControlBars() {
-    document.querySelectorAll('.post-card').forEach(function(card) {
-      if (card.querySelector('.img-control-bar')) return;
-      if (card.dataset.swapped !== 'true') return;
-      var container = card.querySelector('.post-image-container');
-      var img = card.querySelector('.post-image');
+    var app = getAPP();
+    if (!app) return;
+    document.querySelectorAll(".post-card").forEach(function(card) {
+      if (card.querySelector(".img-control-bar")) return;
+      if (card.dataset.swapped !== "true") return;
+      var container = card.querySelector(".post-image-container");
+      var img = card.querySelector(".post-image");
       if (!container || !img) return;
-      var postId = card.id.replace('post-', '');
-      var post = APP.data.posts.find(function(p) { return p.id === postId; });
+      var postId = card.id.replace("post-", "");
+      var post = app.data.posts.find(function(p) { return p.id === postId; });
       if (!post) return;
       var posX = (post.img_position && post.img_position.x) || 50;
-      var bar = document.createElement('div');
-      bar.className = 'img-control-bar';
-      bar.innerHTML = '<label>Position:</label>' +
-        '<input type="range" min="0" max="100" value="' + posX + '" data-post="' + postId + '">' +
-        '<button class="img-reset-btn" data-post="' + postId + '">Reset</button>';
+      var bar = document.createElement("div");
+      bar.className = "img-control-bar";
+      bar.innerHTML = '<label>Position:</label><input type="range" min="0" max="100" value="' + posX + '"><button class="img-reset-btn">Reset</button>';
       container.parentNode.insertBefore(bar, container.nextSibling);
-      img.style.objectPosition = posX + '% 50%';
-      var slider = bar.querySelector('input[type="range"]');
-      slider.addEventListener('input', function() {
+      img.style.objectPosition = posX + "% 50%";
+      var slider = bar.querySelector("input[type=range]");
+      slider.addEventListener("input", function() {
         var val = parseInt(this.value);
-        img.style.objectPosition = val + '% 50%';
+        img.style.objectPosition = val + "% 50%";
         if (!post.img_position) post.img_position = {};
         post.img_position.x = val;
       });
-      bar.querySelector('.img-reset-btn').addEventListener('click', function() {
-        slider.value = 50;
-        img.style.objectPosition = '50% 50%';
+      bar.querySelector(".img-reset-btn").addEventListener("click", function() {
+        slider.value = 50; img.style.objectPosition = "50% 50%";
         post.img_position = {x: 50};
       });
     });
   }
 
   function addFirstCommentEditing() {
-    document.querySelectorAll('.post-card').forEach(function(card) {
-      if (card.dataset.fcEditable === 'true') return;
-      var postId = card.id.replace('post-', '');
-      var post = APP.data.posts.find(function(p) { return p.id === postId; });
-      if (!post || post.channel !== 'instagram_feed') return;
-      var fcDiv = card.querySelector('.first-comment');
+    var app = getAPP();
+    if (!app) return;
+    document.querySelectorAll(".post-card").forEach(function(card) {
+      if (card.dataset.fcEditable === "true") return;
+      var postId = card.id.replace("post-", "");
+      var post = app.data.posts.find(function(p) { return p.id === postId; });
+      if (!post || post.channel !== "instagram_feed") return;
+      var fcDiv = card.querySelector(".first-comment");
       if (!fcDiv) return;
-      var textDiv = fcDiv.querySelector('.first-comment-text, div:last-child');
-      if (!textDiv || textDiv.tagName === 'TEXTAREA') return;
-      var ta = document.createElement('textarea');
+      var textDiv = fcDiv.querySelector("div:last-child");
+      if (!textDiv || textDiv.tagName === "TEXTAREA") return;
+      var ta = document.createElement("textarea");
       ta.value = post.first_comment || textDiv.textContent;
-      ta.style.cssText = 'width:100%;min-height:60px;padding:6px;border:1px solid #444;border-radius:4px;background:#1a1a1a;color:#e0e0e0;font-size:12px;resize:vertical;font-family:inherit;';
-      ta.addEventListener('input', function() { post.first_comment = this.value; });
+      ta.style.cssText = "width:100%;min-height:60px;padding:6px;border:1px solid #444;border-radius:4px;background:#1a1a1a;color:#e0e0e0;font-size:12px;resize:vertical;font-family:inherit;";
+      ta.addEventListener("input", function() { post.first_comment = this.value; });
       textDiv.replaceWith(ta);
-      card.dataset.fcEditable = 'true';
+      card.dataset.fcEditable = "true";
     });
   }
 
   function applyAll() {
-    var cards = document.querySelectorAll('.post-card');
-    if (cards.length === 0) return false;
-    var swapped = swapStoryImages();
-    reorderFeedSections();
-    addControlBars();
-    addFirstCommentEditing();
+    if (document.querySelectorAll(".post-card").length === 0) return false;
+    swapStoryImages(); reorderFeedSections(); addControlBars(); addFirstCommentEditing();
     return true;
   }
 
-  // Retry loop: keep trying until stories are swapped or max retries
   var intervalId = setInterval(function() {
     retryCount++;
-    var done = applyAll();
-    var swappedCount = document.querySelectorAll('[data-swapped="true"]').length;
-    if ((done && swappedCount > 0) || retryCount >= maxRetries) {
-      clearInterval(intervalId);
-    }
+    applyAll();
+    var sw = document.querySelectorAll("[data-swapped]").length;
+    if ((sw > 0) || retryCount >= 30) clearInterval(intervalId);
   }, 500);
 
-  // Also patch renderPosts for filter changes
-  var _origRenderPosts = window.renderPosts;
-  if (_origRenderPosts) {
+  var _origRP = window.renderPosts;
+  if (_origRP) {
     window.renderPosts = function() {
-      _origRenderPosts.apply(this, arguments);
+      _origRP.apply(this, arguments);
       setTimeout(applyAll, 300);
     };
   }
 
-  // Patch savePost to include img_position
-  var _origSavePost = window.savePost;
-  if (_origSavePost) {
+  var _origSP = window.savePost;
+  if (_origSP) {
     window.savePost = function(postId) {
-      var post = APP.data.posts.find(function(p) { return p.id === postId; });
-      if (post && post.img_position) {
-        console.log('Saving img_position for ' + postId + ':', JSON.stringify(post.img_position));
+      var app = getAPP();
+      if (app) {
+        var post = app.data.posts.find(function(p) { return p.id === postId; });
+        if (post && post.img_position) console.log("img_position:" + JSON.stringify(post.img_position));
       }
-      return _origSavePost.apply(this, arguments);
+      return _origSP.apply(this, arguments);
     };
   }
 })();
