@@ -63,7 +63,11 @@
       "tags": [
         "@Gucci",
         "Eyestyle Zwickau"
-      ]
+      ],
+      "original_image_url": "originals/eyestyle-zwickau/A7R09111.jpg",
+      "img_position": {
+        "x": 40
+      }
     },
     {
       "id": "fb_1",
@@ -139,7 +143,11 @@
       "tags": [
         "@Gucci",
         "Eyestyle Zwickau"
-      ]
+      ],
+      "original_image_url": "originals/eyestyle-zwickau/A7R09195.jpg",
+      "img_position": {
+        "x": 45
+      }
     },
     {
       "id": "fb_3",
@@ -243,7 +251,8 @@
       ],
       "img_position": {
         "x": 100
-      }
+      },
+      "original_image_url": "originals/eyestyle-zwickau/A7R09093.jpg"
     },
     {
       "id": "fb_5",
@@ -323,7 +332,8 @@
       ],
       "img_position": {
         "x": 64
-      }
+      },
+      "original_image_url": "originals/eyestyle-zwickau/A7R09154.jpg"
     },
     {
       "id": "fb_7",
@@ -517,7 +527,11 @@
       "tags": [
         "@Gucci",
         "Eyestyle Zwickau"
-      ]
+      ],
+      "original_image_url": "originals/eyestyle-zwickau/A7R09200.jpg",
+      "img_position": {
+        "x": 35
+      }
     },
     {
       "id": "fb_12",
@@ -639,7 +653,8 @@
       ],
       "img_position": {
         "x": 86
-      }
+      },
+      "original_image_url": "originals/eyestyle-zwickau/A7R09219.jpg"
     },
     {
       "id": "fb_15",
@@ -677,7 +692,11 @@
       "tags": [
         "@Gucci",
         "Eyestyle Zwickau"
-      ]
+      ],
+      "original_image_url": "originals/eyestyle-zwickau/A7R09268.jpg",
+      "img_position": {
+        "x": 30
+      }
     },
     {
       "id": "ig_story_6",
@@ -699,7 +718,8 @@
       ],
       "img_position": {
         "x": 0
-      }
+      },
+      "original_image_url": "originals/eyestyle-zwickau/A7R09236.jpg"
     },
     {
       "id": "fb_16",
@@ -740,7 +760,8 @@
       ],
       "img_position": {
         "x": 54
-      }
+      },
+      "original_image_url": "originals/eyestyle-zwickau/A7R09168.jpg"
     }
   ]
 }
