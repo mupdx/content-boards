@@ -1785,7 +1785,11 @@
           const postDate = parsePostDate(post.date, post.time);
           const isSaved = !APP.unsavedChanges.has(post.id);
           const imgUrls = post.image_urls || [];
-          const currentImg = imgUrls[0] || '';
+          const isStoryChannel = post.channel === 'instagram_story';
+          const storyOriginalUrl = isStoryChannel && post.images && post.images[0]
+            ? 'https://lh3.googleusercontent.com/d/' + post.images[0] + '=s1200'
+            : null;
+          const currentImg = storyOriginalUrl || imgUrls[0] || '';
           const holidayName = HOLIDAYS_SACHSEN[post.date] || '';
           const isPanorama = post.panorama === true;
           const isStory = post.channel === 'instagram_story';
