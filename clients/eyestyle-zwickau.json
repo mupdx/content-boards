@@ -44,7 +44,10 @@
       "tags": [
         "@Gucci",
         "Eyestyle Zwickau"
-      ]
+      ],
+      "img_position": {
+        "x": 100
+      }
     },
     {
       "id": "ig_feed_2",
@@ -217,7 +220,10 @@
         "@Gucci",
         "Eyestyle Zwickau",
         "Samstag"
-      ]
+      ],
+      "img_position": {
+        "x": 64
+      }
     },
     {
       "id": "fb_4",
@@ -336,7 +342,10 @@
       "tags": [
         "@Gucci",
         "Eyestyle Zwickau"
-      ]
+      ],
+      "img_position": {
+        "x": 0
+      }
     },
     {
       "id": "ig_feed_6",
@@ -453,7 +462,10 @@
         "@Gucci",
         "Eyestyle Zwickau",
         "Samstag"
-      ]
+      ],
+      "img_position": {
+        "x": 86
+      }
     },
     {
       "id": "fb_9",
@@ -511,7 +523,8 @@
       "tags": [
         "@Gucci",
         "Eyestyle Zwickau"
-      ]
+      ],
+      "panorama": true
     },
     {
       "id": "ig_story_8",
@@ -530,7 +543,10 @@
       "tags": [
         "@Gucci",
         "Eyestyle Zwickau"
-      ]
+      ],
+      "img_position": {
+        "x": 54
+      }
     },
     {
       "id": "fb_11",
