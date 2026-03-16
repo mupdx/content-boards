@@ -1772,6 +1772,8 @@
           const isPanorama = post.panorama === true;
           const isStory = post.channel === 'instagram_story';
           const containerClass = isStory ? 'story' : 'feed';
+          const imgPos = post.img_position || '';
+          const imgPosStyle = imgPos ? ` style="object-position: ${imgPos}"` : '';
 
           html += `
             <div class="post-card ${!isSaved ? 'unsaved' : ''} ${holidayName ? 'holiday-post' : ''}" id="post-${post.id}">
@@ -1785,7 +1787,7 @@
                   <button class="carousel-arrow prev" onclick="panSlide('${post.id}', 'prev')">‹</button>
                   <button class="carousel-arrow next" onclick="panSlide('${post.id}', 'next')">›</button>
                 ` : `
-                  <img src="${currentImg}" alt="Post" class="post-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23333%22 width=%22200%22 height=%22200%22/%3E%3Ctext fill=%22%23666%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22%3EBild nicht verfügbar%3C/text%3E%3C/svg%3E'">
+                  <img src="${currentImg}" alt="Post" class="post-image"${imgPosStyle} onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23333%22 width=%22200%22 height=%22200%22/%3E%3Ctext fill=%22%23666%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22%3EBild nicht verfügbar%3C/text%3E%3C/svg%3E'">
                   ${imgUrls.length > 1 ? `
                     <div class="carousel-counter">${1}/${imgUrls.length}</div>
                     <button class="carousel-arrow prev" onclick="prevSlide('${post.id}')">‹</button>
