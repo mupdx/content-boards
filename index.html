@@ -2249,129 +2249,71 @@
 
 <script id="admin-panel-script">
 (function() {
-  var retryCount = 0;
   function getAPP() { return (typeof APP !== "undefined") ? APP : null; }
 
-  function swapStoryImages() {
-    var app = getAPP();
-    if (!app || !app.data || !app.data.posts) return 0;
-    var feedPosts = app.data.posts.filter(function(p) { return p.channel === "instagram_feed"; });
-    var storyPosts = app.data.posts.filter(function(p) { return p.channel === "instagram_story"; });
-    var count = 0;
-    storyPosts.forEach(function(story) {
-      var card = document.getElementById("post-" + story.id);
-      if (!card || card.dataset.swapped === "true") return;
-      var matchFeed = feedPosts.find(function(f) { return f.date === story.date; });
-      if (!matchFeed || !matchFeed.image_urls || !matchFeed.image_urls[0]) return;
-      var img = card.querySelector(".post-image");
-      if (!img) return;
-      img.src = matchFeed.image_urls[0];
-      img.style.objectFit = "cover";
-      if (story.img_position) img.style.objectPosition = story.img_position.x + "% 50%";
-      
-      card.dataset.swapped = "true";
-      count++;
-    });
-    return count;
-  }
-
-  function reorderFeedSections() {
-    document.querySelectorAll(".post-card").forEach(function(card) {
-      if (card.dataset.reordered === "true") return;
-      var content = card.querySelector(".post-content");
-      if (!content) return;
-      var cs = content.querySelector(".caption-section");
-      var fc = content.querySelector(".first-comment");
-      if (cs && fc) content.insertBefore(cs, fc);
-      card.dataset.reordered = "true";
-    });
-  }
-
   function addControlBars() {
-    var app = getAPP();
-    if (!app) return;
-    document.querySelectorAll(".post-card").forEach(function(card) {
-      if (card.querySelector(".img-control-bar")) return;
-      if (card.dataset.swapped !== "true") return;
+    document.querySelectorAll(".img-control-bar").forEach(function(el) { el.remove(); });
+    var storyCards = [];
+    document.querySelectorAll(".post-card, .card").forEach(function(card) {
+      var txt = card.textContent.substring(0, 300);
+      if (txt.indexOf("INSTAGRAM STORY") >= 0 || txt.indexOf("STORY") >= 0) storyCards.push(card);
+    });
+    storyCards.forEach(function(card) {
       var container = card.querySelector(".post-image-container");
-      var img = card.querySelector(".post-image");
-      if (!container || !img) return;
-      var postId = card.id.replace("post-", "");
-      var post = app.data.posts.find(function(p) { return p.id === postId; });
-      if (!post) return;
-      var posX = (post.img_position && post.img_position.x) || 50;
+      if (!container) return;
+      var img = container.querySelector("img");
+      if (!img) return;
       var bar = document.createElement("div");
       bar.className = "img-control-bar";
-      bar.innerHTML = '<label>Position:</label><input type="range" min="0" max="100" value="' + posX + '"><button class="img-reset-btn">Reset</button>';
-      container.parentNode.insertBefore(bar, container.nextSibling);
-      img.style.objectPosition = posX + "% 50%";
-      var slider = bar.querySelector("input[type=range]");
+      var label = document.createElement("label");
+      label.textContent = "Position:";
+      var slider = document.createElement("input");
+      slider.type = "range"; slider.min = "0"; slider.max = "100";
+      var curPos = img.style.objectPosition || "center center";
+      var m = curPos.match(/(\d+)%/);
+      slider.value = m ? m[1] : "50";
       slider.addEventListener("input", function() {
-        var val = parseInt(this.value);
-        img.style.objectPosition = val + "% 50%";
-        if (!post.img_position) post.img_position = {};
-        post.img_position.x = val;
+        img.style.objectPosition = "center " + this.value + "%";
       });
-      bar.querySelector(".img-reset-btn").addEventListener("click", function() {
-        slider.value = 50; img.style.objectPosition = "50% 50%";
-        post.img_position = {x: 50};
+      var resetBtn = document.createElement("button");
+      resetBtn.className = "img-reset-btn";
+      resetBtn.textContent = "Reset";
+      resetBtn.addEventListener("click", function() {
+        slider.value = "50"; img.style.objectPosition = "center 50%";
       });
+      bar.appendChild(label); bar.appendChild(slider); bar.appendChild(resetBtn);
+      container.parentNode.insertBefore(bar, container.nextSibling);
     });
   }
 
   function addFirstCommentEditing() {
-    var app = getAPP();
-    if (!app) return;
-    document.querySelectorAll(".post-card").forEach(function(card) {
-      if (card.dataset.fcEditable === "true") return;
-      var postId = card.id.replace("post-", "");
-      var post = app.data.posts.find(function(p) { return p.id === postId; });
-      if (!post || post.channel !== "instagram_feed") return;
-      var fcDiv = card.querySelector(".first-comment");
-      if (!fcDiv) return;
-      var textDiv = fcDiv.querySelector("div:last-child");
-      if (!textDiv || textDiv.tagName === "TEXTAREA") return;
-      var ta = document.createElement("textarea");
-      ta.value = post.first_comment || textDiv.textContent;
-      ta.style.cssText = "width:100%;min-height:60px;padding:6px;border:1px solid #444;border-radius:4px;background:#1a1a1a;color:#e0e0e0;font-size:12px;resize:vertical;font-family:inherit;";
-      ta.addEventListener("input", function() { post.first_comment = this.value; });
-      textDiv.replaceWith(ta);
-      card.dataset.fcEditable = "true";
+    document.querySelectorAll(".first-comment, .fc-text, [class*=first-comment]").forEach(function(el) {
+      if (el.getAttribute("contenteditable")) return;
+      el.setAttribute("contenteditable", "true");
+      el.style.cursor = "text";
     });
   }
 
   function applyAll() {
-    if (document.querySelectorAll(".post-card").length === 0) return false;
-    swapStoryImages(); reorderFeedSections(); addControlBars(); addFirstCommentEditing();
-    return true;
+    if (!getAPP()) return;
+    addControlBars();
+    addFirstCommentEditing();
+    if (typeof renderPosts === "function" && !renderPosts._patched) {
+      var orig = renderPosts;
+      renderPosts = function() {
+        orig.apply(this, arguments);
+        setTimeout(function() { addControlBars(); addFirstCommentEditing(); }, 300);
+      };
+      renderPosts._patched = true;
+    }
   }
 
-  var intervalId = setInterval(function() {
-    retryCount++;
-    applyAll();
-    var sw = document.querySelectorAll("[data-swapped]").length;
-    if ((sw > 0) || retryCount >= 30) clearInterval(intervalId);
+  var retries = 0;
+  var iv = setInterval(function() {
+    retries++;
+    if (getAPP()) { clearInterval(iv); setTimeout(applyAll, 500); }
+    if (retries > 30) clearInterval(iv);
   }, 500);
-
-  var _origRP = window.renderPosts;
-  if (_origRP) {
-    window.renderPosts = function() {
-      _origRP.apply(this, arguments);
-      setTimeout(applyAll, 300);
-    };
-  }
-
-  var _origSP = window.savePost;
-  if (_origSP) {
-    window.savePost = function(postId) {
-      var app = getAPP();
-      if (app) {
-        var post = app.data.posts.find(function(p) { return p.id === postId; });
-        if (post && post.img_position) console.log("img_position:" + JSON.stringify(post.img_position));
-      }
-      return _origSP.apply(this, arguments);
-    };
-  }
 })();
 </script>
 </body>
