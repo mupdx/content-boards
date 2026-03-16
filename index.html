@@ -12,7 +12,7 @@
     }
 
     :root {
-      /* Backgrounds Ã¢ÂÂ warm grey (Cowork / Photoshop style) */
+      /* Backgrounds ÃÂ¢ÃÂÃÂ warm grey (Cowork / Photoshop style) */
       --bg-primary: #1e1e1e;
       --bg-secondary: #252525;
       --bg-tertiary: #2d2d2d;
@@ -1187,18 +1187,18 @@
     
   
 
-  /* Admin Panel v4 - External Slider Controls */
+  /* Admin Panel v5 - X Slider Only */
   .post-image-container { position: relative; overflow: hidden; }
   .img-control-bar {
-    display: flex; align-items: center; gap: 8px;
-    padding: 6px 10px; background: rgba(0,0,0,0.85);
+    display: flex; align-items: center; gap: 6px;
+    padding: 5px 10px; background: rgba(0,0,0,0.85);
     border-radius: 0 0 8px 8px; margin-top: -4px; margin-bottom: 8px;
   }
   .img-control-bar label {
-    color: #ccc; font-size: 11px; font-weight: 600; min-width: 14px; text-align: center;
+    color: #aaa; font-size: 11px; font-weight: 600;
   }
   .img-control-bar input[type="range"] {
-    flex: 1; height: 20px; cursor: pointer;
+    flex: 1; height: 18px; cursor: pointer;
     accent-color: #ff6b35; margin: 0;
     -webkit-appearance: auto; appearance: auto;
   }
@@ -1213,7 +1213,6 @@
     background: #ff6b35; color: #fff; font-size: 10px; font-weight: 700;
     padding: 2px 8px; border-radius: 10px; pointer-events: none;
   }
-  .no-slider-room { display: none; }
   </style>
 </head>
 <body>
@@ -1221,11 +1220,11 @@
     <div class="header-content">
       <div class="header-left">
         <div class="header-title">
-          <h1>Ã°ÂÂÂ± Content Board</h1>
+          <h1>ÃÂ°ÃÂÃÂÃÂ± Content Board</h1>
           <div class="header-meta">
             <div class="client-selector">
               <select id="clientSelect" onchange="switchClient(this.value)">
-                <option value="">Ã¢ÂÂ Kunde wÃÂ¤hlen Ã¢ÂÂ</option>
+                <option value="">ÃÂ¢ÃÂÃÂ Kunde wÃÂÃÂ¤hlen ÃÂ¢ÃÂÃÂ</option>
               </select>
               <button class="btn-icon" onclick="promptNewClient()" title="Neuer Kunde">+</button>
             </div>
@@ -1239,12 +1238,12 @@
       <div class="header-right">
         <div class="connection-status">
           <span class="status-dot" id="statusDot"></span>
-          <span id="connectionStatus">Verbindung wird ÃÂ¼berprÃÂ¼ft...</span>
+          <span id="connectionStatus">Verbindung wird ÃÂÃÂ¼berprÃÂÃÂ¼ft...</span>
         </div>
         <div class="header-buttons">
-          <button class="btn-secondary" onclick="exportCSV()">Ã°ÂÂÂ¥ CSV Export</button>
-          <button class="btn-secondary" onclick="saveAllPosts()">Ã°ÂÂÂ¾ Alle speichern</button>
-          <button class="btn-secondary" onclick="showSettings()">Ã¢ÂÂÃ¯Â¸Â Einstellungen</button>
+          <button class="btn-secondary" onclick="exportCSV()">ÃÂ°ÃÂÃÂÃÂ¥ CSV Export</button>
+          <button class="btn-secondary" onclick="saveAllPosts()">ÃÂ°ÃÂÃÂÃÂ¾ Alle speichern</button>
+          <button class="btn-secondary" onclick="showSettings()">ÃÂ¢ÃÂÃÂÃÂ¯ÃÂ¸ÃÂ Einstellungen</button>
         </div>
       </div>
     </div>
@@ -1253,19 +1252,19 @@
   <div class="main-container">
     <div class="filters">
       <button class="filter-btn active" onclick="filterByChannel('all')">Alle</button>
-      <button class="filter-btn" onclick="filterByChannel('ig-feed')">Ã°ÂÂÂ¸ Instagram Feed</button>
-      <button class="filter-btn" onclick="filterByChannel('ig-story')">Ã°ÂÂÂ Instagram Story</button>
-      <button class="filter-btn" onclick="filterByChannel('facebook')">Ã°ÂÂÂ Facebook</button>
-      <button class="filter-btn" onclick="filterByChannel('linkedin')">Ã°ÂÂÂ¼ LinkedIn</button>
-      <button class="filter-btn" onclick="filterByStatus('draft')">Ã¢ÂÂÃ¯Â¸Â EntwÃÂ¼rfe</button>
-      <button class="filter-btn" onclick="filterByStatus('approved')">Ã¢ÂÂ Freigegeben</button>
+      <button class="filter-btn" onclick="filterByChannel('ig-feed')">ÃÂ°ÃÂÃÂÃÂ¸ Instagram Feed</button>
+      <button class="filter-btn" onclick="filterByChannel('ig-story')">ÃÂ°ÃÂÃÂÃÂ Instagram Story</button>
+      <button class="filter-btn" onclick="filterByChannel('facebook')">ÃÂ°ÃÂÃÂÃÂ Facebook</button>
+      <button class="filter-btn" onclick="filterByChannel('linkedin')">ÃÂ°ÃÂÃÂÃÂ¼ LinkedIn</button>
+      <button class="filter-btn" onclick="filterByStatus('draft')">ÃÂ¢ÃÂÃÂÃÂ¯ÃÂ¸ÃÂ EntwÃÂÃÂ¼rfe</button>
+      <button class="filter-btn" onclick="filterByStatus('approved')">ÃÂ¢ÃÂÃÂ Freigegeben</button>
     </div>
 
     <div class="posting-calendar-section">
       <div class="calendar-header">
         <div>
-          <div class="calendar-title">Ã°ÂÂÂ Publikationstermine</div>
-          <div class="calendar-date-range" id="calendarDateRange">LÃÂ¤dt...</div>
+          <div class="calendar-title">ÃÂ°ÃÂÃÂÃÂ Publikationstermine</div>
+          <div class="calendar-date-range" id="calendarDateRange">LÃÂÃÂ¤dt...</div>
         </div>
       </div>
 
@@ -1301,10 +1300,10 @@
     </div>
 
     <div class="posts-section">
-      <div class="posts-section-title">EntwÃÂ¼rfe und Posts</div>
+      <div class="posts-section-title">EntwÃÂÃÂ¼rfe und Posts</div>
       <div class="posts-grid" id="postsGrid"></div>
       <div class="empty-state" id="emptyState" style="display: none;">
-        <div class="empty-state-icon">Ã°ÂÂÂ­</div>
+        <div class="empty-state-icon">ÃÂ°ÃÂÃÂÃÂ­</div>
         <p>Keine Posts gefunden. Erstelle einen neuen Post, um zu starten!</p>
       </div>
     </div>
@@ -1313,14 +1312,14 @@
   <!-- Settings Modal -->
   <div id="settingsModal" class="modal">
     <div class="modal-content">
-      <div class="modal-header">Ã¢ÂÂÃ¯Â¸Â Einstellungen</div>
+      <div class="modal-header">ÃÂ¢ÃÂÃÂÃÂ¯ÃÂ¸ÃÂ Einstellungen</div>
       <div class="modal-body">
         <div class="settings-section">
           <div class="settings-section-title">Kunden verwalten</div>
           <div class="client-list" id="clientList"></div>
           <div class="add-client-row">
             <input type="text" id="newClientName" placeholder="Neuer Kundenname...">
-            <button class="btn-primary" onclick="addClient()" style="white-space:nowrap;">+ HinzufÃÂ¼gen</button>
+            <button class="btn-primary" onclick="addClient()" style="white-space:nowrap;">+ HinzufÃÂÃÂ¼gen</button>
           </div>
         </div>
         <div class="settings-section">
@@ -1362,7 +1361,7 @@
           "date": "2026-03-16",
           "time": "11:00",
           "channel": "instagram_feed",
-          "caption": "Drei Styles. Ein Statement. Swipe durch die neue @gucci Kollektion und finde deinen Look.\n\nÃ°ÂÂÂ Eyestyle Zwickau",
+          "caption": "Drei Styles. Ein Statement. Swipe durch die neue @gucci Kollektion und finde deinen Look.\n\nÃÂ°ÃÂÃÂÃÂ Eyestyle Zwickau",
           "first_comment": "#gucci #guccieyewear #brillen #zwickau #eyestyle #sonnenbrillen #luxusbrillen #optiker #handwerk #madeinzwickau",
           "images": ["1D_ciGbWyu5VLpEigwTBsmOOGkxVQGemg", "1AoOo2Ex-MzKQxD_6ln0t1YmPC0M3ArBN", "1ccXsEczQjt9t23_aWQPBnmuAZ60R9Xli"],
           "image_urls": ["https://drive.google.com/thumbnail?id=1D_ciGbWyu5VLpEigwTBsmOOGkxVQGemg&sz=w800", "https://drive.google.com/thumbnail?id=1AoOo2Ex-MzKQxD_6ln0t1YmPC0M3ArBN&sz=w800", "https://drive.google.com/thumbnail?id=1ccXsEczQjt9t23_aWQPBnmuAZ60R9Xli&sz=w800"],
@@ -1376,7 +1375,7 @@
           "date": "2026-03-17",
           "time": "18:00",
           "channel": "instagram_feed",
-          "caption": "Wenn die Brille den ganzen Look macht. Ã°ÂÂÂ\n\n@gucci Ã°ÂÂÂ Eyestyle Zwickau",
+          "caption": "Wenn die Brille den ganzen Look macht. ÃÂ°ÃÂÃÂÃÂ\n\n@gucci ÃÂ°ÃÂÃÂÃÂ Eyestyle Zwickau",
           "first_comment": "#gucci #eyewear #brillenstyle #zwickau #eyestyle #optiker #fashion #womensfashion #brillen #guccieyewear",
           "images": ["19lQam1W9WmngecL4JAbAfXGL8286KEPk"],
           "image_urls": ["https://drive.google.com/thumbnail?id=19lQam1W9WmngecL4JAbAfXGL8286KEPk&sz=w800"],
@@ -1390,7 +1389,7 @@
           "date": "2026-03-16",
           "time": "11:15",
           "channel": "instagram_story",
-          "caption": "Neue Woche, neuer Look. Ã°ÂÂÂ¥ @gucci jetzt bei uns.\nÃ°ÂÂÂ Eyestyle Zwickau",
+          "caption": "Neue Woche, neuer Look. ÃÂ°ÃÂÃÂÃÂ¥ @gucci jetzt bei uns.\nÃÂ°ÃÂÃÂÃÂ Eyestyle Zwickau",
           "first_comment": "",
           "images": ["1ERe2GuW6mlzvZBOFP9Om7qG4Bjk27Bmx"],
           "image_urls": ["https://drive.google.com/thumbnail?id=1ERe2GuW6mlzvZBOFP9Om7qG4Bjk27Bmx&sz=w360"],
@@ -1404,7 +1403,7 @@
           "date": "2026-03-18",
           "time": "10:00",
           "channel": "facebook",
-          "caption": "Wenn eine Brille mehr als nur eine Brille ist. Ã°ÂÂÂ Das ikonische GG-Logo auf dem markanten roten Rahmen Ã¢ÂÂ @Gucci versteht es einfach, Sonnenbrillen zum Statement-Piece zu machen.\n\nWir schleifen ÃÂ¼brigens alle GlÃÂ¤ser selbst in unserer Werkstatt hier in Zwickau. Handwerk trifft Luxus, sozusagen.\n\nKommt vorbei und probiert die neuen Modelle!",
+          "caption": "Wenn eine Brille mehr als nur eine Brille ist. ÃÂ°ÃÂÃÂÃÂ Das ikonische GG-Logo auf dem markanten roten Rahmen ÃÂ¢ÃÂÃÂ @Gucci versteht es einfach, Sonnenbrillen zum Statement-Piece zu machen.\n\nWir schleifen ÃÂÃÂ¼brigens alle GlÃÂÃÂ¤ser selbst in unserer Werkstatt hier in Zwickau. Handwerk trifft Luxus, sozusagen.\n\nKommt vorbei und probiert die neuen Modelle!",
           "first_comment": "",
           "images": ["1mq4cPtM5BK75lslZA-HU7a_vFCM9bM05"],
           "image_urls": ["https://drive.google.com/thumbnail?id=1mq4cPtM5BK75lslZA-HU7a_vFCM9bM05&sz=w800"],
@@ -1444,7 +1443,7 @@
     // ===== CLIENT MANAGEMENT =====
     function slugify(name) {
       return name.toLowerCase()
-        .replace(/[ÃÂ¤ÃÂ]/g, 'ae').replace(/[ÃÂ¶ÃÂ]/g, 'oe').replace(/[ÃÂ¼ÃÂ]/g, 'ue').replace(/ÃÂ/g, 'ss')
+        .replace(/[ÃÂÃÂ¤ÃÂÃÂ]/g, 'ae').replace(/[ÃÂÃÂ¶ÃÂÃÂ]/g, 'oe').replace(/[ÃÂÃÂ¼ÃÂÃÂ]/g, 'ue').replace(/ÃÂÃÂ/g, 'ss')
         .replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
     }
 
@@ -1455,7 +1454,7 @@
     function renderClientSelect() {
       const select = document.getElementById('clientSelect');
       const current = APP.activeClient;
-      select.innerHTML = '<option value="">Ã¢ÂÂ Kunde wÃÂ¤hlen Ã¢ÂÂ</option>';
+      select.innerHTML = '<option value="">ÃÂ¢ÃÂÃÂ Kunde wÃÂÃÂ¤hlen ÃÂ¢ÃÂÃÂ</option>';
       APP.clients.forEach(c => {
         const opt = document.createElement('option');
         opt.value = c.slug;
@@ -1473,7 +1472,7 @@
         const div = document.createElement('div');
         div.className = 'client-item' + (c.slug === APP.activeClient ? ' active' : '');
         div.innerHTML = `<span class="client-item-name">${c.name}</span>
-          <button onclick="removeClient('${c.slug}')" title="Kunde entfernen">Ã¢ÂÂ</button>`;
+          <button onclick="removeClient('${c.slug}')" title="Kunde entfernen">ÃÂ¢ÃÂÃÂ</button>`;
         list.appendChild(div);
       });
     }
@@ -1494,7 +1493,7 @@
       if (input) input.value = '';
       renderClientSelect();
       renderClientList();
-      showToast(`"${name}" hinzugefÃÂ¼gt`, 'success');
+      showToast(`"${name}" hinzugefÃÂÃÂ¼gt`, 'success');
 
       // Auto-switch to the new client
       switchClient(slug);
@@ -1531,7 +1530,7 @@
 
       // Warn about unsaved changes
       if (APP.unsavedChanges.size > 0) {
-        if (!confirm('Es gibt ungespeicherte ÃÂnderungen. Trotzdem wechseln?')) {
+        if (!confirm('Es gibt ungespeicherte ÃÂÃÂnderungen. Trotzdem wechseln?')) {
           document.getElementById('clientSelect').value = APP.activeClient || '';
           return;
         }
@@ -1558,7 +1557,7 @@
     }
 
     function formatGermanDate(isoDate) {
-      // Converts "2026-03-17" Ã¢ÂÂ "Mo, 17.03.2026"
+      // Converts "2026-03-17" ÃÂ¢ÃÂÃÂ "Mo, 17.03.2026"
       if (!isoDate) return '';
       const parts = isoDate.split('-');
       if (parts.length !== 3) return isoDate;
@@ -1573,11 +1572,11 @@
     }
 
     function getChannelIcon(channel) {
-      if (channel.includes('instagram_feed')) return 'Ã°ÂÂÂ¸';
-      if (channel.includes('instagram_story')) return 'Ã°ÂÂÂ';
-      if (channel.includes('facebook')) return 'Ã°ÂÂÂ';
-      if (channel.includes('linkedin')) return 'Ã°ÂÂÂ¼';
-      return 'Ã°ÂÂÂ±';
+      if (channel.includes('instagram_feed')) return 'ÃÂ°ÃÂÃÂÃÂ¸';
+      if (channel.includes('instagram_story')) return 'ÃÂ°ÃÂÃÂÃÂ';
+      if (channel.includes('facebook')) return 'ÃÂ°ÃÂÃÂÃÂ';
+      if (channel.includes('linkedin')) return 'ÃÂ°ÃÂÃÂÃÂ¼';
+      return 'ÃÂ°ÃÂÃÂÃÂ±';
     }
 
     function formatCaption(text) {
@@ -1604,7 +1603,7 @@
       return 'ig-feed';
     }
 
-    // ===== INIT APP: GitHub Ã¢ÂÂ fetch('./data.json') Ã¢ÂÂ EMBEDDED_DATA fallback =====
+    // ===== INIT APP: GitHub ÃÂ¢ÃÂÃÂ fetch('./data.json') ÃÂ¢ÃÂÃÂ EMBEDDED_DATA fallback =====
     async function initApp() {
       const clientPath = APP.activeClient ? getClientPath(APP.activeClient) : null;
 
@@ -1622,7 +1621,7 @@
         }
       } catch (err) {
         console.warn('GitHub fetch failed:', err);
-        // If 404, this client just doesn't have data yet Ã¢ÂÂ create empty
+        // If 404, this client just doesn't have data yet ÃÂ¢ÃÂÃÂ create empty
         if (err.message.includes('404')) {
           const clientObj = APP.clients.find(c => c.slug === APP.activeClient);
           APP.data = {
@@ -1716,7 +1715,7 @@
       headHtml += '</tr>';
       thead.innerHTML = headHtml;
 
-      // Build body rows Ã¢ÂÂ one per channel
+      // Build body rows ÃÂ¢ÃÂÃÂ one per channel
       const tbody = document.querySelector('#calendarBody');
       let bodyHtml = '';
       channels.forEach(channel => {
@@ -1783,10 +1782,10 @@
 
       const channelOrder = ['instagram_feed', 'instagram_story', 'facebook', 'linkedin'];
       const channelTitles = {
-        'instagram_feed': 'Ã°ÂÂÂ¸ Instagram Feed',
-        'instagram_story': 'Ã°ÂÂÂ Instagram Story',
-        'facebook': 'Ã°ÂÂÂ Facebook',
-        'linkedin': 'Ã°ÂÂÂ¼ LinkedIn'
+        'instagram_feed': 'ÃÂ°ÃÂÃÂÃÂ¸ Instagram Feed',
+        'instagram_story': 'ÃÂ°ÃÂÃÂÃÂ Instagram Story',
+        'facebook': 'ÃÂ°ÃÂÃÂÃÂ Facebook',
+        'linkedin': 'ÃÂ°ÃÂÃÂÃÂ¼ LinkedIn'
       };
 
       let html = '';
@@ -1810,21 +1809,21 @@
 
           html += `
             <div class="post-card ${!isSaved ? 'unsaved' : ''} ${holidayName ? 'holiday-post' : ''}" id="post-${post.id}">
-              ${holidayName ? `<div class="holiday-banner"><span class="holiday-icon">Ã¢ÂÂ Ã¯Â¸Â</span> Feiertag: ${holidayName}</div>` : ''}
+              ${holidayName ? `<div class="holiday-banner"><span class="holiday-icon">ÃÂ¢ÃÂÃÂ ÃÂ¯ÃÂ¸ÃÂ</span> Feiertag: ${holidayName}</div>` : ''}
               <div class="post-image-container ${containerClass}">
                 ${isPanorama ? `
                   <div class="panorama-container">
                     <img src="${currentImg}" alt="Panorama" class="panorama-img slide-left">
                   </div>
                   <div class="carousel-counter">1/2</div>
-                  <button class="carousel-arrow prev" onclick="panSlide('${post.id}', 'prev')">Ã¢ÂÂ¹</button>
-                  <button class="carousel-arrow next" onclick="panSlide('${post.id}', 'next')">Ã¢ÂÂº</button>
+                  <button class="carousel-arrow prev" onclick="panSlide('${post.id}', 'prev')">ÃÂ¢ÃÂÃÂ¹</button>
+                  <button class="carousel-arrow next" onclick="panSlide('${post.id}', 'next')">ÃÂ¢ÃÂÃÂº</button>
                 ` : `
-                  <img src="${currentImg}" alt="Post" class="post-image"${imgPosStyle} onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23333%22 width=%22200%22 height=%22200%22/%3E%3Ctext fill=%22%23666%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22%3EBild nicht verfÃÂ¼gbar%3C/text%3E%3C/svg%3E'">
+                  <img src="${currentImg}" alt="Post" class="post-image"${imgPosStyle} onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23333%22 width=%22200%22 height=%22200%22/%3E%3Ctext fill=%22%23666%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22%3EBild nicht verfÃÂÃÂ¼gbar%3C/text%3E%3C/svg%3E'">
                   ${imgUrls.length > 1 ? `
                     <div class="carousel-counter">${1}/${imgUrls.length}</div>
-                    <button class="carousel-arrow prev" onclick="prevSlide('${post.id}')">Ã¢ÂÂ¹</button>
-                    <button class="carousel-arrow next" onclick="nextSlide('${post.id}')">Ã¢ÂÂº</button>
+                    <button class="carousel-arrow prev" onclick="prevSlide('${post.id}')">ÃÂ¢ÃÂÃÂ¹</button>
+                    <button class="carousel-arrow next" onclick="nextSlide('${post.id}')">ÃÂ¢ÃÂÃÂº</button>
                   ` : ''}
                 `}
                 <div class="channel-badge ${getChannelClassname(post.channel)}">
@@ -1836,11 +1835,11 @@
                 <div class="post-header">
                   <div class="post-meta">
                     <span>${formatGermanDate(post.date)}</span>
-                    <span class="post-meta-dot">Ã¢ÂÂ¢</span>
+                    <span class="post-meta-dot">ÃÂ¢ÃÂÃÂ¢</span>
                     <span>${post.time}</span>
                   </div>
                   <button class="status-toggle ${post.status}" onclick="toggleStatus('${post.id}')">
-                    ${post.status === 'draft' ? 'Ã¢ÂÂÃ¯Â¸Â Entwurf' : 'Ã¢ÂÂ Freigegeben'}
+                    ${post.status === 'draft' ? 'ÃÂ¢ÃÂÃÂÃÂ¯ÃÂ¸ÃÂ Entwurf' : 'ÃÂ¢ÃÂÃÂ Freigegeben'}
                   </button>
                 </div>
 
@@ -1864,7 +1863,7 @@
                 ` : ''}
 
                 <div class="post-actions">
-                  <button class="btn-save" onclick="savePost('${post.id}')">Ã°ÂÂÂ¾ Speichern</button>
+                  <button class="btn-save" onclick="savePost('${post.id}')">ÃÂ°ÃÂÃÂÃÂ¾ Speichern</button>
                 </div>
               </div>
             </div>
@@ -1976,14 +1975,14 @@
       const { token, owner, repo } = APP.github;
       const path = APP.activeClient ? getClientPath(APP.activeClient) : null;
       if (!token || !owner || !repo || !path) {
-        showToast('GitHub nicht verbunden oder kein Kunde gewÃÂ¤hlt.', 'error');
+        showToast('GitHub nicht verbunden oder kein Kunde gewÃÂÃÂ¤hlt.', 'error');
         return;
       }
 
       try {
         await saveDataToGitHub(path, `Update ${APP.data.client} ${APP.data.week}`);
         APP.unsavedChanges.delete(postId);
-        showToast('Gespeichert Ã¢ÂÂ', 'success');
+        showToast('Gespeichert ÃÂ¢ÃÂÃÂ', 'success');
         renderPosts();
       } catch (err) {
         showToast('Fehler: ' + err.message, 'error');
@@ -2027,21 +2026,21 @@
     // ===== SAVE ALL POSTS =====
     async function saveAllPosts() {
       if (APP.unsavedChanges.size === 0) {
-        showToast('Keine ungespeicherten ÃÂnderungen', 'info');
+        showToast('Keine ungespeicherten ÃÂÃÂnderungen', 'info');
         return;
       }
 
       const { token, owner, repo } = APP.github;
       const path = APP.activeClient ? getClientPath(APP.activeClient) : null;
       if (!token || !owner || !repo || !path) {
-        showToast('GitHub nicht verbunden oder kein Kunde gewÃÂ¤hlt.', 'error');
+        showToast('GitHub nicht verbunden oder kein Kunde gewÃÂÃÂ¤hlt.', 'error');
         return;
       }
 
       try {
         await saveDataToGitHub(path, `Update ${APP.data.client} ${APP.data.week} - ${APP.unsavedChanges.size} post(s)`);
         APP.unsavedChanges.clear();
-        showToast('Alle Posts gespeichert! Ã¢ÂÂ', 'success');
+        showToast('Alle Posts gespeichert! ÃÂ¢ÃÂÃÂ', 'success');
         renderPosts();
       } catch (err) {
         showToast('Fehler: ' + err.message, 'error');
@@ -2119,7 +2118,7 @@
       document.body.removeChild(link);
       URL.revokeObjectURL(url);
 
-      showToast('CSV exportiert Ã¢ÂÂ', 'success');
+      showToast('CSV exportiert ÃÂ¢ÃÂÃÂ', 'success');
     }
 
     // ===== SETTINGS MODAL =====
@@ -2147,7 +2146,7 @@
         hideSettings();
         checkConnection();
       } else {
-        showToast('Bitte Token, Owner und Repo ausfÃÂ¼llen', 'error');
+        showToast('Bitte Token, Owner und Repo ausfÃÂÃÂ¼llen', 'error');
       }
     }
 
@@ -2269,37 +2268,49 @@
 
 <script id="admin-panel-script">
 (function() {
-  const _origRenderPosts = window.renderPosts;
+  function applyAdminPanel() {
+    swapStoryImages();
+    reorderFeedSections();
+    addControlBars();
+    addFirstCommentEditing();
+  }
+
+  // Patch renderPosts to run admin panel after each render
+  var _origRenderPosts = window.renderPosts;
   window.renderPosts = function() {
     _origRenderPosts.apply(this, arguments);
-    setTimeout(function() {
-      swapStoryImages();
-      reorderFeedSections();
-      addControlBars();
-      addFirstCommentEditing();
-    }, 150);
+    setTimeout(applyAdminPanel, 200);
   };
 
-  // 1. Swap story images to 4:5 feed versions for more crop room
+  // Also use MutationObserver as backup for initial load
+  var applied = false;
+  var observer = new MutationObserver(function() {
+    if (applied) return;
+    var cards = document.querySelectorAll('.post-card');
+    if (cards.length > 0) {
+      applied = true;
+      setTimeout(applyAdminPanel, 300);
+    }
+  });
+  observer.observe(document.body, {childList: true, subtree: true});
+
+  // 1. Swap story images to 4:5 feed versions
   function swapStoryImages() {
-    if (!APP || !APP.data || !APP.data.posts) return;
-    const feedPosts = APP.data.posts.filter(function(p) { return p.channel === 'instagram_feed'; });
-    const storyPosts = APP.data.posts.filter(function(p) { return p.channel === 'instagram_story'; });
+    if (!window.APP || !APP.data || !APP.data.posts) return;
+    var feedPosts = APP.data.posts.filter(function(p) { return p.channel === 'instagram_feed'; });
+    var storyPosts = APP.data.posts.filter(function(p) { return p.channel === 'instagram_story'; });
     storyPosts.forEach(function(story) {
       var card = document.getElementById('post-' + story.id);
       if (!card || card.dataset.swapped === 'true') return;
-      var storyDate = story.date;
-      var matchFeed = feedPosts.find(function(f) { return f.date === storyDate; });
+      var matchFeed = feedPosts.find(function(f) { return f.date === story.date; });
       if (!matchFeed || !matchFeed.image_urls || !matchFeed.image_urls[0]) return;
       var img = card.querySelector('.post-image');
       if (!img) return;
       img.src = matchFeed.image_urls[0];
       img.style.objectFit = 'cover';
-      // Restore saved position if any
       if (story.img_position) {
-        img.style.objectPosition = story.img_position.x + '% ' + story.img_position.y + '%';
+        img.style.objectPosition = story.img_position.x + '% 50%';
       }
-      // Add badge
       var container = card.querySelector('.post-image-container');
       if (container && !container.querySelector('.story-alt-badge')) {
         var badge = document.createElement('div');
@@ -2327,73 +2338,44 @@
     });
   }
 
-  // 3. Add control bars OUTSIDE image containers (no occlusion!)
+  // 3. X-only control bar outside image container
   function addControlBars() {
     document.querySelectorAll('.post-card').forEach(function(card) {
       if (card.querySelector('.img-control-bar')) return;
       var container = card.querySelector('.post-image-container');
       var img = card.querySelector('.post-image');
       if (!container || !img) return;
-
       var postId = card.id.replace('post-', '');
       var post = APP.data.posts.find(function(p) { return p.id === postId; });
       if (!post) return;
+      // Only for swapped stories (4:5 in 9:16 = horizontal crop room)
+      if (card.dataset.swapped !== 'true') return;
 
-      // Only show sliders if image has crop room
-      // Stories with swapped 4:5 images have horizontal room
-      // Feed 4:5 images in 4:5 containers have no room
-      var isSwappedStory = card.dataset.swapped === 'true';
-      var isFeed = post.channel === 'instagram_feed';
-      
-      // Feed images: 4:5 in 4:5 container = no room, skip
-      if (isFeed) return;
-      // Non-swapped stories: 9:16 in 9:16 = no room, skip
-      if (!isSwappedStory) return;
-
-      // Swapped stories: 4:5 image in 9:16 container = horizontal room
       var posX = (post.img_position && post.img_position.x) || 50;
-      var posY = (post.img_position && post.img_position.y) || 50;
-
       var bar = document.createElement('div');
       bar.className = 'img-control-bar';
-      bar.innerHTML = '<label>X</label>' +
-        '<input type="range" min="0" max="100" value="' + posX + '" data-axis="x" data-post="' + postId + '">' +
-        '<label>Y</label>' +
-        '<input type="range" min="0" max="100" value="' + posY + '" data-axis="y" data-post="' + postId + '">' +
+      bar.innerHTML = '<label>Position:</label>' +
+        '<input type="range" min="0" max="100" value="' + posX + '" data-post="' + postId + '">' +
         '<button class="img-reset-btn" data-post="' + postId + '">Reset</button>';
-
-      // Insert bar right after the image container
       container.parentNode.insertBefore(bar, container.nextSibling);
+      img.style.objectPosition = posX + '% 50%';
 
-      // Apply saved position
-      img.style.objectPosition = posX + '% ' + posY + '%';
-
-      // Slider events
-      bar.querySelectorAll('input[type="range"]').forEach(function(slider) {
-        slider.addEventListener('input', function() {
-          var axis = this.dataset.axis;
-          var xVal = bar.querySelector('[data-axis="x"]').value;
-          var yVal = bar.querySelector('[data-axis="y"]').value;
-          img.style.objectPosition = xVal + '% ' + yVal + '%';
-          if (!post.img_position) post.img_position = {};
-          post.img_position.x = parseInt(xVal);
-          post.img_position.y = parseInt(yVal);
-        });
-      });
-
-      // Reset button
-      bar.querySelector('.img-reset-btn').addEventListener('click', function() {
-        bar.querySelector('[data-axis="x"]').value = 50;
-        bar.querySelector('[data-axis="y"]').value = 50;
-        img.style.objectPosition = '50% 50%';
+      var slider = bar.querySelector('input[type="range"]');
+      slider.addEventListener('input', function() {
+        var val = parseInt(this.value);
+        img.style.objectPosition = val + '% 50%';
         if (!post.img_position) post.img_position = {};
-        post.img_position.x = 50;
-        post.img_position.y = 50;
+        post.img_position.x = val;
+      });
+      bar.querySelector('.img-reset-btn').addEventListener('click', function() {
+        slider.value = 50;
+        img.style.objectPosition = '50% 50%';
+        post.img_position = {x: 50};
       });
     });
   }
 
-  // 4. First comment editing
+  // 4. First comment editing for feed posts
   function addFirstCommentEditing() {
     document.querySelectorAll('.post-card').forEach(function(card) {
       if (card.dataset.fcEditable === 'true') return;
@@ -2407,9 +2389,7 @@
       var ta = document.createElement('textarea');
       ta.value = post.first_comment || textDiv.textContent;
       ta.style.cssText = 'width:100%;min-height:60px;padding:6px;border:1px solid #444;border-radius:4px;background:#1a1a1a;color:#e0e0e0;font-size:12px;resize:vertical;font-family:inherit;';
-      ta.addEventListener('input', function() {
-        post.first_comment = this.value;
-      });
+      ta.addEventListener('input', function() { post.first_comment = this.value; });
       textDiv.replaceWith(ta);
       card.dataset.fcEditable = 'true';
     });
@@ -2427,13 +2407,8 @@
     };
   }
 
-  // Run on initial load
-  setTimeout(function() {
-    swapStoryImages();
-    reorderFeedSections();
-    addControlBars();
-    addFirstCommentEditing();
-  }, 500);
+  // Fallback: also try after a delay
+  setTimeout(applyAdminPanel, 800);
 })();
 </script>
 </body>
