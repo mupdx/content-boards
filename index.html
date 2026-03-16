@@ -1196,13 +1196,12 @@
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
     z-index: 10;
-    opacity: 0;
+    opacity: 0.6;
     transition: opacity 0.2s;
-    pointer-events: none;
+    pointer-events: auto;
   }
   .post-image-container:hover .img-position-controls {
     opacity: 1;
-    pointer-events: auto;
   }
   .img-pos-x-wrap {
     position: absolute;
@@ -1227,7 +1226,7 @@
   .img-pos-y-wrap input[type="range"] {
     accent-color: #ff6b35;
     cursor: pointer;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.6);
     border-radius: 10px;
   }
   .img-pos-x-wrap input[type="range"] {
