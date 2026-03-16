@@ -674,12 +674,11 @@
     }
 
     .post-image-container.feed {
-      aspect-ratio: 1;
+      aspect-ratio: 4 / 5;
     }
 
     .post-image-container.story {
       aspect-ratio: 9 / 16;
-      max-height: 300px;
     }
 
     .post-image-container.facebook {
@@ -1771,11 +1770,13 @@
           const currentImg = imgUrls[0] || '';
           const holidayName = HOLIDAYS_SACHSEN[post.date] || '';
           const isPanorama = post.panorama === true;
+          const isStory = post.channel === 'instagram_story';
+          const containerClass = isStory ? 'story' : 'feed';
 
           html += `
             <div class="post-card ${!isSaved ? 'unsaved' : ''} ${holidayName ? 'holiday-post' : ''}" id="post-${post.id}">
               ${holidayName ? `<div class="holiday-banner"><span class="holiday-icon">⚠️</span> Feiertag: ${holidayName}</div>` : ''}
-              <div class="post-image-container feed">
+              <div class="post-image-container ${containerClass}">
                 ${isPanorama ? `
                   <div class="panorama-container">
                     <img src="${currentImg}" alt="Panorama" class="panorama-img slide-left">
