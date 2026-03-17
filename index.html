@@ -1509,6 +1509,47 @@
       return `clients/${slug}.json`;
     }
 
+    // Auto-discover clients from GitHub repo (clients/ directory)
+    async function discoverClientsFromGitHub() {
+      const { token, owner, repo } = APP.github;
+      if (!token || !owner || !repo) return;
+
+      try {
+        const url = `https://api.github.com/repos/${owner}/${repo}/contents/clients`;
+        const res = await fetch(url, {
+          headers: { 'Authorization': `token ${token}` }
+        });
+        if (!res.ok) return;
+        const files = await res.json();
+        if (!Array.isArray(files)) return;
+
+        // Filter: only .json files, skip archives (contain -kw)
+        const clientFiles = files.filter(f =>
+          f.name.endsWith('.json') && !/-kw\d/.test(f.name)
+        );
+
+        let added = 0;
+        for (const f of clientFiles) {
+          const slug = f.name.replace('.json', '');
+          if (!APP.clients.find(c => c.slug === slug)) {
+            // Derive display name from slug: "dolce-freddo-zwickau" → "Dolce Freddo Zwickau"
+            const name = slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+            APP.clients.push({ name, slug });
+            added++;
+          }
+        }
+
+        if (added > 0) {
+          localStorage.setItem('clients', JSON.stringify(APP.clients));
+          renderClientSelect();
+          renderClientList();
+          console.log(`Auto-discovered ${added} new client(s) from GitHub`);
+        }
+      } catch (err) {
+        console.warn('Client auto-discovery failed:', err);
+      }
+    }
+
     function renderClientSelect() {
       const select = document.getElementById('clientSelect');
       const current = APP.activeClient;
@@ -2439,12 +2480,19 @@
         APP.github = { token: parsed.token || '', owner: parsed.owner || '', repo: parsed.repo || '' };
       }
 
-      // Load client list
+      // Load client list from localStorage (as baseline)
       const savedClients = localStorage.getItem('clients');
       if (savedClients) {
         APP.clients = JSON.parse(savedClients);
       } else {
-        // Migrate: if old path was set, create initial client from EMBEDDED_DATA
+        APP.clients = [];
+      }
+
+      // Auto-discover clients from GitHub repo (merges with localStorage)
+      await discoverClientsFromGitHub();
+
+      // If still no clients after discovery, add default
+      if (APP.clients.length === 0) {
         APP.clients = [{ name: 'Eyestyle Zwickau', slug: 'eyestyle-zwickau' }];
         localStorage.setItem('clients', JSON.stringify(APP.clients));
       }
