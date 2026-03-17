@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- v2.6 Story-Image-Fix + Filter-Fix deployed -->
+<!-- v2.7 Works without GitHub token — public repo fallback, client-aware EMBEDDED_DATA -->
 <html lang="de">
 <head>
   <meta charset="UTF-8">
@@ -1510,15 +1510,18 @@
     }
 
     // Auto-discover clients from GitHub repo (clients/ directory)
+    // Funktioniert MIT und OHNE Token (Repo ist oeffentlich)
     async function discoverClientsFromGitHub() {
       const { token, owner, repo } = APP.github;
-      if (!token || !owner || !repo) return;
+      // Mindestens owner+repo muessen bekannt sein (oder Defaults verwenden)
+      const ghOwner = owner || 'mupdx';
+      const ghRepo = repo || 'content-boards';
 
       try {
-        const url = `https://api.github.com/repos/${owner}/${repo}/contents/clients`;
-        const res = await fetch(url, {
-          headers: { 'Authorization': `token ${token}` }
-        });
+        const url = `https://api.github.com/repos/${ghOwner}/${ghRepo}/contents/clients`;
+        const headers = {};
+        if (token) headers['Authorization'] = `token ${token}`;
+        const res = await fetch(url, { headers });
         if (!res.ok) return;
         const files = await res.json();
         if (!Array.isArray(files)) return;
@@ -1706,8 +1709,10 @@
     async function initApp() {
       const clientPath = APP.activeClient ? getClientPath(APP.activeClient) : null;
 
+      // === Methode 1: GitHub API (braucht Token) ===
       try {
-        const hasGitHub = APP.github.token && APP.github.owner && APP.github.repo && clientPath;
+        // Token ist optional fuer oeffentliche Repos — owner/repo haben Defaults
+        const hasGitHub = clientPath;
         if (hasGitHub) {
           const data = await fetchFromGitHub(clientPath);
           if (data) {
@@ -1720,9 +1725,9 @@
           }
         }
       } catch (err) {
-        console.warn('GitHub fetch failed:', err);
+        console.warn('GitHub API fetch failed:', err);
         // If 404, this client just doesn't have data yet — create empty
-        if (err.message.includes('404')) {
+        if (err.message && err.message.includes('404')) {
           const clientObj = APP.clients.find(c => c.slug === APP.activeClient);
           APP.data = {
             client: clientObj ? clientObj.name : APP.activeClient,
@@ -1737,7 +1742,33 @@
         }
       }
 
-      // Fallback: try local data.json (legacy support)
+      // === Methode 2: GitHub Pages direkt (KEIN Token noetig!) ===
+      // Funktioniert in JEDEM Browser, auch ohne GitHub-Einstellungen.
+      if (clientPath) {
+        try {
+          const pagesUrl = `./${clientPath}?_t=${Date.now()}`;
+          const res = await fetch(pagesUrl);
+          if (res.ok) {
+            const data = await res.json();
+            if (data && data.posts) {
+              APP.data = data;
+              APP.originalData = JSON.parse(JSON.stringify(data));
+              const clientObj = APP.clients.find(c => c.slug === APP.activeClient);
+              showToast(`${clientObj ? clientObj.name : 'Daten'} geladen (Read-Only)`, 'success');
+              // Hinweis: Ohne Token ist kein Speichern moeglich
+              if (!APP.github.token) {
+                showToast('GitHub-Token fehlt — Speichern nicht moeglich. Unter Einstellungen konfigurieren.', 'warning');
+              }
+              renderUI();
+              return;
+            }
+          }
+        } catch (err) {
+          console.warn('GitHub Pages fetch failed:', err);
+        }
+      }
+
+      // === Methode 3: Lokale data.json (Legacy) ===
       try {
         const res = await fetch('./data.json');
         if (res.ok) {
@@ -1748,22 +1779,45 @@
           return;
         }
       } catch (err) {
-        console.warn('fetch ./data.json failed, using embedded data:', err);
+        console.warn('fetch ./data.json failed:', err);
       }
 
-      APP.data = EMBEDDED_DATA;
-      APP.originalData = JSON.parse(JSON.stringify(EMBEDDED_DATA));
-      showToast('Eingebettete Daten geladen (Offline-Modus)', 'warning');
+      // === Methode 4: EMBEDDED_DATA — NUR wenn aktiver Client = embedded client ===
+      // WICHTIG: Embedded Daten NIEMALS fuer einen anderen Client anzeigen!
+      if (EMBEDDED_DATA && EMBEDDED_DATA.client && APP.activeClient) {
+        const embeddedSlug = EMBEDDED_DATA.client.toLowerCase().replace(/\s+/g, '-');
+        if (APP.activeClient === embeddedSlug || APP.activeClient === 'eyestyle-zwickau') {
+          APP.data = EMBEDDED_DATA;
+          APP.originalData = JSON.parse(JSON.stringify(EMBEDDED_DATA));
+          showToast('Eingebettete Daten geladen (Offline-Modus)', 'warning');
+          renderUI();
+          return;
+        }
+      }
+
+      // === Kein Daten gefunden: Leeres Board ===
+      const clientObj = APP.clients.find(c => c.slug === APP.activeClient);
+      APP.data = {
+        client: clientObj ? clientObj.name : (APP.activeClient || 'Unbekannt'),
+        week: '',
+        brand: '',
+        lastModified: new Date().toISOString(),
+        posts: []
+      };
+      APP.originalData = JSON.parse(JSON.stringify(APP.data));
+      showToast('Keine Daten gefunden. GitHub-Token unter Einstellungen konfigurieren.', 'warning');
       renderUI();
     }
 
     async function fetchFromGitHub(pathOverride) {
       const { token, owner, repo } = APP.github;
+      const ghOwner = owner || 'mupdx';
+      const ghRepo = repo || 'content-boards';
       const path = pathOverride || getClientPath(APP.activeClient);
-      const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
-      const res = await fetch(url, {
-        headers: { 'Authorization': `token ${token}` }
-      });
+      const url = `https://api.github.com/repos/${ghOwner}/${ghRepo}/contents/${path}`;
+      const headers = {};
+      if (token) headers['Authorization'] = `token ${token}`;
+      const res = await fetch(url, { headers });
       if (!res.ok) throw new Error(`GitHub API error: ${res.status}`);
       const json = await res.json();
       APP.currentSha = json.sha;
