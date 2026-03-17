@@ -1,0 +1,1567 @@
+{
+  "client": "dolce-freddo-zwickau",
+  "client_name": "Dolce Freddo Zwickau",
+  "theme": "Frühstück",
+  "created": "2026-03-17 15:57",
+  "region": "Sachsen",
+  "channels": [
+    "instagram_feed",
+    "instagram_story",
+    "facebook_feed"
+  ],
+  "image_folder": "Dolce Freddo Zwickau/Frühstück Image",
+  "total_images": 43,
+  "date_range": {
+    "start": "2026-03-19",
+    "end": "2026-06-30"
+  },
+  "stats": {
+    "ig_feed_posts": 35,
+    "ig_stories": 43,
+    "fb_posts": 43,
+    "panorama_carousels": 6,
+    "peek_carousels": 8,
+    "total_posts": 121
+  },
+  "posts": [
+    {
+      "id": "ig_story_1",
+      "channel": "instagram_story",
+      "date": "2026-03-18",
+      "date_label": "Mi 18.03.",
+      "time": "10:15",
+      "images": [
+        "A7R00489.jpg"
+      ],
+      "caption": "Frühstück? 🥐",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "ig_feed_1",
+      "channel": "instagram_feed",
+      "date": "2026-03-19",
+      "date_label": "Do 19.03.",
+      "time": "10:00",
+      "type": "panorama",
+      "panorama": true,
+      "images": [
+        "A7R00499.jpg"
+      ],
+      "caption": "So sieht Frühstück bei uns aus. 🥐✨\n\n#dolcefreddozwickau #fruehstueck #breakfast #zwickau #hauptmarkt #eiscafe #italien #buonappetito #frühstückliebe",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "ig_story_2",
+      "channel": "instagram_story",
+      "date": "2026-03-20",
+      "date_label": "Fr 20.03.",
+      "time": "11:15",
+      "images": [
+        "A7R00490.jpg"
+      ],
+      "caption": "Buon appetito! 😋",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "fb_feed_1",
+      "channel": "facebook_feed",
+      "date": "2026-03-21",
+      "date_label": "Sa 21.03.",
+      "time": "10:00",
+      "images": [
+        "A7R00499.jpg"
+      ],
+      "caption": "So sieht ein Morgen bei Dolce Freddo aus — frisches Rührei, eine volle Etagere mit Aufschnitt und Käse, dazu Erdbeer-Limo und frisch gepresster Saft. Alles täglich frisch, alles mit Liebe zubereitet. Wir freuen uns auf euch!"
+    },
+    {
+      "id": "ig_feed_2",
+      "channel": "instagram_feed",
+      "date": "2026-03-21",
+      "date_label": "Sa 21.03.",
+      "time": "11:00",
+      "type": "panorama",
+      "panorama": true,
+      "images": [
+        "A7R00522.jpg"
+      ],
+      "caption": "Guten Morgen vom Hauptmarkt. ☀️\n\n#dolcefreddozwickau #fruehstueck #breakfast #zwickau #hauptmarkt #eiscafe #italien #buonappetito #frühstückliebe",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "ig_story_3",
+      "channel": "instagram_story",
+      "date": "2026-03-22",
+      "date_label": "So 22.03.",
+      "time": "14:00",
+      "images": [
+        "A7R00491.jpg"
+      ],
+      "caption": "Guten Morgen! ☀️",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "fb_feed_2",
+      "channel": "facebook_feed",
+      "date": "2026-03-24",
+      "date_label": "Di 24.03.",
+      "time": "11:00",
+      "images": [
+        "A7R00522.jpg"
+      ],
+      "caption": "Guten Morgen vom Zwickauer Hauptmarkt! Unser Frühstückstisch ist gedeckt — mit allem, was das Herz begehrt. Kommt vorbei und startet den Tag mit uns."
+    },
+    {
+      "id": "ig_feed_3",
+      "channel": "instagram_feed",
+      "date": "2026-03-24",
+      "date_label": "Di 24.03.",
+      "time": "17:00",
+      "type": "panorama",
+      "panorama": true,
+      "images": [
+        "A7R00520.jpg"
+      ],
+      "caption": "Käse, Salami, frisches Obst — alles auf der Etagere. 😋\n\nTipp: Am Wochenende vorher reservieren! 📲\n\n#dolcefreddozwickau #fruehstueck #breakfast #zwickau #hauptmarkt #eiscafe #italien #buonappetito #frühstückliebe",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "ig_story_4",
+      "channel": "instagram_story",
+      "date": "2026-03-25",
+      "date_label": "Mi 25.03.",
+      "time": "10:15",
+      "images": [
+        "A7R00492.jpg"
+      ],
+      "caption": "🥐✨",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "fb_feed_3",
+      "channel": "facebook_feed",
+      "date": "2026-03-26",
+      "date_label": "Do 26.03.",
+      "time": "12:00",
+      "images": [
+        "A7R00520.jpg"
+      ],
+      "caption": "Unsere Etagere ist heute wieder prall gefüllt: Käse, Salami, frisches Obst, Mozzarella mit Basilikum. Dazu ein frisches Brötchen und eine eiskalte Erdbeer-Limo. Was will man mehr?"
+    },
+    {
+      "id": "ig_feed_4",
+      "channel": "instagram_feed",
+      "date": "2026-03-26",
+      "date_label": "Do 26.03.",
+      "time": "10:00",
+      "type": "panorama",
+      "panorama": true,
+      "images": [
+        "A7R00529.jpg"
+      ],
+      "caption": "Rührei, Pancakes, Tulpen — fehlt nur noch ihr. 🌷\n\n#dolcefreddozwickau #fruehstueck #breakfast #zwickau #hauptmarkt #eiscafe #italien #buonappetito #frühstückliebe",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "ig_story_5",
+      "channel": "instagram_story",
+      "date": "2026-03-27",
+      "date_label": "Fr 27.03.",
+      "time": "11:15",
+      "images": [
+        "A7R00493.jpg"
+      ],
+      "caption": "Kommt frühstücken! 😊",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "fb_feed_4",
+      "channel": "facebook_feed",
+      "date": "2026-03-28",
+      "date_label": "Sa 28.03.",
+      "time": "10:00",
+      "images": [
+        "A7R00529.jpg"
+      ],
+      "caption": "Rührei mit Schnittlauch, Pancakes mit Nutella und Erdbeeren, bunte Tulpen auf dem Tisch — so sieht ein perfekter Morgen bei uns aus. Kommt vorbei und überzeugt euch selbst!\n\nKleiner Tipp: Gerade am Wochenende reserviert ihr am besten vorher — dann ist euer Tisch sicher!"
+    },
+    {
+      "id": "ig_feed_5",
+      "channel": "instagram_feed",
+      "date": "2026-03-28",
+      "date_label": "Sa 28.03.",
+      "time": "11:00",
+      "type": "panorama",
+      "panorama": true,
+      "images": [
+        "A7R00535.jpg"
+      ],
+      "caption": "Caprese, Prosciutto, frische Erdbeeren — italiano pur. 🇮🇹\n\n#dolcefreddozwickau #italien #italiano #ladolcevita #fruehstueck #zwickau #hauptmarkt #eiscafe",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "ig_story_6",
+      "channel": "instagram_story",
+      "date": "2026-03-29",
+      "date_label": "So 29.03.",
+      "time": "14:00",
+      "images": [
+        "A7R00494.jpg"
+      ],
+      "caption": "Frisch für euch. 🥖",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "fb_feed_5",
+      "channel": "facebook_feed",
+      "date": "2026-03-31",
+      "date_label": "Di 31.03.",
+      "time": "11:00",
+      "images": [
+        "A7R00535.jpg"
+      ],
+      "caption": "Caprese mit frischem Basilikum, Prosciutto, Salami, dazu Erdbeeren und Trauben — unsere Etagere ist jedes Mal ein kleines Kunstwerk. Echtes italienisches Frühstück mitten in Zwickau."
+    },
+    {
+      "id": "ig_feed_6",
+      "channel": "instagram_feed",
+      "date": "2026-03-31",
+      "date_label": "Di 31.03.",
+      "time": "17:00",
+      "type": "panorama",
+      "panorama": true,
+      "images": [
+        "A7R00536.jpg"
+      ],
+      "caption": "Erdbeer-Limo mit frischer Minze. 🍓\n\n#dolcefreddozwickau #erdbeerlimonade #drinks #fruehstueck #zwickau #hauptmarkt #eiscafe",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "ig_story_7",
+      "channel": "instagram_story",
+      "date": "2026-04-01",
+      "date_label": "Mi 01.04.",
+      "time": "10:15",
+      "images": [
+        "A7R00495.jpg"
+      ],
+      "caption": "La dolce vita. 🇮🇹",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "fb_feed_6",
+      "channel": "facebook_feed",
+      "date": "2026-04-02",
+      "date_label": "Do 02.04.",
+      "time": "12:00",
+      "images": [
+        "A7R00536.jpg"
+      ],
+      "caption": "Unsere hausgemachte Erdbeer-Limonade mit frischer Minze — der perfekte Begleiter zum Frühstück. Erfrischend, fruchtig und einfach lecker!"
+    },
+    {
+      "id": "ig_feed_7",
+      "channel": "instagram_feed",
+      "date": "2026-04-02",
+      "date_label": "Do 02.04.",
+      "time": "10:00",
+      "type": "carousel",
+      "panorama": false,
+      "images": [
+        "A7R00505.jpg",
+        "A7R00506.jpg"
+      ],
+      "caption": "Rührei mit Schnittlauch oder Pancakes mit Nutella — was darf's sein? 😋\n\nTipp: Am Wochenende vorher reservieren! 📲\n\n#dolcefreddozwickau #pancakes #fruehstueck #zwickau #nutella #hauptmarkt #eiscafe",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "fb_feed_7",
+      "channel": "facebook_feed",
+      "date": "2026-04-04",
+      "date_label": "Sa 04.04.",
+      "time": "10:00",
+      "images": [
+        "A7R00505.jpg"
+      ],
+      "caption": "Was darf es sein — cremiges Rührei mit Schnittlauch oder fluffige Pancakes mit Nutella? Bei uns bekommt ihr beides! Täglich frisch zubereitet."
+    },
+    {
+      "id": "ig_feed_8",
+      "channel": "instagram_feed",
+      "date": "2026-04-04",
+      "date_label": "Sa 04.04.",
+      "time": "11:00",
+      "type": "carousel",
+      "panorama": false,
+      "images": [
+        "A7R00514.jpg",
+        "A7R00518.jpg"
+      ],
+      "caption": "Matcha Latte in allen Variationen. 🍵\n\n#dolcefreddozwickau #matchalatte #matcha #fruehstueck #zwickau #hauptmarkt #eiscafe",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "ig_story_8",
+      "channel": "instagram_story",
+      "date": "2026-04-04",
+      "date_label": "Sa 04.04.",
+      "time": "11:15",
+      "images": [
+        "A7R00496.jpg"
+      ],
+      "caption": "Lecker, oder? 😋",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "fb_feed_8",
+      "channel": "facebook_feed",
+      "date": "2026-04-07",
+      "date_label": "Di 07.04.",
+      "time": "11:00",
+      "images": [
+        "A7R00506.jpg"
+      ],
+      "caption": "Was darf es sein — cremiges Rührei mit Schnittlauch oder fluffige Pancakes mit Nutella? Bei uns bekommt ihr beides! Täglich frisch zubereitet."
+    },
+    {
+      "id": "ig_feed_9",
+      "channel": "instagram_feed",
+      "date": "2026-04-07",
+      "date_label": "Di 07.04.",
+      "time": "17:00",
+      "type": "carousel",
+      "panorama": false,
+      "images": [
+        "A7R00494.jpg",
+        "A7R00515.jpg"
+      ],
+      "caption": "Unsere Etagere — jedes Mal ein kleines Kunstwerk. 🎨\n\n#dolcefreddozwickau #fruehstueck #breakfast #zwickau #hauptmarkt #eiscafe #italien #buonappetito #frühstückliebe",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "ig_story_9",
+      "channel": "instagram_story",
+      "date": "2026-04-07",
+      "date_label": "Di 07.04.",
+      "time": "14:00",
+      "images": [
+        "A7R00497.jpg"
+      ],
+      "caption": "Hauptmarkt Zwickau 📍",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "ig_story_10",
+      "channel": "instagram_story",
+      "date": "2026-04-08",
+      "date_label": "Mi 08.04.",
+      "time": "10:15",
+      "images": [
+        "A7R00498.jpg"
+      ],
+      "caption": "Jeden Tag frisch! ✨",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "fb_feed_9",
+      "channel": "facebook_feed",
+      "date": "2026-04-09",
+      "date_label": "Do 09.04.",
+      "time": "12:00",
+      "images": [
+        "A7R00514.jpg"
+      ],
+      "caption": "Unser Matcha Latte — einmal mit Pistazien-Topping von oben, einmal im wunderschönen Kristallglas von der Seite. Schmeckt genauso gut, wie er aussieht!\n\nKleiner Tipp: Gerade am Wochenende reserviert ihr am besten vorher — dann ist euer Tisch sicher!"
+    },
+    {
+      "id": "ig_feed_10",
+      "channel": "instagram_feed",
+      "date": "2026-04-09",
+      "date_label": "Do 09.04.",
+      "time": "10:00",
+      "type": "carousel",
+      "panorama": false,
+      "images": [
+        "A7R00516.jpg",
+        "A7R00532.jpg"
+      ],
+      "caption": "Pancake-Liebe. 🥞🍫\n\n#dolcefreddozwickau #pancakes #fruehstueck #zwickau #nutella #hauptmarkt #eiscafe",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "ig_story_11",
+      "channel": "instagram_story",
+      "date": "2026-04-10",
+      "date_label": "Fr 10.04.",
+      "time": "11:15",
+      "images": [
+        "A7R00499.jpg"
+      ],
+      "caption": "Matcha-Zeit. 🍵",
+      "location": "Dolce Freddo Zwickau",
+      "original_image_url": "originals/dolce-freddo-zwickau/A7R00499.jpg",
+      "img_position": {
+        "x": 50
+      }
+    },
+    {
+      "id": "fb_feed_10",
+      "channel": "facebook_feed",
+      "date": "2026-04-11",
+      "date_label": "Sa 11.04.",
+      "time": "10:00",
+      "images": [
+        "A7R00518.jpg"
+      ],
+      "caption": "Unser Matcha Latte — einmal mit Pistazien-Topping von oben, einmal im wunderschönen Kristallglas von der Seite. Schmeckt genauso gut, wie er aussieht!"
+    },
+    {
+      "id": "ig_feed_11",
+      "channel": "instagram_feed",
+      "date": "2026-04-11",
+      "date_label": "Sa 11.04.",
+      "time": "11:00",
+      "type": "carousel",
+      "panorama": false,
+      "images": [
+        "A7R00493.jpg",
+        "A7R00534.jpg"
+      ],
+      "caption": "Erdbeer-Limo trifft Matcha. Die perfekte Kombi. 🍓🍵\n\nTipp: Am Wochenende vorher reservieren! 📲\n\n#dolcefreddozwickau #matchalatte #matcha #fruehstueck #zwickau #hauptmarkt #eiscafe",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "ig_story_12",
+      "channel": "instagram_story",
+      "date": "2026-04-12",
+      "date_label": "So 12.04.",
+      "time": "14:00",
+      "images": [
+        "A7R00500.jpg"
+      ],
+      "caption": "Pancake o'clock! 🥞",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "fb_feed_11",
+      "channel": "facebook_feed",
+      "date": "2026-04-14",
+      "date_label": "Di 14.04.",
+      "time": "11:00",
+      "images": [
+        "A7R00494.jpg"
+      ],
+      "caption": "Unsere Frühstücks-Etagere ist das Herzstück jedes Morgens bei Dolce Freddo. Aufschnitt, Käse, frisches Obst, Mozzarella mit Basilikum — alles frisch und mit Liebe arrangiert."
+    },
+    {
+      "id": "ig_feed_12",
+      "channel": "instagram_feed",
+      "date": "2026-04-14",
+      "date_label": "Di 14.04.",
+      "time": "17:00",
+      "type": "carousel",
+      "panorama": false,
+      "images": [
+        "A7R00490.jpg",
+        "A7R00491.jpg"
+      ],
+      "caption": "Details, die den Unterschied machen. ✨\n\n#dolcefreddozwickau #fruehstueck #breakfast #zwickau #hauptmarkt #eiscafe #italien #buonappetito #frühstückliebe",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "ig_story_13",
+      "channel": "instagram_story",
+      "date": "2026-04-15",
+      "date_label": "Mi 15.04.",
+      "time": "10:15",
+      "images": [
+        "A7R00501.jpg"
+      ],
+      "caption": "Erdbeer-Limo? 🍓",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "fb_feed_12",
+      "channel": "facebook_feed",
+      "date": "2026-04-16",
+      "date_label": "Do 16.04.",
+      "time": "12:00",
+      "images": [
+        "A7R00515.jpg"
+      ],
+      "caption": "Unsere Frühstücks-Etagere ist das Herzstück jedes Morgens bei Dolce Freddo. Aufschnitt, Käse, frisches Obst, Mozzarella mit Basilikum — alles frisch und mit Liebe arrangiert."
+    },
+    {
+      "id": "ig_feed_13",
+      "channel": "instagram_feed",
+      "date": "2026-04-16",
+      "date_label": "Do 16.04.",
+      "time": "10:00",
+      "type": "carousel",
+      "panorama": false,
+      "images": [
+        "A7R00539.jpg",
+        "A7R00540.jpg"
+      ],
+      "caption": "Matcha mit Aussicht auf Pancakes. 😏\n\n#dolcefreddozwickau #matchalatte #matcha #fruehstueck #zwickau #hauptmarkt #eiscafe",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "ig_story_14",
+      "channel": "instagram_story",
+      "date": "2026-04-17",
+      "date_label": "Fr 17.04.",
+      "time": "11:15",
+      "images": [
+        "A7R00503.jpg"
+      ],
+      "caption": "Mmmh... 😍",
+      "location": "Dolce Freddo Zwickau",
+      "original_image_url": "originals/dolce-freddo-zwickau/A7R00503.jpg",
+      "img_position": {
+        "x": 50
+      }
+    },
+    {
+      "id": "fb_feed_13",
+      "channel": "facebook_feed",
+      "date": "2026-04-18",
+      "date_label": "Sa 18.04.",
+      "time": "10:00",
+      "images": [
+        "A7R00516.jpg"
+      ],
+      "caption": "Pancake-Liebe! Unsere Pancakes mit Nutella und frischen Erdbeeren sind der süße Traum am Morgen. Dazu eine Erdbeer-Limo oder einen Matcha Latte — perfekt!"
+    },
+    {
+      "id": "ig_feed_14",
+      "channel": "instagram_feed",
+      "date": "2026-04-18",
+      "date_label": "Sa 18.04.",
+      "time": "11:00",
+      "type": "carousel",
+      "panorama": false,
+      "images": [
+        "A7R00496.jpg",
+        "A7R00489.jpg"
+      ],
+      "caption": "Frische Tulpen auf jedem Tisch. 🌷\n\n#dolcefreddozwickau #fruehstueck #breakfast #zwickau #hauptmarkt #eiscafe #italien #buonappetito #frühstückliebe",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "ig_story_15",
+      "channel": "instagram_story",
+      "date": "2026-04-19",
+      "date_label": "So 19.04.",
+      "time": "14:00",
+      "images": [
+        "A7R00504.jpg"
+      ],
+      "caption": "🌷🥐",
+      "location": "Dolce Freddo Zwickau",
+      "original_image_url": "originals/dolce-freddo-zwickau/A7R00504.jpg",
+      "img_position": {
+        "x": 50
+      }
+    },
+    {
+      "id": "fb_feed_14",
+      "channel": "facebook_feed",
+      "date": "2026-04-21",
+      "date_label": "Di 21.04.",
+      "time": "11:00",
+      "images": [
+        "A7R00532.jpg"
+      ],
+      "caption": "Pancake-Liebe! Unsere Pancakes mit Nutella und frischen Erdbeeren sind der süße Traum am Morgen. Dazu eine Erdbeer-Limo oder einen Matcha Latte — perfekt!\n\nKleiner Tipp: Gerade am Wochenende reserviert ihr am besten vorher — dann ist euer Tisch sicher!"
+    },
+    {
+      "id": "ig_feed_15",
+      "channel": "instagram_feed",
+      "date": "2026-04-21",
+      "date_label": "Di 21.04.",
+      "time": "17:00",
+      "type": "single",
+      "panorama": false,
+      "images": [
+        "A7R00503.jpg"
+      ],
+      "caption": "Der Tisch ist gedeckt — jetzt fehlt nur noch ihr. 🥐\n\nTipp: Am Wochenende vorher reservieren! 📲\n\n#dolcefreddozwickau #fruehstueck #breakfast #zwickau #hauptmarkt #eiscafe #italien #buonappetito #frühstückliebe",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "ig_story_16",
+      "channel": "instagram_story",
+      "date": "2026-04-22",
+      "date_label": "Mi 22.04.",
+      "time": "10:15",
+      "images": [
+        "A7R00505.jpg"
+      ],
+      "caption": "Unser Frühstück. ❤️",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "fb_feed_15",
+      "channel": "facebook_feed",
+      "date": "2026-04-23",
+      "date_label": "Do 23.04.",
+      "time": "12:00",
+      "images": [
+        "A7R00493.jpg"
+      ],
+      "caption": "Erdbeer-Limo mit frischer Minze trifft Matcha Latte im Kristallglas — zwei Getränke, die bei uns zum Frühstück einfach dazugehören. Welches ist euer Favorit?"
+    },
+    {
+      "id": "ig_feed_16",
+      "channel": "instagram_feed",
+      "date": "2026-04-23",
+      "date_label": "Do 23.04.",
+      "time": "10:00",
+      "type": "single",
+      "panorama": false,
+      "images": [
+        "A7R00504.jpg"
+      ],
+      "caption": "Von oben sieht unser Frühstück noch besser aus. 📸\n\n#dolcefreddozwickau #fruehstueck #breakfast #zwickau #hauptmarkt #eiscafe #italien #buonappetito #frühstückliebe",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "ig_story_17",
+      "channel": "instagram_story",
+      "date": "2026-04-24",
+      "date_label": "Fr 24.04.",
+      "time": "11:15",
+      "images": [
+        "A7R00506.jpg"
+      ],
+      "caption": "Italiano! 🇮🇹",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "fb_feed_16",
+      "channel": "facebook_feed",
+      "date": "2026-04-25",
+      "date_label": "Sa 25.04.",
+      "time": "10:00",
+      "images": [
+        "A7R00534.jpg"
+      ],
+      "caption": "Erdbeer-Limo mit frischer Minze trifft Matcha Latte im Kristallglas — zwei Getränke, die bei uns zum Frühstück einfach dazugehören. Welches ist euer Favorit?"
+    },
+    {
+      "id": "ig_feed_17",
+      "channel": "instagram_feed",
+      "date": "2026-04-25",
+      "date_label": "Sa 25.04.",
+      "time": "11:00",
+      "type": "single",
+      "panorama": false,
+      "images": [
+        "A7R00521.jpg"
+      ],
+      "caption": "Matcha, Etagere, Erdbeer-Limo. Das volle Programm. 💚\n\n#dolcefreddozwickau #fruehstueck #breakfast #zwickau #hauptmarkt #eiscafe #italien #buonappetito #frühstückliebe",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "ig_story_18",
+      "channel": "instagram_story",
+      "date": "2026-04-26",
+      "date_label": "So 26.04.",
+      "time": "14:00",
+      "images": [
+        "A7R00507.jpg"
+      ],
+      "caption": "Tisch ist gedeckt! 🍽️",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "fb_feed_17",
+      "channel": "facebook_feed",
+      "date": "2026-04-28",
+      "date_label": "Di 28.04.",
+      "time": "11:00",
+      "images": [
+        "A7R00490.jpg"
+      ],
+      "caption": "Es sind die kleinen Details, die zählen. Handverlesenes Geschirr, frische Blumen auf dem Tisch, der dunkle Marmor — bei uns sollt ihr euch wie in einem kleinen Stück Italien fühlen."
+    },
+    {
+      "id": "ig_feed_18",
+      "channel": "instagram_feed",
+      "date": "2026-04-28",
+      "date_label": "Di 28.04.",
+      "time": "17:00",
+      "type": "single",
+      "panorama": false,
+      "images": [
+        "A7R00526.jpg"
+      ],
+      "caption": "Tulpen, Pancakes und Sonnenlicht. So kann der Tag beginnen. ☀️\n\n#dolcefreddozwickau #fruehstueck #breakfast #zwickau #hauptmarkt #eiscafe #italien #buonappetito #frühstückliebe",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "ig_story_19",
+      "channel": "instagram_story",
+      "date": "2026-04-29",
+      "date_label": "Mi 29.04.",
+      "time": "10:15",
+      "images": [
+        "A7R00508.jpg"
+      ],
+      "caption": "☕🥐",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "fb_feed_18",
+      "channel": "facebook_feed",
+      "date": "2026-04-30",
+      "date_label": "Do 30.04.",
+      "time": "12:00",
+      "images": [
+        "A7R00491.jpg"
+      ],
+      "caption": "Es sind die kleinen Details, die zählen. Handverlesenes Geschirr, frische Blumen auf dem Tisch, der dunkle Marmor — bei uns sollt ihr euch wie in einem kleinen Stück Italien fühlen."
+    },
+    {
+      "id": "ig_feed_19",
+      "channel": "instagram_feed",
+      "date": "2026-04-30",
+      "date_label": "Do 30.04.",
+      "time": "10:00",
+      "type": "single",
+      "panorama": false,
+      "images": [
+        "A7R00533.jpg"
+      ],
+      "caption": "Nutella-Pancakes. Braucht man mehr Worte? 🥞\n\nTipp: Am Wochenende vorher reservieren! 📲\n\n#dolcefreddozwickau #pancakes #fruehstueck #zwickau #nutella #hauptmarkt #eiscafe",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "fb_feed_19",
+      "channel": "facebook_feed",
+      "date": "2026-05-02",
+      "date_label": "Sa 02.05.",
+      "time": "10:00",
+      "images": [
+        "A7R00539.jpg"
+      ],
+      "caption": "Matcha Latte mit Pancakes und Erdbeer-Limo im Hintergrund — wenn das kein Grund ist, bei uns vorbeizukommen! Jeden Tag frisch für euch da.\n\nKleiner Tipp: Gerade am Wochenende reserviert ihr am besten vorher — dann ist euer Tisch sicher!"
+    },
+    {
+      "id": "ig_feed_20",
+      "channel": "instagram_feed",
+      "date": "2026-05-02",
+      "date_label": "Sa 02.05.",
+      "time": "11:00",
+      "type": "single",
+      "panorama": false,
+      "images": [
+        "A7R00537.jpg"
+      ],
+      "caption": "Frische Brötchen, Butter, Marmelade. Klassisch gut. 🥖\n\n#dolcefreddozwickau #fruehstueck #breakfast #zwickau #hauptmarkt #eiscafe #italien #buonappetito #frühstückliebe",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "ig_story_20",
+      "channel": "instagram_story",
+      "date": "2026-05-02",
+      "date_label": "Sa 02.05.",
+      "time": "11:15",
+      "images": [
+        "A7R00513.jpg"
+      ],
+      "caption": "Frühstücksliebe. 💕",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "ig_story_21",
+      "channel": "instagram_story",
+      "date": "2026-05-03",
+      "date_label": "So 03.05.",
+      "time": "14:00",
+      "images": [
+        "A7R00514.jpg"
+      ],
+      "caption": "Etagere-Goals. ✨",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "fb_feed_20",
+      "channel": "facebook_feed",
+      "date": "2026-05-05",
+      "date_label": "Di 05.05.",
+      "time": "11:00",
+      "images": [
+        "A7R00540.jpg"
+      ],
+      "caption": "Matcha Latte mit Pancakes und Erdbeer-Limo im Hintergrund — wenn das kein Grund ist, bei uns vorbeizukommen! Jeden Tag frisch für euch da."
+    },
+    {
+      "id": "ig_feed_21",
+      "channel": "instagram_feed",
+      "date": "2026-05-05",
+      "date_label": "Di 05.05.",
+      "time": "17:00",
+      "type": "single",
+      "panorama": false,
+      "images": [
+        "A7R00492.jpg"
+      ],
+      "caption": "Erdbeer-Limo & Rührei — unsere Lieblings-Kombi. 🍓\n\n#dolcefreddozwickau #fruehstueck #breakfast #zwickau #hauptmarkt #eiscafe #italien #buonappetito #frühstückliebe",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "ig_story_22",
+      "channel": "instagram_story",
+      "date": "2026-05-06",
+      "date_label": "Mi 06.05.",
+      "time": "10:15",
+      "images": [
+        "A7R00515.jpg"
+      ],
+      "caption": "Heute schon gefrühstückt? 🥐",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "fb_feed_21",
+      "channel": "facebook_feed",
+      "date": "2026-05-07",
+      "date_label": "Do 07.05.",
+      "time": "12:00",
+      "images": [
+        "A7R00496.jpg"
+      ],
+      "caption": "Frische Tulpen in allen Farben auf jedem Tisch — weil Frühstück bei uns nicht nur schmecken, sondern auch schön sein soll. Buon appetito!"
+    },
+    {
+      "id": "ig_feed_22",
+      "channel": "instagram_feed",
+      "date": "2026-05-07",
+      "date_label": "Do 07.05.",
+      "time": "10:00",
+      "type": "single",
+      "panorama": false,
+      "images": [
+        "A7R00495.jpg"
+      ],
+      "caption": "Die Etagere wartet. Kommt vorbei! 😊\n\n#dolcefreddozwickau #fruehstueck #breakfast #zwickau #hauptmarkt #eiscafe #italien #buonappetito #frühstückliebe",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "ig_story_23",
+      "channel": "instagram_story",
+      "date": "2026-05-08",
+      "date_label": "Fr 08.05.",
+      "time": "11:15",
+      "images": [
+        "A7R00516.jpg"
+      ],
+      "caption": "🍓🥞",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "fb_feed_22",
+      "channel": "facebook_feed",
+      "date": "2026-05-09",
+      "date_label": "Sa 09.05.",
+      "time": "10:00",
+      "images": [
+        "A7R00489.jpg"
+      ],
+      "caption": "Frische Tulpen in allen Farben auf jedem Tisch — weil Frühstück bei uns nicht nur schmecken, sondern auch schön sein soll. Buon appetito!"
+    },
+    {
+      "id": "ig_feed_23",
+      "channel": "instagram_feed",
+      "date": "2026-05-09",
+      "date_label": "Sa 09.05.",
+      "time": "11:00",
+      "type": "single",
+      "panorama": false,
+      "images": [
+        "A7R00497.jpg"
+      ],
+      "caption": "ORO CAFFÈ — unser Kaffee kommt aus Italien. Natürlich. ☕\n\nTipp: Am Wochenende vorher reservieren! 📲\n\n#dolcefreddozwickau #fruehstueck #breakfast #zwickau #hauptmarkt #eiscafe #italien #buonappetito #frühstückliebe",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "ig_story_24",
+      "channel": "instagram_story",
+      "date": "2026-05-10",
+      "date_label": "So 10.05.",
+      "time": "14:00",
+      "images": [
+        "A7R00517.jpg"
+      ],
+      "caption": "Gönnt euch! 😋",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "fb_feed_23",
+      "channel": "facebook_feed",
+      "date": "2026-05-12",
+      "date_label": "Di 12.05.",
+      "time": "11:00",
+      "images": [
+        "A7R00503.jpg"
+      ],
+      "caption": "Pancakes, Rührei, Etagere mit Aufschnitt, frische Säfte — unser Frühstückstisch hat heute wieder alles zu bieten. Wir freuen uns auf euren Besuch!"
+    },
+    {
+      "id": "ig_feed_24",
+      "channel": "instagram_feed",
+      "date": "2026-05-12",
+      "date_label": "Di 12.05.",
+      "time": "17:00",
+      "type": "single",
+      "panorama": false,
+      "images": [
+        "A7R00498.jpg"
+      ],
+      "caption": "Eis geht auch zum Frühstück. Nur so als Idee. 🍦😏\n\n#dolcefreddozwickau #fruehstueck #breakfast #zwickau #hauptmarkt #eiscafe #italien #buonappetito #frühstückliebe",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "ig_story_25",
+      "channel": "instagram_story",
+      "date": "2026-05-13",
+      "date_label": "Mi 13.05.",
+      "time": "10:15",
+      "images": [
+        "A7R00518.jpg"
+      ],
+      "caption": "Frisch vom Hauptmarkt. 📍",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "fb_feed_24",
+      "channel": "facebook_feed",
+      "date": "2026-05-14",
+      "date_label": "Do 14.05.",
+      "time": "12:00",
+      "images": [
+        "A7R00504.jpg"
+      ],
+      "caption": "Vogelperspektive auf unser Frühstück: Rührei, Pancakes, Etagere, Matcha, Erdbeer-Limo und frische Tulpen. Alles, was ihr für einen perfekten Start in den Tag braucht.\n\nKleiner Tipp: Gerade am Wochenende reserviert ihr am besten vorher — dann ist euer Tisch sicher!",
+      "holiday": "Christi Himmelfahrt",
+      "holiday_note": "Dolce Freddo hat geöffnet!"
+    },
+    {
+      "id": "ig_feed_25",
+      "channel": "instagram_feed",
+      "date": "2026-05-14",
+      "date_label": "Do 14.05.",
+      "time": "10:00",
+      "type": "single",
+      "panorama": false,
+      "images": [
+        "A7R00500.jpg"
+      ],
+      "caption": "Apfelsaft, Tulpen, gute Laune. 🍎🌷\n\n#dolcefreddozwickau #fruehstueck #breakfast #zwickau #hauptmarkt #eiscafe #italien #buonappetito #frühstückliebe",
+      "location": "Dolce Freddo Zwickau",
+      "holiday": "Christi Himmelfahrt",
+      "holiday_note": "Dolce Freddo hat geöffnet!"
+    },
+    {
+      "id": "ig_story_26",
+      "channel": "instagram_story",
+      "date": "2026-05-15",
+      "date_label": "Fr 15.05.",
+      "time": "11:15",
+      "images": [
+        "A7R00519.jpg"
+      ],
+      "caption": "Süß oder herzhaft? 🤔",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "fb_feed_25",
+      "channel": "facebook_feed",
+      "date": "2026-05-16",
+      "date_label": "Sa 16.05.",
+      "time": "10:00",
+      "images": [
+        "A7R00521.jpg"
+      ],
+      "caption": "Matcha, Etagere und Erdbeer-Limo — unser Frühstück hat alles, was das Herz begehrt. Echtes italienisches Frühstück, jeden Tag frisch zubereitet."
+    },
+    {
+      "id": "ig_feed_26",
+      "channel": "instagram_feed",
+      "date": "2026-05-16",
+      "date_label": "Sa 16.05.",
+      "time": "11:00",
+      "type": "single",
+      "panorama": false,
+      "images": [
+        "A7R00501.jpg"
+      ],
+      "caption": "Unser Frühstückstisch. Jeden Tag frisch für euch. 🥐\n\n#dolcefreddozwickau #fruehstueck #breakfast #zwickau #hauptmarkt #eiscafe #italien #buonappetito #frühstückliebe",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "ig_story_27",
+      "channel": "instagram_story",
+      "date": "2026-05-17",
+      "date_label": "So 17.05.",
+      "time": "14:00",
+      "images": [
+        "A7R00520.jpg"
+      ],
+      "caption": "Morgen-Vibes. ☀️",
+      "location": "Dolce Freddo Zwickau",
+      "original_image_url": "originals/dolce-freddo-zwickau/A7R00520.jpg",
+      "img_position": {
+        "x": 50
+      }
+    },
+    {
+      "id": "fb_feed_26",
+      "channel": "facebook_feed",
+      "date": "2026-05-19",
+      "date_label": "Di 19.05.",
+      "time": "11:00",
+      "images": [
+        "A7R00526.jpg"
+      ],
+      "caption": "Sonnenlicht, bunte Tulpen und ein gedeckter Frühstückstisch — so beginnt ein guter Tag bei Dolce Freddo am Hauptmarkt in Zwickau."
+    },
+    {
+      "id": "ig_feed_27",
+      "channel": "instagram_feed",
+      "date": "2026-05-19",
+      "date_label": "Di 19.05.",
+      "time": "17:00",
+      "type": "single",
+      "panorama": false,
+      "images": [
+        "A7R00507.jpg"
+      ],
+      "caption": "Salami, Mozzarella, Basilikum — la dolce vita am Morgen. 🇮🇹\n\nTipp: Am Wochenende vorher reservieren! 📲\n\n#dolcefreddozwickau #italien #italiano #ladolcevita #fruehstueck #zwickau #hauptmarkt #eiscafe",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "ig_story_28",
+      "channel": "instagram_story",
+      "date": "2026-05-20",
+      "date_label": "Mi 20.05.",
+      "time": "10:15",
+      "images": [
+        "A7R00521.jpg"
+      ],
+      "caption": "Reservation? Link in Bio! 📲",
+      "location": "Dolce Freddo Zwickau",
+      "original_image_url": "originals/dolce-freddo-zwickau/A7R00521.jpg",
+      "img_position": {
+        "x": 50
+      }
+    },
+    {
+      "id": "fb_feed_27",
+      "channel": "facebook_feed",
+      "date": "2026-05-21",
+      "date_label": "Do 21.05.",
+      "time": "12:00",
+      "images": [
+        "A7R00533.jpg"
+      ],
+      "caption": "Unsere Pancakes mit Nutella — so fluffig, so schokoladig, so gut. Jeden Tag frisch für euch gemacht. Kommt vorbei und probiert!"
+    },
+    {
+      "id": "ig_feed_28",
+      "channel": "instagram_feed",
+      "date": "2026-05-21",
+      "date_label": "Do 21.05.",
+      "time": "10:00",
+      "type": "single",
+      "panorama": false,
+      "images": [
+        "A7R00508.jpg"
+      ],
+      "caption": "Alles da, alles frisch. Buon appetito! 😋\n\n#dolcefreddozwickau #fruehstueck #breakfast #zwickau #hauptmarkt #eiscafe #italien #buonappetito #frühstückliebe",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "ig_story_29",
+      "channel": "instagram_story",
+      "date": "2026-05-22",
+      "date_label": "Fr 22.05.",
+      "time": "11:15",
+      "images": [
+        "A7R00522.jpg"
+      ],
+      "caption": "🍵💚",
+      "location": "Dolce Freddo Zwickau",
+      "original_image_url": "originals/dolce-freddo-zwickau/A7R00522.jpg",
+      "img_position": {
+        "x": 50
+      }
+    },
+    {
+      "id": "fb_feed_28",
+      "channel": "facebook_feed",
+      "date": "2026-05-23",
+      "date_label": "Sa 23.05.",
+      "time": "10:00",
+      "images": [
+        "A7R00537.jpg"
+      ],
+      "caption": "Manchmal braucht es nicht viel: ein frisches Brötchen, gute Butter und hausgemachte Marmelade. Genau das bekommt ihr bei uns — jeden Morgen."
+    },
+    {
+      "id": "ig_feed_29",
+      "channel": "instagram_feed",
+      "date": "2026-05-23",
+      "date_label": "Sa 23.05.",
+      "time": "11:00",
+      "type": "single",
+      "panorama": false,
+      "images": [
+        "A7R00513.jpg"
+      ],
+      "caption": "Matcha Latte mit Blick auf die Etagere. Träumen erlaubt. 🍵\n\n#dolcefreddozwickau #fruehstueck #breakfast #zwickau #hauptmarkt #eiscafe #italien #buonappetito #frühstückliebe",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "fb_feed_29",
+      "channel": "facebook_feed",
+      "date": "2026-05-26",
+      "date_label": "Di 26.05.",
+      "time": "11:00",
+      "images": [
+        "A7R00492.jpg"
+      ],
+      "caption": "Erdbeer-Limo und Rührei — klingt ungewöhnlich? Probiert es aus! Bei uns gehört diese Kombi zu den Favoriten unserer Gäste.\n\nKleiner Tipp: Gerade am Wochenende reserviert ihr am besten vorher — dann ist euer Tisch sicher!"
+    },
+    {
+      "id": "ig_feed_30",
+      "channel": "instagram_feed",
+      "date": "2026-05-26",
+      "date_label": "Di 26.05.",
+      "time": "17:00",
+      "type": "single",
+      "panorama": false,
+      "images": [
+        "A7R00517.jpg"
+      ],
+      "caption": "Pancake-Turm. Mit extra Erdbeeren. 🍓🥞\n\n#dolcefreddozwickau #pancakes #fruehstueck #zwickau #nutella #hauptmarkt #eiscafe",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "ig_story_30",
+      "channel": "instagram_story",
+      "date": "2026-05-26",
+      "date_label": "Di 26.05.",
+      "time": "14:00",
+      "images": [
+        "A7R00526.jpg"
+      ],
+      "caption": "Dolce Vita am Morgen. 🌞",
+      "location": "Dolce Freddo Zwickau",
+      "original_image_url": "originals/dolce-freddo-zwickau/A7R00526.jpg",
+      "img_position": {
+        "x": 50
+      }
+    },
+    {
+      "id": "ig_story_31",
+      "channel": "instagram_story",
+      "date": "2026-05-27",
+      "date_label": "Mi 27.05.",
+      "time": "10:15",
+      "images": [
+        "A7R00527.jpg"
+      ],
+      "caption": "Käse & Salami? Ja bitte! 🧀",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "fb_feed_30",
+      "channel": "facebook_feed",
+      "date": "2026-05-28",
+      "date_label": "Do 28.05.",
+      "time": "12:00",
+      "images": [
+        "A7R00495.jpg"
+      ],
+      "caption": "Unsere Etagere wartet auf euch — mit Aufschnitt, Käse, Brötchen und allem, was zu einem leckeren Frühstück dazugehört. Wir freuen uns auf euch!"
+    },
+    {
+      "id": "ig_feed_31",
+      "channel": "instagram_feed",
+      "date": "2026-05-28",
+      "date_label": "Do 28.05.",
+      "time": "10:00",
+      "type": "single",
+      "panorama": false,
+      "images": [
+        "A7R00519.jpg"
+      ],
+      "caption": "Matcha im Kristallglas. Weil's schöner ist. 💎\n\nTipp: Am Wochenende vorher reservieren! 📲\n\n#dolcefreddozwickau #matchalatte #matcha #fruehstueck #zwickau #hauptmarkt #eiscafe",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "ig_story_32",
+      "channel": "instagram_story",
+      "date": "2026-05-29",
+      "date_label": "Fr 29.05.",
+      "time": "11:15",
+      "images": [
+        "A7R00528.jpg"
+      ],
+      "caption": "🥂☀️",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "fb_feed_31",
+      "channel": "facebook_feed",
+      "date": "2026-05-30",
+      "date_label": "Sa 30.05.",
+      "time": "10:00",
+      "images": [
+        "A7R00497.jpg"
+      ],
+      "caption": "Unser Kaffee kommt von ORO CAFFÈ aus Italien — echte italienische Röstung für echten Genuss. Ob Cappuccino, Espresso oder Latte — bei uns schmeckt er wie in Bella Italia."
+    },
+    {
+      "id": "ig_feed_32",
+      "channel": "instagram_feed",
+      "date": "2026-05-30",
+      "date_label": "Sa 30.05.",
+      "time": "11:00",
+      "type": "single",
+      "panorama": false,
+      "images": [
+        "A7R00527.jpg"
+      ],
+      "caption": "Rührei, Pancakes, Aperol — Frühstück auf Italienisch. 🇮🇹\n\n#dolcefreddozwickau #italien #italiano #ladolcevita #fruehstueck #zwickau #hauptmarkt #eiscafe",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "ig_story_33",
+      "channel": "instagram_story",
+      "date": "2026-05-31",
+      "date_label": "So 31.05.",
+      "time": "14:00",
+      "images": [
+        "A7R00529.jpg"
+      ],
+      "caption": "Das ist Liebe. ❤️",
+      "location": "Dolce Freddo Zwickau",
+      "original_image_url": "originals/dolce-freddo-zwickau/A7R00529.jpg",
+      "img_position": {
+        "x": 50
+      }
+    },
+    {
+      "id": "fb_feed_32",
+      "channel": "facebook_feed",
+      "date": "2026-06-02",
+      "date_label": "Di 02.06.",
+      "time": "11:00",
+      "images": [
+        "A7R00498.jpg"
+      ],
+      "caption": "Wusstet ihr, dass es bei uns auch Eis zum Frühstück gibt? Na gut, offiziell öffnet die Eisvitrine etwas später — aber träumen darf man ja!"
+    },
+    {
+      "id": "ig_feed_33",
+      "channel": "instagram_feed",
+      "date": "2026-06-02",
+      "date_label": "Di 02.06.",
+      "time": "17:00",
+      "type": "single",
+      "panorama": false,
+      "images": [
+        "A7R00528.jpg"
+      ],
+      "caption": "Unser Tisch für zwei. Am besten vorher reservieren! 🥂\n\n#dolcefreddozwickau #fruehstueck #breakfast #zwickau #hauptmarkt #eiscafe #italien #buonappetito #frühstückliebe",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "ig_story_34",
+      "channel": "instagram_story",
+      "date": "2026-06-03",
+      "date_label": "Mi 03.06.",
+      "time": "10:15",
+      "images": [
+        "A7R00532.jpg"
+      ],
+      "caption": "Euer Lieblingsfrühstück? 🥐",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "fb_feed_33",
+      "channel": "facebook_feed",
+      "date": "2026-06-04",
+      "date_label": "Do 04.06.",
+      "time": "12:00",
+      "images": [
+        "A7R00500.jpg"
+      ],
+      "caption": "Frisch gepresster Apfelsaft, bunte Tulpen und die Vorfreude auf ein leckeres Frühstück. So beginnt der perfekte Morgen bei Dolce Freddo."
+    },
+    {
+      "id": "ig_feed_34",
+      "channel": "instagram_feed",
+      "date": "2026-06-04",
+      "date_label": "Do 04.06.",
+      "time": "10:00",
+      "type": "single",
+      "panorama": false,
+      "images": [
+        "A7R00538.jpg"
+      ],
+      "caption": "Pistazien-Matcha mit Tulpen-View. 🌷🍵\n\n#dolcefreddozwickau #matchalatte #matcha #fruehstueck #zwickau #hauptmarkt #eiscafe",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "ig_story_35",
+      "channel": "instagram_story",
+      "date": "2026-06-05",
+      "date_label": "Fr 05.06.",
+      "time": "11:15",
+      "images": [
+        "A7R00533.jpg"
+      ],
+      "caption": "Come in! 😊",
+      "location": "Dolce Freddo Zwickau",
+      "original_image_url": "originals/dolce-freddo-zwickau/A7R00533.jpg",
+      "img_position": {
+        "x": 50
+      }
+    },
+    {
+      "id": "fb_feed_34",
+      "channel": "facebook_feed",
+      "date": "2026-06-06",
+      "date_label": "Sa 06.06.",
+      "time": "10:00",
+      "images": [
+        "A7R00501.jpg"
+      ],
+      "caption": "Unser Frühstückstisch — jeden Tag frisch gedeckt, jeden Tag mit Liebe zubereitet. Von der Etagere bis zum Matcha Latte: bei uns ist alles hausgemacht.\n\nKleiner Tipp: Gerade am Wochenende reserviert ihr am besten vorher — dann ist euer Tisch sicher!"
+    },
+    {
+      "id": "ig_story_36",
+      "channel": "instagram_story",
+      "date": "2026-06-07",
+      "date_label": "So 07.06.",
+      "time": "14:00",
+      "images": [
+        "A7R00534.jpg"
+      ],
+      "caption": "Heute reserviert? 📲",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "fb_feed_35",
+      "channel": "facebook_feed",
+      "date": "2026-06-09",
+      "date_label": "Di 09.06.",
+      "time": "11:00",
+      "images": [
+        "A7R00507.jpg"
+      ],
+      "caption": "Salami, Mozzarella, frischer Basilikum — unsere Etagere ist ein Stück Italien auf eurem Tisch. La dolce vita beginnt bei uns schon morgens!"
+    },
+    {
+      "id": "ig_feed_35",
+      "channel": "instagram_feed",
+      "date": "2026-06-09",
+      "date_label": "Di 09.06.",
+      "time": "11:00",
+      "type": "single",
+      "panorama": false,
+      "images": [
+        "A7R00542.jpg"
+      ],
+      "caption": "Wenn das Licht so schön durch die Gläser fällt. ✨\n\nTipp: Am Wochenende vorher reservieren! 📲\n\n#dolcefreddozwickau #matchalatte #matcha #fruehstueck #zwickau #hauptmarkt #eiscafe",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "ig_story_37",
+      "channel": "instagram_story",
+      "date": "2026-06-10",
+      "date_label": "Mi 10.06.",
+      "time": "10:15",
+      "images": [
+        "A7R00535.jpg"
+      ],
+      "caption": "Fresh. Italian. Daily. 🇮🇹",
+      "location": "Dolce Freddo Zwickau",
+      "original_image_url": "originals/dolce-freddo-zwickau/A7R00535.jpg",
+      "img_position": {
+        "x": 50
+      }
+    },
+    {
+      "id": "fb_feed_36",
+      "channel": "facebook_feed",
+      "date": "2026-06-11",
+      "date_label": "Do 11.06.",
+      "time": "12:00",
+      "images": [
+        "A7R00508.jpg"
+      ],
+      "caption": "Alles da, alles frisch, alles mit Liebe. Unser Frühstück wartet auf euch — buon appetito!"
+    },
+    {
+      "id": "ig_story_38",
+      "channel": "instagram_story",
+      "date": "2026-06-12",
+      "date_label": "Fr 12.06.",
+      "time": "11:15",
+      "images": [
+        "A7R00536.jpg"
+      ],
+      "caption": "🥖🍓✨",
+      "location": "Dolce Freddo Zwickau",
+      "original_image_url": "originals/dolce-freddo-zwickau/A7R00536.jpg",
+      "img_position": {
+        "x": 50
+      }
+    },
+    {
+      "id": "fb_feed_37",
+      "channel": "facebook_feed",
+      "date": "2026-06-13",
+      "date_label": "Sa 13.06.",
+      "time": "10:00",
+      "images": [
+        "A7R00513.jpg"
+      ],
+      "caption": "Unser Matcha Latte im Kristallglas mit Blick auf die prall gefüllte Etagere. So lässt es sich frühstücken!"
+    },
+    {
+      "id": "ig_story_39",
+      "channel": "instagram_story",
+      "date": "2026-06-14",
+      "date_label": "So 14.06.",
+      "time": "14:00",
+      "images": [
+        "A7R00537.jpg"
+      ],
+      "caption": "Sonntagsfrühstück! ☀️🥐",
+      "location": "Dolce Freddo Zwickau",
+      "original_image_url": "originals/dolce-freddo-zwickau/A7R00537.jpg",
+      "img_position": {
+        "x": 50
+      }
+    },
+    {
+      "id": "fb_feed_38",
+      "channel": "facebook_feed",
+      "date": "2026-06-16",
+      "date_label": "Di 16.06.",
+      "time": "11:00",
+      "images": [
+        "A7R00517.jpg"
+      ],
+      "caption": "Unser Pancake-Turm mit Nutella und frischen Erdbeeren — ein süßer Traum, der jeden Morgen auf euch wartet. Wer kann da widerstehen?"
+    },
+    {
+      "id": "ig_story_40",
+      "channel": "instagram_story",
+      "date": "2026-06-17",
+      "date_label": "Mi 17.06.",
+      "time": "10:15",
+      "images": [
+        "A7R00538.jpg"
+      ],
+      "caption": "Wochenend-Vibes. 🥂",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "fb_feed_39",
+      "channel": "facebook_feed",
+      "date": "2026-06-18",
+      "date_label": "Do 18.06.",
+      "time": "12:00",
+      "images": [
+        "A7R00519.jpg"
+      ],
+      "caption": "Matcha im handgeschliffenen Kristallglas, Erdbeeren und Orange dazu, die Etagere im Hintergrund — Frühstück bei uns ist immer ein kleines Erlebnis.\n\nKleiner Tipp: Gerade am Wochenende reserviert ihr am besten vorher — dann ist euer Tisch sicher!"
+    },
+    {
+      "id": "ig_story_41",
+      "channel": "instagram_story",
+      "date": "2026-06-19",
+      "date_label": "Fr 19.06.",
+      "time": "11:15",
+      "images": [
+        "A7R00539.jpg"
+      ],
+      "caption": "Bellissimo! 🇮🇹",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "fb_feed_40",
+      "channel": "facebook_feed",
+      "date": "2026-06-20",
+      "date_label": "Sa 20.06.",
+      "time": "10:00",
+      "images": [
+        "A7R00527.jpg"
+      ],
+      "caption": "Rührei, Pancakes und ein Glas Aperol dazu — unser Frühstück ist eine Mischung aus deutsch und italienisch. Das Beste aus beiden Welten!"
+    },
+    {
+      "id": "ig_story_42",
+      "channel": "instagram_story",
+      "date": "2026-06-21",
+      "date_label": "So 21.06.",
+      "time": "14:00",
+      "images": [
+        "A7R00540.jpg"
+      ],
+      "caption": "Pancakes sind fertig! 🥞",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "fb_feed_41",
+      "channel": "facebook_feed",
+      "date": "2026-06-23",
+      "date_label": "Di 23.06.",
+      "time": "11:00",
+      "images": [
+        "A7R00528.jpg"
+      ],
+      "caption": "Unser Tisch für zwei ist gedeckt und wartet auf euch. Tipp: Reserviert gerne vorher, besonders fürs Wochenende!"
+    },
+    {
+      "id": "ig_story_43",
+      "channel": "instagram_story",
+      "date": "2026-06-24",
+      "date_label": "Mi 24.06.",
+      "time": "10:15",
+      "images": [
+        "A7R00542.jpg"
+      ],
+      "caption": "☀️🌷🥐",
+      "location": "Dolce Freddo Zwickau"
+    },
+    {
+      "id": "fb_feed_42",
+      "channel": "facebook_feed",
+      "date": "2026-06-25",
+      "date_label": "Do 25.06.",
+      "time": "12:00",
+      "images": [
+        "A7R00538.jpg"
+      ],
+      "caption": "Matcha Latte mit Pistazien-Topping und frische Tulpen im Hintergrund — Frühstück bei Dolce Freddo ist immer auch ein Fest fürs Auge."
+    },
+    {
+      "id": "fb_feed_43",
+      "channel": "facebook_feed",
+      "date": "2026-06-30",
+      "date_label": "Di 30.06.",
+      "time": "10:00",
+      "images": [
+        "A7R00542.jpg"
+      ],
+      "caption": "Wenn das goldene Morgenlicht durch die Gläser fällt und der Duft von frischen Pancakes in der Luft liegt — dann seid ihr bei uns richtig."
+    }
+  ]
+}
