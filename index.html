@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- v2.7 Works without GitHub token — public repo fallback, client-aware EMBEDDED_DATA -->
+<!-- v2.8 Monatstrenner, Feiertags-Badge aus JSON, Datumsanzeige mit Monatsname -->
 <html lang="de">
 <head>
   <meta charset="UTF-8">
@@ -543,6 +543,55 @@
 
     .post-card.holiday-post {
       border: 1px solid rgba(251, 191, 36, 0.25);
+    }
+
+    /* Monatstrenner zwischen Karten */
+    .month-separator {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 0;
+      margin: 4px 0;
+    }
+
+    .month-separator-inner {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      font-size: 14px;
+      font-weight: 700;
+      color: #f59e0b;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .month-separator-line {
+      flex: 1;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.5), rgba(245, 158, 11, 0.5), transparent);
+    }
+
+    .month-separator-text {
+      white-space: nowrap;
+    }
+
+    /* Feiertags-Badge auf der Karte */
+    .holiday-badge {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #fbbf24;
+      background: rgba(251, 191, 36, 0.2);
+      border: 1px solid rgba(251, 191, 36, 0.35);
+      backdrop-filter: blur(8px);
+      z-index: 5;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }
 
     .panorama-container {
@@ -1659,14 +1708,17 @@
     }
 
     function formatGermanDate(isoDate) {
-      // Converts "2026-03-17" → "Mo, 17.03.2026"
+      // Converts "2026-03-17" → "Mi 18. März"
       if (!isoDate) return '';
       const parts = isoDate.split('-');
       if (parts.length !== 3) return isoDate;
       const days = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
+      const months = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
+                       'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
       const d = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
       const dow = days[d.getDay()];
-      return `${dow}, ${parts[2]}.${parts[1]}.${parts[0]}`;
+      const monthName = months[d.getMonth()];
+      return `${dow} ${d.getDate()}. ${monthName}`;
     }
 
     function formatTime(date) {
@@ -1951,7 +2003,29 @@
 
         html += `<div class="channel-section-title">${channelTitles[channel] || channel}</div>`;
         html += `<div class="channel-section-grid">`;
+        const monthNames = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
+                             'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
+        let lastMonth = null;
         posts.forEach(post => {
+          // Monatstrenner einfuegen wenn neuer Monat beginnt
+          if (post.date) {
+            const dateParts = post.date.split('-');
+            const postMonth = dateParts[0] + '-' + dateParts[1];
+            if (lastMonth !== null && postMonth !== lastMonth) {
+              const mIdx = Number(dateParts[1]) - 1;
+              const mYear = dateParts[0];
+              html += `
+                <div class="month-separator">
+                  <div class="month-separator-inner">
+                    <div class="month-separator-line"></div>
+                    <span class="month-separator-text">━━━ ${monthNames[mIdx].toUpperCase()} ${mYear} ━━━</span>
+                    <div class="month-separator-line"></div>
+                  </div>
+                </div>`;
+            }
+            lastMonth = postMonth;
+          }
+
           const postDate = parsePostDate(post.date, post.time);
           const isSaved = !APP.unsavedChanges.has(post.id);
           const imgUrls = post.image_urls || [];
@@ -1961,6 +2035,7 @@
             : null;
           const currentImg = storyOriginalUrl || imgUrls[0] || '';
           const holidayName = HOLIDAYS_SACHSEN[post.date] || '';
+          const holidayField = post.holiday || '';
           const isPanorama = post.panorama === true;
           const isStory = post.channel === 'instagram_story';
           const containerClass = isStory ? 'story' : 'feed';
@@ -1970,7 +2045,7 @@
           const lastRegen = hasRegenRequest ? post.regen_requests[post.regen_requests.length - 1] : null;
 
           html += `
-            <div class="post-card ${!isSaved ? 'unsaved' : ''} ${hasRegenRequest ? 'regen-requested' : ''} ${holidayName ? 'holiday-post' : ''}" id="post-${post.id}">
+            <div class="post-card ${!isSaved ? 'unsaved' : ''} ${hasRegenRequest ? 'regen-requested' : ''} ${holidayName || holidayField ? 'holiday-post' : ''}" id="post-${post.id}">
               ${hasRegenRequest ? `<div class="regen-badge">🔄 Neu beantragt: ${lastRegen.what}</div>` : ''}
               ${holidayName ? `<div class="holiday-banner"><span class="holiday-icon">⚠️</span> Feiertag: ${holidayName}</div>` : ''}
               <div class="post-image-container ${containerClass}">
@@ -1993,6 +2068,7 @@
                   ${getChannelIcon(post.channel)}
                   ${post.channel.replace(/_/g, ' ').toUpperCase()}
                 </div>
+                ${holidayField ? `<div class="holiday-badge">🎉 ${holidayField}</div>` : ''}
               </div>
               ${post.channel === "instagram_story" ? `
               <div class="img-control-bar">

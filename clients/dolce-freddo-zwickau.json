@@ -1,6 +1,7 @@
+// v2 — Alle Captions komplett neu geschrieben: kreativer, abwechslungsreicher, bildgenau
 {
   "client": "Dolce Freddo Zwickau",
-  "generated": "2026-03-17T18:00:00",
+  "generated": "2026-03-17T19:00:00",
   "period": "18.03. - 30.06.2026",
   "posts": [
     {
@@ -8,11 +9,11 @@
       "channel": "instagram_story",
       "date": "2026-03-18",
       "date_label": "Mi 18.03.",
-      "time": "10:15",
+      "time": "09:45",
       "images": [
         "img-503.jpg"
       ],
-      "caption": "Frühstück? 🥐",
+      "caption": "",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-503.jpg"
@@ -23,14 +24,14 @@
       "channel": "instagram_feed",
       "date": "2026-03-18",
       "date_label": "Mi 18.03.",
-      "time": "11:00",
+      "time": "10:15",
       "type": "single",
       "panorama": false,
       "images": [
         "img-503.jpg"
       ],
-      "caption": "So startet der Tag richtig. ☀️",
-      "first_comment": "#dolcefreddozwickau #fruehstueck #breakfast #zwickau #hauptmarkt #eiscafe #italien #buonappetito",
+      "caption": "Pancakes, Tulpen, Etagere — und der Morgen gehört euch. 🥞🌷",
+      "first_comment": "#dolcefreddozwickau #fruehstueck #breakfast #zwickau #hauptmarkt #pancakes #eiscafe #buongiorno",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-503.jpg"
@@ -41,11 +42,11 @@
       "channel": "instagram_story",
       "date": "2026-03-19",
       "date_label": "Do 19.03.",
-      "time": "10:15",
+      "time": "09:30",
       "images": [
         "img-489.jpg"
       ],
-      "caption": "Der Frühling ist da. 🌷",
+      "caption": "",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-489.jpg"
@@ -56,11 +57,11 @@
       "channel": "instagram_story",
       "date": "2026-03-20",
       "date_label": "Fr 20.03.",
-      "time": "10:15",
+      "time": "10:00",
       "images": [
         "img-498.jpg"
       ],
-      "caption": "Unsere Eiswand. 🍦",
+      "caption": "",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-498.jpg"
@@ -75,7 +76,7 @@
       "images": [
         "img-503.jpg"
       ],
-      "caption": "Ein gedeckter Frühstückstisch bei Dolce Freddo — mit Etagere voller italienischem Aufschnitt, frischen Brötchen und bunten Getränken. So lässt sich der Morgen genießen. Am Wochenende bitte vorher reservieren!",
+      "caption": "Samstagsmorgen, wie wir ihn lieben: Auf dem Tisch stehen Pancakes mit Erdbeeren, eine Etagere voller italienischem Aufschnitt und bunte Tulpen. Dazu eine Erdbeer-Limo und gute Laune. Am Wochenende bitte vorher reservieren — euer Platz wartet!",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-503.jpg"
       ]
@@ -85,7 +86,7 @@
       "channel": "instagram_feed",
       "date": "2026-03-21",
       "date_label": "Sa 21.03.",
-      "time": "10:00",
+      "time": "10:15",
       "type": "carousel",
       "panorama": false,
       "images": [
@@ -93,8 +94,8 @@
         "img-498.jpg",
         "img-499.jpg"
       ],
-      "caption": "Frühling bei Dolce Freddo — Tulpen, Eiswand und gute Laune. 🌷🍦",
-      "first_comment": "#dolcefreddozwickau #fruehling #tulpen #spring #zwickau #hauptmarkt #eiscafe #dolcevita",
+      "caption": "Tulpen, Waffeldeko, gedeckter Tisch — Frühling bei Dolce Freddo in drei Bildern. 🌷🍦",
+      "first_comment": "#dolcefreddozwickau #fruehling #spring #tulpen #zwickau #hauptmarkt #eiscafe #dolcevita #italien",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-489.jpg",
@@ -112,7 +113,7 @@
       "images": [
         "img-499.jpg"
       ],
-      "caption": "Tutto pronto. 🥐🌷",
+      "caption": "",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-499.jpg"
@@ -127,7 +128,7 @@
       "images": [
         "img-489.jpg"
       ],
-      "caption": "Tulpen auf dem Tisch, Sonne im Herzen — bei uns am Hauptmarkt ist der Frühling angekommen. Kommt vorbei und genießt euer Frühstück mit Blick auf den schönsten Platz in Zwickau.",
+      "caption": "Frische Tulpen in der Vase, Sonnenlicht auf dem Tisch und der Duft von Kaffee in der Luft. So beginnt ein Morgen bei uns am Hauptmarkt. Wann wart ihr zuletzt da?",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-489.jpg"
       ]
@@ -141,7 +142,7 @@
       "images": [
         "img-497.jpg"
       ],
-      "caption": "ORO Caffè. ☕",
+      "caption": "",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-497.jpg"
@@ -156,7 +157,7 @@
       "images": [
         "img-498.jpg"
       ],
-      "caption": "Habt ihr schon unsere Eiswand entdeckt? Handgefertigte Waffeln im Metallrahmen — fast zu schön, um nur Deko zu sein. Schaut vorbei und gönnt euch danach das Original aus der Theke.",
+      "caption": "Diese Wand erzählt Geschichten. Echte Eiswaffeln im Metallrahmen — handgefertigt und fast zu schön, um nur Deko zu sein. Kommt vorbei, schaut sie euch an und gönnt euch danach das Original aus der Theke.",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-498.jpg"
       ]
@@ -166,14 +167,14 @@
       "channel": "instagram_feed",
       "date": "2026-03-25",
       "date_label": "Mi 25.03.",
-      "time": "11:00",
+      "time": "08:30",
       "type": "single",
       "panorama": false,
       "images": [
         "img-497.jpg"
       ],
-      "caption": "ORO Caffè — unser Gold am Morgen. ☕",
-      "first_comment": "#dolcefreddozwickau #fruehstueck #breakfast #zwickau #hauptmarkt #eiscafe #italien #buonappetito",
+      "caption": "Vier Buchstaben, ein Versprechen: O-R-O. ☕✨",
+      "first_comment": "#dolcefreddozwickau #orocaffe #kaffee #espresso #zwickau #hauptmarkt #cafelife #italienischerkaffee",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-497.jpg"
@@ -188,7 +189,7 @@
       "images": [
         "img-499.jpg"
       ],
-      "caption": "So sieht ein Frühstücksmorgen bei Dolce Freddo aus — Tulpen auf dem Tisch, Rührei mit Schnittlauch, Erdbeer-Limonade, Etagere mit Aufschnitt und ein Glas zum Anstoßen. Am besten am Wochenende reservieren!",
+      "caption": "Rührei mit Schnittlauch, Erdbeer-Limo, Etagere, Weinglas und dazu ein Strauß Tulpen — manchen Morgen möchte man einfach festhalten. Am Wochenende bitte vorher einen Tisch reservieren!",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-499.jpg"
       ]
@@ -202,7 +203,7 @@
       "images": [
         "img-514.jpg"
       ],
-      "caption": "Matcha. 🍵",
+      "caption": "",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-514.jpg"
@@ -213,14 +214,14 @@
       "channel": "instagram_feed",
       "date": "2026-03-28",
       "date_label": "Sa 28.03.",
-      "time": "10:00",
+      "time": "09:00",
       "type": "single",
       "panorama": false,
       "images": [
         "img-514.jpg"
       ],
-      "caption": "Matcha trifft Milchschaum. 🍵💚",
-      "first_comment": "#dolcefreddozwickau #matchalatte #pistazien #erdbeerlimo #drinks #zwickau #fruehstueck #cafelife",
+      "caption": "Grün, cremig und ein bisschen magic. Unser Matcha Latte. 🍵",
+      "first_comment": "#dolcefreddozwickau #matchalatte #matcha #greenlatte #zwickau #fruehstueck #cafelife #latte",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-514.jpg"
@@ -235,7 +236,7 @@
       "images": [
         "img-497.jpg"
       ],
-      "caption": "ORO Caffè — das ist der Kaffee, mit dem bei uns jeder Morgen beginnt. Italienische Röstung, perfekter Schaum, echtes Handwerk. Probiert ihn beim nächsten Frühstück!",
+      "caption": "ORO CAFFÈ steht in goldenen Lettern auf dunklem Grund — und genauso schmeckt er auch: kräftig, vollmundig, echt italienisch. Bei uns kommt nichts aus der Kapsel. Probiert ihn beim nächsten Besuch.",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-497.jpg"
       ]
@@ -249,7 +250,7 @@
       "images": [
         "img-514.jpg"
       ],
-      "caption": "Unser Matcha Latte — leuchtend grün, cremiger Schaum, serviert im Kristallglas. Dahinter wartet schon das frische Brötchen. Die perfekte Kombination für einen entspannten Morgen bei Dolce Freddo.",
+      "caption": "Leuchtend grün, cremiger Schaum, serviert im Kristallglas — unser Matcha Latte ist so schön wie ein kleines Kunstwerk. Im Hintergrund wartet schon das frische Brötchen. Wer mag, bekommt bei uns beides zusammen.",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-514.jpg"
       ]
@@ -259,11 +260,11 @@
       "channel": "instagram_story",
       "date": "2026-03-31",
       "date_label": "Di 31.03.",
-      "time": "10:15",
+      "time": "09:15",
       "images": [
         "img-522.jpg"
       ],
-      "caption": "Gedeckt. Bereit. Los. 🥐",
+      "caption": "",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-522.jpg"
@@ -280,8 +281,8 @@
       "images": [
         "img-522.jpg"
       ],
-      "caption": "Einfach mal wischen. ➡️",
-      "first_comment": "#dolcefreddozwickau #brunch #wochenende #fruehstueck #zwickau #hauptmarkt #eiscafe #genuss",
+      "caption": "Zwei Tische, ein Frühstücks-Panorama. Wischt mal. ➡️",
+      "first_comment": "#dolcefreddozwickau #brunch #fruehstueck #panorama #zwickau #hauptmarkt #eiscafe #genuss #dolcevita",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-522.jpg"
@@ -297,7 +298,7 @@
       "images": [
         "img-533.jpg"
       ],
-      "caption": "🍓",
+      "caption": "",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-533.jpg"
@@ -308,11 +309,12 @@
       "channel": "facebook",
       "date": "2026-04-03",
       "date_label": "Fr 03.04.",
-      "time": "10:00",
+      "time": "09:30",
+      "holiday": "Karfreitag",
       "images": [
         "img-522.jpg"
       ],
-      "caption": "Karfreitag und wir haben geöffnet! Unser Frühstückstisch wartet auf euch — mit voller Etagere, frischen Brötchen und bunten Getränken. Frohe Ostern! 🐣",
+      "caption": "Karfreitag — und wir sind für euch da! Zwei gedeckte Frühstückstische warten: Etagere, Pancakes, Matcha und alles, was das Herz begehrt. Startet entspannt ins Osterwochenende bei Dolce Freddo. 🐣",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-522.jpg"
       ]
@@ -328,8 +330,8 @@
       "images": [
         "img-533.jpg"
       ],
-      "caption": "Nutella-Erdbeeren-Stapel. 🥞🍓",
-      "first_comment": "#dolcefreddozwickau #matchalatte #pistazien #erdbeerlimo #drinks #zwickau #fruehstueck #cafelife #ostern",
+      "caption": "Drei Schichten, Nutella, Erdbeeren, ein Hauch Puderzucker. Mehr braucht kein Morgen. 🥞",
+      "first_comment": "#dolcefreddozwickau #pancakes #nutella #erdbeeren #ostern #zwickau #hauptmarkt #sweetbreakfast #fruehstueck",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-533.jpg"
@@ -340,11 +342,12 @@
       "channel": "facebook",
       "date": "2026-04-05",
       "date_label": "So 05.04.",
-      "time": "10:00",
+      "time": "09:00",
+      "holiday": "Ostersonntag",
       "images": [
         "img-533.jpg"
       ],
-      "caption": "Frohe Ostern! 🐣 Auch heute haben wir für euch geöffnet — mit Pancakes, Nutella, frischen Erdbeeren und ganz viel Liebe. Der perfekte süße Start in den Feiertag.",
+      "caption": "Buona Pasqua! Auch am Ostersonntag stehen unsere Türen offen. Pancakes mit Nutella und frischen Erdbeeren — der süßeste Start in den Feiertag. Wir freuen uns auf euch! 🐣",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-533.jpg"
       ]
@@ -354,11 +357,11 @@
       "channel": "instagram_story",
       "date": "2026-04-07",
       "date_label": "Di 07.04.",
-      "time": "10:15",
+      "time": "10:00",
       "images": [
         "img-500.jpg"
       ],
-      "caption": "Dienstag = Frühstückstag. 😋",
+      "caption": "",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-500.jpg"
@@ -369,14 +372,14 @@
       "channel": "instagram_feed",
       "date": "2026-04-08",
       "date_label": "Mi 08.04.",
-      "time": "10:00",
+      "time": "10:15",
       "type": "single",
       "panorama": false,
       "images": [
         "img-500.jpg"
       ],
-      "caption": "Tutto pronto. 🇮🇹",
-      "first_comment": "#dolcefreddozwickau #fruehstueck #breakfast #zwickau #hauptmarkt #eiscafe #italien #buonappetito",
+      "caption": "Goldener Saft, Tulpenstiele, Sonnenlicht. La dolce colazione. 🥂🌷",
+      "first_comment": "#dolcefreddozwickau #fruehstueck #aperitivo #zwickau #hauptmarkt #eiscafe #italien #dolcevita #brunch",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-500.jpg"
@@ -387,11 +390,11 @@
       "channel": "instagram_story",
       "date": "2026-04-09",
       "date_label": "Do 09.04.",
-      "time": "10:15",
+      "time": "09:45",
       "images": [
         "img-506.jpg"
       ],
-      "caption": "Nutella + Erdbeeren = 🤤",
+      "caption": "",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-506.jpg"
@@ -406,7 +409,7 @@
       "images": [
         "img-535.jpg"
       ],
-      "caption": "Aufschnitt-Liebe. 🧀🍖",
+      "caption": "",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-535.jpg"
@@ -421,7 +424,7 @@
       "images": [
         "img-500.jpg"
       ],
-      "caption": "Ein Morgen bei Dolce Freddo — Rührei, Pancakes, Matcha Latte, Etagere mit Caprese und Aufschnitt. Alles frisch, alles mit Liebe. Am Wochenende bitte vorher reservieren!",
+      "caption": "Dieses Weinglas mit goldenem Saft, dahinter Tulpen und der gedeckte Frühstückstisch — manche Bilder sagen mehr als tausend Worte. Genau so sieht ein Morgen bei Dolce Freddo aus. Cin cin!",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-500.jpg"
       ]
@@ -431,7 +434,7 @@
       "channel": "instagram_feed",
       "date": "2026-04-11",
       "date_label": "Sa 11.04.",
-      "time": "10:00",
+      "time": "08:00",
       "type": "carousel",
       "panorama": false,
       "images": [
@@ -439,8 +442,8 @@
         "img-535.jpg",
         "img-536.jpg"
       ],
-      "caption": "Drei Favoriten, ein Tisch. 🥞🧀🍓",
-      "first_comment": "#dolcefreddozwickau #pancakes #nutella #erdbeeren #fruehstueck #zwickau #hauptmarkt #sweetbreakfast",
+      "caption": "Süß, herzhaft oder erfrischend — was wählt ihr zuerst? 🥞🧀🍓",
+      "first_comment": "#dolcefreddozwickau #pancakes #etagere #erdbeerlimo #fruehstueck #zwickau #hauptmarkt #genuss #foodlover",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-506.jpg",
@@ -458,7 +461,7 @@
       "images": [
         "img-536.jpg"
       ],
-      "caption": "Erdbeer-Minze. 🍓🌿",
+      "caption": "",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-536.jpg"
@@ -473,7 +476,7 @@
       "images": [
         "img-506.jpg"
       ],
-      "caption": "Unsere Pancakes — goldbraun, gestapelt, mit Nutella und frischen Erdbeeren getoppt. Der perfekte süße Start ins Wochenende. Reserviert am besten vorher!",
+      "caption": "Wer beim Anblick von Pancakes mit Nutella und frischen Erdbeeren nicht schwach wird, hat noch nie unsere probiert. Goldbraun, gestapelt und mit einem Puderzucker-Finish — jeden Morgen frisch für euch.",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-506.jpg"
       ]
@@ -487,7 +490,7 @@
       "images": [
         "img-534.jpg"
       ],
-      "caption": "Matcha-Moment. 🍵",
+      "caption": "",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-534.jpg"
@@ -502,7 +505,7 @@
       "images": [
         "img-535.jpg"
       ],
-      "caption": "Noch ein Blick auf unsere Etagere — Salami, Schinken, Mozzarella mit Tomate, frisches Basilikum, Erdbeeren und Gurke. Alles bunt, alles frisch, alles fatto a mano.",
+      "caption": "Ein Blick auf die obere Etage: Salami, Mozzarella, frische Erdbeeren und Basilikum — alles angerichtet wie auf einem kleinen italienischen Markt. Fehlt nur noch der Espresso dazu. Oder doch lieber ein Matcha?",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-535.jpg"
       ]
@@ -512,14 +515,14 @@
       "channel": "instagram_feed",
       "date": "2026-04-15",
       "date_label": "Mi 15.04.",
-      "time": "11:00",
+      "time": "10:00",
       "type": "single",
       "panorama": false,
       "images": [
         "img-534.jpg"
       ],
-      "caption": "Matcha im Kristallglas. 🍵✨",
-      "first_comment": "#dolcefreddozwickau #matchalatte #matcha #drinks #zwickau #eiscafe #fruehstueck #greenlatte",
+      "caption": "Fast zu schön zum Trinken. Fast. 🍵",
+      "first_comment": "#dolcefreddozwickau #matchalatte #matcha #kristallglas #zwickau #eiscafe #greenlatte #cafelife",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-534.jpg"
@@ -534,7 +537,7 @@
       "images": [
         "img-536.jpg"
       ],
-      "caption": "Unsere Erdbeer-Limonade von oben — frische Erdbeeren, Minze und Eis. Erfrischend, fruchtig und der perfekte Begleiter zu Pancakes oder Etagere. Jeden Tag frisch zubereitet.",
+      "caption": "Von oben betrachtet sieht unsere Erdbeer-Limonade aus wie ein kleines Kunstwerk: rote Erdbeeren, frische Minze, Eiswürfel. Jeden Tag frisch zubereitet und der perfekte Begleiter zu Pancakes oder Etagere.",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-536.jpg"
       ]
@@ -544,11 +547,11 @@
       "channel": "instagram_story",
       "date": "2026-04-17",
       "date_label": "Fr 17.04.",
-      "time": "10:15",
+      "time": "09:30",
       "images": [
         "img-527.jpg"
       ],
-      "caption": "Stimmung. ✨",
+      "caption": "",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-527.jpg"
@@ -559,14 +562,14 @@
       "channel": "instagram_feed",
       "date": "2026-04-18",
       "date_label": "Sa 18.04.",
-      "time": "10:00",
+      "time": "09:00",
       "type": "single",
       "panorama": false,
       "images": [
         "img-527.jpg"
       ],
-      "caption": "Samstagsmorgen am Hauptmarkt. ✨",
-      "first_comment": "#dolcefreddozwickau #brunch #wochenende #fruehstueck #zwickau #hauptmarkt #eiscafe #genuss",
+      "caption": "Warmes Licht, Tulpen, Pancakes und ein Weinglas. Manche Morgen sind einfach Film. 🎬✨",
+      "first_comment": "#dolcefreddozwickau #brunch #samstag #wochenende #zwickau #hauptmarkt #eiscafe #genuss #morningvibes",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-527.jpg"
@@ -581,7 +584,7 @@
       "images": [
         "img-534.jpg"
       ],
-      "caption": "Unser Matcha Latte — leuchtend grün, mit cremigem Milchschaum im geschliffenen Kristallglas. Im Hintergrund warten schon die Pancakes. Der perfekte Start in den Tag bei Dolce Freddo.",
+      "caption": "Matcha im Kristallglas — grün wie Frühling, cremig wie ein Traum. Im Hintergrund sind schon die Pancakes zu erahnen. Bei uns bekommt ihr beides zusammen. Vorbeikommen und ausprobieren!",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-534.jpg"
       ]
@@ -595,7 +598,7 @@
       "images": [
         "img-527.jpg"
       ],
-      "caption": "Licht, Tulpen, Marmortisch und ein perfekt gedecktes Frühstück — manche Morgen sind einfach besonders. Reserviert euer Wochenend-Frühstück bei uns!",
+      "caption": "Wenn das Licht am Morgen genau so durch die Scheibe fällt und alles auf dem Tisch warm leuchtet — Tulpen, Pancakes, das Weinglas — dann weiß man: Das hier ist mehr als Frühstück. Das ist ein Gefühl.",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-527.jpg"
       ]
@@ -609,7 +612,7 @@
       "images": [
         "img-513.jpg"
       ],
-      "caption": "Matcha. 🍵",
+      "caption": "",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-513.jpg"
@@ -620,11 +623,11 @@
       "channel": "instagram_story",
       "date": "2026-04-22",
       "date_label": "Mi 22.04.",
-      "time": "10:15",
+      "time": "09:45",
       "images": [
         "img-493.jpg"
       ],
-      "caption": "Erdbeer-Limo, bitte. 🍓",
+      "caption": "",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-493.jpg"
@@ -635,7 +638,7 @@
       "channel": "instagram_feed",
       "date": "2026-04-22",
       "date_label": "Mi 22.04.",
-      "time": "11:00",
+      "time": "10:15",
       "type": "carousel",
       "panorama": false,
       "images": [
@@ -643,8 +646,8 @@
         "img-493.jpg",
         "img-501.jpg"
       ],
-      "caption": "Was darf's sein? 🍵🍓🥂",
-      "first_comment": "#dolcefreddozwickau #matchalatte #pistazien #erdbeerlimo #drinks #zwickau #fruehstueck #cafelife",
+      "caption": "Matcha. Erdbeer-Limo. Oder doch der volle Tisch? Wischt euch durch. 💚🍓🥂",
+      "first_comment": "#dolcefreddozwickau #matchalatte #erdbeerlimo #drinks #zwickau #fruehstueck #cafelife #genussmoment",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-513.jpg",
@@ -658,11 +661,11 @@
       "channel": "instagram_story",
       "date": "2026-04-23",
       "date_label": "Do 23.04.",
-      "time": "10:15",
+      "time": "10:00",
       "images": [
         "img-501.jpg"
       ],
-      "caption": "Cheers. 🥂",
+      "caption": "",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-501.jpg"
@@ -677,7 +680,7 @@
       "images": [
         "img-518.jpg"
       ],
-      "caption": "Pistazie. 💚",
+      "caption": "",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-518.jpg"
@@ -694,8 +697,8 @@
       "images": [
         "img-507.jpg"
       ],
-      "caption": "Aufschnitt, Caprese, Brötchen — unsere Etagere. 🥐🇮🇹",
-      "first_comment": "#dolcefreddozwickau #fruehstueck #etagere #caprese #aufschnitt #zwickau #italien #buongiorno",
+      "caption": "Oben: Aufschnitt, Käse, Marmelade. Unten: knuspriges Brötchen. Dazwischen: pures Italien. 🇮🇹🥐",
+      "first_comment": "#dolcefreddozwickau #etagere #caprese #aufschnitt #fruehstueck #zwickau #italien #buongiorno #breakfast",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-507.jpg"
@@ -710,7 +713,7 @@
       "images": [
         "img-513.jpg"
       ],
-      "caption": "Matcha Latte — grün, cremig und der perfekte Wachmacher am Morgen. Bei uns bekommt ihr ihn zum Frühstück, zum Nachmittags-Eis oder einfach so. Probiert mal!",
+      "caption": "Unser Matcha Latte im Kristallglas — leuchtend grün, cremiger Schaum, ein kleiner Moment Ruhe bevor der Tag losgeht. Bei uns gibt's ihn zum Frühstück, zum Eis oder einfach so. Wann probiert ihr?",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-513.jpg"
       ]
@@ -724,7 +727,7 @@
       "images": [
         "img-493.jpg"
       ],
-      "caption": "Unsere Erdbeer-Limonade mit frischer Minze — erfrischend, fruchtig und der heimliche Star auf jedem Frühstückstisch. Am besten eiskalt genießen!",
+      "caption": "Erdbeer-Limonade — frische Erdbeeren, Minze, Eis. Sieht nicht nur gut aus, schmeckt auch so. Der heimliche Star auf unserem Frühstückstisch, den alle nachbestellen.",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-493.jpg"
       ]
@@ -738,7 +741,7 @@
       "images": [
         "img-501.jpg"
       ],
-      "caption": "Manchmal braucht es einfach ein Glas mit Stil. Unser Aperitivo zum Frühstück — für alle, die den Morgen italienisch beginnen möchten. Cin cin!",
+      "caption": "Frühstück bei Dolce Freddo ist mehr als essen — es ist ein Erlebnis. Matcha Latte, Etagere, Rührei und ein Glas, das nach Aperitivo ruft. Wer den Morgen italienisch starten will, ist bei uns richtig.",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-501.jpg"
       ]
@@ -752,7 +755,7 @@
       "images": [
         "img-490.jpg"
       ],
-      "caption": "Bereit für euch. 🍽️",
+      "caption": "",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-490.jpg"
@@ -767,7 +770,7 @@
       "images": [
         "img-507.jpg"
       ],
-      "caption": "Unsere Frühstücks-Etagere — oben italienischer Aufschnitt mit Caprese, Mozzarella und frischem Basilikum. Unten ein goldenes Brötchen mit Himbeermarmelade und Butter. Buon appetito!",
+      "caption": "Unsere Etagere im Detail: oben italienischer Aufschnitt mit Mozzarella, Basilikum und Marmelade, unten ein goldenes Brötchen. Federico sagt dazu nur: Così si fa colazione in Italia. Buon appetito!",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-507.jpg"
       ]
@@ -777,14 +780,14 @@
       "channel": "instagram_feed",
       "date": "2026-04-29",
       "date_label": "Mi 29.04.",
-      "time": "10:00",
+      "time": "08:15",
       "type": "single",
       "panorama": false,
       "images": [
         "img-490.jpg"
       ],
-      "caption": "Gedeckt und bereit. 🍽️✨",
-      "first_comment": "#dolcefreddozwickau #fruehstueck #breakfast #zwickau #hauptmarkt #eiscafe #italien #buonappetito",
+      "caption": "Blauer Teller. Blaue Flasche. Besteck bereit. Fehlt nur noch ihr. 🍽️",
+      "first_comment": "#dolcefreddozwickau #fruehstueck #tischgedeck #zwickau #hauptmarkt #eiscafe #breakfast #tableforbreakfast",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-490.jpg"
@@ -799,7 +802,7 @@
       "images": [
         "img-504.jpg"
       ],
-      "caption": "Draufsicht. 📸",
+      "caption": "",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-504.jpg"
@@ -810,14 +813,15 @@
       "channel": "instagram_feed",
       "date": "2026-05-01",
       "date_label": "Fr 01.05.",
-      "time": "10:00",
+      "time": "09:30",
       "type": "panorama",
       "panorama": true,
+      "holiday": "Tag der Arbeit",
       "images": [
         "img-504.jpg"
       ],
-      "caption": "1. Mai — und wir haben offen. Frühstück? 😋☀️",
-      "first_comment": "#dolcefreddozwickau #brunch #wochenende #fruehstueck #zwickau #hauptmarkt #eiscafe #genuss #tagderarbeit #feiertag",
+      "caption": "Feiertag? Wir sind da. Von oben sieht unser Tisch so aus. 😋☀️",
+      "first_comment": "#dolcefreddozwickau #tagderarbeit #feiertag #fruehstueck #brunch #zwickau #hauptmarkt #eiscafe #1mai",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-504.jpg"
@@ -833,7 +837,7 @@
       "images": [
         "img-490.jpg"
       ],
-      "caption": "Blaues Glas, grüner Teller, Marmortisch — bei uns ist auch das Drumherum schön. Kommt vorbei und erlebt Dolce Freddo mit allen Sinnen.",
+      "caption": "Blauer Teller, grüner Teller, eine schöne Flasche und sorgfältig gelegtes Besteck — bei Dolce Freddo beginnt das Frühstückserlebnis schon bevor das Essen kommt. Manchmal liegt die Schönheit im Drumherum.",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-490.jpg"
       ]
@@ -847,7 +851,7 @@
       "images": [
         "img-504.jpg"
       ],
-      "caption": "Unser Frühstückstisch von oben — so sieht ein perfekter Morgen aus. Rührei, Pancakes, Matcha Latte, Erdbeer-Limo, Etagere und frische Tulpen. Alles da, fehlt nur noch ihr!",
+      "caption": "Vogelperspektive auf unseren Frühstückstisch: Pancakes, Rührei, Matcha, Erdbeer-Limo, Etagere mit Aufschnitt und dazwischen Tulpen in voller Blüte. Das alles wartet morgens auf euch — am Wochenende mit Reservierung!",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-504.jpg"
       ]
@@ -857,11 +861,11 @@
       "channel": "instagram_story",
       "date": "2026-05-05",
       "date_label": "Di 05.05.",
-      "time": "10:15",
+      "time": "09:15",
       "images": [
         "img-542.jpg"
       ],
-      "caption": "Golden hour. 🥂",
+      "caption": "",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-542.jpg"
@@ -872,14 +876,14 @@
       "channel": "instagram_feed",
       "date": "2026-05-06",
       "date_label": "Mi 06.05.",
-      "time": "11:00",
+      "time": "10:00",
       "type": "single",
       "panorama": false,
       "images": [
         "img-542.jpg"
       ],
-      "caption": "Dolce Vita im Glas. 🥂",
-      "first_comment": "#dolcefreddozwickau #matchalatte #pistazien #erdbeerlimo #drinks #zwickau #fruehstueck #cafelife #aperitivo",
+      "caption": "Wer braucht schon Golden Hour, wenn man Golden Glass hat? 🥂✨",
+      "first_comment": "#dolcefreddozwickau #aperitivo #goldenhour #drinks #zwickau #eiscafe #dolcevita #cheers #fruehstueck",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-542.jpg"
@@ -894,7 +898,7 @@
       "images": [
         "img-528.jpg"
       ],
-      "caption": "Tisch für zwei? 🥐",
+      "caption": "",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-528.jpg"
@@ -905,14 +909,14 @@
       "channel": "instagram_feed",
       "date": "2026-05-09",
       "date_label": "Sa 09.05.",
-      "time": "10:00",
+      "time": "10:15",
       "type": "single",
       "panorama": false,
       "images": [
         "img-528.jpg"
       ],
-      "caption": "Alles, was ihr braucht. Alles an einem Tisch. 🥐",
-      "first_comment": "#dolcefreddozwickau #fruehstueck #breakfast #zwickau #hauptmarkt #eiscafe #italien #buonappetito",
+      "caption": "Zwei Tische. Etagere, Pancakes, Matcha. Blaue Flasche. Tutto perfetto. 🇮🇹",
+      "first_comment": "#dolcefreddozwickau #fruehstueck #breakfast #brunch #zwickau #hauptmarkt #eiscafe #italien #buonappetito",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-528.jpg"
@@ -927,7 +931,7 @@
       "images": [
         "img-542.jpg"
       ],
-      "caption": "Unser Aperitivo — golden, eisgekühlt, mit Blick auf die Tulpen. Perfekt nach dem Frühstück oder als Auftakt in den Nachmittag. Cin cin!",
+      "caption": "Goldener Saft im Weinglas, Matcha daneben, Pancakes im Hintergrund und Tulpen, die alles zusammenhalten. So sieht Dolce Vita auf dem Hauptmarkt aus. Wir machen keinen Aperitivo — wir leben ihn.",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-542.jpg"
       ]
@@ -941,7 +945,7 @@
       "images": [
         "img-528.jpg"
       ],
-      "caption": "Etagere, Rührei, Pancakes, Matcha und Erdbeer-Limo — unser Frühstückstisch lässt keine Wünsche offen. Am besten am Wochenende vorher reservieren, dann ist alles bereit, wenn ihr kommt.",
+      "caption": "Ein Blick auf zwei gedeckte Tische: Etagere, Pancakes, Matcha und blaue Flasche. Bei uns frühstückt man mit Stil — und mit Liebe zum Detail. Reservierung fürs Wochenende? Einfach anrufen oder vorbeikommen.",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-528.jpg"
       ]
@@ -955,7 +959,7 @@
       "images": [
         "img-494.jpg"
       ],
-      "caption": "Die Etagere. 🧀🍖",
+      "caption": "",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-494.jpg"
@@ -966,11 +970,11 @@
       "channel": "instagram_story",
       "date": "2026-05-13",
       "date_label": "Mi 13.05.",
-      "time": "10:15",
+      "time": "09:30",
       "images": [
         "img-516.jpg"
       ],
-      "caption": "Frisch aufgefüllt. 😋",
+      "caption": "",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-516.jpg"
@@ -981,16 +985,17 @@
       "channel": "instagram_feed",
       "date": "2026-05-14",
       "date_label": "Do 14.05.",
-      "time": "10:00",
+      "time": "08:30",
       "type": "carousel",
       "panorama": false,
+      "holiday": "Christi Himmelfahrt",
       "images": [
         "img-494.jpg",
         "img-516.jpg",
         "img-520.jpg"
       ],
-      "caption": "Feiertag = Frühstückstag. Auch heute für euch da! 🥐🇮🇹",
-      "first_comment": "#dolcefreddozwickau #fruehstueck #etagere #caprese #aufschnitt #zwickau #italien #buongiorno #himmelfahrt #feiertag",
+      "caption": "Himmelfahrt. Wir haben offen. Euer Frühstück wartet. 🥐☀️",
+      "first_comment": "#dolcefreddozwickau #himmelfahrt #feiertag #fruehstueck #etagere #pancakes #zwickau #italien #buongiorno",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-494.jpg",
@@ -1005,10 +1010,11 @@
       "date": "2026-05-14",
       "date_label": "Do 14.05.",
       "time": "12:00",
+      "holiday": "Christi Himmelfahrt",
       "images": [
         "img-520.jpg"
       ],
-      "caption": "Himmelfahrt bei Dolce Freddo. ☀️🥐",
+      "caption": "",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-520.jpg"
@@ -1023,7 +1029,7 @@
       "images": [
         "img-538.jpg"
       ],
-      "caption": "Pistazie. 💚",
+      "caption": "",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-538.jpg"
@@ -1040,8 +1046,8 @@
       "images": [
         "img-538.jpg"
       ],
-      "caption": "Grün ist das neue Gold. 💚☕",
-      "first_comment": "#dolcefreddozwickau #matchalatte #pistazien #erdbeerlimo #drinks #zwickau #fruehstueck #cafelife #pistazie #latte",
+      "caption": "Pistazienkrümel auf Milchschaum. Das ist kein Latte — das ist Poesie. 💚",
+      "first_comment": "#dolcefreddozwickau #pistazienlatte #pistazien #latte #drinks #zwickau #eiscafe #cafelife #greenlove",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-538.jpg"
@@ -1056,7 +1062,7 @@
       "images": [
         "img-494.jpg"
       ],
-      "caption": "Unsere Frühstücks-Etagere — oben italienischer Aufschnitt mit Caprese, unten knuspriges Brötchen mit Marmelade. Dazu ein Matcha Latte oder Erdbeer-Limo. Was wählt ihr?",
+      "caption": "Unsere Etagere — oben Aufschnitt mit Käse und Caprese, unten knusprige Brötchen. Dazu könnt ihr Matcha, Erdbeer-Limo oder einen Espresso wählen. Was darf es bei euch sein?",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-494.jpg"
       ]
@@ -1070,7 +1076,7 @@
       "images": [
         "img-516.jpg"
       ],
-      "caption": "Pancakes mit Nutella und Erdbeeren, dahinter ein rotes Erfrischungsgetränk mit Minze — unser süßer Frühstücksklassiker. Kommt vorbei und probiert selbst, warum alle davon schwärmen.",
+      "caption": "Pancakes im Vordergrund, Erdbeer-Limo im Weitwinkel — dieser Blick sagt alles. Unsere süße Seite, jeden Morgen frisch zubereitet. Im Sommer sind wir übrigens auch montags für euch da!",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-516.jpg"
       ]
@@ -1084,7 +1090,7 @@
       "images": [
         "img-520.jpg"
       ],
-      "caption": "Unsere Etagere mit Erdbeer-Limonade — die perfekte Kombination für alle, die ihren Morgen bunt und frisch starten möchten. Auch an Feiertagen für euch da!",
+      "caption": "Etagere im Fokus, Erdbeer-Limo im Vordergrund — bei Dolce Freddo trifft herzhafter Aufschnitt auf fruchtige Erfrischung. Jeden Tag ab 09:30 Uhr für euch bereit.",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-520.jpg"
       ]
@@ -1098,7 +1104,7 @@
       "images": [
         "img-529.jpg"
       ],
-      "caption": "Frühstücksvibes. ✨",
+      "caption": "",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-529.jpg"
@@ -1113,7 +1119,7 @@
       "images": [
         "img-538.jpg"
       ],
-      "caption": "Unser Pistazien-Latte — von oben betrachtet fast zu schön zum Trinken. Cremiger Schaum, echte Pistazien-Stückchen und ein Hauch Italien im Glas.",
+      "caption": "Pistazien-Latte — der Newcomer auf unserer Karte, der schon jetzt Stammgast-Status hat. Cremig, nussig, im hohen Glas serviert. Probiert ihn und erzählt uns, ob er euer neuer Favorit wird.",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-538.jpg"
       ]
@@ -1123,14 +1129,14 @@
       "channel": "instagram_feed",
       "date": "2026-05-20",
       "date_label": "Mi 20.05.",
-      "time": "10:00",
+      "time": "10:15",
       "type": "single",
       "panorama": false,
       "images": [
         "img-529.jpg"
       ],
-      "caption": "Ancora una volta. ✨🥐",
-      "first_comment": "#dolcefreddozwickau #brunch #wochenende #fruehstueck #zwickau #hauptmarkt #eiscafe #genuss",
+      "caption": "Tulpen. Weinglas. Latte. Pancakes. Etagere. Buongiorno. ☀️",
+      "first_comment": "#dolcefreddozwickau #brunch #fruehstueck #dolcevita #zwickau #hauptmarkt #eiscafe #genuss #morningvibes",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-529.jpg"
@@ -1141,11 +1147,11 @@
       "channel": "instagram_story",
       "date": "2026-05-22",
       "date_label": "Fr 22.05.",
-      "time": "10:15",
+      "time": "10:00",
       "images": [
         "img-505.jpg"
       ],
-      "caption": "Rührei mit Schnittlauch. 🍳",
+      "caption": "",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-505.jpg"
@@ -1160,7 +1166,7 @@
       "images": [
         "img-529.jpg"
       ],
-      "caption": "Etagere, Pancakes, Rührei, Tulpen und dazu ein Matcha Latte — unser Frühstückstisch lässt Herzen höher schlagen. Pfingsten haben wir geöffnet, also: reservieren und genießen!",
+      "caption": "Pfingsten rückt näher — und wir haben natürlich geöffnet! Tulpen auf dem Tisch, Etagere voller Aufschnitt, Pancakes mit Erdbeeren und ein Latte eurer Wahl. Reserviert am besten jetzt schon fürs Wochenende!",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-529.jpg"
       ]
@@ -1174,7 +1180,7 @@
       "images": [
         "img-507.jpg"
       ],
-      "caption": "Unsere Etagere. 🧀🥐",
+      "caption": "",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-507.jpg"
@@ -1185,15 +1191,16 @@
       "channel": "instagram_feed",
       "date": "2026-05-24",
       "date_label": "So 24.05.",
-      "time": "10:00",
+      "time": "09:00",
       "type": "carousel",
       "panorama": false,
+      "holiday": "Pfingstsonntag",
       "images": [
         "img-505.jpg",
         "img-518.jpg"
       ],
-      "caption": "Rührei oder Pistazie? Frohe Pfingsten! 🍳💚",
-      "first_comment": "#dolcefreddozwickau #fruehstueck #breakfast #zwickau #hauptmarkt #eiscafe #italien #buonappetito #pfingsten",
+      "caption": "Pfingsten: herzhaft oder grün? Wir haben beides. Und offen. 🍳💚",
+      "first_comment": "#dolcefreddozwickau #pfingsten #feiertag #ruehrei #pistazienlatte #zwickau #hauptmarkt #eiscafe #buongiorno",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-505.jpg",
@@ -1210,7 +1217,7 @@
       "images": [
         "img-495.jpg"
       ],
-      "caption": "Etagere-Liebe. 🧀",
+      "caption": "",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-495.jpg"
@@ -1225,7 +1232,7 @@
       "images": [
         "img-505.jpg"
       ],
-      "caption": "Rührei mit Schnittlauch — cremig, goldgelb und genau richtig. Der herzhafte Klassiker auf unserem Frühstückstisch. Jeden Morgen frisch für euch.",
+      "caption": "Cremig, goldgelb, mit frischem Schnittlauch — unser Rührei sieht nicht nur gut aus, es schmeckt auch so. Der herzhafte Klassiker auf unserem Frühstückstisch, den die meisten als Erstes aufessen.",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-505.jpg"
       ]
@@ -1235,14 +1242,14 @@
       "channel": "instagram_feed",
       "date": "2026-05-27",
       "date_label": "Mi 27.05.",
-      "time": "11:00",
+      "time": "10:15",
       "type": "single",
       "panorama": false,
       "images": [
         "img-495.jpg"
       ],
-      "caption": "La colazione perfetta. 🇮🇹🥐",
-      "first_comment": "#dolcefreddozwickau #fruehstueck #etagere #caprese #aufschnitt #zwickau #italien #buongiorno",
+      "caption": "Etagere + voller Tisch = Samstagsgefühl an jedem Tag. 🥐😋",
+      "first_comment": "#dolcefreddozwickau #etagere #fruehstueck #caprese #aufschnitt #zwickau #italien #buongiorno #breakfast",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-495.jpg"
@@ -1257,7 +1264,7 @@
       "images": [
         "img-518.jpg"
       ],
-      "caption": "Unser Pistazien-Latte — cremig, mit echten Pistazien-Stückchen und einem Hauch Grün am Glasrand. Der perfekte Begleiter zum Frühstück oder einfach so zwischendurch. Probiert ihn bei eurem nächsten Besuch!",
+      "caption": "Unser Pistazien-Latte im hohen Glas — Milchschaum, echte Pistazienkrümel und diese Farbe, die einfach gute Laune macht. Ein Getränk, das man erst fotografiert und dann genießt. Wetten, dass es bei euch genauso ist?",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-518.jpg"
       ]
@@ -1271,7 +1278,7 @@
       "images": [
         "img-491.jpg"
       ],
-      "caption": "Bereit. 🍽️",
+      "caption": "",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-491.jpg"
@@ -1288,8 +1295,8 @@
       "images": [
         "img-491.jpg"
       ],
-      "caption": "Wir warten auf euch. 🍽️",
-      "first_comment": "#dolcefreddozwickau #fruehstueck #breakfast #zwickau #hauptmarkt #eiscafe #italien #buonappetito",
+      "caption": "Grüner Teller, Besteck, Vorfreude. Il tavolo è pronto. 🍽️🇮🇹",
+      "first_comment": "#dolcefreddozwickau #fruehstueck #breakfast #tischgedeck #zwickau #hauptmarkt #eiscafe #italia #buongiorno",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-491.jpg"
@@ -1304,7 +1311,7 @@
       "images": [
         "img-495.jpg"
       ],
-      "caption": "Die Etagere bei Dolce Freddo — oben eine bunte Mischung aus italienischem Aufschnitt, Caprese und frischem Gemüse, unten ein knuspriges Brötchen mit Marmelade. Am besten am Wochenende vorher reservieren!",
+      "caption": "Etagere mit vollem Programm, Getränke auf dem Tisch, alles bereit — bei uns sieht jeder Frühstückstisch aus wie ein kleines Fest. Kommt vorbei, am Wochenende bitte vorher reservieren!",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-495.jpg"
       ]
@@ -1318,7 +1325,7 @@
       "images": [
         "img-491.jpg"
       ],
-      "caption": "Grüner Teller, silbernes Besteck, weiße Serviette — manchmal liegt die Schönheit im Detail. Unser Tisch ist gedeckt, fehlt nur noch ihr!",
+      "caption": "Besteck liegt bereit, der grüne Teller wartet, die Serviette ist gefaltet. Gleich kommt die Etagere, gleich kommt der Kaffee, gleich kommt alles. Wir lieben diesen Moment kurz vor dem Frühstück.",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-491.jpg"
       ]
@@ -1328,11 +1335,11 @@
       "channel": "instagram_story",
       "date": "2026-06-02",
       "date_label": "Di 02.06.",
-      "time": "10:15",
+      "time": "09:45",
       "images": [
         "img-526.jpg"
       ],
-      "caption": "Für zwei. Oder mehr. 🥐🥐",
+      "caption": "",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-526.jpg"
@@ -1349,8 +1356,8 @@
       "images": [
         "img-526.jpg"
       ],
-      "caption": "Links wischen. ➡️✨",
-      "first_comment": "#dolcefreddozwickau #brunch #wochenende #fruehstueck #zwickau #hauptmarkt #eiscafe #genuss",
+      "caption": "Ein Bild reicht nicht. Wischt nach links. ➡️🥐",
+      "first_comment": "#dolcefreddozwickau #brunch #panorama #fruehstueck #zwickau #hauptmarkt #eiscafe #genuss #dolcevita",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-526.jpg"
@@ -1366,7 +1373,7 @@
       "images": [
         "img-537.jpg"
       ],
-      "caption": "Frisch gebacken. 🥐",
+      "caption": "",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-537.jpg"
@@ -1377,14 +1384,14 @@
       "channel": "instagram_feed",
       "date": "2026-06-06",
       "date_label": "Sa 06.06.",
-      "time": "10:00",
+      "time": "08:00",
       "type": "single",
       "panorama": false,
       "images": [
         "img-537.jpg"
       ],
-      "caption": "Knusprig. 🥐",
-      "first_comment": "#dolcefreddozwickau #fruehstueck #breakfast #zwickau #hauptmarkt #eiscafe #italien #buonappetito",
+      "caption": "Kaisersemmel auf Etagere. Daneben Marmelade. Was wollt ihr mehr? 🥐",
+      "first_comment": "#dolcefreddozwickau #fruehstueck #broetchen #etagere #zwickau #hauptmarkt #eiscafe #breakfast #morningfood",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-537.jpg"
@@ -1399,7 +1406,7 @@
       "images": [
         "img-526.jpg"
       ],
-      "caption": "Zwei Tische, ein Frühstück, unendlich viel Genuss — so sieht ein Morgen bei Dolce Freddo aus. Im Hintergrund leuchtet der SPRITZ-Schriftzug, auf dem Tisch stehen Tulpen, Pancakes und Etagere. Dolce Vita pur!",
+      "caption": "Wenn der ganze Tisch leuchtet: Tulpen, Pancakes, Rührei, Matcha und die Limo stehen bereit. So sieht Sommer-Frühstück bei Dolce Freddo aus — mitten am Hauptmarkt, mitten im Herzen von Zwickau.",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-526.jpg"
       ]
@@ -1413,7 +1420,7 @@
       "images": [
         "img-537.jpg"
       ],
-      "caption": "Unser Kaisersemmel — goldbraun, knusprig und bereit für Butter, Marmelade oder einfach pur. Dazu oben auf der Etagere: Caprese, Aufschnitt und frisches Gemüse.",
+      "caption": "Goldbraun, knusprig, perfekt: unsere Kaisersemmel auf der unteren Etage. Darüber wartet italienischer Aufschnitt mit Mozzarella. Einfach ein ehrliches Frühstück — so wie Federico es von zu Hause kennt.",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-537.jpg"
       ]
@@ -1427,7 +1434,7 @@
       "images": [
         "img-540.jpg"
       ],
-      "caption": "Dolce Vita. ☀️",
+      "caption": "",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-540.jpg"
@@ -1438,14 +1445,14 @@
       "channel": "instagram_feed",
       "date": "2026-06-10",
       "date_label": "Mi 10.06.",
-      "time": "10:00",
+      "time": "10:15",
       "type": "single",
       "panorama": false,
       "images": [
         "img-540.jpg"
       ],
-      "caption": "Morgens bei Dolce Freddo. ☀️🥐",
-      "first_comment": "#dolcefreddozwickau #brunch #wochenende #fruehstueck #zwickau #hauptmarkt #eiscafe #genuss",
+      "caption": "Matcha scharf, Limo unscharf, Pancakes im Hintergrund. Prioritäten. 🍵🥞",
+      "first_comment": "#dolcefreddozwickau #matchalatte #pancakes #erdbeerlimo #zwickau #hauptmarkt #fruehstueck #genuss #foodie",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-540.jpg"
@@ -1456,11 +1463,11 @@
       "channel": "instagram_story",
       "date": "2026-06-11",
       "date_label": "Do 11.06.",
-      "time": "10:15",
+      "time": "09:30",
       "images": [
         "img-517.jpg"
       ],
-      "caption": "Pancakes + Limo. 🥞🍓",
+      "caption": "",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-517.jpg"
@@ -1471,11 +1478,11 @@
       "channel": "instagram_story",
       "date": "2026-06-12",
       "date_label": "Fr 12.06.",
-      "time": "10:15",
+      "time": "10:00",
       "images": [
         "img-515.jpg"
       ],
-      "caption": "Unsere Etagere. 🧀🥖",
+      "caption": "",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-515.jpg"
@@ -1494,8 +1501,8 @@
         "img-515.jpg",
         "img-492.jpg"
       ],
-      "caption": "Details, die den Unterschied machen. 😋✨",
-      "first_comment": "#dolcefreddozwickau #fruehstueck #breakfast #zwickau #hauptmarkt #eiscafe #italien #buonappetito",
+      "caption": "Pancakes, Etagere, Rührei — die ganze Frühstückswelt in drei Slides. 😋",
+      "first_comment": "#dolcefreddozwickau #fruehstueck #pancakes #etagere #ruehrei #zwickau #hauptmarkt #eiscafe #brunch",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-517.jpg",
@@ -1513,7 +1520,7 @@
       "images": [
         "img-540.jpg"
       ],
-      "caption": "Pancakes, Rührei, Aperitivo, Tulpen — ein Tisch voller Genuss. Bei uns am Hauptmarkt beginnt jeder Morgen ein bisschen italienischer. Wir freuen uns auf euch!",
+      "caption": "Ein Matcha Latte im Vordergrund, Pancakes und Limo im Hintergrund — bei uns bekommt ihr nicht nur guten Kaffee, sondern auch Getränke, die man sonst nur in Großstadt-Cafés erwartet. Mitten in Zwickau. Mitten am Hauptmarkt.",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-540.jpg"
       ]
@@ -1527,7 +1534,7 @@
       "images": [
         "img-492.jpg"
       ],
-      "caption": "Rot. 🍓",
+      "caption": "",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-492.jpg"
@@ -1542,7 +1549,7 @@
       "images": [
         "img-517.jpg"
       ],
-      "caption": "Pancakes mit Nutella und frischen Erdbeeren, dazu ein rotes Erfrischungsgetränk mit Minze — so sieht ein süßer Morgen bei Dolce Freddo aus. Kommt vorbei!",
+      "caption": "Pancakes-Nahaufnahme mit Erdbeer-Limo und Matcha im Hintergrund — drei Gründe, morgens aufzustehen. Und alle drei gibt es bei Dolce Freddo. Kommt einfach vorbei, der Tisch ist gedeckt.",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-517.jpg"
       ]
@@ -1556,7 +1563,7 @@
       "images": [
         "img-532.jpg"
       ],
-      "caption": "Komplett. 🥐☕",
+      "caption": "",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-532.jpg"
@@ -1571,7 +1578,7 @@
       "images": [
         "img-515.jpg"
       ],
-      "caption": "Unsere Etagere — oben Salami, Schinken, Mozzarella, Tomaten, Basilikum und Erdbeeren. Unten frisches Brötchen mit Pesto und Marmelade. Italienisches Frühstück, wie es sein soll.",
+      "caption": "Salami, Schinken, Mozzarella, Basilikum, Erdbeeren — die obere Etage unserer Etagere ist wie ein kleiner italienischer Markt. Unten warten frische Brötchen. So frühstückt man auf Italienisch.",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-515.jpg"
       ]
@@ -1581,14 +1588,14 @@
       "channel": "instagram_feed",
       "date": "2026-06-17",
       "date_label": "Mi 17.06.",
-      "time": "11:00",
+      "time": "08:15",
       "type": "single",
       "panorama": false,
       "images": [
         "img-532.jpg"
       ],
-      "caption": "Tutto a tavola. 🇮🇹🥐",
-      "first_comment": "#dolcefreddozwickau #fruehstueck #breakfast #zwickau #hauptmarkt #eiscafe #italien #buonappetito",
+      "caption": "Pancakes + Matcha + Sommer = questa è la vita. ☀️🍵",
+      "first_comment": "#dolcefreddozwickau #fruehstueck #sommer #pancakes #matcha #zwickau #hauptmarkt #eiscafe #dolcevita",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-532.jpg"
@@ -1603,7 +1610,7 @@
       "images": [
         "img-492.jpg"
       ],
-      "caption": "Erdbeer-Limonade mit frischer Minze — erfrischend, fruchtig und der perfekte Begleiter zu Pancakes und Etagere. Probiert sie beim nächsten Frühstück bei uns!",
+      "caption": "Rotes Getränk, Rührei, Etagere im Hintergrund — so bunt kann ein Frühstückstisch aussehen. Bei uns am Hauptmarkt wird jeder Morgen zum kleinen Fest. Wir freuen uns auf euch!",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-492.jpg"
       ]
@@ -1617,7 +1624,7 @@
       "images": [
         "img-496.jpg"
       ],
-      "caption": "Tulpen. 🌷",
+      "caption": "",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-496.jpg"
@@ -1628,14 +1635,14 @@
       "channel": "instagram_feed",
       "date": "2026-06-20",
       "date_label": "Sa 20.06.",
-      "time": "10:00",
+      "time": "09:30",
       "type": "single",
       "panorama": false,
       "images": [
         "img-496.jpg"
       ],
-      "caption": "Ein Strauß voller Frühling. 🌷",
-      "first_comment": "#dolcefreddozwickau #fruehstueck #breakfast #zwickau #hauptmarkt #eiscafe #italien #buonappetito",
+      "caption": "Orange, gelb, weiß, rot — unser Tulpenstrauß bringt Farbe auf den Tisch. 🌷",
+      "first_comment": "#dolcefreddozwickau #tulpen #blumen #fruehling #sommer #zwickau #hauptmarkt #eiscafe #dolcevita #flowers",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-496.jpg"
@@ -1650,7 +1657,7 @@
       "images": [
         "img-532.jpg"
       ],
-      "caption": "Unser Frühstückstisch — Etagere, Rührei, Matcha, Tulpen und natürlich unser blauer Wasserglas-Klassiker. Bei Dolce Freddo frühstückt man mit Stil. Reservierung am Wochenende empfohlen!",
+      "caption": "Pancakes im Vordergrund, Matcha daneben, im Hintergrund die ganze Frühstückswelt — bei uns beginnt jeder Morgen wie ein kleiner Urlaub in Italien. Nur dass ihr danach nicht ins Flugzeug steigen müsst, sondern einfach über den Hauptmarkt schlendert.",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-532.jpg"
       ]
@@ -1664,7 +1671,7 @@
       "images": [
         "img-496.jpg"
       ],
-      "caption": "Orange, Rot, Gelb, Weiß — unser Tulpenstrauß bringt Frühlingsgefühle auf den Marmortisch. Bei Dolce Freddo gehört die Blumendeko genauso zum Frühstück wie die Etagere. Kommt vorbei und genießt den Frühling mit allen Sinnen.",
+      "caption": "Tulpen in allen Farben auf dem Frühstückstisch — weil bei Dolce Freddo die Blumendeko genauso dazugehört wie die Etagere. Schönheit liegt im Detail. Und bei uns in jedem Detail.",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-496.jpg"
       ]
@@ -1678,7 +1685,7 @@
       "images": [
         "img-519.jpg"
       ],
-      "caption": "Matcha. 🍵",
+      "caption": "",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-519.jpg"
@@ -1689,11 +1696,11 @@
       "channel": "instagram_story",
       "date": "2026-06-24",
       "date_label": "Mi 24.06.",
-      "time": "10:15",
+      "time": "09:15",
       "images": [
         "img-521.jpg"
       ],
-      "caption": "Grün + Weiß. 💚",
+      "caption": "",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-521.jpg"
@@ -1704,7 +1711,7 @@
       "channel": "instagram_feed",
       "date": "2026-06-24",
       "date_label": "Mi 24.06.",
-      "time": "11:00",
+      "time": "10:00",
       "type": "carousel",
       "panorama": false,
       "images": [
@@ -1712,8 +1719,8 @@
         "img-521.jpg",
         "img-539.jpg"
       ],
-      "caption": "Matcha aus drei Blickwinkeln. 🍵💚",
-      "first_comment": "#dolcefreddozwickau #matchalatte #matcha #latte #drinks #zwickau #eiscafe #greenlatte",
+      "caption": "Drei Perspektiven, ein Getränk: Matcha in all seinen Facetten. 🍵💚",
+      "first_comment": "#dolcefreddozwickau #matchalatte #matcha #greenlatte #drinks #zwickau #eiscafe #cafelife #sommer",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-519.jpg",
@@ -1731,7 +1738,7 @@
       "images": [
         "img-539.jpg"
       ],
-      "caption": "Matcha mit Pancake-Bokeh. 🍵🥞",
+      "caption": "",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-539.jpg"
@@ -1742,11 +1749,11 @@
       "channel": "instagram_story",
       "date": "2026-06-26",
       "date_label": "Fr 26.06.",
-      "time": "10:15",
+      "time": "10:00",
       "images": [
         "img-508.jpg"
       ],
-      "caption": "Alles da. ☀️🥐",
+      "caption": "",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-508.jpg"
@@ -1763,8 +1770,8 @@
       "images": [
         "img-508.jpg"
       ],
-      "caption": "Bis bald. 👋🥐",
-      "first_comment": "#dolcefreddozwickau #fruehstueck #breakfast #zwickau #hauptmarkt #eiscafe #italien #buonappetito",
+      "caption": "Voller Tisch. Pancakes. Matcha. Sommer. Wir sind bereit — und ihr? 😋☀️",
+      "first_comment": "#dolcefreddozwickau #sommer #fruehstueck #pancakes #matcha #zwickau #hauptmarkt #eiscafe #buongiorno",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-508.jpg"
@@ -1779,7 +1786,7 @@
       "images": [
         "img-519.jpg"
       ],
-      "caption": "Unser Matcha Latte — cremiger Milchschaum, darunter leuchtendes Grün. Ein Hingucker auf jedem Frühstückstisch und der perfekte Start in den Tag.",
+      "caption": "Matcha Latte im Kristallglas — darunter leuchtendes Grün, darüber cremiger Schaum. Ein Getränk, das aussieht wie Sommer schmeckt. Jeden Morgen frisch für euch zubereitet.",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-519.jpg"
       ]
@@ -1793,7 +1800,7 @@
       "images": [
         "img-521.jpg"
       ],
-      "caption": "Matcha Latte mit Blick auf die Etagere — bei Dolce Freddo bekommt ihr nicht nur gutes Eis, sondern auch ein Frühstück, das sich sehen lassen kann.",
+      "caption": "Matcha und Erdbeer-Limo nebeneinander, im Hintergrund die Etagere — grün trifft rot trifft bunt. Unser Frühstückstisch ist nicht nur lecker, er ist auch immer ein Hingucker. Sonntags am besten mit Reservierung!",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-521.jpg"
       ]
@@ -1807,7 +1814,7 @@
       "images": [
         "img-539.jpg"
       ],
-      "caption": "Noch ein Matcha zum Abschluss — grün, cremig, perfekt. Und dahinter warten schon die Pancakes. Kommt vorbei und probiert unsere Frühstücks-Kombination!",
+      "caption": "Matcha im Fokus, Pancakes und Limo warten schon dahinter. Montags im Sommer sind wir ebenfalls für euch da — perfekt für alle, die den Wochenstart genüsslich angehen wollen.",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-539.jpg"
       ]
@@ -1821,7 +1828,7 @@
       "images": [
         "img-508.jpg"
       ],
-      "caption": "Unser Frühstückstisch — der perfekte Abschluss unserer Frühstücks-Serie. Etagere, Rührei, Pancakes, Matcha und Tulpen. Bei Dolce Freddo frühstückt man mit Herz. Wir freuen uns auf euch!",
+      "caption": "Pancakes, Matcha, Etagere, Rührei und Tulpen — alles, was unser Frühstück ausmacht, auf einem Bild. Bei Dolce Freddo frühstückt man mit Herz und mit Stil. Wir freuen uns auf euch — jeden Tag aufs Neue.",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-508.jpg"
       ]
