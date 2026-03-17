@@ -16,7 +16,10 @@
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-503.jpg"
-      ]
+      ],
+      "img_position": {
+        "x": 10
+      }
     },
     {
       "id": "ig_feed_2",
@@ -49,7 +52,10 @@
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-489.jpg"
-      ]
+      ],
+      "img_position": {
+        "x": 53
+      }
     },
     {
       "id": "ig_story_4",
@@ -64,7 +70,10 @@
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-498.jpg"
-      ]
+      ],
+      "img_position": {
+        "x": 49
+      }
     },
     {
       "id": "fb_7",
@@ -116,7 +125,10 @@
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-499.jpg"
-      ]
+      ],
+      "img_position": {
+        "x": 95
+      }
     },
     {
       "id": "fb_8",
@@ -145,7 +157,10 @@
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-497.jpg"
-      ]
+      ],
+      "img_position": {
+        "x": 57
+      }
     },
     {
       "id": "fb_9",
@@ -206,7 +221,10 @@
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-514.jpg"
-      ]
+      ],
+      "img_position": {
+        "x": 72
+      }
     },
     {
       "id": "ig_feed_14",
@@ -267,7 +285,10 @@
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-522.jpg"
-      ]
+      ],
+      "img_position": {
+        "x": 40
+      }
     },
     {
       "id": "ig_feed_18",
@@ -301,7 +322,10 @@
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-533.jpg"
-      ]
+      ],
+      "img_position": {
+        "x": 64
+      }
     },
     {
       "id": "fb_20",
@@ -364,7 +388,10 @@
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-500.jpg"
-      ]
+      ],
+      "img_position": {
+        "x": 67
+      }
     },
     {
       "id": "ig_feed_24",
@@ -412,7 +439,10 @@
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-535.jpg"
-      ]
+      ],
+      "img_position": {
+        "x": 69
+      }
     },
     {
       "id": "fb_27",
@@ -464,7 +494,10 @@
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-536.jpg"
-      ]
+      ],
+      "img_position": {
+        "x": 51
+      }
     },
     {
       "id": "fb_30",
@@ -493,7 +526,10 @@
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-534.jpg"
-      ]
+      ],
+      "img_position": {
+        "x": 28
+      }
     },
     {
       "id": "fb_31",
@@ -554,7 +590,10 @@
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-527.jpg"
-      ]
+      ],
+      "img_position": {
+        "x": 70
+      }
     },
     {
       "id": "ig_feed_36",
@@ -615,7 +654,10 @@
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-513.jpg"
-      ]
+      ],
+      "img_position": {
+        "x": 48
+      }
     },
     {
       "id": "ig_story_40",
@@ -630,7 +672,10 @@
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-493.jpg"
-      ]
+      ],
+      "img_position": {
+        "x": 51
+      }
     },
     {
       "id": "ig_feed_41",
@@ -668,7 +713,10 @@
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-501.jpg"
-      ]
+      ],
+      "img_position": {
+        "x": 36
+      }
     },
     {
       "id": "ig_story_43",
@@ -683,7 +731,10 @@
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-518.jpg"
-      ]
+      ],
+      "img_position": {
+        "x": 75
+      }
     },
     {
       "id": "ig_feed_44",
@@ -758,7 +809,10 @@
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-490.jpg"
-      ]
+      ],
+      "img_position": {
+        "x": 56
+      }
     },
     {
       "id": "fb_50",
@@ -805,7 +859,10 @@
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-504.jpg"
-      ]
+      ],
+      "img_position": {
+        "x": 90
+      }
     },
     {
       "id": "ig_feed_52",
@@ -868,7 +925,10 @@
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-542.jpg"
-      ]
+      ],
+      "img_position": {
+        "x": 37
+      }
     },
     {
       "id": "ig_feed_56",
@@ -901,7 +961,10 @@
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-528.jpg"
-      ]
+      ],
+      "img_position": {
+        "x": 65
+      }
     },
     {
       "id": "ig_feed_58",
@@ -977,7 +1040,10 @@
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-516.jpg"
-      ]
+      ],
+      "img_position": {
+        "x": 53
+      }
     },
     {
       "id": "ig_feed_63",
@@ -1688,7 +1754,10 @@
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-519.jpg"
-      ]
+      ],
+      "img_position": {
+        "x": 65
+      }
     },
     {
       "id": "ig_story_108",
@@ -1703,7 +1772,10 @@
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-521.jpg"
-      ]
+      ],
+      "img_position": {
+        "x": 73
+      }
     },
     {
       "id": "ig_feed_109",
@@ -1741,7 +1813,10 @@
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-539.jpg"
-      ]
+      ],
+      "img_position": {
+        "x": 47
+      }
     },
     {
       "id": "ig_story_111",
@@ -1756,7 +1831,10 @@
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-508.jpg"
-      ]
+      ],
+      "img_position": {
+        "x": 71
+      }
     },
     {
       "id": "ig_feed_112",
