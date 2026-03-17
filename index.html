@@ -2037,26 +2037,7 @@
         html += `<div class="channel-section-grid">`;
         const monthNames = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
                              'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
-        let lastMonth = null;
         posts.forEach(post => {
-          // Monatstrenner einfuegen wenn neuer Monat beginnt
-          if (post.date) {
-            const dateParts = post.date.split('-');
-            const postMonth = dateParts[0] + '-' + dateParts[1];
-            if (lastMonth !== null && postMonth !== lastMonth) {
-              const mIdx = Number(dateParts[1]) - 1;
-              const mYear = dateParts[0];
-              html += `
-                <div class="month-separator">
-                  <div class="month-separator-inner">
-                    <div class="month-separator-line"></div>
-                    <span class="month-separator-text">━━━ ${monthNames[mIdx].toUpperCase()} ${mYear} ━━━</span>
-                    <div class="month-separator-line"></div>
-                  </div>
-                </div>`;
-            }
-            lastMonth = postMonth;
-          }
 
           const postDate = parsePostDate(post.date, post.time);
           const isSaved = !APP.unsavedChanges.has(post.id);
