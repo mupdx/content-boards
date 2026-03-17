@@ -1693,7 +1693,10 @@
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-496.jpg"
-      ]
+      ],
+      "img_position": {
+        "x": 0
+      }
     },
     {
       "id": "ig_feed_104",
