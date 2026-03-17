@@ -1904,9 +1904,7 @@
           const isStoryChannel = post.channel === 'instagram_story';
           const storyOriginalUrl = isStoryChannel && post.original_image_url
             ? post.original_image_url
-            : (isStoryChannel && post.images && post.images[0]
-              ? 'https://lh3.googleusercontent.com/d/' + post.images[0] + '=s1200'
-              : null);
+            : null;
           const currentImg = storyOriginalUrl || imgUrls[0] || '';
           const holidayName = HOLIDAYS_SACHSEN[post.date] || '';
           const isPanorama = post.panorama === true;
