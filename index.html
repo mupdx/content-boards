@@ -2625,9 +2625,23 @@
         localStorage.setItem('clients', JSON.stringify(APP.clients));
       }
 
-      // Load active client
+      // Load active client — URL parameter ?client= hat IMMER Vorrang
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlClient = urlParams.get('client');
       const savedActive = localStorage.getItem('activeClient');
-      APP.activeClient = savedActive || (APP.clients.length > 0 ? APP.clients[0].slug : null);
+
+      if (urlClient && APP.clients.find(c => c.slug === urlClient)) {
+        // URL-Parameter hat Vorrang
+        APP.activeClient = urlClient;
+      } else if (urlClient && !APP.clients.find(c => c.slug === urlClient)) {
+        // Client aus URL existiert noch nicht in der Liste — hinzufügen
+        const name = urlClient.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+        APP.clients.push({ name, slug: urlClient });
+        localStorage.setItem('clients', JSON.stringify(APP.clients));
+        APP.activeClient = urlClient;
+      } else {
+        APP.activeClient = savedActive || (APP.clients.length > 0 ? APP.clients[0].slug : null);
+      }
       localStorage.setItem('activeClient', APP.activeClient || '');
 
       renderClientSelect();
