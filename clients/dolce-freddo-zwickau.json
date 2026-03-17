@@ -1894,6 +1894,12 @@
       "caption": "Montag ist Ruhetag bei uns — aber dieser Blick auf ein grünes Getränk mit Pancakes und einem roten Getränk im Hintergrund macht doch schon Vorfreude auf Dienstag, oder? Wir sehen uns!",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-539.jpg"
+      ],
+      "regen_requests": [
+        {
+          "what": "Nur Caption neu",
+          "timestamp": "2026-03-17T19:23:28.457Z"
+        }
       ]
     },
     {
