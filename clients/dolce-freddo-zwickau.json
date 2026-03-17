@@ -100,7 +100,8 @@
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-489.jpg",
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-498.jpg",
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-499.jpg"
-      ]
+      ],
+      "carousel_style": "frei"
     },
     {
       "id": "ig_story_6",
@@ -284,7 +285,8 @@
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-522.jpg"
-      ]
+      ],
+      "carousel_style": "panorama"
     },
     {
       "id": "ig_story_19",
@@ -444,7 +446,8 @@
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-506.jpg",
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-535.jpg",
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-536.jpg"
-      ]
+      ],
+      "carousel_style": "peek"
     },
     {
       "id": "ig_story_29",
@@ -484,7 +487,7 @@
       "images": [
         "img-534.jpg"
       ],
-      "caption": "Italiano. 🇮🇹🧀",
+      "caption": "Matcha-Moment. 🍵",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-534.jpg"
@@ -515,8 +518,8 @@
       "images": [
         "img-534.jpg"
       ],
-      "caption": "Caprese, Salami, Basilikum — buon appetito. 🇮🇹",
-      "first_comment": "#dolcefreddozwickau #fruehstueck #etagere #caprese #aufschnitt #zwickau #italien #buongiorno",
+      "caption": "Matcha im Kristallglas. 🍵✨",
+      "first_comment": "#dolcefreddozwickau #matchalatte #matcha #drinks #zwickau #eiscafe #fruehstueck #greenlatte",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-534.jpg"
@@ -578,7 +581,7 @@
       "images": [
         "img-534.jpg"
       ],
-      "caption": "Unsere Etagere — oben Caprese mit Mozzarella, Tomate und Basilikum, dazu italienische Salami und frischer Aufschnitt. Unten ein knuspriges Brötchen mit Marmelade und Butter. Tutto italiano!",
+      "caption": "Unser Matcha Latte — leuchtend grün, mit cremigem Milchschaum im geschliffenen Kristallglas. Im Hintergrund warten schon die Pancakes. Der perfekte Start in den Tag bei Dolce Freddo.",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-534.jpg"
       ]
@@ -647,7 +650,8 @@
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-513.jpg",
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-493.jpg",
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-501.jpg"
-      ]
+      ],
+      "carousel_style": "peek"
     },
     {
       "id": "ig_story_42",
@@ -688,13 +692,13 @@
       "type": "single",
       "panorama": false,
       "images": [
-        "img-518.jpg"
+        "img-507.jpg"
       ],
-      "caption": "Wir sagen nicht nein zu Pancakes. Ihr? 🥞😋",
-      "first_comment": "#dolcefreddozwickau #pancakes #nutella #erdbeeren #fruehstueck #zwickau #hauptmarkt #sweetbreakfast",
+      "caption": "Aufschnitt, Caprese, Brötchen — unsere Etagere. 🥐🇮🇹",
+      "first_comment": "#dolcefreddozwickau #fruehstueck #etagere #caprese #aufschnitt #zwickau #italien #buongiorno",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
-        "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-518.jpg"
+        "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-507.jpg"
       ]
     },
     {
@@ -761,11 +765,11 @@
       "date_label": "Mi 29.04.",
       "time": "10:00",
       "images": [
-        "img-518.jpg"
+        "img-507.jpg"
       ],
-      "caption": "Pancakes, Nutella, frische Erdbeeren und ein Matcha Latte dazu — unser süßes Frühstück für alle, die morgens nicht genug bekommen können. Am Wochenende bitte reservieren!",
+      "caption": "Unsere Frühstücks-Etagere — oben italienischer Aufschnitt mit Caprese, Mozzarella und frischem Basilikum. Unten ein goldenes Brötchen mit Himbeermarmelade und Butter. Buon appetito!",
       "image_urls": [
-        "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-518.jpg"
+        "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-507.jpg"
       ]
     },
     {
@@ -817,7 +821,8 @@
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-504.jpg"
-      ]
+      ],
+      "carousel_style": "panorama"
     },
     {
       "id": "fb_53",
@@ -991,7 +996,8 @@
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-494.jpg",
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-516.jpg",
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-520.jpg"
-      ]
+      ],
+      "carousel_style": "peek"
     },
     {
       "id": "ig_story_64",
@@ -1168,7 +1174,7 @@
       "images": [
         "img-507.jpg"
       ],
-      "caption": "Süß oder herzhaft? 🤔",
+      "caption": "Unsere Etagere. 🧀🥐",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-507.jpg"
@@ -1184,15 +1190,16 @@
       "panorama": false,
       "images": [
         "img-505.jpg",
-        "img-507.jpg"
+        "img-518.jpg"
       ],
       "caption": "Herzhaft ← oder → Süß? Frohe Pfingsten! 🐣🥞",
       "first_comment": "#dolcefreddozwickau #fruehstueck #breakfast #zwickau #hauptmarkt #eiscafe #italien #buonappetito #pfingsten",
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-505.jpg",
-        "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-507.jpg"
-      ]
+        "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-518.jpg"
+      ],
+      "carousel_style": "pfeil"
     },
     {
       "id": "ig_story_77",
@@ -1248,11 +1255,11 @@
       "date_label": "Do 28.05.",
       "time": "10:00",
       "images": [
-        "img-507.jpg"
+        "img-518.jpg"
       ],
       "caption": "Unsere Pancakes mit Nutella und Erdbeeren — gestapelt, getoppt, einfach traumhaft. Der süße Gegenspieler zu Rührei und Etagere. Was ist euer Favorit?",
       "image_urls": [
-        "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-507.jpg"
+        "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-518.jpg"
       ]
     },
     {
@@ -1347,7 +1354,8 @@
       "location": "Dolce Freddo Zwickau",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-526.jpg"
-      ]
+      ],
+      "carousel_style": "panorama"
     },
     {
       "id": "ig_story_87",
@@ -1493,7 +1501,8 @@
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-517.jpg",
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-515.jpg",
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-492.jpg"
-      ]
+      ],
+      "carousel_style": "peek"
     },
     {
       "id": "fb_97",
@@ -1710,7 +1719,8 @@
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-519.jpg",
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-521.jpg",
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/dolce-freddo-zwickau/img-539.jpg"
-      ]
+      ],
+      "carousel_style": "peek"
     },
     {
       "id": "ig_story_110",
