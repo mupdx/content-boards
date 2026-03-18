@@ -42,14 +42,10 @@
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/calice-zwickau/a7r09156.jpg"
       ],
-      "caption": "Zitronenzeste — klingt nach Kleinigkeit, macht aber den Unterschied. Ein Hauch Zitronenölen, frisch geschält, über den Cocktail gelegt. Das ist Handwerk, das man schmeckt. Kommt vorbei und seht selbst, wie viel Liebe in jedem unserer Drinks steckt.",
+      "caption": "Wenn unsere Bartender zur Zitrone greifen, beginnt ein kleines Ritual. Jede Zeste wird von Hand geschält — langsam, präzise, mit Gefühl für den richtigen Moment. Dieses dünne Stück Schale trägt so viel Aroma in sich, dass es den ganzen Drink verwandelt. Bei uns am Hauptmarkt ist das kein Trick, sondern echtes Handwerk. Schaut vorbei und erlebt den Unterschied, den Liebe zum Detail macht.",
       "id": "fb_1",
-      "regen_requests": [
-        {
-          "what": "Caption neu",
-          "timestamp": "2026-03-18T16:12:25.942Z"
-        }
-      ]
+      "regen_requests": [],
+      "changed": true
     },
     {
       "date": "2026-03-20",
@@ -61,14 +57,10 @@
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/calice-zwickau/a7r00153.jpg"
       ],
-      "caption": "",
+      "caption": "Tropfen für Tropfen — so entsteht Geschmack. 🍹✨",
       "id": "ig_feed_2",
-      "regen_requests": [
-        {
-          "what": "Caption neu",
-          "timestamp": "2026-03-18T16:49:10.656Z"
-        }
-      ]
+      "regen_requests": [],
+      "changed": true
     },
     {
       "date": "2026-03-21",
@@ -96,14 +88,10 @@
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/calice-zwickau/a7r09133.jpg"
       ],
-      "caption": "Die Tage werden länger, die Drinks leichter. Frühling am Hauptmarkt. 🌿",
+      "caption": "Ein guter Wein braucht nur das richtige Glas. Cin cin! 🍷",
       "id": "ig_feed_3",
-      "regen_requests": [
-        {
-          "what": "Caption neu",
-          "timestamp": "2026-03-18T16:49:51.742Z"
-        }
-      ]
+      "regen_requests": [],
+      "changed": true
     },
     {
       "date": "2026-03-22",
@@ -167,34 +155,17 @@
       "date": "2026-03-25",
       "time": "15:06",
       "channel": "instagram_feed",
-      "type": "single",
+      "type": "carousel",
       "image": "a7r09111.jpg",
       "first_comment": "#calicezwickau #zwickau #weinbar #wein #vineria #aperitivo #italianbar #hauptmarktzwickau #sachsen #zwickaucity #drinks",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/calice-zwickau/a7r09111.jpg"
       ],
-      "caption": "Doppelt hält besser — vor allem wenn es rot leuchtet. 🍓",
+      "caption": "Swipe für den vollen Blick auf unsere roten Versuchungen. ❤️🍸",
       "id": "ig_feed_4",
-      "regen_requests": [
-        {
-          "what": "Karussell erstellen: panorama",
-          "merge_posts": [],
-          "carousel_type": "panorama",
-          "timestamp": "2026-03-18T16:09:28.606Z"
-        },
-        {
-          "what": "Caption neu",
-          "timestamp": "2026-03-18T16:18:59.257Z"
-        },
-        {
-          "what": "Caption neu",
-          "timestamp": "2026-03-18T16:19:00.496Z"
-        },
-        {
-          "what": "Caption neu",
-          "timestamp": "2026-03-18T16:19:13.243Z"
-        }
-      ]
+      "regen_requests": [],
+      "panorama": true,
+      "changed": true
     },
     {
       "date": "2026-03-26",
@@ -206,14 +177,10 @@
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/calice-zwickau/a7r09143.jpg"
       ],
-      "caption": "La dolce vita beginnt mit einer guten Platte. Wer teilt mit? 🧀",
+      "caption": "Bruschetta, Oliven, Schinken — la tavola italiana am Hauptmarkt. 🫒🇮🇹",
       "id": "ig_feed_5",
-      "regen_requests": [
-        {
-          "what": "Caption neu",
-          "timestamp": "2026-03-18T16:49:36.098Z"
-        }
-      ]
+      "regen_requests": [],
+      "changed": true
     },
     {
       "date": "2026-03-26",
@@ -297,14 +264,10 @@
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/calice-zwickau/a7r09178.jpg"
       ],
-      "caption": "👍",
+      "caption": "Prosecco im Bumbu-Glas? Warum nicht! Manchmal sind es die unerwarteten Kombinationen, die am meisten Spaß machen. Das goldene Licht fängt sich in den Bläschen, das schwere Glas liegt perfekt in der Hand — und plötzlich wird aus einem einfachen Prosecco ein kleines Erlebnis. Kommt vorbei und lasst euch überraschen, was wir uns als Nächstes ausdenken.",
       "id": "fb_5",
-      "regen_requests": [
-        {
-          "what": "Caption neu",
-          "timestamp": "2026-03-18T16:13:11.193Z"
-        }
-      ]
+      "regen_requests": [],
+      "changed": true
     },
     {
       "date": "2026-03-29",
@@ -391,22 +354,17 @@
       "date": "2026-04-03",
       "time": "16:33",
       "channel": "instagram_feed",
-      "type": "single",
+      "type": "carousel",
       "image": "a7r09162.jpg",
       "first_comment": "#calicezwickau #zwickau #weinbar #cocktailbar #prosecco #aperitivo #drinks #hauptmarktzwickau #zwickaucity #italianbar #barlife",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/calice-zwickau/a7r09162.jpg"
       ],
-      "caption": "Karfreitag? Aperitivo-Tag! Wir haben für euch geöffnet — gerührt, nicht geschüttelt. 🍸",
+      "caption": "Karfreitag am Hauptmarkt — swipe und schau uns beim Mixen zu. 🍸",
       "id": "ig_feed_10",
-      "regen_requests": [
-        {
-          "what": "Karussell erstellen: panorama",
-          "merge_posts": [],
-          "carousel_type": "panorama",
-          "timestamp": "2026-03-18T16:10:06.498Z"
-        }
-      ]
+      "regen_requests": [],
+      "panorama": true,
+      "changed": true
     },
     {
       "date": "2026-04-03",
@@ -446,12 +404,9 @@
       ],
       "caption": "Frühlingsgefühle im Glas. Unsere Gläser warten. Und ihr so? 🍷",
       "id": "ig_feed_11",
-      "regen_requests": [
-        {
-          "what": "Bild/Crop neu",
-          "timestamp": "2026-03-18T16:50:18.824Z"
-        }
-      ]
+      "regen_requests": [],
+      "crop_position": 50,
+      "changed": true
     },
     {
       "date": "2026-04-05",
@@ -515,14 +470,10 @@
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/calice-zwickau/a7r09156.jpg"
       ],
-      "caption": "Die Kunst liegt im Detail — zum Beispiel in einer perfekten Zeste. 🍋",
+      "caption": "Fingerspitzengefühl, Geduld und eine scharfe Klinge — fertig ist die Zeste. 🍋✨",
       "id": "ig_feed_12",
-      "regen_requests": [
-        {
-          "what": "Caption neu",
-          "timestamp": "2026-03-18T16:50:12.592Z"
-        }
-      ]
+      "regen_requests": [],
+      "changed": true
     },
     {
       "date": "2026-04-09",
@@ -962,25 +913,17 @@
       "date": "2026-04-29",
       "time": "16:33",
       "channel": "instagram_feed",
-      "type": "single",
+      "type": "carousel",
       "image": "a7r09188.jpg",
       "first_comment": "#calicezwickau #zwickau #cocktailbar #cocktails #craft #barlife #mixology #drinks #hauptmarktzwickau #sachsen #zwickaucity",
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/calice-zwickau/a7r09188.jpg"
       ],
-      "caption": "Aus dem Shaker in die Coupette — der letzte Schritt ist der schönste. 🍸",
+      "caption": "Der letzte Schliff — aus dem Shaker über das Sieb ins Glas. Swipe! 🍸",
       "id": "ig_feed_25",
-      "regen_requests": [
-        {
-          "what": "Karussell erstellen: peek",
-          "merge_posts": [
-            "ig_feed_26",
-            "ig_feed_28"
-          ],
-          "carousel_type": "peek",
-          "timestamp": "2026-03-18T16:11:38.254Z"
-        }
-      ]
+      "regen_requests": [],
+      "carousel_style": "peek",
+      "changed": true
     },
     {
       "date": "2026-04-30",
