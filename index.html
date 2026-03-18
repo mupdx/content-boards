@@ -312,6 +312,10 @@
     .action-btn-secondary.changed { border-color: rgba(59,130,246,0.5); color: #60a5fa; background: rgba(59,130,246,0.06); }
     .auto-save-status { font-size: 10px; color: var(--text-muted); text-align: right; padding-top: 4px; font-style: italic; }
 
+    .approve-all-bar { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .approve-all-btn { padding: 8px 20px; border: 1px solid var(--border); border-radius: 6px; background: transparent; color: var(--text-secondary); font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 180ms ease; letter-spacing: 0.02em; }
+    .approve-all-btn:hover { border-color: var(--status-success); color: var(--status-success); background: rgba(52,211,153,0.06); }
+    .approve-all-hint { font-size: 11px; color: var(--text-muted); font-style: italic; }
     .all-approved-banner { background: rgba(52,211,153,0.08); border: 1px solid rgba(52,211,153,0.2); border-radius: var(--radius-md); padding: 16px 20px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
     .all-approved-banner .banner-text { font-family: 'Sora', sans-serif; font-size: 14px; font-weight: 600; color: var(--status-success); }
     .all-approved-banner .banner-action { background: var(--status-success); color: var(--bg-base); border: none; padding: 8px 16px; border-radius: var(--radius-sm); font-weight: 600; font-size: 13px; cursor: pointer; transition: all var(--transition-fast); }
@@ -455,6 +459,10 @@
       <button class="filter-btn" onclick="filterByChannel('linkedin')">LinkedIn</button>
     </div>
 
+    <div id="approveAllBar" class="approve-all-bar">
+      <button class="approve-all-btn" onclick="approveAllPosts()">Alle freigeben</button>
+      <span class="approve-all-hint">Gibt alle Posts frei, die keine offenen Änderungswünsche haben</span>
+    </div>
     <div id="allApprovedBanner" style="display:none;" class="all-approved-banner">
       <span class="banner-text">Alle Posts freigegeben</span>
       <button class="banner-action" onclick="exportCSV()">Export starten</button>
@@ -569,6 +577,7 @@
     function getChannelClassname(ch){if(ch.includes('instagram_feed'))return'ig-feed';if(ch.includes('instagram_story'))return'ig-story';if(ch.includes('facebook'))return'facebook';if(ch.includes('linkedin'))return'linkedin';return'ig-feed';}
 
     function approvePost(postId){const post=APP.data.posts.find(p=>p.id===postId);if(!post)return;post.approved=!post.approved;APP.unsavedChanges.add(postId);renderPosts();checkAllApproved();autoSave(postId);}
+    async function approveAllPosts(){if(!APP.data||!APP.data.posts)return;let count=0;APP.data.posts.forEach(p=>{const hasOpenReq=p.regen_requests&&p.regen_requests.length>0&&!p.changed;if(!hasOpenReq&&!p.approved){p.approved=true;count++;}});if(count===0){showToast('Nichts zum Freigeben','info');return;}renderPosts();checkAllApproved();const{token,owner,repo}=APP.github;const path=APP.activeClient?getClientPath(APP.activeClient):null;if(token&&owner&&repo&&path){try{await saveDataToGitHub(path,count+' Posts freigegeben');APP.unsavedChanges.clear();showToast(count+' Posts freigegeben','success');renderPosts();}catch(err){showToast('Fehler: '+err.message,'error');}}else{showToast(count+' Posts freigegeben (lokal)','warning');}}
     function checkAllApproved(){if(!APP.data||!APP.data.posts||APP.data.posts.length===0){document.getElementById('allApprovedBanner').style.display='none';return;}const all=APP.data.posts.every(p=>p.approved);document.getElementById('allApprovedBanner').style.display=all?'flex':'none';}
 
     async function initApp(){
@@ -665,13 +674,17 @@
         html+=`<div class="post-content"><div class="post-header"><div class="post-meta"><span>${formatGermanDate(post.date)}</span><span class="post-meta-dot">\u00b7</span><span>${post.time}</span>${hasPills?'<div class="post-meta-pills">'+(holidayName?'<span class="holiday-inline">'+holidayName+'</span>':'')+(eventMatch?'<span class="event-inline">'+eventMatch.name+'</span>':'')+'</div>':''}</div></div>`;
         if(post.channel!=='instagram_story'){html+=`<div class="caption-section"><div class="caption-label">Caption</div><div class="caption-text" onclick="editCaption('${post.id}')">${formatCaption(post.caption)}</div><textarea class="caption-textarea" id="caption-${post.id}" onblur="saveCaption('${post.id}',this.value)">${(post.caption||'').trim()}</textarea></div>`;if(post.first_comment)html+=`<div class="first-comment"><div class="caption-label">First Comment</div><div class="first-comment-text">${formatHashtags(post.first_comment)}</div></div>`;}
         if(post.tags&&post.tags.length>0)html+=`<div class="tags">${post.tags.map(tag=>`<div class="tag">${tag}</div>`).join('')}</div>`;
+        if(post.channel!=='instagram_story'){
         html+=`<div class="post-actions">`;
-        html+=`<button class="action-btn-approve ${isA?'approved':''}" onclick="approvePost('${post.id}')">${isA?'Freigegeben \u2713':'Freigabe'}</button>`;
+        html+=`<button class="action-btn-approve ${isA?'approved':''}" onclick="approvePost('${post.id}')">${isA?'Freigegeben':'Freigabe'}</button>`;
         html+=`<div class="action-row">`;
         html+=`<button class="action-btn-secondary ${hCR?(isChanged?'changed':'requested'):''}" onclick="submitRegenRequest('${post.id}','Caption neu')">Caption</button>`;
         html+=`<button class="action-btn-secondary ${hIR?(isChanged?'changed':'requested'):''}" onclick="submitRegenRequest('${post.id}','Bild/Crop neu')">Ausschnitt</button>`;
         html+=`<button class="action-btn-secondary ${hDR?(isChanged?'changed':'requested'):''}" onclick="requestDateChange('${post.id}')">Datum</button>`;
         html+=`</div>`;
+        }else{
+        html+=`<div class="post-actions" style="border:none;padding:0;margin:0;">`;
+        }
         const saveStatus=APP.unsavedChanges.has(post.id)?'Speichert...':'';
         if(saveStatus)html+=`<div class="auto-save-status">${saveStatus}</div>`;
         html+=`</div></div></div>`;
