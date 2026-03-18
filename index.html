@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- v5.4 — Event-Badges + Karussell-Auswahl mit Floating Action Bar -->
+<!-- v5.5 — Pills rechtsbündig, Auto-Refresh alle 30s -->
 <html lang="de">
 <head>
   <meta charset="UTF-8">
@@ -272,7 +272,8 @@
 
     .post-content { padding: 16px; flex: 1; display: flex; flex-direction: column; gap: 8px; }
     .post-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
-    .post-meta { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 13px; color: var(--text-secondary); font-weight: 500; }
+    .post-meta { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 13px; color: var(--text-secondary); font-weight: 500; width: 100%; }
+    .post-meta-pills { display: flex; gap: 4px; margin-left: auto; flex-shrink: 0; }
     .post-meta-dot { color: var(--text-muted); }
 
     .status-toggle { padding: 5px 10px; border: 1px solid var(--border); background: var(--bg-overlay); border-radius: var(--radius-sm); font-size: 11px; font-weight: 600; color: var(--text-muted); cursor: pointer; white-space: nowrap; transition: all var(--transition-fast); font-family: 'DM Sans', sans-serif; }
@@ -577,6 +578,37 @@
       try{const res=await fetch('./data.json');if(res.ok){APP.data=await res.json();APP.originalData=JSON.parse(JSON.stringify(APP.data));showToast('Daten geladen','success');renderUI();return;}}catch(err){console.warn('fetch ./data.json failed:',err);}
       if(EMBEDDED_DATA&&EMBEDDED_DATA.client&&APP.activeClient){const es=EMBEDDED_DATA.client.toLowerCase().replace(/\s+/g,'-');if(APP.activeClient===es||APP.activeClient==='eyestyle-zwickau'){APP.data=EMBEDDED_DATA;APP.originalData=JSON.parse(JSON.stringify(EMBEDDED_DATA));showToast('Eingebettete Daten geladen (Offline)','warning');renderUI();return;}}
       const co=APP.clients.find(c=>c.slug===APP.activeClient);APP.data={client:co?co.name:(APP.activeClient||'Unbekannt'),week:'',brand:'',lastModified:new Date().toISOString(),posts:[]};APP.originalData=JSON.parse(JSON.stringify(APP.data));showToast('Keine Daten gefunden','warning');renderUI();
+      startAutoRefresh();
+    }
+
+    // Auto-Refresh: Pollt alle 30s die JSON von GitHub und aktualisiert bei Änderungen
+    let _lastKnownSha = null;
+    function startAutoRefresh() {
+      setInterval(async () => {
+        if (!APP.github.token || !APP.activeClient || APP.unsavedChanges.size > 0) return;
+        try {
+          const { token, owner, repo } = APP.github;
+          const path = getClientPath(APP.activeClient);
+          const url = `https://api.github.com/repos/${owner||'mupdx'}/${repo||'content-boards'}/contents/${path}`;
+          const headers = {};
+          if (token) headers['Authorization'] = `token ${token}`;
+          const res = await fetch(url, { headers });
+          if (!res.ok) return;
+          const json = await res.json();
+          if (_lastKnownSha && json.sha !== _lastKnownSha) {
+            const content = decodeURIComponent(escape(atob(json.content)));
+            const newData = JSON.parse(content);
+            APP.data = newData;
+            APP.originalData = JSON.parse(JSON.stringify(newData));
+            _lastKnownSha = json.sha;
+            renderPosts();
+            generateCalendar();
+            showToast('Board aktualisiert', 'success');
+          } else {
+            _lastKnownSha = json.sha;
+          }
+        } catch (e) { /* silent */ }
+      }, 30000);
     }
 
     async function fetchFromGitHub(pathOverride){const{token,owner,repo}=APP.github;const ghOwner=owner||'mupdx';const ghRepo=repo||'content-boards';const path=pathOverride||getClientPath(APP.activeClient);const url=`https://api.github.com/repos/${ghOwner}/${ghRepo}/contents/${path}`;const headers={};if(token)headers['Authorization']=`token ${token}`;const res=await fetch(url,{headers});if(!res.ok)throw new Error(`GitHub API error: ${res.status}`);const json=await res.json();APP.currentSha=json.sha;const content=decodeURIComponent(escape(atob(json.content)));return JSON.parse(content);}
@@ -627,7 +659,8 @@
         if(post.channel==="instagram_story")html+=`<div class="img-control-bar"><label>Position</label><input type="range" min="0" max="100" value="${post.img_position&&post.img_position.x!=null?post.img_position.x:50}" oninput="updateImgPosition('${post.id}',this.value,this)" onmousedown="event.stopPropagation()" ontouchstart="event.stopPropagation()"><button class="img-reset-btn" onclick="updateImgPosition('${post.id}',50,this.parentElement.querySelector('input'))">Reset</button></div>`;
         const holidayName=hN||hF||'';
         const eventMatch=APP.data.events?APP.data.events.find(e=>e.date===post.date):null;
-        html+=`<div class="post-content"><div class="post-header"><div class="post-meta"><span>${formatGermanDate(post.date)}</span><span class="post-meta-dot">\u00b7</span><span>${post.time}</span>${holidayName?'<span class="post-meta-dot">\u00b7</span><span class="holiday-inline">'+holidayName+'</span>':''}${eventMatch?'<span class="event-inline">'+eventMatch.name+'</span>':''}</div></div>`;
+        const hasPills=holidayName||eventMatch;
+        html+=`<div class="post-content"><div class="post-header"><div class="post-meta"><span>${formatGermanDate(post.date)}</span><span class="post-meta-dot">\u00b7</span><span>${post.time}</span>${hasPills?'<div class="post-meta-pills">'+(holidayName?'<span class="holiday-inline">'+holidayName+'</span>':'')+(eventMatch?'<span class="event-inline">'+eventMatch.name+'</span>':'')+'</div>':''}</div></div>`;
         if(post.channel!=='instagram_story'){html+=`<div class="caption-section"><div class="caption-label">Caption</div><div class="caption-text" onclick="editCaption('${post.id}')">${formatCaption(post.caption)}</div><textarea class="caption-textarea" id="caption-${post.id}" onblur="saveCaption('${post.id}',this.value)">${(post.caption||'').trim()}</textarea></div>`;if(post.first_comment)html+=`<div class="first-comment"><div class="caption-label">First Comment</div><div class="first-comment-text">${formatHashtags(post.first_comment)}</div></div>`;}
         if(post.tags&&post.tags.length>0)html+=`<div class="tags">${post.tags.map(tag=>`<div class="tag">${tag}</div>`).join('')}</div>`;
         html+=`<div class="post-actions">`;
