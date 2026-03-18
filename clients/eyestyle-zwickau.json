@@ -30,6 +30,12 @@
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/eyestyle-zwickau/a7r09852.jpg",
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/eyestyle-zwickau/a7r09853.jpg"
+      ],
+      "regen_requests": [
+        {
+          "what": "Bild/Crop neu",
+          "timestamp": "2026-03-18T17:49:32.508Z"
+        }
       ]
     },
     {
