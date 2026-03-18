@@ -248,6 +248,10 @@ def build_briefing(clients_data, target_date):
 
         lines.append("")
 
+    # Abschlusszeile
+    lines.append("━━━━━━━━━━━━━━━━━━")
+    lines.append(":camera: :iphone: :blue_book: :briefcase:")
+
     return "\n".join(lines).strip()
 
 
