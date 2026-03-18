@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- v5.1 — Feiertag als Pill rechtsbündig, volles Grid ohne max-width -->
+<!-- v5.4 — Event-Badges + Karussell-Auswahl mit Floating Action Bar -->
 <html lang="de">
 <head>
   <meta charset="UTF-8">
@@ -272,7 +272,7 @@
 
     .post-content { padding: 16px; flex: 1; display: flex; flex-direction: column; gap: 8px; }
     .post-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
-    .post-meta { display: flex; gap: 8px; font-size: 13px; color: var(--text-secondary); font-weight: 500; }
+    .post-meta { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 13px; color: var(--text-secondary); font-weight: 500; }
     .post-meta-dot { color: var(--text-muted); }
 
     .status-toggle { padding: 5px 10px; border: 1px solid var(--border); background: var(--bg-overlay); border-radius: var(--radius-sm); font-size: 11px; font-weight: 600; color: var(--text-muted); cursor: pointer; white-space: nowrap; transition: all var(--transition-fast); font-family: 'DM Sans', sans-serif; }
@@ -322,7 +322,8 @@
     .regen-badge { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; padding: 6px 12px; background: rgba(139,92,246,0.1); color: #a78bfa; font-weight: 500; border-bottom: 1px solid rgba(139,92,246,0.15); }
     .changed-badge { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; padding: 6px 12px; background: rgba(59,130,246,0.1); color: #60a5fa; font-weight: 500; border-bottom: 1px solid rgba(59,130,246,0.15); }
 
-    .holiday-inline { color: var(--status-warning); font-weight: 600; font-size: 10px; letter-spacing: 0.03em; background: rgba(251,191,36,0.12); border: 1px solid rgba(251,191,36,0.25); padding: 2px 8px; border-radius: 10px; margin-left: auto; white-space: nowrap; }
+    .holiday-inline { color: var(--status-warning); font-weight: 600; font-size: 10px; letter-spacing: 0.03em; background: rgba(251,191,36,0.12); border: 1px solid rgba(251,191,36,0.25); padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
+    .event-inline { color: #f87171; font-weight: 600; font-size: 10px; letter-spacing: 0.03em; background: rgba(248,113,113,0.12); border: 1px solid rgba(248,113,113,0.25); padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
     .format-badge { position: absolute; top: 8px; right: 8px; padding: 3px 8px; border-radius: 4px; font-size: 10px; font-weight: 600; color: rgba(255,255,255,0.85); background: rgba(0,0,0,0.55); backdrop-filter: blur(6px); z-index: 5; letter-spacing: 0.04em; font-family: 'DM Sans', sans-serif; pointer-events: none; }
     .lightbox-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.9); display: flex; align-items: center; justify-content: center; z-index: 9999; cursor: pointer; backdrop-filter: blur(8px); }
     .lightbox-img { max-width: 90vw; max-height: 90vh; object-fit: contain; border-radius: 8px; cursor: default; }
@@ -378,6 +379,20 @@
     .img-control-bar input[type="range"] { flex: 1; height: 18px; cursor: pointer; accent-color: var(--accent); margin: 0; }
     .img-control-bar .img-reset-btn { background: var(--bg-elevated); color: var(--text-muted); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 3px 8px; font-size: 11px; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all var(--transition-fast); }
     .img-control-bar .img-reset-btn:hover { color: var(--text-secondary); border-color: var(--border-hover); }
+
+    .card-select { position: absolute; top: 8px; left: 8px; width: 20px; height: 20px; cursor: pointer; z-index: 10; accent-color: var(--accent); opacity: 0.4; transition: opacity 180ms ease; }
+    .card-select:hover, .card-select:checked { opacity: 1; }
+    .post-card.selected-for-carousel { border-color: var(--accent) !important; box-shadow: 0 0 0 2px rgba(212,168,83,0.3); }
+
+    .carousel-action-bar { position: fixed; bottom: 0; left: 0; right: 0; background: var(--bg-overlay); border-top: 1px solid var(--border); backdrop-filter: blur(16px); padding: 12px 32px; z-index: 1000; animation: slideUp 200ms ease; }
+    @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+    .carousel-action-bar-inner { display: flex; align-items: center; gap: 16px; max-width: 100%; }
+    .carousel-count { font-size: 13px; font-weight: 600; color: var(--accent); white-space: nowrap; }
+    .carousel-actions { display: flex; gap: 8px; flex: 1; }
+    .carousel-action-btn { padding: 8px 16px; border: 1px solid var(--border); border-radius: 6px; background: transparent; color: var(--text-secondary); font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 500; cursor: pointer; transition: all 180ms ease; }
+    .carousel-action-btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(212,168,83,0.06); }
+    .carousel-cancel { padding: 8px 16px; border: 1px solid var(--border); border-radius: 6px; background: transparent; color: var(--text-muted); font-family: 'DM Sans', sans-serif; font-size: 12px; cursor: pointer; margin-left: auto; }
+    .carousel-cancel:hover { color: var(--status-error); border-color: rgba(248,113,113,0.4); }
 
     /* Focus States (Accessibility) */
     .caption-textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 0; border-color: var(--accent); }
@@ -509,7 +524,7 @@
 
     const HOLIDAYS_SACHSEN = {'2026-04-03':'Karfreitag','2026-04-05':'Ostersonntag','2026-04-06':'Ostermontag'};
 
-    const APP = {data:null,originalData:null,unsavedChanges:new Set(),github:{token:'',owner:'',repo:''},clients:[],activeClient:null,currentSha:null,currentFilter:{channel:'all',status:null}};
+    const APP = {data:null,originalData:null,unsavedChanges:new Set(),selectedCards:new Set(),github:{token:'',owner:'',repo:''},clients:[],activeClient:null,currentSha:null,currentFilter:{channel:'all',status:null}};
 
     function slugify(name){return name.toLowerCase().replace(/[\u00e4\u00c4]/g,'ae').replace(/[\u00f6\u00d6]/g,'oe').replace(/[\u00fc\u00dc]/g,'ue').replace(/\u00df/g,'ss').replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');}
     function getClientPath(slug){return `clients/${slug}.json`;}
@@ -597,20 +612,22 @@
         const isSaved=!APP.unsavedChanges.has(post.id);const imgUrls=post.image_urls||[];const isSC=post.channel==='instagram_story';const sOU=isSC&&post.original_image_url?post.original_image_url:null;const cImg=sOU||imgUrls[0]||'';const hN=HOLIDAYS_SACHSEN[post.date]||'';const hF=post.holiday||'';const isP=post.panorama===true;const isS=post.channel==='instagram_story';const cC=isS?'story':(post.channel==='facebook'?'facebook':'feed');const ipX=post.img_position&&post.img_position.x!=null?post.img_position.x:null;const ipS=ipX!=null?` style="object-position: ${ipX}% center"`:'';const hRR=post.regen_requests&&post.regen_requests.length>0;const lR=hRR?post.regen_requests[post.regen_requests.length-1]:null;const isA=post.approved===true;
         const rT=hRR?post.regen_requests.map(r=>r.what):[];const hCR=rT.some(w=>w.includes('Caption'));const hIR=rT.some(w=>w.includes('Bild')||w.includes('Crop'));const hDR=rT.some(w=>w.includes('Datum'));
         const isChanged=post.changed===true;const hasOpenRequest=hRR&&!isChanged;
-        html+=`<div class="post-card ${!isSaved?'unsaved':''} ${hasOpenRequest?'regen-requested':''} ${isChanged?'changed-card':''} ${hN||hF?'holiday-post':''} ${isA?'approved-card':''}" id="post-${post.id}">`;
+        html+=`<div class="post-card ${!isSaved?'unsaved':''} ${hasOpenRequest?'regen-requested':''} ${isChanged?'changed-card':''} ${hN||hF?'holiday-post':''} ${isA?'approved-card':''} ${APP.selectedCards.has(post.id)?'selected-for-carousel':''}" id="post-${post.id}">`;
         if(hasOpenRequest)html+=`<div class="regen-badge">Änderung beantragt: ${lR.what}</div>`;
         if(isChanged)html+=`<div class="changed-badge">Geändert — bitte prüfen</div>`;
         html+=`<div class="post-image-container ${cC}">`;
         if(isP){html+=`<div class="panorama-container"><img src="${cImg}" alt="Panorama" class="panorama-img slide-left" onclick="openLightbox('${cImg}')"></div><div class="carousel-counter">1/2</div><button class="carousel-arrow prev" onclick="panSlide('${post.id}','prev')"></button><button class="carousel-arrow next" onclick="panSlide('${post.id}','next')"></button>`;}
         else{html+=`<img src="${cImg}" alt="Post" class="post-image"${ipS} onclick="openLightbox('${cImg}')" onload="detectFormat('${post.id}',this)" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23141416%22 width=%22200%22 height=%22200%22/%3E%3Ctext fill=%22%23555559%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2213%22%3EBild nicht verf%C3%BCgbar%3C/text%3E%3C/svg%3E'">`;if(imgUrls.length>1)html+=`<div class="carousel-counter">1/${imgUrls.length}</div><button class="carousel-arrow prev" onclick="prevSlide('${post.id}')"></button><button class="carousel-arrow next" onclick="nextSlide('${post.id}')"></button>`;}
         html+=`<div class="format-badge" id="fmt-${post.id}"></div>`;
+        html+=`<input type="checkbox" class="card-select" data-post-id="${post.id}" ${APP.selectedCards.has(post.id)?'checked':''} onclick="toggleCardSelect('${post.id}')" title="Für Karussell auswählen">`;
         html+=`<div class="channel-badge ${getChannelClassname(post.channel)}">${getChannelLabel(post.channel)}</div>`;
         if(hF)html+=`<div class="holiday-badge">${hF}</div>`;
         if(post.type==='carousel'){let carouselLabel='Karussell';if(post.panorama)carouselLabel='Panorama';else if(post.carousel_type==='peek')carouselLabel='Peek';else if(post.carousel_type==='multi')carouselLabel='Multi-Bild';else if(imgUrls.length>1)carouselLabel='Multi-Bild';html+=`<div class="carousel-type-badge">${carouselLabel}</div>`;}
         html+=`</div>`;
         if(post.channel==="instagram_story")html+=`<div class="img-control-bar"><label>Position</label><input type="range" min="0" max="100" value="${post.img_position&&post.img_position.x!=null?post.img_position.x:50}" oninput="updateImgPosition('${post.id}',this.value,this)" onmousedown="event.stopPropagation()" ontouchstart="event.stopPropagation()"><button class="img-reset-btn" onclick="updateImgPosition('${post.id}',50,this.parentElement.querySelector('input'))">Reset</button></div>`;
         const holidayName=hN||hF||'';
-        html+=`<div class="post-content"><div class="post-header"><div class="post-meta"><span>${formatGermanDate(post.date)}</span><span class="post-meta-dot">\u00b7</span><span>${post.time}</span>${holidayName?'<span class="post-meta-dot">\u00b7</span><span class="holiday-inline">'+holidayName+'</span>':''}</div></div>`;
+        const eventMatch=APP.data.events?APP.data.events.find(e=>e.date===post.date):null;
+        html+=`<div class="post-content"><div class="post-header"><div class="post-meta"><span>${formatGermanDate(post.date)}</span><span class="post-meta-dot">\u00b7</span><span>${post.time}</span>${holidayName?'<span class="post-meta-dot">\u00b7</span><span class="holiday-inline">'+holidayName+'</span>':''}${eventMatch?'<span class="event-inline">'+eventMatch.name+'</span>':''}</div></div>`;
         if(post.channel!=='instagram_story'){html+=`<div class="caption-section"><div class="caption-label">Caption</div><div class="caption-text" onclick="editCaption('${post.id}')">${formatCaption(post.caption)}</div><textarea class="caption-textarea" id="caption-${post.id}" onblur="saveCaption('${post.id}',this.value)">${(post.caption||'').trim()}</textarea></div>`;if(post.first_comment)html+=`<div class="first-comment"><div class="caption-label">First Comment</div><div class="first-comment-text">${formatHashtags(post.first_comment)}</div></div>`;}
         if(post.tags&&post.tags.length>0)html+=`<div class="tags">${post.tags.map(tag=>`<div class="tag">${tag}</div>`).join('')}</div>`;
         html+=`<div class="post-actions">`;
@@ -687,6 +704,14 @@
 
     function renderUI(){if(APP.data)document.getElementById('accountName').textContent=APP.data.brand||APP.data.week||'-';generateCalendar();renderPosts();checkConnection();}
 
+    function toggleCardSelect(postId){if(APP.selectedCards.has(postId)){APP.selectedCards.delete(postId);}else{APP.selectedCards.add(postId);}updateCarouselBar();const card=document.getElementById('post-'+postId);if(card)card.classList.toggle('selected-for-carousel',APP.selectedCards.has(postId));}
+
+    function clearCarouselSelection(){APP.selectedCards.clear();document.querySelectorAll('.card-select').forEach(cb=>cb.checked=false);document.querySelectorAll('.selected-for-carousel').forEach(c=>c.classList.remove('selected-for-carousel'));updateCarouselBar();}
+
+    function updateCarouselBar(){const bar=document.getElementById('carouselActionBar');const count=document.getElementById('carouselCount');const actions=document.getElementById('carouselActions');const n=APP.selectedCards.size;if(n===0){bar.style.display='none';return;}bar.style.display='block';count.textContent=n+' ausgewählt';let btns='';if(n===1){btns='<button class="carousel-action-btn" onclick="requestCarousel(\'panorama\')">Panorama erstellen</button>';}else{btns='<button class="carousel-action-btn" onclick="requestCarousel(\'multi\')">Multi-Bild Karussell</button>';btns+='<button class="carousel-action-btn" onclick="requestCarousel(\'peek\')">Peek Karussell</button>';}actions.innerHTML=btns;}
+
+    async function requestCarousel(type){const ids=Array.from(APP.selectedCards);const posts=ids.map(id=>APP.data.posts.find(p=>p.id===id)).filter(Boolean);if(posts.length===0)return;const mainPost=posts[0];const otherIds=ids.slice(1);if(!mainPost.regen_requests)mainPost.regen_requests=[];mainPost.regen_requests.push({what:'Karussell erstellen: '+type,merge_posts:otherIds,carousel_type:type,timestamp:new Date().toISOString()});APP.unsavedChanges.add(mainPost.id);clearCarouselSelection();renderPosts();const{token,owner,repo}=APP.github;const path=APP.activeClient?getClientPath(APP.activeClient):null;if(token&&owner&&repo&&path){try{await saveDataToGitHub(path,'Karussell beantragt: '+type+' aus '+ids.join(', '));APP.unsavedChanges.delete(mainPost.id);showToast('Karussell ('+type+') aus '+ids.length+' Bildern beantragt','success');renderPosts();}catch(err){showToast('Fehler: '+err.message,'error');}}}
+
     window.addEventListener('beforeunload',(e)=>{if(APP.unsavedChanges.size>0){e.preventDefault();e.returnValue='';}});
 
     document.addEventListener('DOMContentLoaded',async()=>{
@@ -701,5 +726,13 @@
       const nci=document.getElementById('newClientName');if(nci)nci.addEventListener('keypress',(e)=>{if(e.key==='Enter')addClient();});
     });
   </script>
+
+  <div class="carousel-action-bar" id="carouselActionBar" style="display:none;">
+    <div class="carousel-action-bar-inner">
+      <span class="carousel-count" id="carouselCount">0 ausgewählt</span>
+      <div class="carousel-actions" id="carouselActions"></div>
+      <button class="carousel-cancel" onclick="clearCarouselSelection()">Abbrechen</button>
+    </div>
+  </div>
 </body>
 </html>
