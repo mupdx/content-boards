@@ -517,12 +517,7 @@
       ],
       "caption": "Die Kunst liegt im Detail — zum Beispiel in einer perfekten Zeste. 🍋",
       "id": "ig_feed_12",
-      "regen_requests": [
-        {
-          "what": "Caption neu",
-          "timestamp": "2026-03-18T16:50:05.767Z"
-        }
-      ]
+      "regen_requests": []
     },
     {
       "date": "2026-04-09",
