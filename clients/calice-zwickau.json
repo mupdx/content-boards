@@ -105,7 +105,10 @@
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/calice-zwickau/a7r09135.jpg"
       ],
       "caption": "",
-      "id": "ig_story_3"
+      "id": "ig_story_3",
+      "img_position": {
+        "x": 74
+      }
     },
     {
       "date": "2026-03-24",
