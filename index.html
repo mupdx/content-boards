@@ -586,6 +586,8 @@
     function startAutoRefresh() {
       setInterval(async () => {
         if (!APP.github.token || !APP.activeClient || APP.unsavedChanges.size > 0) return;
+        const activeEl = document.activeElement;
+        if (activeEl && (activeEl.tagName === 'TEXTAREA' || activeEl.tagName === 'INPUT' || activeEl.isContentEditable)) return;
         try {
           const { token, owner, repo } = APP.github;
           const path = getClientPath(APP.activeClient);
