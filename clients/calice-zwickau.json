@@ -27,7 +27,10 @@
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/calice-zwickau/a7r09185.jpg"
       ],
       "caption": "",
-      "id": "ig_story_1"
+      "id": "ig_story_1",
+      "img_position": {
+        "x": 33
+      }
     },
     {
       "date": "2026-03-20",
@@ -40,7 +43,13 @@
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/calice-zwickau/a7r09156.jpg"
       ],
       "caption": "Zitronenzeste — klingt nach Kleinigkeit, macht aber den Unterschied. Ein Hauch Zitronenölen, frisch geschält, über den Cocktail gelegt. Das ist Handwerk, das man schmeckt. Kommt vorbei und seht selbst, wie viel Liebe in jedem unserer Drinks steckt.",
-      "id": "fb_1"
+      "id": "fb_1",
+      "regen_requests": [
+        {
+          "what": "Caption neu",
+          "timestamp": "2026-03-18T16:12:25.942Z"
+        }
+      ]
     },
     {
       "date": "2026-03-20",
@@ -52,8 +61,14 @@
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/calice-zwickau/a7r00153.jpg"
       ],
-      "caption": "Sirup, Präzision, Leidenschaft — so entstehen unsere Drinks. 🍯",
-      "id": "ig_feed_2"
+      "caption": "",
+      "id": "ig_feed_2",
+      "regen_requests": [
+        {
+          "what": "Caption neu",
+          "timestamp": "2026-03-18T16:09:17.694Z"
+        }
+      ]
     },
     {
       "date": "2026-03-21",
@@ -66,7 +81,10 @@
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/calice-zwickau/a7r09183.jpg"
       ],
       "caption": "",
-      "id": "ig_story_2"
+      "id": "ig_story_2",
+      "img_position": {
+        "x": 29
+      }
     },
     {
       "date": "2026-03-21",
@@ -79,7 +97,13 @@
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/calice-zwickau/a7r09133.jpg"
       ],
       "caption": "Die Tage werden länger, die Drinks leichter. Frühling am Hauptmarkt. 🌿",
-      "id": "ig_feed_3"
+      "id": "ig_feed_3",
+      "regen_requests": [
+        {
+          "what": "Caption neu",
+          "timestamp": "2026-03-18T16:17:22.714Z"
+        }
+      ]
     },
     {
       "date": "2026-03-22",
@@ -91,7 +115,7 @@
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/calice-zwickau/a7r09135.jpg"
       ],
-      "caption": "Wenn das Licht abends durch unsere Gläser fällt, entsteht diese besondere Stimmung, die man nur am Hauptmarkt findet. Unsere Calice-Gläser stehen bereit — und ein guter Tropfen auch. Startet mit uns ins Wochenende.",
+      "caption": "Wenn das Licht abends durch unsere Gläser fällt, entsteht diese besondere Stimmung, die man nur am Hauptmarkt findet. Unsere Calice-Gläser stehen bereit — und ein guter Tropfen auch.",
       "id": "fb_2"
     },
     {
@@ -105,7 +129,10 @@
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/calice-zwickau/a7r09135.jpg"
       ],
       "caption": "",
-      "id": "ig_story_3"
+      "id": "ig_story_3",
+      "img_position": {
+        "x": 44
+      }
     },
     {
       "date": "2026-03-24",
@@ -131,7 +158,10 @@
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/calice-zwickau/a7r09197.jpg"
       ],
       "caption": "",
-      "id": "ig_story_4"
+      "id": "ig_story_4",
+      "img_position": {
+        "x": 53
+      }
     },
     {
       "date": "2026-03-25",
@@ -144,7 +174,23 @@
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/calice-zwickau/a7r09111.jpg"
       ],
       "caption": "Doppelt hält besser — vor allem wenn es rot leuchtet. 🍓",
-      "id": "ig_feed_4"
+      "id": "ig_feed_4",
+      "regen_requests": [
+        {
+          "what": "Karussell erstellen: panorama",
+          "merge_posts": [],
+          "carousel_type": "panorama",
+          "timestamp": "2026-03-18T16:09:28.606Z"
+        },
+        {
+          "what": "Caption neu",
+          "timestamp": "2026-03-18T16:17:28.445Z"
+        },
+        {
+          "what": "Caption neu",
+          "timestamp": "2026-03-18T16:18:57.921Z"
+        }
+      ]
     },
     {
       "date": "2026-03-26",
@@ -157,7 +203,13 @@
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/calice-zwickau/a7r09143.jpg"
       ],
       "caption": "La dolce vita beginnt mit einer guten Platte. Wer teilt mit? 🧀",
-      "id": "ig_feed_5"
+      "id": "ig_feed_5",
+      "regen_requests": [
+        {
+          "what": "Caption neu",
+          "timestamp": "2026-03-18T16:09:39.962Z"
+        }
+      ]
     },
     {
       "date": "2026-03-26",
@@ -170,7 +222,10 @@
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/calice-zwickau/a7r09994.jpg"
       ],
       "caption": "",
-      "id": "ig_story_5"
+      "id": "ig_story_5",
+      "img_position": {
+        "x": 35
+      }
     },
     {
       "date": "2026-03-27",
@@ -210,7 +265,10 @@
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/calice-zwickau/a7r09123.jpg"
       ],
       "caption": "",
-      "id": "ig_story_6"
+      "id": "ig_story_6",
+      "img_position": {
+        "x": 13
+      }
     },
     {
       "date": "2026-03-28",
@@ -235,8 +293,14 @@
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/calice-zwickau/a7r09178.jpg"
       ],
-      "caption": "Prosecco trifft Bumbu Rum — ein unerwartetes Duo, das einfach funktioniert. Das sanfte Prickeln vom Prosecco verbindet sich mit der Wärme des Rums zu etwas ganz Besonderem. Neugierig? Kommt vorbei und lasst euch überraschen.",
-      "id": "fb_5"
+      "caption": "👍",
+      "id": "fb_5",
+      "regen_requests": [
+        {
+          "what": "Caption neu",
+          "timestamp": "2026-03-18T16:13:11.193Z"
+        }
+      ]
     },
     {
       "date": "2026-03-29",
@@ -249,7 +313,10 @@
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/calice-zwickau/a7r09118.jpg"
       ],
       "caption": "",
-      "id": "ig_story_7"
+      "id": "ig_story_7",
+      "img_position": {
+        "x": 65
+      }
     },
     {
       "date": "2026-03-31",
@@ -327,7 +394,15 @@
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/calice-zwickau/a7r09162.jpg"
       ],
       "caption": "Karfreitag? Aperitivo-Tag! Wir haben für euch geöffnet — gerührt, nicht geschüttelt. 🍸",
-      "id": "ig_feed_10"
+      "id": "ig_feed_10",
+      "regen_requests": [
+        {
+          "what": "Karussell erstellen: panorama",
+          "merge_posts": [],
+          "carousel_type": "panorama",
+          "timestamp": "2026-03-18T16:10:06.498Z"
+        }
+      ]
     },
     {
       "date": "2026-04-03",
@@ -366,7 +441,13 @@
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/calice-zwickau/a7r09135.jpg"
       ],
       "caption": "Frühlingsgefühle im Glas. Unsere Gläser warten. Und ihr so? 🍷",
-      "id": "ig_feed_11"
+      "id": "ig_feed_11",
+      "regen_requests": [
+        {
+          "what": "Bild/Crop neu",
+          "timestamp": "2026-03-18T16:10:13.547Z"
+        }
+      ]
     },
     {
       "date": "2026-04-05",
@@ -431,7 +512,13 @@
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/calice-zwickau/a7r09156.jpg"
       ],
       "caption": "Die Kunst liegt im Detail — zum Beispiel in einer perfekten Zeste. 🍋",
-      "id": "ig_feed_12"
+      "id": "ig_feed_12",
+      "regen_requests": [
+        {
+          "what": "Caption neu",
+          "timestamp": "2026-03-18T16:10:20.605Z"
+        }
+      ]
     },
     {
       "date": "2026-04-09",
@@ -496,7 +583,10 @@
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/calice-zwickau/a7r09162.jpg"
       ],
       "caption": "",
-      "id": "ig_story_14"
+      "id": "ig_story_14",
+      "img_position": {
+        "x": 3
+      }
     },
     {
       "date": "2026-04-11",
@@ -508,7 +598,7 @@
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/calice-zwickau/a7r09178.jpg"
       ],
-      "caption": "Wenn Prosecco auf Rum trifft, wird's spannend. Probiert es aus. 🥂",
+      "caption": "🥂",
       "id": "ig_feed_15"
     },
     {
@@ -652,7 +742,7 @@
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/calice-zwickau/a7r09184.jpg"
       ],
-      "caption": "Frisch eingeschenkt und bereit für euren Abend. Cin cin! 🩷",
+      "caption": "Frisch eingeschenkt und bereit für euren Abend. Cin cin! ",
       "id": "ig_feed_19"
     },
     {
@@ -875,7 +965,18 @@
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/calice-zwickau/a7r09188.jpg"
       ],
       "caption": "Aus dem Shaker in die Coupette — der letzte Schritt ist der schönste. 🍸",
-      "id": "ig_feed_25"
+      "id": "ig_feed_25",
+      "regen_requests": [
+        {
+          "what": "Karussell erstellen: peek",
+          "merge_posts": [
+            "ig_feed_26",
+            "ig_feed_28"
+          ],
+          "carousel_type": "peek",
+          "timestamp": "2026-03-18T16:11:38.254Z"
+        }
+      ]
     },
     {
       "date": "2026-04-30",
@@ -953,7 +1054,10 @@
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/calice-zwickau/a7r09113.jpg"
       ],
       "caption": "",
-      "id": "ig_story_27"
+      "id": "ig_story_27",
+      "img_position": {
+        "x": 50
+      }
     },
     {
       "date": "2026-05-03",
@@ -965,7 +1069,7 @@
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/calice-zwickau/a7r00153.jpg"
       ],
-      "caption": "Monin-Sirup, präzise eingegossen — das ist der Anfang von etwas Gutem. Hinter unserer Bar passiert mehr, als ihr von draußen seht. Jeder Handgriff hat seinen Grund, jede Zutat ihren Platz. Die Magie steckt im Detail.",
+      "caption": "Hinter unserer Bar passiert mehr, als ihr von draußen seht. Jeder Handgriff hat seinen Grund, jede Zutat ihren Platz. Die Magie steckt im Detail.",
       "id": "fb_20"
     },
     {
