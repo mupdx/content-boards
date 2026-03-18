@@ -446,12 +446,7 @@
       ],
       "caption": "Frühlingsgefühle im Glas. Unsere Gläser warten. Und ihr so? 🍷",
       "id": "ig_feed_11",
-      "regen_requests": [
-        {
-          "what": "Bild/Crop neu",
-          "timestamp": "2026-03-18T16:10:13.547Z"
-        }
-      ]
+      "regen_requests": []
     },
     {
       "date": "2026-04-05",
