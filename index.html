@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- v2.8 Monatstrenner, Feiertags-Badge aus JSON, Datumsanzeige mit Monatsname -->
+<!-- v2.9 Neu-Button erweitert: Caption/Crop/Datum/Alles, hardcodierte Panorama-Zuweisung entfernt -->
 <html lang="de">
 <head>
   <meta charset="UTF-8">
@@ -2240,23 +2240,84 @@
       }
     }
 
-    // ===== REQUEST REGENERATION =====
+    // ===== ÄNDERUNGSWÜNSCHE =====
     function requestRegenerate(postId) {
       const post = APP.data.posts.find(p => p.id === postId);
       if (!post) return;
       const ch = post.channel.replace(/_/g, ' ').toUpperCase();
-      const options = ['Nur Caption neu', 'Nur Bild/Crop neu', 'Beides neu'];
+      const options = [
+        { icon: '✏️', label: 'Caption ändern', value: 'Caption neu' },
+        { icon: '🖼️', label: 'Bildausschnitt ändern', value: 'Bild/Crop neu' },
+        { icon: '📅', label: 'Datum verschieben', value: 'Datum verschieben' },
+        { icon: '🔄', label: 'Alles neu', value: 'Alles neu' }
+      ];
       let html = '<div class="changes-summary-overlay" onclick="if(event.target===this)this.remove()">';
       html += '<div class="changes-summary-box">';
-      html += `<h3>🔄 ${post.id} neu generieren</h3>`;
-      html += `<p style="color:var(--text-secondary);margin-bottom:12px;">${ch} — ${post.date}</p>`;
-      html += `<p style="color:var(--text-secondary);margin-bottom:16px;">Was soll neu erstellt werden?</p>`;
+      html += `<h3>🔄 Änderungswunsch</h3>`;
+      html += `<p style="color:var(--text-secondary);margin-bottom:4px;font-weight:600;">${post.id} — ${ch}</p>`;
+      html += `<p style="color:var(--text-secondary);margin-bottom:16px;">${formatGermanDate(post.date)} · ${post.time}</p>`;
       options.forEach(opt => {
-        html += `<button style="display:block;width:100%;padding:10px;margin-bottom:8px;background:var(--bg-tertiary);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);cursor:pointer;text-align:left;" onclick="submitRegenRequest('${postId}','${opt}');this.closest('.changes-summary-overlay').remove();">${opt}</button>`;
+        if (opt.value === 'Datum verschieben') {
+          html += `<button style="display:block;width:100%;padding:10px;margin-bottom:8px;background:var(--bg-tertiary);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);cursor:pointer;text-align:left;" onclick="requestDateChange('${postId}');this.closest('.changes-summary-overlay').remove();">${opt.icon} ${opt.label}</button>`;
+        } else {
+          html += `<button style="display:block;width:100%;padding:10px;margin-bottom:8px;background:var(--bg-tertiary);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);cursor:pointer;text-align:left;" onclick="submitRegenRequest('${postId}','${opt.value}');this.closest('.changes-summary-overlay').remove();">${opt.icon} ${opt.label}</button>`;
+        }
       });
       html += '<button class="changes-summary-close" style="background:#6b7280;" onclick="this.closest(\'.changes-summary-overlay\').remove()">Abbrechen</button>';
       html += '</div></div>';
       document.body.insertAdjacentHTML('beforeend', html);
+    }
+
+    function requestDateChange(postId) {
+      const post = APP.data.posts.find(p => p.id === postId);
+      if (!post) return;
+      let html = '<div class="changes-summary-overlay" onclick="if(event.target===this)this.remove()">';
+      html += '<div class="changes-summary-box">';
+      html += `<h3>📅 Datum verschieben</h3>`;
+      html += `<p style="color:var(--text-secondary);margin-bottom:4px;font-weight:600;">${post.id}</p>`;
+      html += `<p style="color:var(--text-secondary);margin-bottom:16px;">Aktuell: ${formatGermanDate(post.date)} · ${post.time}</p>`;
+      html += `<label style="color:var(--text-secondary);font-size:12px;display:block;margin-bottom:4px;">Neues Datum:</label>`;
+      html += `<input type="date" id="newDate-${postId}" value="${post.date}" style="width:100%;padding:10px;margin-bottom:12px;background:var(--bg-tertiary);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);font-size:14px;">`;
+      html += `<label style="color:var(--text-secondary);font-size:12px;display:block;margin-bottom:4px;">Neue Uhrzeit:</label>`;
+      html += `<input type="time" id="newTime-${postId}" value="${post.time}" style="width:100%;padding:10px;margin-bottom:16px;background:var(--bg-tertiary);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);font-size:14px;">`;
+      html += `<button style="display:block;width:100%;padding:10px;margin-bottom:8px;background:#3b82f6;border:none;border-radius:6px;color:white;cursor:pointer;font-weight:600;" onclick="submitDateChange('${postId}');this.closest('.changes-summary-overlay').remove();">📅 Verschieben</button>`;
+      html += '<button class="changes-summary-close" style="background:#6b7280;" onclick="this.closest(\'.changes-summary-overlay\').remove()">Abbrechen</button>';
+      html += '</div></div>';
+      document.body.insertAdjacentHTML('beforeend', html);
+    }
+
+    async function submitDateChange(postId) {
+      const post = APP.data.posts.find(p => p.id === postId);
+      if (!post) return;
+      const newDate = document.getElementById(`newDate-${postId}`).value;
+      const newTime = document.getElementById(`newTime-${postId}`).value;
+      const oldDate = post.date;
+      const oldTime = post.time;
+      if (newDate === oldDate && newTime === oldTime) {
+        showToast('Datum und Uhrzeit unverändert', 'warning');
+        return;
+      }
+      post.date = newDate;
+      post.time = newTime;
+      if (!post.regen_requests) post.regen_requests = [];
+      post.regen_requests.push({ what: `Datum: ${oldDate} ${oldTime} → ${newDate} ${newTime}`, timestamp: new Date().toISOString() });
+      APP.unsavedChanges.add(postId);
+      renderPosts();
+
+      const { token, owner, repo } = APP.github;
+      const path = APP.activeClient ? getClientPath(APP.activeClient) : null;
+      if (token && owner && repo && path) {
+        try {
+          await saveDataToGitHub(path, `Datum verschoben: ${postId} → ${newDate} ${newTime}`);
+          APP.unsavedChanges.delete(postId);
+          showToast(`📅 ${postId} verschoben auf ${formatGermanDate(newDate)} · ${newTime} ✓`, 'success');
+          renderPosts();
+        } catch (err) {
+          showToast('Fehler beim Speichern: ' + err.message, 'error');
+        }
+      } else {
+        showToast(`📅 Verschiebung vorgemerkt — bitte manuell speichern`, 'warning');
+      }
     }
 
     async function submitRegenRequest(postId, what) {
@@ -2272,7 +2333,7 @@
       const path = APP.activeClient ? getClientPath(APP.activeClient) : null;
       if (token && owner && repo && path) {
         try {
-          await saveDataToGitHub(path, `Regen-Request: ${what} für ${postId}`);
+          await saveDataToGitHub(path, `Änderungswunsch: ${what} für ${postId}`);
           APP.unsavedChanges.delete(postId);
           showToast(`🔄 "${what}" für ${postId} beantragt und gespeichert ✓`, 'success');
           renderPosts();
@@ -2595,9 +2656,6 @@
     function renderUI() {
       if (APP.data) {
         document.getElementById('accountName').textContent = APP.data.brand || APP.data.week || '-';
-        // Mark panorama posts
-        const pan = APP.data.posts.find(p => p.id === 'ig_feed_9');
-        if (pan) pan.panorama = true;
       }
       generateCalendar();
       renderPosts();
