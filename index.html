@@ -187,7 +187,7 @@
     .calendar-scroll-container { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-elevated); }
     .calendar-table { width: 100%; border-collapse: collapse; font-size: 11px; }
     .calendar-table thead { background: var(--bg-overlay); position: sticky; top: 0; z-index: 10; }
-    .calendar-table th { border: 1px solid var(--border); padding: 4px 6px; text-align: center; font-weight: 600; color: var(--text-muted); white-space: nowrap; min-width: 56px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.03em; }
+    .calendar-table th { border: 1px solid var(--border); padding: 4px 6px; text-align: center; font-weight: 600; color: var(--text-secondary); white-space: nowrap; min-width: 56px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.03em; }
     .calendar-table td { border: 1px solid var(--border); padding: 3px 4px; text-align: center; height: 32px; vertical-align: middle; background: var(--bg-surface); }
     .calendar-table tbody th { background: var(--bg-overlay); font-weight: 600; color: var(--text-muted); text-align: left; padding: 3px 8px; white-space: nowrap; min-width: 60px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.03em; }
     .calendar-table th.holiday, .calendar-table td.holiday { background: var(--holiday-bg); border-color: rgba(251,191,36,0.15); }
@@ -221,7 +221,7 @@
     .posts-section-title { font-family: 'Sora', sans-serif; font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border); letter-spacing: -0.01em; }
     .posts-grid { display: flex; flex-direction: column; gap: 28px; margin-bottom: 40px; }
     .channel-section-title { font-family: 'Sora', sans-serif; font-size: 12px; font-weight: 600; color: var(--text-muted); padding: 10px 0 6px 0; border-bottom: 1px solid var(--border); margin-bottom: 0; letter-spacing: 0.06em; text-transform: uppercase; }
-    .channel-section-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
+    .channel-section-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; }
 
     .post-card { background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; display: flex; flex-direction: column; transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease; animation: cardIn 300ms ease forwards; }
     .post-card:hover { border-color: var(--border-hover); box-shadow: 0 4px 20px rgba(0,0,0,0.3); transform: translateY(-1px); }
@@ -366,7 +366,7 @@
       .header-right { width: 100%; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
       .main-container { padding: 16px; }
       .filters { margin-bottom: 16px; }
-      .channel-section-grid { grid-template-columns: 1fr; gap: 16px; }
+      .channel-section-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
       .calendar-table { font-size: 10px; }
       .calendar-table th, .calendar-table td { padding: 4px 3px; min-width: 50px; }
       .modal-content { max-width: 100%; }
