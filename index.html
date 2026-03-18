@@ -709,9 +709,16 @@
     }
     function requestDateChange(postId){submitRegenRequest(postId,'Datum verschieben (Motiv zu nah an Nachbar-Post oder Termin unpassend)');}
 
-    async function submitRegenRequest(postId,what){const post=APP.data.posts.find(p=>p.id===postId);if(!post)return;if(!post.regen_requests)post.regen_requests=[];post.regen_requests.push({what,timestamp:new Date().toISOString()});APP.unsavedChanges.add(postId);renderPosts();
+    async function submitRegenRequest(postId,what){const post=APP.data.posts.find(p=>p.id===postId);if(!post)return;if(!post.regen_requests)post.regen_requests=[];
+    // Toggle: Wenn gleicher Request schon existiert → entfernen (versehentlich geklickt)
+    const category=what.split(' ')[0]; // "Caption", "Bild/Crop", "Datum"
+    const existing=post.regen_requests.findIndex(r=>r.what.startsWith(category));
+    if(existing!==-1){post.regen_requests.splice(existing,1);if(post.regen_requests.length===0)delete post.regen_requests;APP.unsavedChanges.add(postId);renderPosts();
     const{token,owner,repo}=APP.github;const path=APP.activeClient?getClientPath(APP.activeClient):null;
-    if(token&&owner&&repo&&path){try{await saveDataToGitHub(path,`\u00c4nderungswunsch: ${what} f\u00fcr ${postId}`);APP.unsavedChanges.delete(postId);showToast(`"${what}" f\u00fcr ${postId} beantragt`,'success');renderPosts();}catch(err){showToast('Fehler beim Speichern: '+err.message,'error');}}else{showToast(`"${what}" vorgemerkt`,'warning');}}
+    if(token&&owner&&repo&&path){try{await saveDataToGitHub(path,`Wunsch zurückgenommen: ${what} für ${postId}`);APP.unsavedChanges.delete(postId);showToast(`"${what}" zurückgenommen`,'info');renderPosts();}catch(err){showToast('Fehler: '+err.message,'error');}}return;}
+    post.regen_requests.push({what,timestamp:new Date().toISOString()});APP.unsavedChanges.add(postId);renderPosts();
+    const{token,owner,repo}=APP.github;const path=APP.activeClient?getClientPath(APP.activeClient):null;
+    if(token&&owner&&repo&&path){try{await saveDataToGitHub(path,`\u00c4nderungswunsch: ${what} f\u00fcr ${postId}`);APP.unsavedChanges.delete(postId);showToast(`"${what}" beantragt`,'success');renderPosts();}catch(err){showToast('Fehler beim Speichern: '+err.message,'error');}}else{showToast(`"${what}" vorgemerkt`,'warning');}}
 
     function saveCaption(postId,value){const post=APP.data.posts.find(p=>p.id===postId);if(post){post.caption=value;APP.unsavedChanges.add(postId);document.querySelector(`#caption-${postId}`).previousElementSibling.classList.remove('editing');document.getElementById(`caption-${postId}`).classList.remove('editing');renderPosts();autoSave(postId);}}
 
