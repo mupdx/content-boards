@@ -169,8 +169,8 @@
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/calice-zwickau/a7r09127.jpg"
       ],
-      "carousel_style": "panorama",
-      "caption": "Hinter jedem guten Drink steckt jemand, der weiss was er tut. Willkommen an unserer Bar. 🍹"
+      "caption": "Hinter jedem guten Drink steckt jemand, der weiss was er tut. Willkommen an unserer Bar. 🍹",
+      "panorama": true
     },
     {
       "date": "2026-03-27",
@@ -542,8 +542,8 @@
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/calice-zwickau/a7r09118.jpg"
       ],
-      "carousel_style": "panorama",
-      "caption": "Cocktails, Snacks, gute Laune — alles auf einem Tablett. So geht Aperitivo bei uns. 🍽️"
+      "caption": "Cocktails, Snacks, gute Laune — alles auf einem Tablett. So geht Aperitivo bei uns. 🍽️",
+      "panorama": true
     },
     {
       "date": "2026-04-16",
@@ -795,8 +795,8 @@
       "image_urls": [
         "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/calice-zwickau/a7r09123.jpg"
       ],
-      "carousel_style": "panorama",
-      "caption": "Drinks und Antipasti — bei uns bekommt ihr beides aus einer Hand. Salute! 🧀🍸"
+      "caption": "Drinks und Antipasti — bei uns bekommt ihr beides aus einer Hand. Salute! 🧀🍸",
+      "panorama": true
     },
     {
       "date": "2026-04-30",
