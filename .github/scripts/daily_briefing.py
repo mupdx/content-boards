@@ -1,54 +1,51 @@
 #!/usr/bin/env python3
-# v1 — Taegliches Briefing via GitHub Actions + Slack
-# Liest alle Client-JSONs aus dem Repo, checkt Wetter + Feiertage,
-# pusht kompaktes Briefing an Slack.
+# v2 — Taegliches Briefing via GitHub Actions + Slack
+# Liest Archiv-JSONs aus clients/archiv/, checkt Wetter + Feiertage,
+# pusht kompaktes Briefing an Slack mit Custom Emojis.
+# Laeuft auf GitHub Actions — braucht KEINEN lokalen Rechner.
 
 import json
 import os
 import sys
 import glob
 import urllib.request
-import urllib.error
 from datetime import datetime, date, timedelta
 
-GITHUB_RAW = "https://raw.githubusercontent.com/mupdx/content-boards/main"
-GITHUB_API = "https://api.github.com/repos/mupdx/content-boards/contents/clients"
-
-# Bekannte Clients
 CLIENTS = [
-    {"id": "dolce-freddo-zwickau", "name": "Dolce Freddo Zwickau", "branch": "restaurant", "city": "Zwickau", "icon": ":ice_cream:"},
-    {"id": "eyestyle-zwickau", "name": "Eyestyle Zwickau", "branch": "optiker", "city": "Zwickau", "icon": ":eyeglasses:"},
+    {"id": "dolce-freddo-zwickau", "name": "Dolce Freddo Zwickau"},
+    {"id": "eyestyle-zwickau", "name": "Eyestyle Zwickau"},
 ]
 
 WOCHENTAGE = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
-MONATE = ["", "Januar", "Februar", "März", "April", "Mai", "Juni",
+MONATE = ["", "Januar", "Februar", "Maerz", "April", "Mai", "Juni",
           "Juli", "August", "September", "Oktober", "November", "Dezember"]
 
 KANAL_ICONS = {
-    "instagram_feed": "Feed ",
-    "instagram_story": "Story",
-    "facebook": "FB   ",
-    "linkedin": "LI   ",
+    "instagram_feed": ":instagram:",
+    "instagram_story": ":story:",
+    "facebook": ":facebook:",
+    "linkedin": ":linkedin:",
 }
 
 WETTER_CODES = {
-    0: "sonnig", 1: "heiter", 2: "teilw. bewölkt", 3: "bewölkt",
-    45: "Nebel", 48: "Nebel", 51: "Nieselregen", 53: "Nieselregen",
-    55: "Nieselregen", 61: "Regen", 63: "Regen", 65: "starker Regen",
-    71: "Schnee", 73: "Schnee", 75: "starker Schnee",
-    80: "Regenschauer", 81: "Regenschauer", 82: "Starkregen",
-    95: "Gewitter", 96: "Gewitter+Hagel", 99: "Gewitter+Hagel",
-}
-
-BRANCH_TRIGGERS = {
-    "optiker": lambda temp, code: "Sonnenbrillen-Wetter!" if code <= 1 and temp >= 20 else None,
-    "restaurant": lambda temp, code: "Terrassenwetter!" if temp >= 18 and code <= 2 else None,
+    0: ("sonnig", ":sunny:"), 1: ("heiter", ":sun_behind_cloud:"),
+    2: ("teilw. bewoelkt", ":partly_sunny:"), 3: ("bewoelkt", ":cloud:"),
+    45: ("Nebel", ":fog:"), 48: ("Nebel", ":fog:"),
+    51: ("Nieselregen", ":cloud_rain:"), 53: ("Nieselregen", ":cloud_rain:"),
+    55: ("Nieselregen", ":cloud_rain:"), 61: ("Regen", ":rain_cloud:"),
+    63: ("Regen", ":rain_cloud:"), 65: ("starker Regen", ":rain_cloud:"),
+    71: ("Schnee", ":snowflake:"), 73: ("Schnee", ":snowflake:"),
+    75: ("starker Schnee", ":snowflake:"),
+    80: ("Regenschauer", ":rain_cloud:"), 81: ("Regenschauer", ":rain_cloud:"),
+    82: ("Starkregen", ":rain_cloud:"),
+    95: ("Gewitter", ":zap:"), 96: ("Gewitter+Hagel", ":zap:"),
+    99: ("Gewitter+Hagel", ":zap:"),
 }
 
 
 def fetch_json(url):
     try:
-        req = urllib.request.Request(url, headers={"User-Agent": "BriefingBot/1.0"})
+        req = urllib.request.Request(url, headers={"User-Agent": "BriefingBot/2.0"})
         with urllib.request.urlopen(req, timeout=15) as resp:
             return json.loads(resp.read().decode("utf-8"))
     except Exception:
@@ -58,27 +55,23 @@ def fetch_json(url):
 def load_all_posts(client_id):
     posts = []
 
-    # Direkte Client-Datei
-    data = fetch_json(f"{GITHUB_RAW}/clients/{client_id}.json")
-    if data and "posts" in data:
-        posts.extend(data["posts"])
-
-    # Alle Dateien im clients/ Ordner die zum Client gehoeren
-    file_list = fetch_json(GITHUB_API)
-    if file_list and isinstance(file_list, list):
-        for f in file_list:
-            name = f.get("name", "")
-            if name.startswith(client_id) and name.endswith(".json") and name != f"{client_id}.json":
-                data = fetch_json(f"{GITHUB_RAW}/clients/{name}")
-                if data and "posts" in data:
-                    posts.extend(data["posts"])
-
-    # Lokale Archiv-Dateien (im Repo unter clients/)
-    local_pattern = os.path.join("clients", f"{client_id}*.json")
-    for filepath in glob.glob(local_pattern):
+    # Board-JSON (aktives Board)
+    board_path = os.path.join("clients", f"{client_id}.json")
+    if os.path.exists(board_path):
         try:
-            with open(filepath) as fh:
-                data = json.load(fh)
+            with open(board_path) as f:
+                data = json.load(f)
+            if data.get("posts"):
+                posts.extend(data["posts"])
+        except Exception:
+            pass
+
+    # Archiv-Dateien
+    archiv_pattern = os.path.join("clients", "archiv", f"{client_id}*.json")
+    for filepath in sorted(glob.glob(archiv_pattern)):
+        try:
+            with open(filepath) as f:
+                data = json.load(f)
             if "posts" in data:
                 posts.extend(data["posts"])
         except Exception:
@@ -88,22 +81,20 @@ def load_all_posts(client_id):
     seen = {}
     for p in posts:
         key = f"{p.get('date')}|{p.get('channel')}|{p.get('time')}"
-        if key not in seen or p.get("lastModified", "") >= seen[key].get("lastModified", ""):
-            seen[key] = p
+        seen[key] = p
     return list(seen.values())
 
 
-def get_weather(city="Zwickau"):
-    coords = {"Zwickau": (50.72, 12.49)}
-    lat, lon = coords.get(city, (50.72, 12.49))
-    url = f"https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&current_weather=true&timezone=Europe/Berlin"
+def get_weather():
+    url = "https://api.open-meteo.com/v1/forecast?latitude=50.72&longitude=12.49&current_weather=true&timezone=Europe/Berlin"
     data = fetch_json(url)
     if data and "current_weather" in data:
         cw = data["current_weather"]
         temp = round(cw.get("temperature", 0))
         code = cw.get("weathercode", 0)
-        return temp, WETTER_CODES.get(code, "unbekannt"), code
-    return None, None, None
+        desc, emoji = WETTER_CODES.get(code, ("unbekannt", ":question:"))
+        return temp, desc, emoji
+    return None, None, ":question:"
 
 
 def berechne_ostern(jahr):
@@ -137,7 +128,6 @@ def feiertage_sachsen(jahr):
         ostern + timedelta(days=50): "Pfingstmontag",
         date(jahr, 10, 3): "Tag der Dt. Einheit",
         date(jahr, 10, 31): "Reformationstag",
-        date(jahr, 11, 23) - timedelta(days=(date(jahr, 11, 23).weekday() + 4) % 7): "Buss- und Bettag",
         date(jahr, 12, 25): "1. Weihnachtstag",
         date(jahr, 12, 26): "2. Weihnachtstag",
     }
@@ -148,86 +138,51 @@ def build_briefing(clients_data, target_date):
     tag = target_date.day
     monat = MONATE[target_date.month]
 
-    temp, wetter_desc, wetter_code = get_weather()
-    wetter_str = f"{temp}°C {wetter_desc}" if temp is not None else "Wetter nicht verfügbar"
+    temp, wetter_desc, wetter_emoji = get_weather()
+    wetter_str = f"{temp}°C {wetter_desc}" if temp is not None else "Wetter nicht verfuegbar"
 
     feiertage = feiertage_sachsen(target_date.year)
     heute_feiertag = feiertage.get(target_date)
-    morgen_feiertag = feiertage.get(target_date + timedelta(days=1))
-
-    # Wetter-Emoji
-    wetter_emoji = ":sunny:"
-    if wetter_code is not None:
-        if wetter_code == 0:
-            wetter_emoji = ":sunny:"
-        elif wetter_code <= 2:
-            wetter_emoji = ":partly_sunny:"
-        elif wetter_code <= 3:
-            wetter_emoji = ":cloud:"
-        elif wetter_code <= 55:
-            wetter_emoji = ":fog:"
-        elif wetter_code <= 65:
-            wetter_emoji = ":rain_cloud:"
-        elif wetter_code <= 75:
-            wetter_emoji = ":snowflake:"
-        elif wetter_code <= 82:
-            wetter_emoji = ":rain_cloud:"
-        else:
-            wetter_emoji = ":zap:"
 
     lines = []
-    lines.append(f"*Briefing {wt}, {tag}. {monat}*")
-    lines.append(f"{wetter_emoji} Zwickau {wetter_str}")
+    lines.append(f"*Briefing {tag}. {monat}*")
+    lines.append(f"Zwickau {wetter_str} {wetter_emoji}")
     lines.append("")
 
     if heute_feiertag:
-        lines.append(f":rotating_light: *FEIERTAG HEUTE: {heute_feiertag}*")
-        lines.append("")
-    if morgen_feiertag:
-        lines.append(f":warning: Morgen Feiertag: _{morgen_feiertag}_")
+        lines.append(f":rotating_light: *FEIERTAG: {heute_feiertag}*")
         lines.append("")
 
     for client, all_posts in clients_data:
         name = client["name"]
-        branch = client.get("branch", "")
         date_str = target_date.strftime("%Y-%m-%d")
         posts_today = [p for p in all_posts if p.get("date") == date_str]
 
-        lines.append(f"━━ *{name}* ━━")
+        lines.append(f":client: *{name}*")
+        lines.append("")
 
         if posts_today:
             for p in sorted(posts_today, key=lambda x: x.get("time", "")):
                 channel = p.get("channel", "")
-                if channel == "instagram_feed":
-                    icon = ":camera:"
-                elif channel == "instagram_story":
-                    icon = ":iphone:"
-                elif channel == "facebook":
-                    icon = ":blue_book:"
-                elif channel == "linkedin":
-                    icon = ":briefcase:"
-                else:
-                    icon = ":memo:"
-
-                kanal = KANAL_ICONS.get(channel, channel)
+                icon = KANAL_ICONS.get(channel, ":memo:")
                 zeit = p.get("time", "?")
+
                 desc = p.get("image_description", "")
-                if not desc:
+                desc_str = f" · [{desc}]" if desc else ""
+
+                lines.append(f"{icon}  *{zeit}*{desc_str}")
+
+                if channel != "instagram_story":
                     caption = p.get("caption", p.get("caption_ig", ""))
                     if caption:
-                        desc = caption[:45] + ("..." if len(caption) > 45 else "")
-                if desc:
-                    lines.append(f"  {icon} `{kanal}` *{zeit}*  _{desc}_")
-                else:
-                    lines.append(f"  {icon} `{kanal}` *{zeit}*")
-        else:
-            lines.append("  :zzz: _Nichts heute._")
+                        if len(caption) > 80:
+                            caption = caption[:77] + "..."
+                        lines.append(f"_{caption}_")
 
-        # Branchenspezifischer Trigger
-        if temp is not None and branch in BRANCH_TRIGGERS:
-            trigger = BRANCH_TRIGGERS[branch](temp, wetter_code or 0)
-            if trigger:
-                lines.append(f"  :bulb: {trigger}")
+                lines.append("")
+        else:
+            lines.append("Keine Posts heute.")
+            lines.append("")
 
         # 14-Tage-Warnung
         future_dates = []
@@ -238,19 +193,22 @@ def build_briefing(clients_data, target_date):
                     future_dates.append(d)
             except (ValueError, KeyError):
                 continue
+
         if future_dates:
             last = max(future_dates)
             tage_rest = (last - target_date).days
-            if tage_rest <= 14:
-                lines.append(f"  :warning: *Noch {tage_rest} Tage Content!* Letzter Post: {last.strftime('%d.%m.')}")
+            if tage_rest <= 7:
+                lines.append(f":rotating_light: *DRINGEND: Nur noch {tage_rest} Tage Content! Letzter Post: {last.strftime('%d.%m.')}*")
+                lines.append("")
+            elif tage_rest <= 14:
+                lines.append(f":warning: *Noch {tage_rest} Tage Content bis {last.strftime('%d.%m.')}*")
+                lines.append("")
         else:
-            lines.append("  :rotating_light: *KEIN Content geplant!*")
+            lines.append(":rotating_light: *KEIN Content geplant!*")
+            lines.append("")
 
-        lines.append("")
-
-    # Abschlusszeile
-    lines.append("━━━━━━━━━━━━━━━━━━")
-    lines.append(":camera: :iphone: :blue_book: :briefcase:")
+    lines.append("")
+    lines.append(":arrow: :arrow: :arrow: :arrow: :arrow: :arrow: :arrow: :arrow: :arrow:")
 
     return "\n".join(lines).strip()
 

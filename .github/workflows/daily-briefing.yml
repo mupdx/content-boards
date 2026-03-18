@@ -2,8 +2,8 @@ name: Daily Briefing
 
 on:
   schedule:
-    # Jeden Tag um 06:00 UTC = 07:00 CET / 08:00 CEST
-    - cron: '57 5 * * *'
+    # Jeden Tag um 05:00 UTC = 07:00 MESZ (Sommerzeit)
+    - cron: '0 5 * * *'
   workflow_dispatch: # Manuell ausloesbar
 
 jobs:
