@@ -16,12 +16,12 @@ GITHUB_API = "https://api.github.com/repos/mupdx/content-boards/contents/clients
 
 # Bekannte Clients
 CLIENTS = [
-    {"id": "dolce-freddo-zwickau", "name": "Dolce Freddo Zwickau", "branch": "restaurant", "city": "Zwickau"},
-    {"id": "eyestyle-zwickau", "name": "Eyestyle Zwickau", "branch": "optiker", "city": "Zwickau"},
+    {"id": "dolce-freddo-zwickau", "name": "Dolce Freddo Zwickau", "branch": "restaurant", "city": "Zwickau", "icon": ":ice_cream:"},
+    {"id": "eyestyle-zwickau", "name": "Eyestyle Zwickau", "branch": "optiker", "city": "Zwickau", "icon": ":eyeglasses:"},
 ]
 
 WOCHENTAGE = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
-MONATE = ["", "Januar", "Februar", "Maerz", "April", "Mai", "Juni",
+MONATE = ["", "Januar", "Februar", "März", "April", "Mai", "Juni",
           "Juli", "August", "September", "Oktober", "November", "Dezember"]
 
 KANAL_ICONS = {
@@ -32,7 +32,7 @@ KANAL_ICONS = {
 }
 
 WETTER_CODES = {
-    0: "sonnig", 1: "heiter", 2: "teilw. bewoelkt", 3: "bewoelkt",
+    0: "sonnig", 1: "heiter", 2: "teilw. bewölkt", 3: "bewölkt",
     45: "Nebel", 48: "Nebel", 51: "Nieselregen", 53: "Nieselregen",
     55: "Nieselregen", 61: "Regen", 63: "Regen", 65: "starker Regen",
     71: "Schnee", 73: "Schnee", 75: "starker Schnee",
@@ -149,14 +149,15 @@ def build_briefing(clients_data, target_date):
     monat = MONATE[target_date.month]
 
     temp, wetter_desc, wetter_code = get_weather()
-    wetter_str = f"{temp} C {wetter_desc}" if temp is not None else "Wetter nicht verfuegbar"
+    wetter_str = f"{temp}°C {wetter_desc}" if temp is not None else "Wetter nicht verfügbar"
 
     feiertage = feiertage_sachsen(target_date.year)
     heute_feiertag = feiertage.get(target_date)
     morgen_feiertag = feiertage.get(target_date + timedelta(days=1))
 
     lines = []
-    lines.append(f":sunny: *Briefing {wt}, {tag}. {monat}*  |  :thermometer: Zwickau {wetter_str}")
+    lines.append(f":sunny: *Briefing {wt}, {tag}. {monat}*")
+    lines.append(f":thermometer: Zwickau {wetter_str}")
     lines.append("")
 
     if heute_feiertag:
@@ -168,11 +169,12 @@ def build_briefing(clients_data, target_date):
 
     for client, all_posts in clients_data:
         name = client["name"]
+        client_icon = client.get("icon", ":store:")
         branch = client.get("branch", "")
         date_str = target_date.strftime("%Y-%m-%d")
         posts_today = [p for p in all_posts if p.get("date") == date_str]
 
-        lines.append(f"━━━ *{name}* ━━━")
+        lines.append(f"{client_icon} *{name}*")
 
         if posts_today:
             for p in sorted(posts_today, key=lambda x: x.get("time", "")):
