@@ -917,9 +917,11 @@
       "image": "a7r09188.jpg",
       "first_comment": "#calicezwickau #zwickau #cocktailbar #cocktails #craft #barlife #mixology #drinks #hauptmarktzwickau #sachsen #zwickaucity",
       "image_urls": [
-        "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/calice-zwickau/a7r09188.jpg"
+        "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/calice-zwickau/a7r09188.jpg",
+        "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/calice-zwickau/a7r09195.jpg",
+        "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/calice-zwickau/a7r09197.jpg"
       ],
-      "caption": "Der letzte Schliff — aus dem Shaker über das Sieb ins Glas. Swipe! 🍸",
+      "caption": "Drei Cocktails, drei Geschichten. Swipe und entscheide. 🍸",
       "id": "ig_feed_25",
       "regen_requests": [],
       "carousel_style": "peek",
@@ -937,19 +939,6 @@
       ],
       "caption": "",
       "id": "ig_story_25"
-    },
-    {
-      "date": "2026-05-01",
-      "time": "17:07",
-      "channel": "instagram_feed",
-      "type": "single",
-      "image": "a7r09195.jpg",
-      "first_comment": "#calicezwickau #zwickau #cocktailbar #cocktails #tagderarbeit #feiertag #drinks #aperitivo #barlife #hauptmarktzwickau #zwickaucity",
-      "image_urls": [
-        "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/calice-zwickau/a7r09195.jpg"
-      ],
-      "caption": "Tag der Arbeit? Tag der Cocktails! Orangenzeste, Campari, Gin — der Klassiker wartet auf euch. 🍸",
-      "id": "ig_feed_26"
     },
     {
       "date": "2026-05-01",
@@ -1044,19 +1033,6 @@
       ],
       "caption": "",
       "id": "ig_story_28"
-    },
-    {
-      "date": "2026-05-06",
-      "time": "17:38",
-      "channel": "instagram_feed",
-      "type": "single",
-      "image": "a7r09197.jpg",
-      "first_comment": "#calicezwickau #zwickau #cocktailbar #weinbar #antipasti #aperitivo #vineria #italianbar #barlife #mixology #hauptmarktzwickau #sachsen",
-      "image_urls": [
-        "https://raw.githubusercontent.com/mupdx/content-boards/main/thumbnails/calice-zwickau/a7r09197.jpg"
-      ],
-      "caption": "Negroni braucht keine Erklärung. Nur den richtigen Moment. 🌺",
-      "id": "ig_feed_28"
     },
     {
       "date": "2026-05-08",
