@@ -101,10 +101,6 @@
       "regen_requests": [
         {
           "what": "Caption neu",
-          "timestamp": "2026-03-18T16:19:16.055Z"
-        },
-        {
-          "what": "Caption neu",
           "timestamp": "2026-03-18T16:19:16.693Z"
         }
       ]
@@ -220,12 +216,7 @@
       ],
       "caption": "La dolce vita beginnt mit einer guten Platte. Wer teilt mit? 🧀",
       "id": "ig_feed_5",
-      "regen_requests": [
-        {
-          "what": "Caption neu",
-          "timestamp": "2026-03-18T16:09:39.962Z"
-        }
-      ]
+      "regen_requests": []
     },
     {
       "date": "2026-03-26",
