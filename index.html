@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- v3.0 Datum-verschieben vereinfacht (nur Wunsch, kein Picker), Panorama-Fix -->
+<!-- v3.1 Stories: Caption + First Comment Sektion ausgeblendet -->
 <html lang="de">
 <head>
   <meta charset="UTF-8">
@@ -2103,6 +2103,7 @@
                   <!-- Status-Toggle entfernt — nicht benötigt -->
                 </div>
 
+                ${post.channel !== 'instagram_story' ? `
                 <div class="caption-section">
                   <div class="caption-label">Bildunterschrift</div>
                   <div class="caption-text" onclick="editCaption('${post.id}')">${formatCaption(post.caption)}</div>
@@ -2114,6 +2115,7 @@
                     <div class="caption-label">Erster Kommentar</div>
                     <div class="first-comment-text">${formatHashtags(post.first_comment)}</div>
                   </div>
+                ` : ''}
                 ` : ''}
 
                 ${post.tags && post.tags.length > 0 ? `
