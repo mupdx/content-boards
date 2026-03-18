@@ -14,6 +14,7 @@ from datetime import datetime, date, timedelta
 CLIENTS = [
     {"id": "dolce-freddo-zwickau", "name": "Dolce Freddo Zwickau"},
     {"id": "eyestyle-zwickau", "name": "Eyestyle Zwickau"},
+    {"id": "calice-zwickau", "name": "Calice Zwickau"},
 ]
 
 WOCHENTAGE = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
