@@ -155,9 +155,29 @@ def build_briefing(clients_data, target_date):
     heute_feiertag = feiertage.get(target_date)
     morgen_feiertag = feiertage.get(target_date + timedelta(days=1))
 
+    # Wetter-Emoji
+    wetter_emoji = ":sunny:"
+    if wetter_code is not None:
+        if wetter_code == 0:
+            wetter_emoji = ":sunny:"
+        elif wetter_code <= 2:
+            wetter_emoji = ":partly_sunny:"
+        elif wetter_code <= 3:
+            wetter_emoji = ":cloud:"
+        elif wetter_code <= 55:
+            wetter_emoji = ":fog:"
+        elif wetter_code <= 65:
+            wetter_emoji = ":rain_cloud:"
+        elif wetter_code <= 75:
+            wetter_emoji = ":snowflake:"
+        elif wetter_code <= 82:
+            wetter_emoji = ":rain_cloud:"
+        else:
+            wetter_emoji = ":zap:"
+
     lines = []
-    lines.append(f":sunny: *Briefing {wt}, {tag}. {monat}*")
-    lines.append(f":thermometer: Zwickau {wetter_str}")
+    lines.append(f"*Briefing {wt}, {tag}. {monat}*")
+    lines.append(f"{wetter_emoji} Zwickau {wetter_str}")
     lines.append("")
 
     if heute_feiertag:
@@ -169,12 +189,11 @@ def build_briefing(clients_data, target_date):
 
     for client, all_posts in clients_data:
         name = client["name"]
-        client_icon = client.get("icon", ":store:")
         branch = client.get("branch", "")
         date_str = target_date.strftime("%Y-%m-%d")
         posts_today = [p for p in all_posts if p.get("date") == date_str]
 
-        lines.append(f"{client_icon} *{name}*")
+        lines.append(f"━━━━━ *{name}* ━━━━━")
 
         if posts_today:
             for p in sorted(posts_today, key=lambda x: x.get("time", "")):
