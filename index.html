@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<!-- v3.1 Stories: Caption + First Comment Sektion ausgeblendet -->
+<!-- v4.0 — Premium Agentur-UI Redesign: Dark Layered Design, Google Fonts, Review-System, Toast-Redesign -->
 <html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Content Board</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -13,1313 +16,353 @@
     }
 
     :root {
-      /* Backgrounds — warm grey (Cowork / Photoshop style) */
-      --bg-primary: #1e1e1e;
-      --bg-secondary: #252525;
-      --bg-tertiary: #2d2d2d;
-      --bg-elevated: #333333;
-
-      /* Borders */
-      --border: rgba(255, 255, 255, 0.08);
-      --border-hover: rgba(255, 255, 255, 0.16);
-      --border-active: rgba(180, 180, 180, 0.5);
+      /* Basis */
+      --bg-base: #0a0a0b;
+      --bg-surface: #141416;
+      --bg-elevated: #1c1c1f;
+      --bg-overlay: #242428;
 
       /* Text */
-      --text-primary: #ffffff;
-      --text-secondary: #d4d4d4;
-      --text-muted: #888888;
+      --text-primary: #f0f0f2;
+      --text-secondary: #8e8e93;
+      --text-muted: #555559;
 
-      /* Accents */
-      --accent: #6b7280;
-      --accent-hover: #9ca3af;
-      --success: #34d399;
-      --warning: #fbbf24;
-      --error: #f87171;
+      /* Accent */
+      --accent: #d4a853;
+      --accent-hover: #e0b966;
+      --accent-subtle: rgba(212, 168, 83, 0.12);
 
-      /* Channel colors */
-      --ig-single: #f472b6;
-      --ig-carousel: #ec4899;
-      --ig-story: #fb923c;
-      --fb: #60a5fa;
-      --linkedin: #38bdf8;
+      /* Status */
+      --status-success: #34d399;
+      --status-warning: #fbbf24;
+      --status-error: #f87171;
+      --status-info: #60a5fa;
+
+      /* Channels */
+      --ch-ig-feed: #e8457a;
+      --ch-ig-story: #f59e42;
+      --ch-facebook: #4a8bf5;
+      --ch-linkedin: #2d8cf0;
+
+      /* Legacy channel aliases */
+      --ig-single: var(--ch-ig-feed);
+      --ig-carousel: #c2185b;
+      --ig-story: var(--ch-ig-story);
+      --fb: var(--ch-facebook);
+      --linkedin: var(--ch-linkedin);
+      --success: var(--status-success);
+      --warning: var(--status-warning);
+      --error: var(--status-error);
+
+      /* Borders */
+      --border: rgba(255, 255, 255, 0.06);
+      --border-hover: rgba(255, 255, 255, 0.12);
+      --border-active: rgba(212, 168, 83, 0.4);
+
+      /* Shadows */
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+
+      /* Radius */
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+
+      /* Transitions */
+      --transition-fast: 150ms ease;
+      --transition-normal: 200ms ease;
 
       /* Special */
-      --glow: rgba(156, 163, 175, 0.15);
-      --holiday-bg: rgba(251, 191, 36, 0.08);
+      --glow: rgba(212, 168, 83, 0.15);
+      --holiday-bg: rgba(251, 191, 36, 0.06);
     }
 
     body {
-      background: var(--bg-primary);
+      background: var(--bg-base);
       color: var(--text-primary);
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      font-family: 'DM Sans', sans-serif;
       font-size: 14px;
       line-height: 1.6;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    /* Scrollbar */
-    ::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
-    }
+    ::-webkit-scrollbar { width: 5px; height: 5px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.14); }
 
-    ::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 3px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: rgba(255, 255, 255, 0.15);
-    }
-
-    /* Client Selector */
-    .client-selector {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
+    .client-selector { display: flex; align-items: center; gap: 8px; }
     .client-selector select {
-      background: rgba(59, 130, 246, 0.12);
-      color: #60a5fa;
-      border: 1px solid rgba(59, 130, 246, 0.3);
-      border-radius: 6px;
-      padding: 6px 28px 6px 10px;
-      font-size: 13px;
-      font-weight: 600;
-      font-family: inherit;
-      cursor: pointer;
-      appearance: none;
-      -webkit-appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2360a5fa' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 8px center;
-      min-width: 180px;
-      transition: all 0.2s;
+      background: var(--bg-overlay); color: var(--accent); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); padding: 7px 32px 7px 12px; font-size: 13px;
+      font-weight: 600; font-family: 'DM Sans', sans-serif; cursor: pointer;
+      appearance: none; -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23d4a853' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 10px center;
+      min-width: 200px; transition: all var(--transition-normal); letter-spacing: -0.01em;
     }
-
-    .client-selector select:hover {
-      border-color: rgba(59, 130, 246, 0.5);
-      background: rgba(59, 130, 246, 0.18);
-    }
-
-    .client-selector select:focus {
-      outline: none;
-      border-color: #3b82f6;
-      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
-    }
+    .client-selector select:hover { border-color: var(--border-active); background-color: rgba(212,168,83,0.06); }
+    .client-selector select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-subtle); }
 
     .btn-icon {
-      background: var(--bg-tertiary);
-      color: var(--text-secondary);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      width: 32px;
-      height: 32px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0;
-      font-size: 16px;
-      cursor: pointer;
-      transition: all 0.2s;
+      background: var(--bg-overlay); color: var(--text-muted); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); width: 32px; height: 32px; display: flex;
+      align-items: center; justify-content: center; padding: 0; font-size: 16px;
+      cursor: pointer; transition: all var(--transition-fast); font-family: 'DM Sans', sans-serif;
     }
+    .btn-icon:hover { background: var(--bg-elevated); border-color: var(--border-hover); color: var(--accent); }
 
-    .btn-icon:hover {
-      background: var(--bg-elevated);
-      border-color: var(--border-hover);
-      color: var(--text-primary);
-    }
-
-    /* Client Manager in Settings */
-    .client-list {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      max-height: 200px;
-      overflow-y: auto;
-      margin-bottom: 12px;
-    }
-
+    .client-list { display: flex; flex-direction: column; gap: 4px; max-height: 200px; overflow-y: auto; margin-bottom: 12px; }
     .client-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 8px 12px;
-      background: var(--bg-tertiary);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      font-size: 13px;
-      color: var(--text-primary);
+      display: flex; align-items: center; justify-content: space-between; padding: 10px 14px;
+      background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius-sm);
+      font-size: 13px; color: var(--text-primary); transition: all var(--transition-fast);
     }
+    .client-item:hover { border-color: var(--border-hover); }
+    .client-item.active { border-color: var(--accent); background: var(--accent-subtle); }
+    .client-item-name { flex: 1; font-weight: 500; }
+    .client-item button { background: transparent; color: var(--text-muted); border: none; padding: 2px 6px; font-size: 14px; cursor: pointer; border-radius: 4px; transition: all var(--transition-fast); }
+    .client-item button:hover { color: var(--status-error); background: rgba(248,113,113,0.1); }
 
-    .client-item.active {
-      border-color: var(--accent);
-      background: rgba(156, 163, 175, 0.08);
-    }
+    .add-client-row { display: flex; gap: 8px; }
+    .add-client-row input { flex: 1; }
 
-    .client-item-name {
-      flex: 1;
-    }
+    .settings-section { margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+    .settings-section:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .settings-section-title { font-family: 'Sora', sans-serif; font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
 
-    .client-item button {
-      background: transparent;
-      color: var(--text-muted);
-      border: none;
-      padding: 2px 6px;
-      font-size: 14px;
-      cursor: pointer;
-      border-radius: 4px;
-    }
+    a { color: var(--accent); text-decoration: none; transition: color var(--transition-fast); }
+    a:hover { color: var(--accent-hover); }
 
-    .client-item button:hover {
-      color: var(--error);
-      background: rgba(248, 113, 113, 0.1);
-    }
-
-    .add-client-row {
-      display: flex;
-      gap: 8px;
-    }
-
-    .add-client-row input {
-      flex: 1;
-    }
-
-    .settings-section {
-      margin-bottom: 20px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .settings-section:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
-
-    .settings-section-title {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin-bottom: 12px;
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    a:hover {
-      color: var(--accent-hover);
-    }
-
-    /* Header */
     header {
-      background: var(--bg-secondary);
-      border-bottom: 1px solid var(--border);
-      padding: 20px 24px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: blur(12px);
-      background: rgba(30, 30, 30, 0.97);
-      box-shadow: 0 1px 0 var(--border);
-    }
-
-    .header-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 24px;
-    }
-
-    .header-left {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .header-title {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    h1 {
-      font-size: 20px;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin: 0;
-    }
-
-    .header-meta {
-      display: flex;
-      gap: 16px;
-      font-size: 13px;
-      color: var(--text-secondary);
-    }
-
-    .header-meta-item {
-      display: flex;
-      gap: 4px;
-    }
-
-    .header-meta-label {
-      color: var(--text-muted);
-    }
-
-    .header-right {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .connection-status {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 12px;
-      background: var(--bg-tertiary);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      font-size: 12px;
-      color: var(--text-secondary);
-      backdrop-filter: blur(8px);
-    }
-
-    .status-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--text-muted);
-      transition: all 0.2s;
-    }
-
-    .status-dot.connected {
-      background: var(--success);
-      box-shadow: 0 0 8px rgba(52, 211, 153, 0.5);
-    }
-
-    .header-buttons {
-      display: flex;
-      gap: 12px;
-    }
-
-    button {
-      font-family: inherit;
-      font-size: 14px;
-      padding: 8px 16px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      font-weight: 500;
-    }
-
-    button:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: white;
-      box-shadow: 0 0 0 1px rgba(156, 163, 175, 0.3), 0 4px 12px rgba(156, 163, 175, 0.2);
-    }
-
-    .btn-primary:hover:not(:disabled) {
-      background: var(--accent-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 0 0 1px rgba(180, 188, 199, 0.4), 0 8px 24px rgba(156, 163, 175, 0.3);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--text-secondary);
-      border: 1px solid var(--border);
-    }
-
-    .btn-secondary:hover:not(:disabled) {
-      background: rgba(156, 163, 175, 0.1);
-      border-color: var(--border-hover);
-      color: var(--text-primary);
-    }
-
-    /* Main Container */
-    .main-container {
-      padding: 24px;
-      max-width: none;
-    }
-
-    /* Filters */
-    .filters {
-      display: flex;
-      gap: 12px;
-      margin-bottom: 24px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .filter-btn {
-      padding: 8px 14px;
-      border: 1px solid var(--border);
-      background: transparent;
-      color: var(--text-secondary);
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 13px;
-      font-weight: 500;
-      transition: all 0.2s ease;
-    }
-
-    .filter-btn:hover {
-      border-color: var(--border-hover);
-      background: rgba(156, 163, 175, 0.08);
-      color: var(--text-primary);
-    }
-
-    .filter-btn.active {
-      background: var(--accent);
-      color: white;
-      border-color: var(--accent);
-      box-shadow: 0 0 0 1px rgba(156, 163, 175, 0.3), 0 4px 12px rgba(156, 163, 175, 0.2);
-    }
-
-    /* Posting Calendar */
-    .posting-calendar-section {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 12px;
-      margin-bottom: 24px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    .calendar-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 8px;
-    }
-
-    .calendar-title {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text-primary);
-    }
-
-    .calendar-date-range {
-      font-size: 11px;
-      color: var(--text-secondary);
-    }
-
-    .calendar-legend {
-      display: flex;
-      gap: 12px;
-      margin-bottom: 8px;
-      flex-wrap: wrap;
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .legend-item {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 11px;
-      color: var(--text-secondary);
-    }
-
-    .legend-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 2px;
-    }
-
-    .legend-dot.ig-single {
-      background: var(--ig-single);
-    }
-
-    .legend-dot.ig-carousel {
-      background: var(--ig-carousel);
-    }
-
-    .legend-dot.ig-story {
-      background: var(--ig-story);
-    }
-
-    .legend-dot.facebook {
-      background: var(--fb);
-    }
-
-    .legend-dot.linkedin {
-      background: var(--linkedin);
-    }
-
-    .calendar-scroll-container {
-      overflow-x: auto;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      background: var(--bg-tertiary);
-    }
-
-    .calendar-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 11px;
-    }
-
-    .calendar-table thead {
-      background: var(--bg-elevated);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    .calendar-table th {
-      border: 1px solid var(--border);
-      padding: 4px 6px;
-      text-align: center;
-      font-weight: 600;
-      color: var(--text-secondary);
-      white-space: nowrap;
-      min-width: 56px;
-      font-size: 11px;
-    }
-
-    .calendar-table td {
-      border: 1px solid var(--border);
-      padding: 3px 4px;
-      text-align: center;
-      height: 32px;
-      vertical-align: middle;
-      background: var(--bg-secondary);
-    }
-
-    .calendar-table tbody th {
-      background: var(--bg-elevated);
-      font-weight: 600;
-      color: var(--text-secondary);
-      text-align: left;
-      padding: 3px 8px;
-      white-space: nowrap;
-      min-width: 60px;
-      font-size: 11px;
-    }
-
-    .calendar-table th.holiday,
-    .calendar-table td.holiday {
-      background: var(--holiday-bg);
-    }
-
-    .holiday-label {
-      font-size: 9px;
-      color: var(--text-muted);
-      margin-top: 2px;
-      font-weight: 500;
-    }
-
-    .holiday-banner {
-      background: rgba(251, 191, 36, 0.12);
-      border: 1px solid rgba(251, 191, 36, 0.3);
-      border-radius: 6px;
-      padding: 6px 10px;
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 12px;
-      color: var(--warning);
-      font-weight: 600;
-    }
-    .holiday-banner .holiday-icon {
-      font-size: 14px;
-    }
-
-    .post-card.holiday-post {
-      border: 1px solid rgba(251, 191, 36, 0.25);
-    }
-
-    /* Monatstrenner zwischen Karten */
-    .month-separator {
-      grid-column: 1 / -1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 8px 0;
-      margin: 4px 0;
-    }
-
-    .month-separator-inner {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      width: 100%;
-      font-size: 14px;
-      font-weight: 700;
-      color: #f59e0b;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-    }
-
-    .month-separator-line {
-      flex: 1;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.5), rgba(245, 158, 11, 0.5), transparent);
-    }
-
-    .month-separator-text {
-      white-space: nowrap;
-    }
-
-    /* Feiertags-Badge auf der Karte */
-    .holiday-badge {
-      position: absolute;
-      bottom: 12px;
-      left: 12px;
-      padding: 4px 10px;
-      border-radius: 6px;
-      font-size: 11px;
-      font-weight: 600;
-      color: #fbbf24;
-      background: rgba(251, 191, 36, 0.2);
-      border: 1px solid rgba(251, 191, 36, 0.35);
-      backdrop-filter: blur(8px);
-      z-index: 5;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    }
-
-    .panorama-container {
-      position: relative;
-      overflow: hidden;
-      width: 100%;
-      aspect-ratio: 4/5;
-    }
-    .panorama-container .panorama-img {
-      position: absolute;
-      top: 0;
-      height: 100%;
-      width: 200%;
-      object-fit: cover;
-      transition: transform 0.4s ease;
-    }
-    .panorama-container .panorama-img.slide-left {
-      transform: translateX(0);
-    }
-    .panorama-container .panorama-img.slide-right {
-      transform: translateX(-50%);
-    }
-
-    .time-pill {
-      display: inline-block;
-      padding: 2px 7px;
-      border-radius: 3px;
-      color: white;
-      font-size: 10px;
-      font-weight: 500;
-      margin: 1px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      text-decoration: none;
-      box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
-    }
-
-    .time-pill:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
-    }
-
-    .time-pill.ig-feed,
-    .time-pill.ig-single {
-      background: var(--ig-single);
-    }
-
-    .time-pill.ig-carousel {
-      background: var(--ig-carousel);
-    }
-
-    .time-pill.ig-story {
-      background: var(--ig-story);
-    }
-
-    .time-pill.facebook {
-      background: var(--fb);
-    }
-
-    .time-pill.linkedin {
-      background: var(--linkedin);
-    }
-
-    /* Posts Section */
-    .posts-section {
-      margin-top: 32px;
-    }
-
-    .posts-section-title {
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin-bottom: 16px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .posts-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-      margin-bottom: 40px;
-    }
-
-    .channel-section-title {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text-secondary);
-      padding: 8px 0 4px 0;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 0;
-      letter-spacing: 0.3px;
-    }
-
-    .channel-section-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
-    }
-
-    .post-card {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: all 0.2s ease;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-    }
-
-    .post-card:hover {
-      border-color: var(--border-active);
-      box-shadow: 0 0 0 1px rgba(156, 163, 175, 0.5), 0 8px 32px rgba(156, 163, 175, 0.15);
-      transform: translateY(-2px);
-    }
-
-    .post-card.unsaved {
-      border: 2px solid #f59e0b;
-      background: rgba(251, 191, 36, 0.06);
-      box-shadow: 0 0 0 1px rgba(245, 158, 11, 0.2), 0 2px 8px rgba(0,0,0,0.25);
-    }
-
-    .post-card.changed-since-load {
-      border-left: 4px solid #10b981;
-    }
-
-    .change-badge {
-      display: inline-block;
-      font-size: 10px;
-      padding: 2px 6px;
-      border-radius: 4px;
-      margin-left: 6px;
-      font-weight: 600;
-    }
-    .change-badge.changed { background: #10b981; color: #fff; }
-    .change-badge.unchanged { background: #374151; color: #9ca3af; }
-
-    .changes-summary-overlay {
-      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.7); z-index: 9999;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .changes-summary-box {
-      background: var(--bg-secondary); border: 1px solid var(--border);
-      border-radius: 12px; padding: 24px; max-width: 500px; width: 90%;
-      max-height: 80vh; overflow-y: auto;
-    }
-    .changes-summary-box h3 { margin: 0 0 16px; color: var(--text-primary); }
-    .changes-summary-item { padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 13px; color: var(--text-secondary); }
-    .changes-summary-item .field { color: #10b981; font-weight: 600; }
-    .changes-summary-close { margin-top: 16px; padding: 8px 20px; background: var(--accent); color: #fff; border: none; border-radius: 6px; cursor: pointer; }
-
-    .post-image-container {
-      position: relative;
-      background: var(--bg-tertiary);
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .post-image-container.feed {
-      aspect-ratio: 4 / 5;
-    }
-
-    .post-image-container.story {
-      aspect-ratio: 9 / 16;
-    }
-
-    .post-image-container.facebook {
-      aspect-ratio: 16 / 9;
-    }
-
-    .post-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .channel-badge {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      padding: 6px 12px;
-      border-radius: 6px;
-      font-size: 11px;
-      font-weight: 600;
-      color: white;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      z-index: 5;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-      backdrop-filter: blur(8px);
-    }
-
-    .channel-badge.ig-feed {
-      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-    }
-
-    .channel-badge.ig-story {
-      background: linear-gradient(45deg, #feda75, #fa7e1e, #d92e7f);
-    }
-
-    .channel-badge.facebook {
-      background: var(--fb);
-    }
-
-    .channel-badge.linkedin {
-      background: var(--linkedin);
-    }
-
-    .carousel-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 36px;
-      height: 36px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--bg-elevated);
-      backdrop-filter: blur(8px);
-      color: white;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 16px;
-      z-index: 4;
-      transition: all 0.2s ease;
-    }
-
-    .carousel-arrow:hover {
-      background: var(--bg-tertiary);
-      border-color: rgba(255, 255, 255, 0.2);
-    }
-
-    .carousel-arrow.prev {
-      left: 8px;
-    }
-
-    .carousel-arrow.next {
-      right: 8px;
-    }
-
-    .carousel-controls {
-      position: absolute;
-      bottom: 12px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 6px;
-      z-index: 4;
-    }
-
-    .carousel-dot {
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.3);
-      cursor: pointer;
-      transition: all 0.2s ease;
-      border: none;
-      backdrop-filter: blur(4px);
-    }
-
-    .carousel-dot.active {
-      background: white;
-      width: 20px;
-      border-radius: 4px;
-    }
-
-    .carousel-counter {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      background: var(--bg-elevated);
-      backdrop-filter: blur(8px);
-      color: white;
-      padding: 4px 8px;
-      border-radius: 4px;
-      font-size: 11px;
-      font-weight: 600;
-      z-index: 5;
-    }
-
-    .post-content {
-      padding: 16px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .post-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 12px;
-      gap: 12px;
-    }
-
-    .post-meta {
-      display: flex;
-      gap: 8px;
-      font-size: 12px;
-      color: var(--text-secondary);
-    }
-
-    .post-meta-dot {
-      color: var(--text-muted);
-    }
-
-    .status-toggle {
-      padding: 6px 12px;
-      border: 1px solid var(--border);
-      background: var(--bg-tertiary);
-      border-radius: 6px;
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--text-secondary);
-      cursor: pointer;
-      white-space: nowrap;
-      transition: all 0.2s ease;
-    }
-
-    .status-toggle.approved {
-      background: rgba(52, 211, 153, 0.1);
-      color: var(--success);
-      border-color: rgba(52, 211, 153, 0.3);
-    }
-
-    .status-toggle.draft {
-      background: rgba(251, 191, 36, 0.1);
-      color: var(--warning);
-      border-color: rgba(251, 191, 36, 0.3);
-    }
-
-    .status-toggle:hover {
-      transform: translateY(-1px);
-      border-color: var(--border-hover);
-    }
-
-    .caption-section {
-      margin-bottom: 12px;
-    }
-
-    .caption-label {
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 6px;
-    }
-
-    .caption-text {
-      font-size: 13px;
-      color: var(--text-primary);
-      line-height: 1.6;
-      word-break: break-word;
-      white-space: pre-wrap;
-      cursor: text;
-      padding: 10px 12px;
-      border-radius: 6px;
-      transition: all 0.2s ease;
-      min-height: 40px;
-      background: var(--bg-tertiary);
-    }
-
-    .caption-text:hover:not(.editing) {
-      background: var(--bg-elevated);
-    }
-
-    .caption-text.editing {
-      display: none;
-    }
-
-    .caption-textarea {
-      font-family: inherit;
-      font-size: 13px;
-      color: var(--text-primary);
-      padding: 8px;
-      border: 1px solid var(--border-active);
-      border-radius: 6px;
-      resize: none;
-      min-height: 60px;
-      display: none;
-      width: 100%;
-      line-height: 1.5;
-      background: var(--bg-elevated);
-      box-shadow: 0 0 0 3px rgba(156, 163, 175, 0.1);
-    }
-
-    .caption-textarea:focus {
-      outline: none;
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(156, 163, 175, 0.15);
-    }
-
-    .caption-textarea.editing {
-      display: block;
-    }
-
-    .first-comment {
-      margin-bottom: 12px;
-    }
-
-    .first-comment-text {
-      font-size: 12px;
-      color: var(--text-primary);
-      font-style: normal;
-      line-height: 1.5;
-      padding: 10px 12px;
-      background: var(--bg-tertiary);
-      border-radius: 6px;
-      white-space: pre-wrap;
-      word-break: break-word;
-    }
-
-    .tags {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      margin-bottom: 12px;
-    }
-
-    .tag {
-      display: inline-block;
-      padding: 4px 10px;
-      background: rgba(96, 165, 250, 0.15);
-      color: #60a5fa;
-      border: 1px solid rgba(96, 165, 250, 0.25);
-      border-radius: 4px;
-      font-size: 12px;
-      font-weight: 500;
-    }
-
-    .post-actions {
-      display: flex;
-      gap: 8px;
-      margin-top: auto;
-      padding-top: 12px;
-      border-top: 1px solid var(--border);
-    }
-
-    .btn-save {
-      flex: 1;
-      padding: 10px 12px;
-      background: #3b82f6;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-size: 13px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      box-shadow: 0 2px 8px rgba(59, 130, 246, 0.25);
-    }
-
-    .btn-save:hover:not(:disabled) {
-      background: #60a5fa;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 16px rgba(59, 130, 246, 0.35);
-    }
-
-    /* Unsaved state — orange pulsing save button */
-    .post-card.unsaved .btn-save-primary {
-      background: #f59e0b !important;
-      box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
-      animation: pulse-orange 2s infinite;
-    }
-    @keyframes pulse-orange {
-      0%, 100% { box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4); }
-      50% { box-shadow: 0 2px 16px rgba(245, 158, 11, 0.7); }
-    }
-
-    /* Regen-Request beantragt — dauerhaft lila Rand */
-    .post-card.regen-requested {
-      border: 2px solid #8b5cf6 !important;
-      box-shadow: 0 0 0 1px rgba(139, 92, 246, 0.3), 0 2px 8px rgba(0,0,0,0.25) !important;
-    }
-    .regen-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      font-size: 11px;
-      padding: 3px 8px;
-      border-radius: 4px;
-      background: #8b5cf6;
-      color: #fff;
-      font-weight: 600;
-      margin-top: 4px;
-    }
-
-    /* Saved flash — green for 2s */
-    .btn-save-primary.just-saved {
-      background: #10b981 !important;
-      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.5) !important;
-      animation: none !important;
-    }
-    .post-card.just-saved-card {
-      border-color: #10b981 !important;
-      box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.3), 0 2px 8px rgba(0,0,0,0.25) !important;
-    }
-
-    .empty-state {
-      text-align: center;
-      padding: 60px 20px;
-      color: var(--text-secondary);
-    }
-
-    .empty-state-icon {
-      font-size: 48px;
-      margin-bottom: 16px;
-      opacity: 0.5;
-    }
-
-    /* Settings Modal */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(30, 30, 30, 0.7);
-      backdrop-filter: blur(4px);
-      align-items: center;
-      justify-content: center;
-    }
-
-    .modal.active {
-      display: flex;
-    }
-
-    .modal-content {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 32px;
-      max-width: 500px;
-      width: 90%;
-      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 20px 48px rgba(20, 20, 20, 0.6);
-      backdrop-filter: blur(12px);
-    }
-
-    .modal-header {
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 24px;
-      color: var(--text-primary);
-    }
-
-    .modal-body {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .form-label {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text-primary);
-    }
-
-    input[type="text"],
-    input[type="password"] {
-      padding: 10px 12px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      font-size: 14px;
-      font-family: inherit;
-      color: var(--text-primary);
-      background: var(--bg-tertiary);
-      transition: all 0.2s ease;
-    }
-
-    input[type="text"]:focus,
-    input[type="password"]:focus {
-      outline: none;
-      border-color: var(--border-active);
-      background: var(--bg-primary);
-      box-shadow: 0 0 0 3px rgba(156, 163, 175, 0.15);
-    }
-
-    .modal-footer {
-      display: flex;
-      gap: 12px;
-      margin-top: 24px;
-    }
-
-    .modal-footer button {
-      flex: 1;
-    }
-
-    /* Toast */
-    .toast-container {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 2000;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .toast {
-      padding: 12px 16px;
-      border-radius: 8px;
-      border-left: 4px solid transparent;
-      color: white;
-      font-size: 14px;
-      font-weight: 500;
-      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 8px 24px rgba(20, 20, 20, 0.4);
-      animation: slideIn 0.3s ease-out;
-      backdrop-filter: blur(12px);
-      background: var(--bg-secondary);
-    }
-
-    @keyframes slideIn {
-      from {
-        transform: translateX(400px);
-        opacity: 0;
-      }
-      to {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
-
-    @keyframes slideOut {
-      from {
-        transform: translateX(0);
-        opacity: 1;
-      }
-      to {
-        transform: translateX(400px);
-        opacity: 0;
-      }
-    }
-
-    .toast.success {
-      background: rgba(52, 211, 153, 0.15);
-      border-left-color: var(--success);
-      color: var(--success);
-    }
-
-    .toast.error {
-      background: rgba(248, 113, 113, 0.15);
-      border-left-color: var(--error);
-      color: var(--error);
-    }
-
-    .toast.warning {
-      background: rgba(251, 191, 36, 0.15);
-      border-left-color: var(--warning);
-      color: var(--warning);
-    }
+      background: rgba(10,10,11,0.85); border-bottom: 1px solid var(--border); padding: 16px 24px;
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%);
+    }
+    .header-content { display: flex; justify-content: space-between; align-items: center; gap: 24px; max-width: 1800px; margin: 0 auto; }
+    .header-left { display: flex; align-items: center; gap: 20px; }
+    .header-title { display: flex; flex-direction: column; gap: 6px; }
+    h1 { font-family: 'Sora', sans-serif; font-size: 18px; font-weight: 600; color: var(--text-primary); margin: 0; letter-spacing: -0.02em; }
+    .header-meta { display: flex; gap: 16px; font-size: 13px; color: var(--text-secondary); align-items: center; }
+    .header-meta-item { display: flex; gap: 6px; align-items: center; }
+    .header-meta-label { color: var(--text-muted); font-weight: 500; }
+    .header-right { display: flex; align-items: center; gap: 12px; }
+    .connection-status { display: flex; align-items: center; gap: 8px; padding: 6px 12px; background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-sm); font-size: 12px; color: var(--text-muted); }
+    .status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--text-muted); transition: all var(--transition-normal); }
+    .status-dot.connected { background: var(--status-success); box-shadow: 0 0 6px rgba(52,211,153,0.5); }
+    .header-buttons { display: flex; gap: 4px; }
+
+    button { font-family: 'DM Sans', sans-serif; font-size: 13px; padding: 7px 14px; border: none; border-radius: var(--radius-sm); cursor: pointer; transition: all var(--transition-fast); font-weight: 500; }
+    button:disabled { opacity: 0.5; cursor: not-allowed; }
+    .btn-primary { background: var(--accent); color: var(--bg-base); font-weight: 600; }
+    .btn-primary:hover:not(:disabled) { background: var(--accent-hover); }
+    .btn-secondary { background: transparent; color: var(--text-secondary); border: 1px solid transparent; font-weight: 500; position: relative; }
+    .btn-secondary:hover:not(:disabled) { color: var(--text-primary); background: rgba(255,255,255,0.04); }
+    .btn-secondary::after { content: ''; position: absolute; bottom: 4px; left: 14px; right: 14px; height: 1px; background: transparent; transition: background var(--transition-fast); }
+    .btn-secondary:hover::after { background: var(--accent); }
+
+    .main-container { padding: 24px; max-width: 1800px; margin: 0 auto; }
+
+    .filters { display: flex; gap: 6px; margin-bottom: 24px; flex-wrap: wrap; align-items: center; }
+    .filter-btn { padding: 7px 14px; border: 1px solid var(--border); background: transparent; color: var(--text-muted); border-radius: 20px; cursor: pointer; font-size: 12px; font-weight: 500; font-family: 'DM Sans', sans-serif; transition: all var(--transition-fast); letter-spacing: 0.01em; }
+    .filter-btn:hover { border-color: var(--border-hover); color: var(--text-secondary); background: rgba(255,255,255,0.03); }
+    .filter-btn.active { background: var(--accent); color: var(--bg-base); border-color: var(--accent); font-weight: 600; }
+
+    .posting-calendar-section { background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 16px; margin-bottom: 28px; }
+    .calendar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+    .calendar-title { font-family: 'Sora', sans-serif; font-size: 13px; font-weight: 600; color: var(--text-primary); letter-spacing: -0.01em; }
+    .calendar-date-range { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+    .calendar-legend { display: flex; gap: 16px; margin-bottom: 12px; flex-wrap: wrap; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+    .legend-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--text-muted); font-weight: 500; }
+    .legend-dot { width: 8px; height: 8px; border-radius: 2px; }
+    .legend-dot.ig-single { background: var(--ch-ig-feed); }
+    .legend-dot.ig-carousel { background: var(--ig-carousel); }
+    .legend-dot.ig-story { background: var(--ch-ig-story); }
+    .legend-dot.facebook { background: var(--ch-facebook); }
+    .legend-dot.linkedin { background: var(--ch-linkedin); }
+
+    .calendar-scroll-container { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-elevated); }
+    .calendar-table { width: 100%; border-collapse: collapse; font-size: 11px; }
+    .calendar-table thead { background: var(--bg-overlay); position: sticky; top: 0; z-index: 10; }
+    .calendar-table th { border: 1px solid var(--border); padding: 4px 6px; text-align: center; font-weight: 600; color: var(--text-muted); white-space: nowrap; min-width: 56px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.03em; }
+    .calendar-table td { border: 1px solid var(--border); padding: 3px 4px; text-align: center; height: 32px; vertical-align: middle; background: var(--bg-surface); }
+    .calendar-table tbody th { background: var(--bg-overlay); font-weight: 600; color: var(--text-muted); text-align: left; padding: 3px 8px; white-space: nowrap; min-width: 60px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.03em; }
+    .calendar-table th.holiday, .calendar-table td.holiday { background: var(--holiday-bg); border-color: rgba(251,191,36,0.15); }
+    .holiday-label { font-size: 8px; color: var(--text-muted); margin-top: 2px; font-weight: 500; }
+
+    .holiday-banner { background: rgba(251,191,36,0.08); border: 1px solid rgba(251,191,36,0.2); border-left: 3px solid var(--status-warning); border-radius: var(--radius-sm); padding: 8px 12px; margin-bottom: 0; display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--status-warning); font-weight: 500; }
+    .holiday-banner .holiday-icon { font-size: 14px; }
+    .post-card.holiday-post { border: 1px solid rgba(251,191,36,0.15); }
+
+    .month-separator { grid-column: 1 / -1; display: flex; align-items: center; justify-content: center; padding: 8px 0; margin: 4px 0; }
+    .month-separator-inner { display: flex; align-items: center; gap: 12px; width: 100%; font-family: 'Sora', sans-serif; font-size: 12px; font-weight: 600; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; }
+    .month-separator-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--border-hover), var(--border-hover), transparent); }
+    .month-separator-text { white-space: nowrap; }
+
+    .holiday-badge { position: absolute; bottom: 12px; left: 12px; padding: 4px 10px; border-radius: var(--radius-sm); font-size: 10px; font-weight: 600; color: var(--status-warning); background: rgba(0,0,0,0.7); border: 1px solid rgba(251,191,36,0.3); backdrop-filter: blur(8px); z-index: 5; text-transform: uppercase; letter-spacing: 0.04em; }
+
+    .panorama-container { position: relative; overflow: hidden; width: 100%; aspect-ratio: 4/5; }
+    .panorama-container .panorama-img { position: absolute; top: 0; height: 100%; width: 200%; object-fit: cover; transition: transform 0.4s ease; }
+    .panorama-container .panorama-img.slide-left { transform: translateX(0); }
+    .panorama-container .panorama-img.slide-right { transform: translateX(-50%); }
+
+    .time-pill { display: inline-block; padding: 2px 6px; border-radius: 3px; color: white; font-size: 10px; font-weight: 600; margin: 1px; cursor: pointer; transition: all var(--transition-fast); text-decoration: none; font-family: 'DM Sans', sans-serif; }
+    .time-pill:hover { transform: scale(1.08); filter: brightness(1.15); }
+    .time-pill.ig-feed, .time-pill.ig-single { background: var(--ch-ig-feed); }
+    .time-pill.ig-carousel { background: var(--ig-carousel); }
+    .time-pill.ig-story { background: var(--ch-ig-story); }
+    .time-pill.facebook { background: var(--ch-facebook); }
+    .time-pill.linkedin { background: var(--ch-linkedin); }
+
+    .posts-section { margin-top: 8px; }
+    .posts-section-title { font-family: 'Sora', sans-serif; font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border); letter-spacing: -0.01em; }
+    .posts-grid { display: flex; flex-direction: column; gap: 28px; margin-bottom: 40px; }
+    .channel-section-title { font-family: 'Sora', sans-serif; font-size: 12px; font-weight: 600; color: var(--text-muted); padding: 10px 0 6px 0; border-bottom: 1px solid var(--border); margin-bottom: 0; letter-spacing: 0.06em; text-transform: uppercase; }
+    .channel-section-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+
+    .post-card { background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; display: flex; flex-direction: column; transition: all var(--transition-normal); }
+    .post-card:hover { border-color: var(--border-hover); box-shadow: var(--shadow-md); transform: translateY(-1px); }
+    .post-card.unsaved { border: 1px solid rgba(212,168,83,0.4); background: rgba(212,168,83,0.03); }
+    .post-card.changed-since-load { border-left: 3px solid var(--status-success); }
+    .post-card.approved-card { border-left: 3px solid var(--status-success); }
+
+    .change-badge { display: inline-block; font-size: 10px; padding: 2px 6px; border-radius: 4px; margin-left: 6px; font-weight: 600; }
+    .change-badge.changed { background: var(--status-success); color: #fff; }
+    .change-badge.unchanged { background: var(--bg-overlay); color: var(--text-muted); }
+
+    .changes-summary-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.6); z-index: 9999; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(4px); }
+    .changes-summary-box { background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; max-width: 500px; width: 90%; max-height: 80vh; overflow-y: auto; box-shadow: var(--shadow-lg); }
+    .changes-summary-box h3 { margin: 0 0 16px; color: var(--text-primary); font-family: 'Sora', sans-serif; font-size: 16px; font-weight: 600; }
+    .changes-summary-item { padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 13px; color: var(--text-secondary); }
+    .changes-summary-item .field { color: var(--status-success); font-weight: 600; }
+    .changes-summary-close { margin-top: 16px; padding: 8px 20px; background: var(--bg-overlay); color: var(--text-secondary); border: 1px solid var(--border); border-radius: var(--radius-sm); cursor: pointer; font-family: 'DM Sans', sans-serif; font-weight: 500; transition: all var(--transition-fast); }
+    .changes-summary-close:hover { border-color: var(--border-hover); color: var(--text-primary); }
+
+    .post-image-container { position: relative; background: var(--bg-elevated); overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    .post-image-container.feed { aspect-ratio: 4 / 5; }
+    .post-image-container.story { aspect-ratio: 9 / 16; }
+    .post-image-container.facebook { aspect-ratio: 16 / 9; }
+    .post-image { width: 100%; height: 100%; object-fit: cover; }
+
+    .channel-badge { position: absolute; top: 12px; left: 12px; padding: 4px 10px; border-radius: 20px; font-size: 10px; font-weight: 600; color: white; text-transform: uppercase; letter-spacing: 0.05em; z-index: 5; backdrop-filter: blur(8px); }
+    .channel-badge.ig-feed { background: rgba(232,69,122,0.85); }
+    .channel-badge.ig-story { background: rgba(245,158,66,0.85); }
+    .channel-badge.facebook { background: rgba(74,139,245,0.85); }
+    .channel-badge.linkedin { background: rgba(45,140,240,0.85); }
+
+    .carousel-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; background: transparent; backdrop-filter: blur(8px); color: white; border: 1px solid rgba(255,255,255,0.2); border-radius: var(--radius-sm); cursor: pointer; font-size: 0; z-index: 4; transition: all var(--transition-fast); padding: 0; }
+    .carousel-arrow:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
+    .carousel-arrow.prev { left: 8px; }
+    .carousel-arrow.next { right: 8px; }
+    .carousel-arrow.prev::before, .carousel-arrow.next::before { content: ''; display: block; width: 10px; height: 10px; border-top: 2px solid white; border-right: 2px solid white; }
+    .carousel-arrow.prev::before { transform: rotate(-135deg); margin-left: 3px; }
+    .carousel-arrow.next::before { transform: rotate(45deg); margin-right: 3px; }
+
+    .carousel-controls { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; gap: 6px; z-index: 4; }
+    .carousel-dot { width: 14px; height: 14px; border-radius: 50%; background: rgba(255,255,255,0.25); cursor: pointer; transition: all var(--transition-fast); border: none; backdrop-filter: blur(4px); }
+    .carousel-dot.active { background: white; width: 18px; border-radius: 4px; }
+    .carousel-counter { position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); color: rgba(255,255,255,0.8); padding: 3px 8px; border-radius: 12px; font-size: 10px; font-weight: 600; z-index: 5; letter-spacing: 0.03em; }
+
+    .post-content { padding: 16px; flex: 1; display: flex; flex-direction: column; }
+    .post-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; gap: 12px; }
+    .post-meta { display: flex; gap: 8px; font-size: 13px; color: var(--text-secondary); font-weight: 500; }
+    .post-meta-dot { color: var(--text-muted); }
+
+    .status-toggle { padding: 5px 10px; border: 1px solid var(--border); background: var(--bg-overlay); border-radius: var(--radius-sm); font-size: 11px; font-weight: 600; color: var(--text-muted); cursor: pointer; white-space: nowrap; transition: all var(--transition-fast); font-family: 'DM Sans', sans-serif; }
+    .status-toggle.approved { background: rgba(52,211,153,0.1); color: var(--status-success); border-color: rgba(52,211,153,0.25); }
+    .status-toggle.draft { background: rgba(251,191,36,0.08); color: var(--status-warning); border-color: rgba(251,191,36,0.2); }
+    .status-toggle:hover { border-color: var(--border-hover); }
+
+    .caption-section { margin-bottom: 14px; }
+    .caption-label { font-size: 10px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+    .caption-text { font-size: 14px; color: var(--text-primary); line-height: 1.5; word-break: break-word; white-space: pre-wrap; cursor: text; padding: 10px 12px; border-radius: var(--radius-sm); transition: all var(--transition-fast); min-height: 40px; background: var(--bg-elevated); border: 1px solid transparent; }
+    .caption-text:hover:not(.editing) { border-color: var(--border); background: var(--bg-overlay); }
+    .caption-text.editing { display: none; }
+    .caption-textarea { font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--text-primary); padding: 10px 12px; border: 1px solid var(--border-active); border-radius: var(--radius-sm); resize: none; min-height: 60px; display: none; width: 100%; line-height: 1.5; background: var(--bg-overlay); }
+    .caption-textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-subtle); }
+    .caption-textarea.editing { display: block; }
+
+    .first-comment { margin-bottom: 14px; }
+    .first-comment-text { font-size: 12px; color: var(--text-secondary); font-style: normal; line-height: 1.5; padding: 10px 12px; background: var(--bg-elevated); border-radius: var(--radius-sm); white-space: pre-wrap; word-break: break-word; }
+
+    .tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
+    .tag { display: inline-block; padding: 3px 8px; background: var(--accent-subtle); color: var(--accent); border: 1px solid rgba(212,168,83,0.2); border-radius: 4px; font-size: 11px; font-weight: 500; }
+
+    .post-actions { display: flex; gap: 6px; margin-top: auto; padding-top: 14px; border-top: 1px solid var(--border); flex-wrap: wrap; align-items: center; }
+    .action-btn { font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 500; padding: 6px 12px; border-radius: var(--radius-sm); cursor: pointer; transition: all var(--transition-fast); display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
+    .action-approve { background: var(--bg-overlay); color: var(--text-secondary); border: 1px solid var(--border); }
+    .action-approve:hover { border-color: var(--border-hover); color: var(--text-primary); }
+    .action-approve.approved { background: rgba(52,211,153,0.15); color: var(--status-success); border-color: rgba(52,211,153,0.3); }
+    .action-secondary { background: transparent; color: var(--text-muted); border: 1px solid var(--border); }
+    .action-secondary:hover { border-color: var(--border-hover); color: var(--text-secondary); }
+    .action-btn.requested::after { content: ''; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; margin-left: 4px; flex-shrink: 0; }
+    .action-group { display: flex; gap: 4px; flex-wrap: wrap; }
+
+    .all-approved-banner { background: rgba(52,211,153,0.08); border: 1px solid rgba(52,211,153,0.2); border-radius: var(--radius-md); padding: 16px 20px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .all-approved-banner .banner-text { font-family: 'Sora', sans-serif; font-size: 14px; font-weight: 600; color: var(--status-success); }
+    .all-approved-banner .banner-action { background: var(--status-success); color: var(--bg-base); border: none; padding: 8px 16px; border-radius: var(--radius-sm); font-weight: 600; font-size: 13px; cursor: pointer; transition: all var(--transition-fast); }
+    .all-approved-banner .banner-action:hover { filter: brightness(1.1); }
+
+    .btn-save { font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 500; padding: 6px 12px; border-radius: var(--radius-sm); cursor: pointer; transition: all var(--transition-fast); border: 1px solid var(--border); background: var(--bg-overlay); color: var(--text-secondary); }
+    .btn-save:hover:not(:disabled) { border-color: var(--border-hover); color: var(--text-primary); }
+
+    .post-card.unsaved .btn-save-primary { background: var(--accent) !important; color: var(--bg-base) !important; border-color: var(--accent) !important; font-weight: 600; animation: pulse-accent 2s infinite; }
+    @keyframes pulse-accent { 0%, 100% { box-shadow: 0 0 0 0 rgba(212,168,83,0.3); } 50% { box-shadow: 0 0 0 4px rgba(212,168,83,0.1); } }
+
+    .post-card.regen-requested { border: 1px solid rgba(139,92,246,0.35) !important; }
+    .regen-badge { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; padding: 6px 12px; background: rgba(139,92,246,0.1); color: #a78bfa; font-weight: 500; border-bottom: 1px solid rgba(139,92,246,0.15); }
+
+    .btn-save-primary.just-saved { background: var(--status-success) !important; color: var(--bg-base) !important; border-color: var(--status-success) !important; animation: none !important; }
+    .post-card.just-saved-card { border-color: rgba(52,211,153,0.4) !important; }
+
+    .empty-state { text-align: center; padding: 80px 20px; color: var(--text-muted); }
+    .empty-state-icon { font-size: 32px; margin-bottom: 16px; opacity: 0.3; }
+    .empty-state p { font-size: 14px; max-width: 360px; margin: 0 auto; line-height: 1.6; }
+
+    .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); backdrop-filter: blur(4px); }
+    .modal.active { display: flex; justify-content: flex-end; }
+    .modal-content { background: var(--bg-surface); border-left: 1px solid var(--border); padding: 32px; max-width: 420px; width: 100%; height: 100%; overflow-y: auto; box-shadow: -8px 0 32px rgba(0,0,0,0.5); animation: slideInRight 0.25s ease-out; border-radius: 0; }
+    @keyframes slideInRight { from { transform: translateX(100%); } to { transform: translateX(0); } }
+    .modal-header { font-family: 'Sora', sans-serif; font-size: 18px; font-weight: 600; margin-bottom: 28px; color: var(--text-primary); letter-spacing: -0.02em; }
+    .modal-body { display: flex; flex-direction: column; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-label { font-size: 12px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+    input[type="text"], input[type="password"] { padding: 10px 12px; border: 1px solid var(--border); border-radius: var(--radius-sm); font-size: 14px; font-family: 'DM Sans', sans-serif; color: var(--text-primary); background: var(--bg-elevated); transition: all var(--transition-fast); }
+    input[type="text"]:focus, input[type="password"]:focus { outline: none; border-color: var(--accent); background: var(--bg-overlay); box-shadow: 0 0 0 3px var(--accent-subtle); }
+    .modal-footer { display: flex; gap: 8px; margin-top: 28px; }
+    .modal-footer button { flex: 1; }
+
+    .toast-container { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); z-index: 2000; display: flex; flex-direction: column-reverse; gap: 8px; align-items: center; }
+    .toast { padding: 10px 20px; border-radius: 24px; color: var(--text-primary); font-size: 13px; font-weight: 500; box-shadow: var(--shadow-lg); animation: slideInUp 0.3s ease-out; background: var(--bg-overlay); border: 1px solid var(--border); white-space: nowrap; max-width: 90vw; }
+    @keyframes slideInUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    @keyframes slideIn { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    @keyframes slideOut { from { transform: translateY(0); opacity: 1; } to { transform: translateY(20px); opacity: 0; } }
+    .toast.success { background: rgba(52,211,153,0.12); border-color: rgba(52,211,153,0.2); color: var(--status-success); }
+    .toast.error { background: rgba(248,113,113,0.12); border-color: rgba(248,113,113,0.2); color: var(--status-error); }
+    .toast.warning { background: rgba(251,191,36,0.12); border-color: rgba(251,191,36,0.2); color: var(--status-warning); }
+    .toast.info { background: rgba(96,165,250,0.12); border-color: rgba(96,165,250,0.2); color: var(--status-info); }
 
-    /* Responsive */
     @media (max-width: 768px) {
-      header {
-        padding: 16px;
-      }
-
-      .header-content {
-        flex-direction: column;
-        gap: 12px;
-      }
-
-      .header-right {
-        width: 100%;
-        justify-content: space-between;
-      }
-
-      .main-container {
-        padding: 16px;
-      }
-
-      .filters {
-        margin-bottom: 16px;
-      }
-
-      .channel-section-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-      }
-
-      .calendar-table {
-        font-size: 12px;
-      }
-
-      .calendar-table th,
-      .calendar-table td {
-        padding: 8px 4px;
-        min-width: 60px;
-      }
-
-      .modal-content {
-        padding: 24px;
-        width: 95%;
-      }
+      header { padding: 12px 16px; }
+      .header-content { flex-direction: column; gap: 12px; }
+      .header-right { width: 100%; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+      .main-container { padding: 16px; }
+      .filters { margin-bottom: 16px; }
+      .channel-section-grid { grid-template-columns: 1fr; gap: 16px; }
+      .calendar-table { font-size: 10px; }
+      .calendar-table th, .calendar-table td { padding: 4px 3px; min-width: 50px; }
+      .modal-content { max-width: 100%; }
+      .toast-container { bottom: 16px; }
     }
-  
-  /* Admin Panel v7 */
-  .post-image-container { position: relative; overflow: hidden; }
-  .img-control-bar {
-    display: flex; align-items: center; gap: 6px;
-    padding: 5px 10px; background: rgba(0,0,0,0.85);
-    border-radius: 0 0 8px 8px; margin-top: -4px; margin-bottom: 8px;
-    position: relative; z-index: 10;
-  }
-  .img-control-bar label { color: #aaa; font-size: 11px; font-weight: 600; }
-  .img-control-bar input[type="range"] {
-    flex: 1; height: 18px; cursor: pointer; accent-color: #ff6b35; margin: 0;
-  }
-  .img-control-bar .img-reset-btn {
-    background: rgba(255,107,53,0.8); color: #fff; border: none;
-    border-radius: 4px; padding: 2px 8px; font-size: 11px; cursor: pointer;
-  }
-  .img-control-bar .img-reset-btn:hover { background: #ff6b35; }
+
+    .img-control-bar { display: flex; align-items: center; gap: 8px; padding: 6px 12px; background: var(--bg-overlay); border-top: 1px solid var(--border); position: relative; z-index: 10; }
+    .img-control-bar label { color: var(--text-muted); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
+    .img-control-bar input[type="range"] { flex: 1; height: 18px; cursor: pointer; accent-color: var(--accent); margin: 0; }
+    .img-control-bar .img-reset-btn { background: var(--bg-elevated); color: var(--text-muted); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 3px 8px; font-size: 11px; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all var(--transition-fast); }
+    .img-control-bar .img-reset-btn:hover { color: var(--text-secondary); border-color: var(--border-hover); }
   </style>
 </head>
 <body>
@@ -1327,11 +370,11 @@
     <div class="header-content">
       <div class="header-left">
         <div class="header-title">
-          <h1>📱 Content Board</h1>
+          <h1>Content Board</h1>
           <div class="header-meta">
             <div class="client-selector">
               <select id="clientSelect" onchange="switchClient(this.value)">
-                <option value="">— Kunde wählen —</option>
+                <option value="">Kunde</option>
               </select>
               <button class="btn-icon" onclick="promptNewClient()" title="Neuer Kunde">+</button>
             </div>
@@ -1345,12 +388,12 @@
       <div class="header-right">
         <div class="connection-status">
           <span class="status-dot" id="statusDot"></span>
-          <span id="connectionStatus">Verbindung wird überprüft...</span>
+          <span id="connectionStatus">Verbindung wird gepr&uuml;ft</span>
         </div>
         <div class="header-buttons">
-          <button class="btn-secondary" onclick="exportCSV()">📥 CSV Export</button>
-          <button class="btn-secondary" onclick="saveAllPosts()">💾 Alle speichern</button>
-          <button class="btn-secondary" onclick="showSettings()">⚙️ Einstellungen</button>
+          <button class="btn-secondary" onclick="exportCSV()">CSV Export</button>
+          <button class="btn-secondary" onclick="saveAllPosts()">Alle speichern</button>
+          <button class="btn-secondary" onclick="showSettings()">Einstellungen</button>
         </div>
       </div>
     </div>
@@ -1359,44 +402,31 @@
   <div class="main-container">
     <div class="filters">
       <button class="filter-btn active" onclick="filterByChannel('all')">Alle</button>
-      <button class="filter-btn" onclick="filterByChannel('instagram_feed')">📸 Instagram Feed</button>
-      <button class="filter-btn" onclick="filterByChannel('instagram_story')">📖 Instagram Story</button>
-      <button class="filter-btn" onclick="filterByChannel('facebook')">👍 Facebook</button>
-      <button class="filter-btn" onclick="filterByChannel('linkedin')">💼 LinkedIn</button>
-      <!-- Entwurf/Freigegeben-Filter entfernt -->
+      <button class="filter-btn" onclick="filterByChannel('instagram_feed')">Instagram Feed</button>
+      <button class="filter-btn" onclick="filterByChannel('instagram_story')">Instagram Story</button>
+      <button class="filter-btn" onclick="filterByChannel('facebook')">Facebook</button>
+      <button class="filter-btn" onclick="filterByChannel('linkedin')">LinkedIn</button>
+    </div>
+
+    <div id="allApprovedBanner" style="display:none;" class="all-approved-banner">
+      <span class="banner-text">Alle Posts freigegeben</span>
+      <button class="banner-action" onclick="exportCSV()">Export starten</button>
     </div>
 
     <div class="posting-calendar-section">
       <div class="calendar-header">
         <div>
-          <div class="calendar-title">📅 Publikationstermine</div>
-          <div class="calendar-date-range" id="calendarDateRange">Lädt...</div>
+          <div class="calendar-title">Publikationstermine</div>
+          <div class="calendar-date-range" id="calendarDateRange">L&auml;dt...</div>
         </div>
       </div>
-
       <div class="calendar-legend">
-        <div class="legend-item">
-          <div class="legend-dot ig-single"></div>
-          <span>Instagram (Einzeln)</span>
-        </div>
-        <div class="legend-item">
-          <div class="legend-dot ig-carousel"></div>
-          <span>Instagram (Carousel)</span>
-        </div>
-        <div class="legend-item">
-          <div class="legend-dot ig-story"></div>
-          <span>Instagram (Story)</span>
-        </div>
-        <div class="legend-item">
-          <div class="legend-dot facebook"></div>
-          <span>Facebook</span>
-        </div>
-        <div class="legend-item">
-          <div class="legend-dot linkedin"></div>
-          <span>LinkedIn</span>
-        </div>
+        <div class="legend-item"><div class="legend-dot ig-single"></div><span>IG Einzeln</span></div>
+        <div class="legend-item"><div class="legend-dot ig-carousel"></div><span>IG Carousel</span></div>
+        <div class="legend-item"><div class="legend-dot ig-story"></div><span>IG Story</span></div>
+        <div class="legend-item"><div class="legend-dot facebook"></div><span>Facebook</span></div>
+        <div class="legend-item"><div class="legend-dot linkedin"></div><span>LinkedIn</span></div>
       </div>
-
       <div class="calendar-scroll-container">
         <table class="calendar-table">
           <thead id="calendarHead"></thead>
@@ -1406,42 +436,32 @@
     </div>
 
     <div class="posts-section">
-      <div class="posts-section-title">Entwürfe und Posts</div>
+      <div class="posts-section-title">Posts</div>
       <div class="posts-grid" id="postsGrid"></div>
       <div class="empty-state" id="emptyState" style="display: none;">
-        <div class="empty-state-icon">📭</div>
-        <p>Keine Posts gefunden. Erstelle einen neuen Post, um zu starten!</p>
+        <div class="empty-state-icon">-</div>
+        <p>Keine Posts gefunden. Erstelle einen neuen Post, um zu starten.</p>
       </div>
     </div>
   </div>
 
-  <!-- Settings Modal -->
   <div id="settingsModal" class="modal">
     <div class="modal-content">
-      <div class="modal-header">⚙️ Einstellungen</div>
+      <div class="modal-header">Einstellungen</div>
       <div class="modal-body">
         <div class="settings-section">
-          <div class="settings-section-title">Kunden verwalten</div>
+          <div class="settings-section-title">Kunden</div>
           <div class="client-list" id="clientList"></div>
           <div class="add-client-row">
-            <input type="text" id="newClientName" placeholder="Neuer Kundenname...">
-            <button class="btn-primary" onclick="addClient()" style="white-space:nowrap;">+ Hinzufügen</button>
+            <input type="text" id="newClientName" placeholder="Neuer Kundenname">
+            <button class="btn-primary" onclick="addClient()" style="white-space:nowrap;">Hinzuf&uuml;gen</button>
           </div>
         </div>
         <div class="settings-section">
           <div class="settings-section-title">GitHub Verbindung</div>
-          <div class="form-group">
-            <label class="form-label">GitHub Token</label>
-            <input type="password" id="githubToken" placeholder="ghp_...">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Repository Owner</label>
-            <input type="text" id="githubOwner" placeholder="z.B. username">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Repository Name</label>
-            <input type="text" id="githubRepo" placeholder="z.B. content-board">
-          </div>
+          <div class="form-group"><label class="form-label">Token</label><input type="password" id="githubToken" placeholder="ghp_..."></div>
+          <div class="form-group"><label class="form-label">Repository Owner</label><input type="text" id="githubOwner" placeholder="z.B. username"></div>
+          <div class="form-group"><label class="form-label">Repository Name</label><input type="text" id="githubRepo" placeholder="z.B. content-board"></div>
         </div>
       </div>
       <div class="modal-footer">
@@ -1451,1244 +471,183 @@
     </div>
   </div>
 
-  <!-- Toast Container -->
   <div class="toast-container" id="toastContainer"></div>
 
   <script>
-    // ===== EMBEDDED_DATA: Fallback content for offline/file:// usage =====
-    const EMBEDDED_DATA = {
-      "client": "Eyestyle Zwickau",
-      "week": "KW13",
-      "brand": "Gucci Eyewear",
-      "lastModified": "2026-03-16T10:00:00Z",
-      "posts": [
-        {
-          "id": "ig_feed_1",
-          "date": "2026-03-16",
-          "time": "11:00",
-          "channel": "instagram_feed",
-          "caption": "Drei Styles. Ein Statement. Swipe durch die neue @gucci Kollektion und finde deinen Look.\n\n📍 Eyestyle Zwickau",
-          "first_comment": "#gucci #guccieyewear #brillen #zwickau #eyestyle #sonnenbrillen #luxusbrillen #optiker #handwerk #madeinzwickau",
-          "images": ["1D_ciGbWyu5VLpEigwTBsmOOGkxVQGemg", "1AoOo2Ex-MzKQxD_6ln0t1YmPC0M3ArBN", "1ccXsEczQjt9t23_aWQPBnmuAZ60R9Xli"],
-          "image_urls": ["https://drive.google.com/thumbnail?id=1D_ciGbWyu5VLpEigwTBsmOOGkxVQGemg&sz=w800", "https://drive.google.com/thumbnail?id=1AoOo2Ex-MzKQxD_6ln0t1YmPC0M3ArBN&sz=w800", "https://drive.google.com/thumbnail?id=1ccXsEczQjt9t23_aWQPBnmuAZ60R9Xli&sz=w800"],
-          "crop": {"x": 0, "y": 0, "w": 1080, "h": 1350, "target": "feed"},
-          "status": "draft",
-          "tags": ["@Gucci", "Eyestyle Zwickau"],
-          "unsavedChanges": false
-        },
-        {
-          "id": "ig_feed_2",
-          "date": "2026-03-17",
-          "time": "18:00",
-          "channel": "instagram_feed",
-          "caption": "Wenn die Brille den ganzen Look macht. 👌\n\n@gucci 📍 Eyestyle Zwickau",
-          "first_comment": "#gucci #eyewear #brillenstyle #zwickau #eyestyle #optiker #fashion #womensfashion #brillen #guccieyewear",
-          "images": ["19lQam1W9WmngecL4JAbAfXGL8286KEPk"],
-          "image_urls": ["https://drive.google.com/thumbnail?id=19lQam1W9WmngecL4JAbAfXGL8286KEPk&sz=w800"],
-          "crop": {"x": 0, "y": 0, "w": 1080, "h": 1350, "target": "feed"},
-          "status": "draft",
-          "tags": ["@Gucci", "Eyestyle Zwickau"],
-          "unsavedChanges": false
-        },
-        {
-          "id": "ig_story_1",
-          "date": "2026-03-16",
-          "time": "11:15",
-          "channel": "instagram_story",
-          "caption": "Neue Woche, neuer Look. 🔥 @gucci jetzt bei uns.\n📍 Eyestyle Zwickau",
-          "first_comment": "",
-          "images": ["1ERe2GuW6mlzvZBOFP9Om7qG4Bjk27Bmx"],
-          "image_urls": ["https://drive.google.com/thumbnail?id=1ERe2GuW6mlzvZBOFP9Om7qG4Bjk27Bmx&sz=w360"],
-          "crop": {"x": 0, "y": 0, "w": 1080, "h": 1920, "target": "story"},
-          "status": "draft",
-          "tags": ["@Gucci", "Eyestyle Zwickau"],
-          "unsavedChanges": false
-        },
-        {
-          "id": "fb_1",
-          "date": "2026-03-18",
-          "time": "10:00",
-          "channel": "facebook",
-          "caption": "Wenn eine Brille mehr als nur eine Brille ist. 😎 Das ikonische GG-Logo auf dem markanten roten Rahmen — @Gucci versteht es einfach, Sonnenbrillen zum Statement-Piece zu machen.\n\nWir schleifen übrigens alle Gläser selbst in unserer Werkstatt hier in Zwickau. Handwerk trifft Luxus, sozusagen.\n\nKommt vorbei und probiert die neuen Modelle!",
-          "first_comment": "",
-          "images": ["1mq4cPtM5BK75lslZA-HU7a_vFCM9bM05"],
-          "image_urls": ["https://drive.google.com/thumbnail?id=1mq4cPtM5BK75lslZA-HU7a_vFCM9bM05&sz=w800"],
-          "crop": {"x": 0, "y": 0, "w": 1200, "h": 630, "target": "feed"},
-          "status": "draft",
-          "tags": ["@Gucci", "Eyestyle Zwickau"],
-          "unsavedChanges": false
-        }
-      ]
-    };
+    const EMBEDDED_DATA = {"client":"Eyestyle Zwickau","week":"KW13","brand":"Gucci Eyewear","lastModified":"2026-03-16T10:00:00Z","posts":[{"id":"ig_feed_1","date":"2026-03-16","time":"11:00","channel":"instagram_feed","caption":"Drei Styles. Ein Statement. Swipe durch die neue @gucci Kollektion und finde deinen Look.\n\n\ud83d\udccd Eyestyle Zwickau","first_comment":"#gucci #guccieyewear #brillen #zwickau #eyestyle #sonnenbrillen #luxusbrillen #optiker #handwerk #madeinzwickau","images":["1D_ciGbWyu5VLpEigwTBsmOOGkxVQGemg","1AoOo2Ex-MzKQxD_6ln0t1YmPC0M3ArBN","1ccXsEczQjt9t23_aWQPBnmuAZ60R9Xli"],"image_urls":["https://drive.google.com/thumbnail?id=1D_ciGbWyu5VLpEigwTBsmOOGkxVQGemg&sz=w800","https://drive.google.com/thumbnail?id=1AoOo2Ex-MzKQxD_6ln0t1YmPC0M3ArBN&sz=w800","https://drive.google.com/thumbnail?id=1ccXsEczQjt9t23_aWQPBnmuAZ60R9Xli&sz=w800"],"crop":{"x":0,"y":0,"w":1080,"h":1350,"target":"feed"},"status":"draft","tags":["@Gucci","Eyestyle Zwickau"],"unsavedChanges":false},{"id":"ig_feed_2","date":"2026-03-17","time":"18:00","channel":"instagram_feed","caption":"Wenn die Brille den ganzen Look macht. \ud83d\udc4c\n\n@gucci \ud83d\udccd Eyestyle Zwickau","first_comment":"#gucci #eyewear #brillenstyle #zwickau #eyestyle #optiker #fashion #womensfashion #brillen #guccieyewear","images":["19lQam1W9WmngecL4JAbAfXGL8286KEPk"],"image_urls":["https://drive.google.com/thumbnail?id=19lQam1W9WmngecL4JAbAfXGL8286KEPk&sz=w800"],"crop":{"x":0,"y":0,"w":1080,"h":1350,"target":"feed"},"status":"draft","tags":["@Gucci","Eyestyle Zwickau"],"unsavedChanges":false},{"id":"ig_story_1","date":"2026-03-16","time":"11:15","channel":"instagram_story","caption":"Neue Woche, neuer Look. \ud83d\udd25 @gucci jetzt bei uns.\n\ud83d\udccd Eyestyle Zwickau","first_comment":"","images":["1ERe2GuW6mlzvZBOFP9Om7qG4Bjk27Bmx"],"image_urls":["https://drive.google.com/thumbnail?id=1ERe2GuW6mlzvZBOFP9Om7qG4Bjk27Bmx&sz=w360"],"crop":{"x":0,"y":0,"w":1080,"h":1920,"target":"story"},"status":"draft","tags":["@Gucci","Eyestyle Zwickau"],"unsavedChanges":false},{"id":"fb_1","date":"2026-03-18","time":"10:00","channel":"facebook","caption":"Wenn eine Brille mehr als nur eine Brille ist. \ud83d\ude0e Das ikonische GG-Logo auf dem markanten roten Rahmen \u2014 @Gucci versteht es einfach, Sonnenbrillen zum Statement-Piece zu machen.\n\nWir schleifen \u00fcbrigens alle Gl\u00e4ser selbst in unserer Werkstatt hier in Zwickau. Handwerk trifft Luxus, sozusagen.\n\nKommt vorbei und probiert die neuen Modelle!","first_comment":"","images":["1mq4cPtM5BK75lslZA-HU7a_vFCM9bM05"],"image_urls":["https://drive.google.com/thumbnail?id=1mq4cPtM5BK75lslZA-HU7a_vFCM9bM05&sz=w800"],"crop":{"x":0,"y":0,"w":1200,"h":630,"target":"feed"},"status":"draft","tags":["@Gucci","Eyestyle Zwickau"],"unsavedChanges":false}]};
 
-    // ===== APP STATE OBJECT =====
-    // Feiertage Sachsen 2026
-    const HOLIDAYS_SACHSEN = {
-      '2026-04-03': 'Karfreitag',
-      '2026-04-05': 'Ostersonntag',
-      '2026-04-06': 'Ostermontag'
-    };
+    const HOLIDAYS_SACHSEN = {'2026-04-03':'Karfreitag','2026-04-05':'Ostersonntag','2026-04-06':'Ostermontag'};
 
-    const APP = {
-      data: null,
-      originalData: null,  // Snapshot at load time for change tracking
-      unsavedChanges: new Set(),
-      github: {
-        token: '',
-        owner: '',
-        repo: ''
-      },
-      clients: [],          // [{name: "Eyestyle Zwickau", slug: "eyestyle-zwickau"}, ...]
-      activeClient: null,   // slug of active client
-      currentSha: null,
-      currentFilter: {
-        channel: 'all',
-        status: null
-      }
-    };
+    const APP = {data:null,originalData:null,unsavedChanges:new Set(),github:{token:'',owner:'',repo:''},clients:[],activeClient:null,currentSha:null,currentFilter:{channel:'all',status:null}};
 
-    // ===== CLIENT MANAGEMENT =====
-    function slugify(name) {
-      return name.toLowerCase()
-        .replace(/[äÄ]/g, 'ae').replace(/[öÖ]/g, 'oe').replace(/[üÜ]/g, 'ue').replace(/ß/g, 'ss')
-        .replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    function slugify(name){return name.toLowerCase().replace(/[\u00e4\u00c4]/g,'ae').replace(/[\u00f6\u00d6]/g,'oe').replace(/[\u00fc\u00dc]/g,'ue').replace(/\u00df/g,'ss').replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');}
+    function getClientPath(slug){return `clients/${slug}.json`;}
+
+    async function discoverClientsFromGitHub(){
+      const{token,owner,repo}=APP.github;const ghOwner=owner||'mupdx';const ghRepo=repo||'content-boards';
+      try{const url=`https://api.github.com/repos/${ghOwner}/${ghRepo}/contents/clients`;const headers={};if(token)headers['Authorization']=`token ${token}`;const res=await fetch(url,{headers});if(!res.ok)return;const files=await res.json();if(!Array.isArray(files))return;
+      const clientFiles=files.filter(f=>f.name.endsWith('.json')&&!/-kw\d/.test(f.name));let added=0;
+      for(const f of clientFiles){const slug=f.name.replace('.json','');if(!APP.clients.find(c=>c.slug===slug)){const name=slug.split('-').map(w=>w.charAt(0).toUpperCase()+w.slice(1)).join(' ');APP.clients.push({name,slug});added++;}}
+      if(added>0){localStorage.setItem('clients',JSON.stringify(APP.clients));renderClientSelect();renderClientList();console.log(`Auto-discovered ${added} new client(s) from GitHub`);}}catch(err){console.warn('Client auto-discovery failed:',err);}
     }
 
-    function getClientPath(slug) {
-      return `clients/${slug}.json`;
+    function renderClientSelect(){
+      const select=document.getElementById('clientSelect');const current=APP.activeClient;
+      select.textContent='';const defOpt=document.createElement('option');defOpt.value='';defOpt.textContent='Kunde';select.appendChild(defOpt);
+      APP.clients.forEach(c=>{const opt=document.createElement('option');opt.value=c.slug;opt.textContent=c.name;if(c.slug===current)opt.selected=true;select.appendChild(opt);});
     }
 
-    // Auto-discover clients from GitHub repo (clients/ directory)
-    // Funktioniert MIT und OHNE Token (Repo ist oeffentlich)
-    async function discoverClientsFromGitHub() {
-      const { token, owner, repo } = APP.github;
-      // Mindestens owner+repo muessen bekannt sein (oder Defaults verwenden)
-      const ghOwner = owner || 'mupdx';
-      const ghRepo = repo || 'content-boards';
-
-      try {
-        const url = `https://api.github.com/repos/${ghOwner}/${ghRepo}/contents/clients`;
-        const headers = {};
-        if (token) headers['Authorization'] = `token ${token}`;
-        const res = await fetch(url, { headers });
-        if (!res.ok) return;
-        const files = await res.json();
-        if (!Array.isArray(files)) return;
-
-        // Filter: only .json files, skip archives (contain -kw)
-        const clientFiles = files.filter(f =>
-          f.name.endsWith('.json') && !/-kw\d/.test(f.name)
-        );
-
-        let added = 0;
-        for (const f of clientFiles) {
-          const slug = f.name.replace('.json', '');
-          if (!APP.clients.find(c => c.slug === slug)) {
-            // Derive display name from slug: "dolce-freddo-zwickau" → "Dolce Freddo Zwickau"
-            const name = slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
-            APP.clients.push({ name, slug });
-            added++;
-          }
-        }
-
-        if (added > 0) {
-          localStorage.setItem('clients', JSON.stringify(APP.clients));
-          renderClientSelect();
-          renderClientList();
-          console.log(`Auto-discovered ${added} new client(s) from GitHub`);
-        }
-      } catch (err) {
-        console.warn('Client auto-discovery failed:', err);
-      }
+    function renderClientList(){
+      const list=document.getElementById('clientList');if(!list)return;list.textContent='';
+      APP.clients.forEach(c=>{const div=document.createElement('div');div.className='client-item'+(c.slug===APP.activeClient?' active':'');
+      const span=document.createElement('span');span.className='client-item-name';span.textContent=c.name;div.appendChild(span);
+      const btn=document.createElement('button');btn.title='Kunde entfernen';btn.textContent='\u2715';btn.addEventListener('click',()=>removeClient(c.slug));div.appendChild(btn);
+      list.appendChild(div);});
     }
 
-    function renderClientSelect() {
-      const select = document.getElementById('clientSelect');
-      const current = APP.activeClient;
-      select.innerHTML = '<option value="">— Kunde wählen —</option>';
-      APP.clients.forEach(c => {
-        const opt = document.createElement('option');
-        opt.value = c.slug;
-        opt.textContent = c.name;
-        if (c.slug === current) opt.selected = true;
-        select.appendChild(opt);
-      });
+    function addClient(nameOverride){const input=document.getElementById('newClientName');const name=nameOverride||(input?input.value.trim():'');if(!name){showToast('Bitte einen Namen eingeben','error');return;}const slug=slugify(name);if(APP.clients.find(c=>c.slug===slug)){showToast('Kunde existiert bereits','warning');return;}APP.clients.push({name,slug});localStorage.setItem('clients',JSON.stringify(APP.clients));if(input)input.value='';renderClientSelect();renderClientList();showToast(`"${name}" hinzugef\u00fcgt`,'success');switchClient(slug);}
+    function removeClient(slug){APP.clients=APP.clients.filter(c=>c.slug!==slug);localStorage.setItem('clients',JSON.stringify(APP.clients));if(APP.activeClient===slug){APP.activeClient=APP.clients.length>0?APP.clients[0].slug:null;localStorage.setItem('activeClient',APP.activeClient||'');}renderClientSelect();renderClientList();if(APP.activeClient){switchClient(APP.activeClient);}else{APP.data=null;document.getElementById('postsGrid').textContent='';document.getElementById('calendarHead').textContent='';document.getElementById('calendarBody').textContent='';document.getElementById('accountName').textContent='-';}showToast('Kunde entfernt','success');}
+    function promptNewClient(){const name=prompt('Neuer Kundenname:');if(name&&name.trim())addClient(name.trim());}
+
+    async function switchClient(slug){if(!slug)return;if(APP.unsavedChanges.size>0){if(!confirm('Es gibt ungespeicherte \u00c4nderungen. Trotzdem wechseln?')){document.getElementById('clientSelect').value=APP.activeClient||'';return;}}APP.activeClient=slug;APP.unsavedChanges.clear();localStorage.setItem('activeClient',slug);renderClientSelect();await initApp();}
+
+    function parsePostDate(dateStr,timeStr){const[y,m,d]=dateStr.split('-').map(Number);const[h,min]=timeStr.split(':').map(Number);return new Date(y,m-1,d,h,min);}
+    function formatDate(date){return date.toLocaleDateString('de-DE',{weekday:'short',month:'short',day:'numeric'});}
+    function formatGermanDate(isoDate){if(!isoDate)return'';const parts=isoDate.split('-');if(parts.length!==3)return isoDate;const days=['So','Mo','Di','Mi','Do','Fr','Sa'];const months=['Januar','Februar','M\u00e4rz','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];const d=new Date(Number(parts[0]),Number(parts[1])-1,Number(parts[2]));return`${days[d.getDay()]} ${d.getDate()}. ${months[d.getMonth()]}`;}
+    function formatTime(date){return date.toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'});}
+    function getChannelLabel(ch){if(ch.includes('instagram_feed'))return'IG FEED';if(ch.includes('instagram_story'))return'IG STORY';if(ch.includes('facebook'))return'FACEBOOK';if(ch.includes('linkedin'))return'LINKEDIN';return'POST';}
+    function getChannelIcon(ch){return'';}
+    function formatCaption(text){if(!text)return'';let e=text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');e=e.replace(/@(\w+)/g,'<span style="color:var(--accent);font-weight:500;">@$1</span>');return e;}
+    function formatHashtags(text){if(!text)return'';let e=text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');e=e.replace(/#(\w+)/g,'<span style="color:var(--status-success);">#$1</span>');return e;}
+    function getChannelClassname(ch){if(ch.includes('instagram_feed'))return'ig-feed';if(ch.includes('instagram_story'))return'ig-story';if(ch.includes('facebook'))return'facebook';if(ch.includes('linkedin'))return'linkedin';return'ig-feed';}
+
+    function approvePost(postId){const post=APP.data.posts.find(p=>p.id===postId);if(!post)return;post.approved=!post.approved;APP.unsavedChanges.add(postId);renderPosts();checkAllApproved();}
+    function checkAllApproved(){if(!APP.data||!APP.data.posts||APP.data.posts.length===0){document.getElementById('allApprovedBanner').style.display='none';return;}const all=APP.data.posts.every(p=>p.approved);document.getElementById('allApprovedBanner').style.display=all?'flex':'none';}
+
+    async function initApp(){
+      const clientPath=APP.activeClient?getClientPath(APP.activeClient):null;
+      try{if(clientPath){const data=await fetchFromGitHub(clientPath);if(data){APP.data=data;APP.originalData=JSON.parse(JSON.stringify(data));const co=APP.clients.find(c=>c.slug===APP.activeClient);showToast(`${co?co.name:'Daten'} geladen`,'success');renderUI();return;}}}catch(err){console.warn('GitHub API fetch failed:',err);if(err.message&&err.message.includes('404')){const co=APP.clients.find(c=>c.slug===APP.activeClient);APP.data={client:co?co.name:APP.activeClient,week:'',brand:'',lastModified:new Date().toISOString(),posts:[]};showToast('Neues Board erstellt','info');renderUI();return;}}
+      if(clientPath){try{const res=await fetch(`./${clientPath}?_t=${Date.now()}`);if(res.ok){const data=await res.json();if(data&&data.posts){APP.data=data;APP.originalData=JSON.parse(JSON.stringify(data));const co=APP.clients.find(c=>c.slug===APP.activeClient);showToast(`${co?co.name:'Daten'} geladen (Read-Only)`,'success');if(!APP.github.token)showToast('GitHub-Token fehlt','warning');renderUI();return;}}}catch(err){console.warn('GitHub Pages fetch failed:',err);}}
+      try{const res=await fetch('./data.json');if(res.ok){APP.data=await res.json();APP.originalData=JSON.parse(JSON.stringify(APP.data));showToast('Daten geladen','success');renderUI();return;}}catch(err){console.warn('fetch ./data.json failed:',err);}
+      if(EMBEDDED_DATA&&EMBEDDED_DATA.client&&APP.activeClient){const es=EMBEDDED_DATA.client.toLowerCase().replace(/\s+/g,'-');if(APP.activeClient===es||APP.activeClient==='eyestyle-zwickau'){APP.data=EMBEDDED_DATA;APP.originalData=JSON.parse(JSON.stringify(EMBEDDED_DATA));showToast('Eingebettete Daten geladen (Offline)','warning');renderUI();return;}}
+      const co=APP.clients.find(c=>c.slug===APP.activeClient);APP.data={client:co?co.name:(APP.activeClient||'Unbekannt'),week:'',brand:'',lastModified:new Date().toISOString(),posts:[]};APP.originalData=JSON.parse(JSON.stringify(APP.data));showToast('Keine Daten gefunden','warning');renderUI();
     }
 
-    function renderClientList() {
-      const list = document.getElementById('clientList');
-      if (!list) return;
-      list.innerHTML = '';
-      APP.clients.forEach(c => {
-        const div = document.createElement('div');
-        div.className = 'client-item' + (c.slug === APP.activeClient ? ' active' : '');
-        div.innerHTML = `<span class="client-item-name">${c.name}</span>
-          <button onclick="removeClient('${c.slug}')" title="Kunde entfernen">✕</button>`;
-        list.appendChild(div);
-      });
+    async function fetchFromGitHub(pathOverride){const{token,owner,repo}=APP.github;const ghOwner=owner||'mupdx';const ghRepo=repo||'content-boards';const path=pathOverride||getClientPath(APP.activeClient);const url=`https://api.github.com/repos/${ghOwner}/${ghRepo}/contents/${path}`;const headers={};if(token)headers['Authorization']=`token ${token}`;const res=await fetch(url,{headers});if(!res.ok)throw new Error(`GitHub API error: ${res.status}`);const json=await res.json();APP.currentSha=json.sha;const content=decodeURIComponent(escape(atob(json.content)));return JSON.parse(content);}
+
+    function generateCalendar(){
+      if(!APP.data||!APP.data.posts)return;const dates=APP.data.posts.map(p=>new Date(p.date)).sort((a,b)=>a-b);if(dates.length===0)return;
+      const startDate=new Date(dates[0]);const dow=startDate.getDay();startDate.setDate(startDate.getDate()-(dow===0?6:dow-1));
+      const endDate=new Date(dates[dates.length-1]);const edow=endDate.getDay();if(edow!==0)endDate.setDate(endDate.getDate()+(7-edow));
+      const totalDays=Math.ceil((endDate-startDate)/(1000*60*60*24))+1;const holidays=HOLIDAYS_SACHSEN;
+      const channelLabels={'instagram_feed':'IG Feed','instagram_story':'IG Story','facebook':'FB Feed','linkedin':'LinkedIn'};const channels=Object.keys(channelLabels);
+      const monthColors=['rgba(59,130,246,0.08)','rgba(168,85,247,0.08)','rgba(236,72,153,0.08)','rgba(245,158,11,0.08)','rgba(34,197,94,0.08)','rgba(6,182,212,0.08)'];
+      const monthNames=['Jan','Feb','M\u00e4r','Apr','Mai','Jun','Jul','Aug','Sep','Okt','Nov','Dez'];const dayMonths=[];let pm=-1,ci=-1;
+      for(let i=0;i<totalDays;i++){const d=new Date(startDate);d.setDate(d.getDate()+i);if(d.getMonth()!==pm){ci++;pm=d.getMonth();}dayMonths.push({month:d.getMonth(),year:d.getFullYear(),color:monthColors[ci%monthColors.length]});}
+      const thead=document.querySelector('#calendarHead');let mRH='<tr><th></th>';let mSpan=1;
+      for(let i=0;i<totalDays;i++){if(i<totalDays-1&&dayMonths[i].month===dayMonths[i+1].month){mSpan++;}else{const label=monthNames[dayMonths[i].month]+' '+dayMonths[i].year;mRH+='<th colspan="'+mSpan+'" style="background:'+dayMonths[i].color+';color:var(--text-muted);font-size:10px;text-align:center;border-left:1px solid var(--border);padding:3px 4px;text-transform:uppercase;letter-spacing:0.05em">'+label+'</th>';mSpan=1;}}mRH+='</tr>';
+      let hH='<tr><th style="min-width:60px">Kanal</th>';
+      for(let i=0;i<totalDays;i++){const d=new Date(startDate);d.setDate(d.getDate()+i);const ds=d.toISOString().split('T')[0];const dw=d.toLocaleDateString('de-DE',{weekday:'short'});const num=d.getDate();const isH=holidays[ds];const hc=isH?' class="holiday"':'';const bg=isH?'':' style="background:'+dayMonths[i].color+'"';hH+='<th'+hc+bg+'>'+dw+'<br>'+num+(isH?'<div class="holiday-label">'+isH+'</div>':'')+'</th>';}hH+='</tr>';
+      thead.innerHTML=mRH+hH;
+      const tbody=document.querySelector('#calendarBody');let bH='';
+      channels.forEach(channel=>{bH+=`<tr><th>${channelLabels[channel]}</th>`;for(let i=0;i<totalDays;i++){const d=new Date(startDate);d.setDate(d.getDate()+i);const ds=d.toISOString().split('T')[0];const isH=holidays[ds];const hc=isH?' class="holiday"':'';const pfc=APP.data.posts.filter(p=>p.date===ds&&p.channel===channel);let cc='';pfc.forEach(post=>{let pc=getChannelClassname(post.channel);if(channel==='instagram_feed'&&post.images&&post.images.length>1)pc='ig-carousel';cc+=`<a href="#" class="time-pill ${pc}" onclick="event.preventDefault();scrollToPost('${post.id}')">${post.time}</a>`;});const bg=isH?'':' style="background:'+dayMonths[i].color+'"';bH+='<td'+hc+bg+'>'+cc+'</td>';}bH+='</tr>';});
+      tbody.innerHTML=bH;document.getElementById('calendarDateRange').textContent=`${formatDate(startDate)} \u2013 ${formatDate(endDate)}`;
     }
 
-    function addClient(nameOverride) {
-      const input = document.getElementById('newClientName');
-      const name = nameOverride || (input ? input.value.trim() : '');
-      if (!name) { showToast('Bitte einen Namen eingeben', 'error'); return; }
-
-      const slug = slugify(name);
-      if (APP.clients.find(c => c.slug === slug)) {
-        showToast('Kunde existiert bereits', 'warning');
-        return;
-      }
-
-      APP.clients.push({ name, slug });
-      localStorage.setItem('clients', JSON.stringify(APP.clients));
-      if (input) input.value = '';
-      renderClientSelect();
-      renderClientList();
-      showToast(`"${name}" hinzugefügt`, 'success');
-
-      // Auto-switch to the new client
-      switchClient(slug);
+    function renderPosts(){
+      if(!APP.data||!APP.data.posts)return;const grid=document.getElementById('postsGrid');const emptyState=document.getElementById('emptyState');
+      let filtered=APP.data.posts;if(APP.currentFilter.channel!=='all')filtered=filtered.filter(p=>p.channel.includes(APP.currentFilter.channel));if(APP.currentFilter.status)filtered=filtered.filter(p=>p.status===APP.currentFilter.status);
+      if(filtered.length===0){grid.style.display='none';emptyState.style.display='block';return;}grid.style.display='grid';emptyState.style.display='none';
+      const gbc={};filtered.forEach(post=>{const ch=post.channel;if(!gbc[ch])gbc[ch]=[];gbc[ch].push(post);});
+      const co=['instagram_feed','instagram_story','facebook','linkedin'];const ct={'instagram_feed':'Instagram Feed','instagram_story':'Instagram Story','facebook':'Facebook','linkedin':'LinkedIn'};
+      let html='';co.forEach(channel=>{if(!gbc[channel])return;const posts=gbc[channel];
+      html+=`<div class="channel-section-title">${ct[channel]||channel}</div><div class="channel-section-grid">`;
+      posts.forEach(post=>{
+        const isSaved=!APP.unsavedChanges.has(post.id);const imgUrls=post.image_urls||[];const isSC=post.channel==='instagram_story';const sOU=isSC&&post.original_image_url?post.original_image_url:null;const cImg=sOU||imgUrls[0]||'';const hN=HOLIDAYS_SACHSEN[post.date]||'';const hF=post.holiday||'';const isP=post.panorama===true;const isS=post.channel==='instagram_story';const cC=isS?'story':(post.channel==='facebook'?'facebook':'feed');const ipX=post.img_position&&post.img_position.x!=null?post.img_position.x:null;const ipS=ipX!=null?` style="object-position: ${ipX}% center"`:'';const hRR=post.regen_requests&&post.regen_requests.length>0;const lR=hRR?post.regen_requests[post.regen_requests.length-1]:null;const isA=post.approved===true;
+        const rT=hRR?post.regen_requests.map(r=>r.what):[];const hCR=rT.some(w=>w.includes('Caption'));const hIR=rT.some(w=>w.includes('Bild')||w.includes('Crop'));const hDR=rT.some(w=>w.includes('Datum'));
+        html+=`<div class="post-card ${!isSaved?'unsaved':''} ${hRR?'regen-requested':''} ${hN||hF?'holiday-post':''} ${isA?'approved-card':''}" id="post-${post.id}">`;
+        if(hRR)html+=`<div class="regen-badge">Neu beantragt: ${lR.what}</div>`;
+        if(hN)html+=`<div class="holiday-banner"><span class="holiday-icon"></span> Feiertag: ${hN}</div>`;
+        html+=`<div class="post-image-container ${cC}">`;
+        if(isP){html+=`<div class="panorama-container"><img src="${cImg}" alt="Panorama" class="panorama-img slide-left"></div><div class="carousel-counter">1/2</div><button class="carousel-arrow prev" onclick="panSlide('${post.id}','prev')"></button><button class="carousel-arrow next" onclick="panSlide('${post.id}','next')"></button>`;}
+        else{html+=`<img src="${cImg}" alt="Post" class="post-image"${ipS} onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23141416%22 width=%22200%22 height=%22200%22/%3E%3Ctext fill=%22%23555559%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2213%22%3EBild nicht verf%C3%BCgbar%3C/text%3E%3C/svg%3E'">`;if(imgUrls.length>1)html+=`<div class="carousel-counter">1/${imgUrls.length}</div><button class="carousel-arrow prev" onclick="prevSlide('${post.id}')"></button><button class="carousel-arrow next" onclick="nextSlide('${post.id}')"></button>`;}
+        html+=`<div class="channel-badge ${getChannelClassname(post.channel)}">${getChannelLabel(post.channel)}</div>`;
+        if(hF)html+=`<div class="holiday-badge">${hF}</div>`;
+        html+=`</div>`;
+        if(post.channel==="instagram_story")html+=`<div class="img-control-bar"><label>Position</label><input type="range" min="0" max="100" value="${post.img_position&&post.img_position.x!=null?post.img_position.x:50}" oninput="updateImgPosition('${post.id}',this.value,this)" onmousedown="event.stopPropagation()" ontouchstart="event.stopPropagation()"><button class="img-reset-btn" onclick="updateImgPosition('${post.id}',50,this.parentElement.querySelector('input'))">Reset</button></div>`;
+        html+=`<div class="post-content"><div class="post-header"><div class="post-meta"><span>${formatGermanDate(post.date)}</span><span class="post-meta-dot">\u00b7</span><span>${post.time}</span></div></div>`;
+        if(post.channel!=='instagram_story'){html+=`<div class="caption-section"><div class="caption-label">Caption</div><div class="caption-text" onclick="editCaption('${post.id}')">${formatCaption(post.caption)}</div><textarea class="caption-textarea" id="caption-${post.id}" onblur="saveCaption('${post.id}',this.value)">${(post.caption||'').trim()}</textarea></div>`;if(post.first_comment)html+=`<div class="first-comment"><div class="caption-label">First Comment</div><div class="first-comment-text">${formatHashtags(post.first_comment)}</div></div>`;}
+        if(post.tags&&post.tags.length>0)html+=`<div class="tags">${post.tags.map(tag=>`<div class="tag">${tag}</div>`).join('')}</div>`;
+        html+=`<div class="post-actions"><button class="action-btn action-approve ${isA?'approved':''}" onclick="approvePost('${post.id}')">${isA?'Freigegeben':'Freigabe'}</button><div class="action-group"><button class="action-btn action-secondary ${hCR?'requested':''}" onclick="submitRegenRequest('${post.id}','Caption neu')">Caption</button><button class="action-btn action-secondary ${hIR?'requested':''}" onclick="submitRegenRequest('${post.id}','Bild/Crop neu')">Ausschnitt</button><button class="action-btn action-secondary ${hDR?'requested':''}" onclick="requestDateChange('${post.id}')">Datum</button></div><button class="btn-save btn-save-primary" id="save-btn-${post.id}" onclick="savePost('${post.id}')" style="margin-left:auto;">${isSaved?'Gespeichert':'Speichern'}</button></div></div></div>`;
+      });html+=`</div>`;});
+      grid.innerHTML=html;checkAllApproved();
     }
 
-    function removeClient(slug) {
-      APP.clients = APP.clients.filter(c => c.slug !== slug);
-      localStorage.setItem('clients', JSON.stringify(APP.clients));
-      if (APP.activeClient === slug) {
-        APP.activeClient = APP.clients.length > 0 ? APP.clients[0].slug : null;
-        localStorage.setItem('activeClient', APP.activeClient || '');
-      }
-      renderClientSelect();
-      renderClientList();
-      if (APP.activeClient) {
-        switchClient(APP.activeClient);
-      } else {
-        APP.data = null;
-        document.getElementById('postsGrid').innerHTML = '';
-        document.getElementById('calendarHead').innerHTML = '';
-        document.getElementById('calendarBody').innerHTML = '';
-        document.getElementById('accountName').textContent = '-';
-      }
-      showToast('Kunde entfernt', 'success');
+    function prevSlide(postId){const post=APP.data.posts.find(p=>p.id===postId);if(!post)return;const container=document.querySelector(`#post-${postId} .post-image-container`);const img=container.querySelector('.post-image');const counter=container.querySelector('.carousel-counter');const imgUrls=post.image_urls||[];let ci=parseInt(counter.textContent.split('/')[0])-1;ci=(ci-1+imgUrls.length)%imgUrls.length;img.src=imgUrls[ci];counter.textContent=`${ci+1}/${imgUrls.length}`;}
+    function nextSlide(postId){const post=APP.data.posts.find(p=>p.id===postId);if(!post)return;const container=document.querySelector(`#post-${postId} .post-image-container`);const img=container.querySelector('.post-image');const counter=container.querySelector('.carousel-counter');const imgUrls=post.image_urls||[];let ci=parseInt(counter.textContent.split('/')[0])-1;ci=(ci+1)%imgUrls.length;img.src=imgUrls[ci];counter.textContent=`${ci+1}/${imgUrls.length}`;}
+    function panSlide(postId,dir){const container=document.querySelector(`#post-${postId} .panorama-container`);if(!container)return;const img=container.querySelector('.panorama-img');const counter=container.closest('.post-image-container').querySelector('.carousel-counter');const isLeft=img.classList.contains('slide-left');if(dir==='next'&&isLeft){img.classList.remove('slide-left');img.classList.add('slide-right');counter.textContent='2/2';}else if(dir==='prev'&&!isLeft){img.classList.remove('slide-right');img.classList.add('slide-left');counter.textContent='1/2';}}
+
+    function filterByChannel(channel){APP.currentFilter.channel=channel;applyFilters();document.querySelectorAll('.filter-btn').forEach(btn=>btn.classList.remove('active'));event.target.classList.add('active');}
+    function filterByStatus(status){APP.currentFilter.status=APP.currentFilter.status===status?null:status;applyFilters();event.target.classList.toggle('active');}
+    function applyFilters(){renderPosts();}
+
+    function toggleStatus(postId){const post=APP.data.posts.find(p=>p.id===postId);if(post){post.status=post.status==='draft'?'approved':'draft';APP.unsavedChanges.add(postId);renderPosts();showToast(`Status: ${post.status==='draft'?'Entwurf':'Freigegeben'}`,'success');}}
+    function editCaption(postId){const captionDiv=document.querySelector(`#caption-${postId}`).previousElementSibling;captionDiv.classList.add('editing');document.getElementById(`caption-${postId}`).classList.add('editing');document.getElementById(`caption-${postId}`).focus();}
+    function updateImgPosition(postId,value,sliderEl){const v=Number(value);const card=sliderEl.closest('.post-card');if(card){const img=card.querySelector('.post-image');if(img)img.style.objectPosition=v+'% center';card.classList.add('unsaved');const saveBtn=card.querySelector('.btn-save-primary');if(saveBtn)saveBtn.textContent='Speichern';}if(sliderEl.tagName==='INPUT')sliderEl.value=v;const post=APP.data.posts.find(p=>p.id===postId);if(post){if(!post.img_position)post.img_position={};post.img_position.x=v;APP.unsavedChanges.add(postId);}}
+
+    function requestRegenerate(postId){
+      const post=APP.data.posts.find(p=>p.id===postId);if(!post)return;const ch=post.channel.replace(/_/g,' ').toUpperCase();
+      const options=[{label:'Caption \u00e4ndern',value:'Caption neu'},{label:'Bildausschnitt \u00e4ndern',value:'Bild/Crop neu'},{label:'Datum verschieben',value:'Datum verschieben'},{label:'Alles neu',value:'Alles neu'}];
+      let html='<div class="changes-summary-overlay" onclick="if(event.target===this)this.remove()"><div class="changes-summary-box">';
+      html+=`<h3>\u00c4nderungswunsch</h3><p style="color:var(--text-secondary);margin-bottom:4px;font-weight:600;">${post.id} \u2014 ${ch}</p><p style="color:var(--text-muted);margin-bottom:16px;">${formatGermanDate(post.date)} \u00b7 ${post.time}</p>`;
+      options.forEach(opt=>{const onclick=opt.value==='Datum verschieben'?`requestDateChange('${postId}')`:`submitRegenRequest('${postId}','${opt.value}')`;html+=`<button style="display:block;width:100%;padding:10px 14px;margin-bottom:6px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text-primary);cursor:pointer;text-align:left;font-family:'DM Sans',sans-serif;font-size:13px;transition:all 150ms ease;" onmouseover="this.style.borderColor='var(--border-hover)'" onmouseout="this.style.borderColor='var(--border)'" onclick="${onclick};this.closest('.changes-summary-overlay').remove();">${opt.label}</button>`;});
+      html+='<button class="changes-summary-close" onclick="this.closest(\'.changes-summary-overlay\').remove()">Abbrechen</button></div></div>';document.body.insertAdjacentHTML('beforeend',html);
     }
+    function requestDateChange(postId){submitRegenRequest(postId,'Datum verschieben (Motiv zu nah an Nachbar-Post oder Termin unpassend)');}
 
-    function promptNewClient() {
-      const name = prompt('Neuer Kundenname:');
-      if (name && name.trim()) addClient(name.trim());
-    }
+    async function submitRegenRequest(postId,what){const post=APP.data.posts.find(p=>p.id===postId);if(!post)return;if(!post.regen_requests)post.regen_requests=[];post.regen_requests.push({what,timestamp:new Date().toISOString()});APP.unsavedChanges.add(postId);renderPosts();
+    const{token,owner,repo}=APP.github;const path=APP.activeClient?getClientPath(APP.activeClient):null;
+    if(token&&owner&&repo&&path){try{await saveDataToGitHub(path,`\u00c4nderungswunsch: ${what} f\u00fcr ${postId}`);APP.unsavedChanges.delete(postId);showToast(`"${what}" f\u00fcr ${postId} beantragt`,'success');renderPosts();}catch(err){showToast('Fehler beim Speichern: '+err.message,'error');}}else{showToast(`"${what}" vorgemerkt`,'warning');}}
 
-    async function switchClient(slug) {
-      if (!slug) return;
+    function saveCaption(postId,value){const post=APP.data.posts.find(p=>p.id===postId);if(post){post.caption=value;APP.unsavedChanges.add(postId);document.querySelector(`#caption-${postId}`).previousElementSibling.classList.remove('editing');document.getElementById(`caption-${postId}`).classList.remove('editing');renderPosts();}}
 
-      // Warn about unsaved changes
-      if (APP.unsavedChanges.size > 0) {
-        if (!confirm('Es gibt ungespeicherte Änderungen. Trotzdem wechseln?')) {
-          document.getElementById('clientSelect').value = APP.activeClient || '';
-          return;
-        }
-      }
+    async function savePost(postId){const{token,owner,repo}=APP.github;const path=APP.activeClient?getClientPath(APP.activeClient):null;if(!token||!owner||!repo||!path){showToast('GitHub nicht verbunden','error');return;}const saveBtn=document.getElementById(`save-btn-${postId}`);if(saveBtn){saveBtn.textContent='Speichert...';saveBtn.disabled=true;}try{await saveDataToGitHub(path,`Update ${APP.data.client} ${APP.data.week}`);APP.unsavedChanges.delete(postId);showToast('Gespeichert','success');renderPosts();const card=document.getElementById(`post-${postId}`);const btn=document.getElementById(`save-btn-${postId}`);if(card)card.classList.add('just-saved-card');if(btn){btn.classList.add('just-saved');btn.textContent='Gespeichert';}setTimeout(()=>{if(card)card.classList.remove('just-saved-card');if(btn)btn.classList.remove('just-saved');},2500);}catch(err){showToast('Fehler: '+err.message,'error');if(saveBtn){saveBtn.textContent='Speichern';saveBtn.disabled=false;}}}
 
-      APP.activeClient = slug;
-      APP.unsavedChanges.clear();
-      localStorage.setItem('activeClient', slug);
-      renderClientSelect();
+    async function saveDataToGitHub(path,commitMsg){const{token,owner,repo}=APP.github;const url=`https://api.github.com/repos/${owner}/${repo}/contents/${path}`;let sha=null;try{const getRes=await fetch(url,{headers:{'Authorization':`token ${token}`}});if(getRes.ok){const json=await getRes.json();sha=json.sha;}}catch(e){}const content=btoa(unescape(encodeURIComponent(JSON.stringify(APP.data,null,2))));const body={message:commitMsg,content};if(sha)body.sha=sha;const putRes=await fetch(url,{method:'PUT',headers:{'Authorization':`token ${token}`,'Content-Type':'application/json'},body:JSON.stringify(body)});if(!putRes.ok)throw new Error('Speichern fehlgeschlagen');return putRes.json();}
 
-      // Load client data
-      await initApp();
-    }
+    function getChangedFields(postId){if(!APP.originalData)return[];const orig=APP.originalData.posts.find(p=>p.id===postId);const curr=APP.data.posts.find(p=>p.id===postId);if(!orig||!curr)return[];const changes=[];if((orig.caption||'')!==(curr.caption||''))changes.push('Caption');if((orig.first_comment||'')!==(curr.first_comment||''))changes.push('Erster Kommentar');if((orig.status||'')!==(curr.status||''))changes.push('Status');if(JSON.stringify(orig.img_position||{})!==JSON.stringify(curr.img_position||{}))changes.push('Bildposition');if((orig.date||'')!==(curr.date||''))changes.push('Datum');if((orig.time||'')!==(curr.time||''))changes.push('Uhrzeit');return changes;}
 
-    // ===== UTILITY FUNCTIONS =====
-    function parsePostDate(dateStr, timeStr) {
-      const [y, m, d] = dateStr.split('-').map(Number);
-      const [h, min] = timeStr.split(':').map(Number);
-      return new Date(y, m - 1, d, h, min);
-    }
+    function showChangesSummary(){const changed=[];const unchanged=[];APP.data.posts.forEach(p=>{const fields=getChangedFields(p.id);if(fields.length>0)changed.push({id:p.id,date:p.date,channel:p.channel,fields});else unchanged.push({id:p.id});});let html='<div class="changes-summary-overlay" onclick="if(event.target===this)this.remove()"><div class="changes-summary-box">';html+=`<h3>\u00c4nderungs-\u00dcbersicht</h3><p style="color:var(--text-muted);margin-bottom:12px;font-size:13px;">${changed.length} ge\u00e4ndert, ${unchanged.length} unver\u00e4ndert</p>`;if(changed.length===0){html+='<p style="color:var(--text-muted);">Keine \u00c4nderungen seit dem Laden.</p>';}else{changed.forEach(c=>{const ch=c.channel.replace(/_/g,' ').toUpperCase();html+=`<div class="changes-summary-item"><strong>${c.id}</strong> (${ch}, ${c.date})<br>${c.fields.map(f=>`<span class="field">${f}</span>`).join(', ')}</div>`;});}html+='<button class="changes-summary-close" onclick="this.closest(\'.changes-summary-overlay\').remove()">Schlie\u00dfen</button></div></div>';document.body.insertAdjacentHTML('beforeend',html);}
 
-    function formatDate(date) {
-      return date.toLocaleDateString('de-DE', { weekday: 'short', month: 'short', day: 'numeric' });
-    }
+    async function saveAllPosts(){if(APP.unsavedChanges.size===0){showToast('Keine ungespeicherten \u00c4nderungen','info');return;}const{token,owner,repo}=APP.github;const path=APP.activeClient?getClientPath(APP.activeClient):null;if(!token||!owner||!repo||!path){showToast('GitHub nicht verbunden','error');return;}try{await saveDataToGitHub(path,`Update ${APP.data.client} ${APP.data.week} - ${APP.unsavedChanges.size} post(s)`);APP.unsavedChanges.clear();showToast('Alle Posts gespeichert','success');showChangesSummary();renderPosts();}catch(err){showToast('Fehler: '+err.message,'error');}}
 
-    function formatGermanDate(isoDate) {
-      // Converts "2026-03-17" → "Mi 18. März"
-      if (!isoDate) return '';
-      const parts = isoDate.split('-');
-      if (parts.length !== 3) return isoDate;
-      const days = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
-      const months = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
-                       'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
-      const d = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
-      const dow = days[d.getDay()];
-      const monthName = months[d.getMonth()];
-      return `${dow} ${d.getDate()}. ${monthName}`;
-    }
+    function exportCSV(){if(!APP.data||!APP.data.posts){showToast('Keine Daten zum Exportieren','error');return;}const approved=APP.data.posts.filter(p=>p.status==='approved');if(approved.length===0){showToast('Keine freigegebenen Posts','warning');return;}const headers=['Date and Time','Use Planner Time','Text','First comment','Media URLs','Title','Link','Stories Post','Reels Post','Shorts','Link Title','Pinterest board','TikTok Privacy','TikTok Recommended music'];const rows=approved.map(post=>{const dt=`${post.date} ${post.time}`;const mu=(post.image_urls||[]).join('; ');return[dt,'No',post.caption||'',post.first_comment||'',mu,'','',post.channel==='instagram_story'?'Yes':'No','','','','','Private',''];});let csv=headers.join(',')+'\n';rows.forEach(row=>{const quoted=row.map(cell=>{const s=String(cell);return s.includes(',')||s.includes('"')||s.includes('\n')?`"${s.replace(/"/g,'""')}"`:s;});csv+=quoted.join(',')+'\n';});const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});const link=document.createElement('a');const url=URL.createObjectURL(blob);link.href=url;link.download=`${APP.data.client}-${APP.data.week}-export.csv`;document.body.appendChild(link);link.click();document.body.removeChild(link);URL.revokeObjectURL(url);showToast('CSV exportiert','success');}
 
-    function formatTime(date) {
-      return date.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' });
-    }
+    function showSettings(){document.getElementById('settingsModal').classList.add('active');document.getElementById('githubToken').value=APP.github.token;document.getElementById('githubOwner').value=APP.github.owner;document.getElementById('githubRepo').value=APP.github.repo;renderClientList();}
+    function hideSettings(){document.getElementById('settingsModal').classList.remove('active');}
+    function saveSettings(){const token=document.getElementById('githubToken').value;const owner=document.getElementById('githubOwner').value;const repo=document.getElementById('githubRepo').value;if(token&&owner&&repo){APP.github={token,owner,repo};localStorage.setItem('githubSettings',JSON.stringify(APP.github));showToast('Einstellungen gespeichert','success');hideSettings();checkConnection();}else{showToast('Bitte alle Felder ausf\u00fcllen','error');}}
 
-    function getChannelIcon(channel) {
-      if (channel.includes('instagram_feed')) return '📸';
-      if (channel.includes('instagram_story')) return '📖';
-      if (channel.includes('facebook')) return '👍';
-      if (channel.includes('linkedin')) return '💼';
-      return '📱';
-    }
+    function showToast(message,type='info'){const container=document.getElementById('toastContainer');const toast=document.createElement('div');toast.className=`toast ${type}`;toast.textContent=message;container.appendChild(toast);setTimeout(()=>{toast.style.animation='slideOut 0.25s ease-out';setTimeout(()=>toast.remove(),250);},3000);}
 
-    function formatCaption(text) {
-      if (!text) return '';
-      let escaped = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-      // Highlight @mentions in blue
-      escaped = escaped.replace(/@(\w+)/g, '<span style="color:#60a5fa;font-weight:500;">@$1</span>');
-      return escaped;
-    }
+    async function checkConnection(){const statusDot=document.getElementById('statusDot');const statusText=document.getElementById('connectionStatus');if(!APP.github.token){statusDot.classList.remove('connected');statusText.textContent='Nicht verbunden';return;}try{const res=await fetch('https://api.github.com/user',{headers:{'Authorization':`token ${APP.github.token}`}});if(res.ok){statusDot.classList.add('connected');statusText.textContent='GitHub verbunden';}else{statusDot.classList.remove('connected');statusText.textContent='Verbindung fehlgeschlagen';}}catch(err){statusDot.classList.remove('connected');statusText.textContent='Offline';}}
 
-    function formatHashtags(text) {
-      if (!text) return '';
-      let escaped = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-      // Highlight #hashtags in soft teal
-      escaped = escaped.replace(/#(\w+)/g, '<span style="color:#34d399;">#$1</span>');
-      return escaped;
-    }
+    function scrollToPost(postId){const element=document.getElementById(`post-${postId}`);if(element)element.scrollIntoView({behavior:'smooth',block:'start'});}
 
-    function getChannelClassname(channel) {
-      if (channel.includes('instagram_feed')) return 'ig-feed';
-      if (channel.includes('instagram_story')) return 'ig-story';
-      if (channel.includes('facebook')) return 'facebook';
-      if (channel.includes('linkedin')) return 'linkedin';
-      return 'ig-feed';
-    }
+    function renderUI(){if(APP.data)document.getElementById('accountName').textContent=APP.data.brand||APP.data.week||'-';generateCalendar();renderPosts();checkConnection();}
 
-    // ===== INIT APP: GitHub → fetch('./data.json') → EMBEDDED_DATA fallback =====
-    async function initApp() {
-      const clientPath = APP.activeClient ? getClientPath(APP.activeClient) : null;
+    window.addEventListener('beforeunload',(e)=>{if(APP.unsavedChanges.size>0){e.preventDefault();e.returnValue='';}});
 
-      // === Methode 1: GitHub API (braucht Token) ===
-      try {
-        // Token ist optional fuer oeffentliche Repos — owner/repo haben Defaults
-        const hasGitHub = clientPath;
-        if (hasGitHub) {
-          const data = await fetchFromGitHub(clientPath);
-          if (data) {
-            APP.data = data;
-            APP.originalData = JSON.parse(JSON.stringify(data));
-            const clientObj = APP.clients.find(c => c.slug === APP.activeClient);
-            showToast(`${clientObj ? clientObj.name : 'Daten'} geladen`, 'success');
-            renderUI();
-            return;
-          }
-        }
-      } catch (err) {
-        console.warn('GitHub API fetch failed:', err);
-        // If 404, this client just doesn't have data yet — create empty
-        if (err.message && err.message.includes('404')) {
-          const clientObj = APP.clients.find(c => c.slug === APP.activeClient);
-          APP.data = {
-            client: clientObj ? clientObj.name : APP.activeClient,
-            week: '',
-            brand: '',
-            lastModified: new Date().toISOString(),
-            posts: []
-          };
-          showToast('Neues Board erstellt (noch keine Daten auf GitHub)', 'info');
-          renderUI();
-          return;
-        }
-      }
-
-      // === Methode 2: GitHub Pages direkt (KEIN Token noetig!) ===
-      // Funktioniert in JEDEM Browser, auch ohne GitHub-Einstellungen.
-      if (clientPath) {
-        try {
-          const pagesUrl = `./${clientPath}?_t=${Date.now()}`;
-          const res = await fetch(pagesUrl);
-          if (res.ok) {
-            const data = await res.json();
-            if (data && data.posts) {
-              APP.data = data;
-              APP.originalData = JSON.parse(JSON.stringify(data));
-              const clientObj = APP.clients.find(c => c.slug === APP.activeClient);
-              showToast(`${clientObj ? clientObj.name : 'Daten'} geladen (Read-Only)`, 'success');
-              // Hinweis: Ohne Token ist kein Speichern moeglich
-              if (!APP.github.token) {
-                showToast('GitHub-Token fehlt — Speichern nicht moeglich. Unter Einstellungen konfigurieren.', 'warning');
-              }
-              renderUI();
-              return;
-            }
-          }
-        } catch (err) {
-          console.warn('GitHub Pages fetch failed:', err);
-        }
-      }
-
-      // === Methode 3: Lokale data.json (Legacy) ===
-      try {
-        const res = await fetch('./data.json');
-        if (res.ok) {
-          APP.data = await res.json();
-          APP.originalData = JSON.parse(JSON.stringify(APP.data));
-          showToast('Daten geladen', 'success');
-          renderUI();
-          return;
-        }
-      } catch (err) {
-        console.warn('fetch ./data.json failed:', err);
-      }
-
-      // === Methode 4: EMBEDDED_DATA — NUR wenn aktiver Client = embedded client ===
-      // WICHTIG: Embedded Daten NIEMALS fuer einen anderen Client anzeigen!
-      if (EMBEDDED_DATA && EMBEDDED_DATA.client && APP.activeClient) {
-        const embeddedSlug = EMBEDDED_DATA.client.toLowerCase().replace(/\s+/g, '-');
-        if (APP.activeClient === embeddedSlug || APP.activeClient === 'eyestyle-zwickau') {
-          APP.data = EMBEDDED_DATA;
-          APP.originalData = JSON.parse(JSON.stringify(EMBEDDED_DATA));
-          showToast('Eingebettete Daten geladen (Offline-Modus)', 'warning');
-          renderUI();
-          return;
-        }
-      }
-
-      // === Kein Daten gefunden: Leeres Board ===
-      const clientObj = APP.clients.find(c => c.slug === APP.activeClient);
-      APP.data = {
-        client: clientObj ? clientObj.name : (APP.activeClient || 'Unbekannt'),
-        week: '',
-        brand: '',
-        lastModified: new Date().toISOString(),
-        posts: []
-      };
-      APP.originalData = JSON.parse(JSON.stringify(APP.data));
-      showToast('Keine Daten gefunden. GitHub-Token unter Einstellungen konfigurieren.', 'warning');
-      renderUI();
-    }
-
-    async function fetchFromGitHub(pathOverride) {
-      const { token, owner, repo } = APP.github;
-      const ghOwner = owner || 'mupdx';
-      const ghRepo = repo || 'content-boards';
-      const path = pathOverride || getClientPath(APP.activeClient);
-      const url = `https://api.github.com/repos/${ghOwner}/${ghRepo}/contents/${path}`;
-      const headers = {};
-      if (token) headers['Authorization'] = `token ${token}`;
-      const res = await fetch(url, { headers });
-      if (!res.ok) throw new Error(`GitHub API error: ${res.status}`);
-      const json = await res.json();
-      APP.currentSha = json.sha;
-      const content = decodeURIComponent(escape(atob(json.content)));
-      return JSON.parse(content);
-    }
-
-    // ===== CALENDAR GENERATION =====
-    function generateCalendar() {
-      if (!APP.data || !APP.data.posts) return;
-
-      // Find date range from actual post data
-      const dates = APP.data.posts.map(p => new Date(p.date)).sort((a,b) => a-b);
-      if (dates.length === 0) return;
-
-      const startDate = new Date(dates[0]);
-      // Start from Monday of that week
-      const dayOfWeek = startDate.getDay();
-      startDate.setDate(startDate.getDate() - (dayOfWeek === 0 ? 6 : dayOfWeek - 1));
-
-      const endDate = new Date(dates[dates.length - 1]);
-      // End on Sunday of that week
-      const endDow = endDate.getDay();
-      if (endDow !== 0) endDate.setDate(endDate.getDate() + (7 - endDow));
-
-      const totalDays = Math.ceil((endDate - startDate) / (1000*60*60*24)) + 1;
-
-      const holidays = HOLIDAYS_SACHSEN;
-
-      const channelLabels = {
-        'instagram_feed': 'IG Feed',
-        'instagram_story': 'IG Story',
-        'facebook': 'FB Feed',
-        'linkedin': 'LinkedIn'
-      };
-      const channels = Object.keys(channelLabels);
-
-      // Monatsfarben fuer abwechselnde Einfaerbung (nur interne Daten, kein User-Input)
-      const monthColors = [
-        'rgba(59, 130, 246, 0.12)',
-        'rgba(168, 85, 247, 0.12)',
-        'rgba(236, 72, 153, 0.12)',
-        'rgba(245, 158, 11, 0.12)',
-        'rgba(34, 197, 94, 0.12)',
-        'rgba(6, 182, 212, 0.12)',
-      ];
-      const monthNames = ['Jan', 'Feb', 'M\u00e4r', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'];
-      const dayMonths = [];
-      let prevMonth = -1, colorIdx = -1;
-      for (let i = 0; i < totalDays; i++) {
-        const d = new Date(startDate); d.setDate(d.getDate() + i);
-        if (d.getMonth() !== prevMonth) { colorIdx++; prevMonth = d.getMonth(); }
-        dayMonths.push({ month: d.getMonth(), year: d.getFullYear(), color: monthColors[colorIdx % monthColors.length] });
-      }
-
-      // Kalender-Header: Monatszeile + Tageszeile (nur statische/berechnete Werte)
-      const thead = document.querySelector('#calendarHead');
-      // Monatszeile
-      let monthRowHtml = '<tr><th></th>';
-      let mSpan = 1;
-      for (let i = 0; i < totalDays; i++) {
-        if (i < totalDays - 1 && dayMonths[i].month === dayMonths[i+1].month) { mSpan++; }
-        else {
-          const label = monthNames[dayMonths[i].month] + ' ' + dayMonths[i].year;
-          monthRowHtml += '<th colspan="' + mSpan + '" style="background:' + dayMonths[i].color + ';color:#fff;font-size:11px;text-align:center;border-left:2px solid rgba(255,255,255,0.15);padding:2px 4px">' + label + '</th>';
-          mSpan = 1;
-        }
-      }
-      monthRowHtml += '</tr>';
-      // Tageszeile
-      let headHtml = '<tr><th style="min-width:60px">Kanal</th>';
-      for (let i = 0; i < totalDays; i++) {
-        const d = new Date(startDate); d.setDate(d.getDate() + i);
-        const ds = d.toISOString().split('T')[0];
-        const dow = d.toLocaleDateString('de-DE', { weekday: 'short' });
-        const num = d.getDate();
-        const isHoliday = holidays[ds];
-        const holidayClass = isHoliday ? ' class="holiday"' : '';
-        const bgStyle = isHoliday ? '' : ' style="background:' + dayMonths[i].color + '"';
-        headHtml += '<th' + holidayClass + bgStyle + '>' + dow + '<br>' + num + (isHoliday ? '<div class="holiday-label">' + isHoliday + '</div>' : '') + '</th>';
-      }
-      headHtml += '</tr>';
-      thead.innerHTML = monthRowHtml + headHtml;
-
-      // Build body rows — one per channel
-      const tbody = document.querySelector('#calendarBody');
-      let bodyHtml = '';
-      channels.forEach(channel => {
-        bodyHtml += `<tr><th>${channelLabels[channel]}</th>`;
-        for (let i = 0; i < totalDays; i++) {
-          const d = new Date(startDate);
-          d.setDate(d.getDate() + i);
-          const ds = d.toISOString().split('T')[0];
-          const isHoliday = holidays[ds];
-          const holidayClass = isHoliday ? ' class="holiday"' : '';
-
-          const postsForCell = APP.data.posts.filter(p => p.date === ds && p.channel === channel);
-          let cellContent = '';
-          postsForCell.forEach(post => {
-            let pillClass = getChannelClassname(post.channel);
-            // Distinguish carousel from single
-            if (channel === 'instagram_feed' && post.images && post.images.length > 1) {
-              pillClass = 'ig-carousel';
-            }
-            cellContent += `<a href="#" class="time-pill ${pillClass}" onclick="event.preventDefault();scrollToPost('${post.id}')">${post.time}</a>`;
-          });
-
-          const bgCol = isHoliday ? '' : ' style="background:' + dayMonths[i].color + '"';
-          bodyHtml += '<td' + holidayClass + bgCol + '>' + cellContent + '</td>';
-        }
-        bodyHtml += '</tr>';
-      });
-      tbody.innerHTML = bodyHtml;
-
-      document.getElementById('calendarDateRange').textContent =
-        `${formatDate(startDate)} - ${formatDate(endDate)}`;
-    }
-
-    // ===== RENDER POSTS BY CHANNEL =====
-    function renderPosts() {
-      if (!APP.data || !APP.data.posts) return;
-
-      const grid = document.getElementById('postsGrid');
-      const emptyState = document.getElementById('emptyState');
-
-      let filtered = APP.data.posts;
-
-      if (APP.currentFilter.channel !== 'all') {
-        filtered = filtered.filter(p => p.channel.includes(APP.currentFilter.channel));
-      }
-      if (APP.currentFilter.status) {
-        filtered = filtered.filter(p => p.status === APP.currentFilter.status);
-      }
-
-      if (filtered.length === 0) {
-        grid.style.display = 'none';
-        emptyState.style.display = 'block';
-        return;
-      }
-
-      grid.style.display = 'grid';
-      emptyState.style.display = 'none';
-
-      const groupedByChannel = {};
-      filtered.forEach(post => {
-        const ch = post.channel;
-        if (!groupedByChannel[ch]) groupedByChannel[ch] = [];
-        groupedByChannel[ch].push(post);
-      });
-
-      const channelOrder = ['instagram_feed', 'instagram_story', 'facebook', 'linkedin'];
-      const channelTitles = {
-        'instagram_feed': '📸 Instagram Feed',
-        'instagram_story': '📖 Instagram Story',
-        'facebook': '👍 Facebook',
-        'linkedin': '💼 LinkedIn'
-      };
-
-      let html = '';
-      channelOrder.forEach(channel => {
-        if (!groupedByChannel[channel]) return;
-        const posts = groupedByChannel[channel];
-
-        html += `<div class="channel-section-title">${channelTitles[channel] || channel}</div>`;
-        html += `<div class="channel-section-grid">`;
-        const monthNames = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
-                             'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
-        posts.forEach(post => {
-
-          const postDate = parsePostDate(post.date, post.time);
-          const isSaved = !APP.unsavedChanges.has(post.id);
-          const imgUrls = post.image_urls || [];
-          const isStoryChannel = post.channel === 'instagram_story';
-          const storyOriginalUrl = isStoryChannel && post.original_image_url
-            ? post.original_image_url
-            : null;
-          const currentImg = storyOriginalUrl || imgUrls[0] || '';
-          const holidayName = HOLIDAYS_SACHSEN[post.date] || '';
-          const holidayField = post.holiday || '';
-          const isPanorama = post.panorama === true;
-          const isStory = post.channel === 'instagram_story';
-          const containerClass = isStory ? 'story' : 'feed';
-          const imgPosX = post.img_position && post.img_position.x != null ? post.img_position.x : null;
-          const imgPosStyle = imgPosX != null ? ` style="object-position: ${imgPosX}% center"` : '';
-          const hasRegenRequest = post.regen_requests && post.regen_requests.length > 0;
-          const lastRegen = hasRegenRequest ? post.regen_requests[post.regen_requests.length - 1] : null;
-
-          html += `
-            <div class="post-card ${!isSaved ? 'unsaved' : ''} ${hasRegenRequest ? 'regen-requested' : ''} ${holidayName || holidayField ? 'holiday-post' : ''}" id="post-${post.id}">
-              ${hasRegenRequest ? `<div class="regen-badge">🔄 Neu beantragt: ${lastRegen.what}</div>` : ''}
-              ${holidayName ? `<div class="holiday-banner"><span class="holiday-icon">⚠️</span> Feiertag: ${holidayName}</div>` : ''}
-              <div class="post-image-container ${containerClass}">
-                ${isPanorama ? `
-                  <div class="panorama-container">
-                    <img src="${currentImg}" alt="Panorama" class="panorama-img slide-left">
-                  </div>
-                  <div class="carousel-counter">1/2</div>
-                  <button class="carousel-arrow prev" onclick="panSlide('${post.id}', 'prev')">‹</button>
-                  <button class="carousel-arrow next" onclick="panSlide('${post.id}', 'next')">›</button>
-                ` : `
-                  <img src="${currentImg}" alt="Post" class="post-image"${imgPosStyle} onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23333%22 width=%22200%22 height=%22200%22/%3E%3Ctext fill=%22%23666%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22%3EBild nicht verfügbar%3C/text%3E%3C/svg%3E'">
-                  ${imgUrls.length > 1 ? `
-                    <div class="carousel-counter">${1}/${imgUrls.length}</div>
-                    <button class="carousel-arrow prev" onclick="prevSlide('${post.id}')">‹</button>
-                    <button class="carousel-arrow next" onclick="nextSlide('${post.id}')">›</button>
-                  ` : ''}
-                `}
-                <div class="channel-badge ${getChannelClassname(post.channel)}">
-                  ${getChannelIcon(post.channel)}
-                  ${post.channel.replace(/_/g, ' ').toUpperCase()}
-                </div>
-                ${holidayField ? `<div class="holiday-badge">🎉 ${holidayField}</div>` : ''}
-              </div>
-              ${post.channel === "instagram_story" ? `
-              <div class="img-control-bar">
-                <label>Position:</label>
-                <input type="range" min="0" max="100" value="${post.img_position && post.img_position.x != null ? post.img_position.x : 50}"
-                  oninput="updateImgPosition('${post.id}', this.value, this)"
-                  onmousedown="event.stopPropagation()"
-                  ontouchstart="event.stopPropagation()">
-                <button class="img-reset-btn" onclick="updateImgPosition('${post.id}', 50, this.parentElement.querySelector('input'))">Reset</button>
-              </div>
-              ` : ""}
-              <div class="post-content">
-                <div class="post-header">
-                  <div class="post-meta">
-                    <span>${formatGermanDate(post.date)}</span>
-                    <span class="post-meta-dot">•</span>
-                    <span>${post.time}</span>
-                  </div>
-                  <!-- Status-Toggle entfernt — nicht benötigt -->
-                </div>
-
-                ${post.channel !== 'instagram_story' ? `
-                <div class="caption-section">
-                  <div class="caption-label">Bildunterschrift</div>
-                  <div class="caption-text" onclick="editCaption('${post.id}')">${formatCaption(post.caption)}</div>
-                  <textarea class="caption-textarea" id="caption-${post.id}" onblur="saveCaption('${post.id}', this.value)">${(post.caption || '').trim()}</textarea>
-                </div>
-
-                ${post.first_comment ? `
-                  <div class="first-comment">
-                    <div class="caption-label">Erster Kommentar</div>
-                    <div class="first-comment-text">${formatHashtags(post.first_comment)}</div>
-                  </div>
-                ` : ''}
-                ` : ''}
-
-                ${post.tags && post.tags.length > 0 ? `
-                  <div class="tags">
-                    ${post.tags.map(tag => `<div class="tag">${tag}</div>`).join('')}
-                  </div>
-                ` : ''}
-
-                <div class="post-actions">
-                  <button class="btn-save btn-save-primary" id="save-btn-${post.id}" onclick="savePost('${post.id}')">${isSaved ? '✅ Gespeichert' : '💾 Speichern'}</button>
-                  <button class="btn-save" style="background:#6366f1;margin-left:4px;" onclick="requestRegenerate('${post.id}')" title="Bild oder Caption neu generieren lassen">🔄 Neu</button>
-                </div>
-              </div>
-            </div>
-          `;
-        });
-        html += `</div>`; // close channel-section-grid
-      });
-
-      grid.innerHTML = html;
-    }
-
-    // ===== CAROUSEL NAVIGATION =====
-    function prevSlide(postId) {
-      const post = APP.data.posts.find(p => p.id === postId);
-      if (!post) return;
-      const container = document.querySelector(`#post-${postId} .post-image-container`);
-      const img = container.querySelector('.post-image');
-      const counter = container.querySelector('.carousel-counter');
-      const imgUrls = post.image_urls || [];
-
-      let currentIdx = parseInt(counter.textContent.split('/')[0]) - 1;
-      currentIdx = (currentIdx - 1 + imgUrls.length) % imgUrls.length;
-      img.src = imgUrls[currentIdx];
-      counter.textContent = `${currentIdx + 1}/${imgUrls.length}`;
-    }
-
-    function nextSlide(postId) {
-      const post = APP.data.posts.find(p => p.id === postId);
-      if (!post) return;
-      const container = document.querySelector(`#post-${postId} .post-image-container`);
-      const img = container.querySelector('.post-image');
-      const counter = container.querySelector('.carousel-counter');
-      const imgUrls = post.image_urls || [];
-
-      let currentIdx = parseInt(counter.textContent.split('/')[0]) - 1;
-      currentIdx = (currentIdx + 1) % imgUrls.length;
-      img.src = imgUrls[currentIdx];
-      counter.textContent = `${currentIdx + 1}/${imgUrls.length}`;
-    }
-
-    // ===== PANORAMA SPLIT NAVIGATION =====
-    function panSlide(postId, dir) {
-      const container = document.querySelector(`#post-${postId} .panorama-container`);
-      if (!container) return;
-      const img = container.querySelector('.panorama-img');
-      const counter = container.closest('.post-image-container').querySelector('.carousel-counter');
-      const isLeft = img.classList.contains('slide-left');
-
-      if (dir === 'next' && isLeft) {
-        img.classList.remove('slide-left');
-        img.classList.add('slide-right');
-        counter.textContent = '2/2';
-      } else if (dir === 'prev' && !isLeft) {
-        img.classList.remove('slide-right');
-        img.classList.add('slide-left');
-        counter.textContent = '1/2';
-      }
-    }
-
-    // ===== FILTERING =====
-    function filterByChannel(channel) {
-      APP.currentFilter.channel = channel;
-      applyFilters();
-      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
-    }
-
-    function filterByStatus(status) {
-      APP.currentFilter.status = APP.currentFilter.status === status ? null : status;
-      applyFilters();
-      event.target.classList.toggle('active');
-    }
-
-    function applyFilters() {
-      renderPosts();
-    }
-
-    // ===== POST EDITING =====
-    function toggleStatus(postId) {
-      const post = APP.data.posts.find(p => p.id === postId);
-      if (post) {
-        post.status = post.status === 'draft' ? 'approved' : 'draft';
-        APP.unsavedChanges.add(postId);
-        renderPosts();
-        showToast(`Status: ${post.status === 'draft' ? 'Entwurf' : 'Freigegeben'}`, 'success');
-      }
-    }
-
-    function editCaption(postId) {
-      const captionDiv = document.querySelector(`#caption-${postId}`).previousElementSibling;
-      captionDiv.classList.add('editing');
-      document.getElementById(`caption-${postId}`).classList.add('editing');
-      document.getElementById(`caption-${postId}`).focus();
-    }
-
-    function updateImgPosition(postId, value, sliderEl) {
-      const v = Number(value);
-      const card = sliderEl.closest('.post-card');
-      if (card) {
-        const img = card.querySelector('.post-image');
-        if (img) img.style.objectPosition = v + '% center';
-        // Sofort orange markieren
-        card.classList.add('unsaved');
-        const saveBtn = card.querySelector('.btn-save-primary');
-        if (saveBtn) saveBtn.textContent = '💾 Speichern';
-      }
-      if (sliderEl.tagName === 'INPUT') sliderEl.value = v;
-      const post = APP.data.posts.find(p => p.id === postId);
-      if (post) {
-        if (!post.img_position) post.img_position = {};
-        post.img_position.x = v;
-        APP.unsavedChanges.add(postId);
-      }
-    }
-
-    // ===== ÄNDERUNGSWÜNSCHE =====
-    function requestRegenerate(postId) {
-      const post = APP.data.posts.find(p => p.id === postId);
-      if (!post) return;
-      const ch = post.channel.replace(/_/g, ' ').toUpperCase();
-      const options = [
-        { icon: '✏️', label: 'Caption ändern', value: 'Caption neu' },
-        { icon: '🖼️', label: 'Bildausschnitt ändern', value: 'Bild/Crop neu' },
-        { icon: '📅', label: 'Datum verschieben', value: 'Datum verschieben' },
-        { icon: '🔄', label: 'Alles neu', value: 'Alles neu' }
-      ];
-      let html = '<div class="changes-summary-overlay" onclick="if(event.target===this)this.remove()">';
-      html += '<div class="changes-summary-box">';
-      html += `<h3>🔄 Änderungswunsch</h3>`;
-      html += `<p style="color:var(--text-secondary);margin-bottom:4px;font-weight:600;">${post.id} — ${ch}</p>`;
-      html += `<p style="color:var(--text-secondary);margin-bottom:16px;">${formatGermanDate(post.date)} · ${post.time}</p>`;
-      options.forEach(opt => {
-        if (opt.value === 'Datum verschieben') {
-          html += `<button style="display:block;width:100%;padding:10px;margin-bottom:8px;background:var(--bg-tertiary);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);cursor:pointer;text-align:left;" onclick="requestDateChange('${postId}');this.closest('.changes-summary-overlay').remove();">${opt.icon} ${opt.label}</button>`;
-        } else {
-          html += `<button style="display:block;width:100%;padding:10px;margin-bottom:8px;background:var(--bg-tertiary);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);cursor:pointer;text-align:left;" onclick="submitRegenRequest('${postId}','${opt.value}');this.closest('.changes-summary-overlay').remove();">${opt.icon} ${opt.label}</button>`;
-        }
-      });
-      html += '<button class="changes-summary-close" style="background:#6b7280;" onclick="this.closest(\'.changes-summary-overlay\').remove()">Abbrechen</button>';
-      html += '</div></div>';
-      document.body.insertAdjacentHTML('beforeend', html);
-    }
-
-    function requestDateChange(postId) {
-      // Kein Date-Picker — User sieht nicht welche Tage belegt sind
-      // Stattdessen: Wunsch markieren, Claude Code kümmert sich um Platzierung
-      // Typischer Grund: Motiv-Doppelung (QA-2) oder Termin passt nicht
-      submitRegenRequest(postId, 'Datum verschieben (Motiv zu nah an Nachbar-Post oder Termin unpassend)');
-    }
-
-    async function submitRegenRequest(postId, what) {
-      const post = APP.data.posts.find(p => p.id === postId);
-      if (!post) return;
-      if (!post.regen_requests) post.regen_requests = [];
-      post.regen_requests.push({ what, timestamp: new Date().toISOString() });
-      APP.unsavedChanges.add(postId);
-      renderPosts();
-
-      // Auto-Save sofort nach Auswahl
-      const { token, owner, repo } = APP.github;
-      const path = APP.activeClient ? getClientPath(APP.activeClient) : null;
-      if (token && owner && repo && path) {
-        try {
-          await saveDataToGitHub(path, `Änderungswunsch: ${what} für ${postId}`);
-          APP.unsavedChanges.delete(postId);
-          showToast(`🔄 "${what}" für ${postId} beantragt und gespeichert ✓`, 'success');
-          renderPosts();
-        } catch (err) {
-          showToast('Fehler beim Speichern: ' + err.message, 'error');
-        }
-      } else {
-        showToast(`🔄 "${what}" vorgemerkt — bitte manuell speichern (GitHub nicht verbunden)`, 'warning');
-      }
-    }
-
-    function saveCaption(postId, value) {
-      const post = APP.data.posts.find(p => p.id === postId);
-      if (post) {
-        post.caption = value;
-        APP.unsavedChanges.add(postId);
-        document.querySelector(`#caption-${postId}`).previousElementSibling.classList.remove('editing');
-        document.getElementById(`caption-${postId}`).classList.remove('editing');
-        renderPosts();
-      }
-    }
-
-    // ===== SAVE SINGLE POST =====
-    async function savePost(postId) {
-      const { token, owner, repo } = APP.github;
-      const path = APP.activeClient ? getClientPath(APP.activeClient) : null;
-      if (!token || !owner || !repo || !path) {
-        showToast('GitHub nicht verbunden oder kein Kunde gewählt.', 'error');
-        return;
-      }
-
-      // Show loading state
-      const saveBtn = document.getElementById(`save-btn-${postId}`);
-      if (saveBtn) { saveBtn.textContent = '⏳ Speichert...'; saveBtn.disabled = true; }
-
-      try {
-        await saveDataToGitHub(path, `Update ${APP.data.client} ${APP.data.week}`);
-        APP.unsavedChanges.delete(postId);
-        showToast('Gespeichert ✓', 'success');
-        renderPosts();
-
-        // Green flash feedback on the saved card
-        const card = document.getElementById(`post-${postId}`);
-        const btn = document.getElementById(`save-btn-${postId}`);
-        if (card) card.classList.add('just-saved-card');
-        if (btn) { btn.classList.add('just-saved'); btn.textContent = '✅ Gespeichert'; }
-        setTimeout(() => {
-          if (card) card.classList.remove('just-saved-card');
-          if (btn) btn.classList.remove('just-saved');
-        }, 2500);
-      } catch (err) {
-        showToast('Fehler: ' + err.message, 'error');
-        if (saveBtn) { saveBtn.textContent = '💾 Speichern'; saveBtn.disabled = false; }
-      }
-    }
-
-    // ===== SAVE DATA TO GITHUB (shared helper) =====
-    async function saveDataToGitHub(path, commitMsg) {
-      const { token, owner, repo } = APP.github;
-      const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
-
-      // Try to get existing file for sha
-      let sha = null;
-      try {
-        const getRes = await fetch(url, {
-          headers: { 'Authorization': `token ${token}` }
-        });
-        if (getRes.ok) {
-          const json = await getRes.json();
-          sha = json.sha;
-        }
-      } catch (e) { /* new file, no sha needed */ }
-
-      const content = btoa(unescape(encodeURIComponent(JSON.stringify(APP.data, null, 2))));
-      const body = { message: commitMsg, content };
-      if (sha) body.sha = sha;
-
-      const putRes = await fetch(url, {
-        method: 'PUT',
-        headers: {
-          'Authorization': `token ${token}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(body)
-      });
-
-      if (!putRes.ok) throw new Error('Speichern fehlgeschlagen');
-      return putRes.json();
-    }
-
-    // ===== CHANGE DETECTION =====
-    function getChangedFields(postId) {
-      if (!APP.originalData) return [];
-      const orig = APP.originalData.posts.find(p => p.id === postId);
-      const curr = APP.data.posts.find(p => p.id === postId);
-      if (!orig || !curr) return [];
-      const changes = [];
-      if ((orig.caption || '') !== (curr.caption || '')) changes.push('Caption');
-      if ((orig.first_comment || '') !== (curr.first_comment || '')) changes.push('Erster Kommentar');
-      if ((orig.status || '') !== (curr.status || '')) changes.push('Status');
-      if (JSON.stringify(orig.img_position || {}) !== JSON.stringify(curr.img_position || {})) changes.push('Bildposition');
-      if ((orig.date || '') !== (curr.date || '')) changes.push('Datum');
-      if ((orig.time || '') !== (curr.time || '')) changes.push('Uhrzeit');
-      return changes;
-    }
-
-    function showChangesSummary() {
-      const changed = [];
-      const unchanged = [];
-      APP.data.posts.forEach(p => {
-        const fields = getChangedFields(p.id);
-        if (fields.length > 0) {
-          changed.push({ id: p.id, date: p.date, channel: p.channel, fields });
-        } else {
-          unchanged.push({ id: p.id });
-        }
-      });
-
-      let html = '<div class="changes-summary-overlay" onclick="if(event.target===this)this.remove()">';
-      html += '<div class="changes-summary-box">';
-      html += `<h3>Änderungs-Übersicht</h3>`;
-      html += `<p style="color:var(--text-secondary);margin-bottom:12px;">${changed.length} geändert, ${unchanged.length} unverändert</p>`;
-
-      if (changed.length === 0) {
-        html += '<p style="color:#9ca3af;">Keine Änderungen seit dem Laden.</p>';
-      } else {
-        changed.forEach(c => {
-          const ch = c.channel.replace(/_/g, ' ').toUpperCase();
-          html += `<div class="changes-summary-item">`;
-          html += `<strong>${c.id}</strong> (${ch}, ${c.date})<br>`;
-          html += c.fields.map(f => `<span class="field">${f}</span>`).join(', ');
-          html += `</div>`;
-        });
-      }
-
-      html += '<button class="changes-summary-close" onclick="this.closest(\'.changes-summary-overlay\').remove()">Schließen</button>';
-      html += '</div></div>';
-      document.body.insertAdjacentHTML('beforeend', html);
-    }
-
-    // ===== SAVE ALL POSTS =====
-    async function saveAllPosts() {
-      if (APP.unsavedChanges.size === 0) {
-        showToast('Keine ungespeicherten Änderungen', 'info');
-        return;
-      }
-
-      const { token, owner, repo } = APP.github;
-      const path = APP.activeClient ? getClientPath(APP.activeClient) : null;
-      if (!token || !owner || !repo || !path) {
-        showToast('GitHub nicht verbunden oder kein Kunde gewählt.', 'error');
-        return;
-      }
-
-      try {
-        await saveDataToGitHub(path, `Update ${APP.data.client} ${APP.data.week} - ${APP.unsavedChanges.size} post(s)`);
-        APP.unsavedChanges.clear();
-        showToast('Alle Posts gespeichert! ✓', 'success');
-        showChangesSummary();
-        renderPosts();
-      } catch (err) {
-        showToast('Fehler: ' + err.message, 'error');
-      }
-    }
-
-    // ===== CSV EXPORT (OnlyPult Format) =====
-    function exportCSV() {
-      if (!APP.data || !APP.data.posts) {
-        showToast('Keine Daten zum Exportieren', 'error');
-        return;
-      }
-
-      const approved = APP.data.posts.filter(p => p.status === 'approved');
-      if (approved.length === 0) {
-        showToast('Keine freigegeben Posts zum Exportieren', 'warning');
-        return;
-      }
-
-      const headers = [
-        'Date and Time',
-        'Use Planner Time',
-        'Text',
-        'First comment',
-        'Media URLs',
-        'Title',
-        'Link',
-        'Stories Post',
-        'Reels Post',
-        'Shorts',
-        'Link Title',
-        'Pinterest board',
-        'TikTok Privacy',
-        'TikTok Recommended music'
-      ];
-
-      const rows = approved.map(post => {
-        const dateTime = `${post.date} ${post.time}`;
-        const mediaUrls = (post.image_urls || []).join('; ');
-        return [
-          dateTime,
-          'No',
-          post.caption || '',
-          post.first_comment || '',
-          mediaUrls,
-          '',
-          '',
-          post.channel === 'instagram_story' ? 'Yes' : 'No',
-          '',
-          '',
-          '',
-          '',
-          'Private',
-          ''
-        ];
-      });
-
-      let csv = headers.join(',') + '\n';
-      rows.forEach(row => {
-        const quoted = row.map(cell => {
-          const s = String(cell);
-          return s.includes(',') || s.includes('"') || s.includes('\n')
-            ? `"${s.replace(/"/g, '""')}"` : s;
-        });
-        csv += quoted.join(',') + '\n';
-      });
-
-      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-      const link = document.createElement('a');
-      const url = URL.createObjectURL(blob);
-      link.href = url;
-      link.download = `${APP.data.client}-${APP.data.week}-export.csv`;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      URL.revokeObjectURL(url);
-
-      showToast('CSV exportiert ✓', 'success');
-    }
-
-    // ===== SETTINGS MODAL =====
-    function showSettings() {
-      document.getElementById('settingsModal').classList.add('active');
-      document.getElementById('githubToken').value = APP.github.token;
-      document.getElementById('githubOwner').value = APP.github.owner;
-      document.getElementById('githubRepo').value = APP.github.repo;
-      renderClientList();
-    }
-
-    function hideSettings() {
-      document.getElementById('settingsModal').classList.remove('active');
-    }
-
-    function saveSettings() {
-      const token = document.getElementById('githubToken').value;
-      const owner = document.getElementById('githubOwner').value;
-      const repo = document.getElementById('githubRepo').value;
-
-      if (token && owner && repo) {
-        APP.github = { token, owner, repo };
-        localStorage.setItem('githubSettings', JSON.stringify(APP.github));
-        showToast('Einstellungen gespeichert!', 'success');
-        hideSettings();
-        checkConnection();
-      } else {
-        showToast('Bitte Token, Owner und Repo ausfüllen', 'error');
-      }
-    }
-
-    // ===== TOAST NOTIFICATIONS =====
-    function showToast(message, type = 'info') {
-      const container = document.getElementById('toastContainer');
-      const toast = document.createElement('div');
-      toast.className = `toast ${type}`;
-      toast.textContent = message;
-      container.appendChild(toast);
-
-      setTimeout(() => {
-        toast.style.animation = 'slideOut 0.3s ease-out';
-        setTimeout(() => toast.remove(), 300);
-      }, 3000);
-    }
-
-    // ===== CONNECTION CHECK =====
-    async function checkConnection() {
-      const statusDot = document.getElementById('statusDot');
-      const statusText = document.getElementById('connectionStatus');
-
-      if (!APP.github.token) {
-        statusDot.classList.remove('connected');
-        statusText.textContent = 'Nicht verbunden';
-        return;
-      }
-
-      try {
-        const res = await fetch('https://api.github.com/user', {
-          headers: { 'Authorization': `token ${APP.github.token}` }
-        });
-        if (res.ok) {
-          statusDot.classList.add('connected');
-          statusText.textContent = 'GitHub verbunden';
-        } else {
-          statusDot.classList.remove('connected');
-          statusText.textContent = 'Verbindung fehlgeschlagen';
-        }
-      } catch (err) {
-        statusDot.classList.remove('connected');
-        statusText.textContent = 'Offline';
-      }
-    }
-
-    // ===== SCROLL TO POST =====
-    function scrollToPost(postId) {
-      const element = document.getElementById(`post-${postId}`);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }
-
-    // ===== RENDER UI =====
-    function renderUI() {
-      if (APP.data) {
-        document.getElementById('accountName').textContent = APP.data.brand || APP.data.week || '-';
-      }
-      generateCalendar();
-      renderPosts();
-      checkConnection();
-    }
-
-    // ===== BEFOREUNLOAD WARNING =====
-    window.addEventListener('beforeunload', (e) => {
-      if (APP.unsavedChanges.size > 0) {
-        e.preventDefault();
-        e.returnValue = '';
-      }
-    });
-
-    // ===== INITIALIZATION =====
-    document.addEventListener('DOMContentLoaded', async () => {
-      // Load GitHub settings
-      const saved = localStorage.getItem('githubSettings');
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        APP.github = { token: parsed.token || '', owner: parsed.owner || '', repo: parsed.repo || '' };
-      }
-
-      // Load client list from localStorage (as baseline)
-      const savedClients = localStorage.getItem('clients');
-      if (savedClients) {
-        APP.clients = JSON.parse(savedClients);
-      } else {
-        APP.clients = [];
-      }
-
-      // Auto-discover clients from GitHub repo (merges with localStorage)
+    document.addEventListener('DOMContentLoaded',async()=>{
+      const saved=localStorage.getItem('githubSettings');if(saved){const parsed=JSON.parse(saved);APP.github={token:parsed.token||'',owner:parsed.owner||'',repo:parsed.repo||''};}
+      const savedClients=localStorage.getItem('clients');if(savedClients)APP.clients=JSON.parse(savedClients);else APP.clients=[];
       await discoverClientsFromGitHub();
-
-      // If still no clients after discovery, add default
-      if (APP.clients.length === 0) {
-        APP.clients = [{ name: 'Eyestyle Zwickau', slug: 'eyestyle-zwickau' }];
-        localStorage.setItem('clients', JSON.stringify(APP.clients));
-      }
-
-      // Load active client — URL parameter ?client= hat IMMER Vorrang
-      const urlParams = new URLSearchParams(window.location.search);
-      const urlClient = urlParams.get('client');
-      const savedActive = localStorage.getItem('activeClient');
-
-      if (urlClient && APP.clients.find(c => c.slug === urlClient)) {
-        // URL-Parameter hat Vorrang
-        APP.activeClient = urlClient;
-      } else if (urlClient && !APP.clients.find(c => c.slug === urlClient)) {
-        // Client aus URL existiert noch nicht in der Liste — hinzufügen
-        const name = urlClient.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
-        APP.clients.push({ name, slug: urlClient });
-        localStorage.setItem('clients', JSON.stringify(APP.clients));
-        APP.activeClient = urlClient;
-      } else {
-        APP.activeClient = savedActive || (APP.clients.length > 0 ? APP.clients[0].slug : null);
-      }
-      localStorage.setItem('activeClient', APP.activeClient || '');
-
-      renderClientSelect();
-      await initApp();
-
-      document.getElementById('settingsModal').addEventListener('click', (e) => {
-        if (e.target.id === 'settingsModal') hideSettings();
-      });
-
-      // Allow Enter key in new client input
-      const newClientInput = document.getElementById('newClientName');
-      if (newClientInput) {
-        newClientInput.addEventListener('keypress', (e) => {
-          if (e.key === 'Enter') addClient();
-        });
-      }
+      if(APP.clients.length===0){APP.clients=[{name:'Eyestyle Zwickau',slug:'eyestyle-zwickau'}];localStorage.setItem('clients',JSON.stringify(APP.clients));}
+      const urlParams=new URLSearchParams(window.location.search);const urlClient=urlParams.get('client');const savedActive=localStorage.getItem('activeClient');
+      if(urlClient&&APP.clients.find(c=>c.slug===urlClient)){APP.activeClient=urlClient;}else if(urlClient&&!APP.clients.find(c=>c.slug===urlClient)){const name=urlClient.split('-').map(w=>w.charAt(0).toUpperCase()+w.slice(1)).join(' ');APP.clients.push({name,slug:urlClient});localStorage.setItem('clients',JSON.stringify(APP.clients));APP.activeClient=urlClient;}else{APP.activeClient=savedActive||(APP.clients.length>0?APP.clients[0].slug:null);}
+      localStorage.setItem('activeClient',APP.activeClient||'');renderClientSelect();await initApp();
+      document.getElementById('settingsModal').addEventListener('click',(e)=>{if(e.target.id==='settingsModal')hideSettings();});
+      const nci=document.getElementById('newClientName');if(nci)nci.addEventListener('keypress',(e)=>{if(e.key==='Enter')addClient();});
     });
   </script>
-
-
 </body>
 </html>
