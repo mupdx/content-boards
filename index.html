@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- v2.9 Neu-Button erweitert: Caption/Crop/Datum/Alles, hardcodierte Panorama-Zuweisung entfernt -->
+<!-- v3.0 Datum-verschieben vereinfacht (nur Wunsch, kein Picker), Panorama-Fix -->
 <html lang="de">
 <head>
   <meta charset="UTF-8">
@@ -2269,55 +2269,10 @@
     }
 
     function requestDateChange(postId) {
-      const post = APP.data.posts.find(p => p.id === postId);
-      if (!post) return;
-      let html = '<div class="changes-summary-overlay" onclick="if(event.target===this)this.remove()">';
-      html += '<div class="changes-summary-box">';
-      html += `<h3>📅 Datum verschieben</h3>`;
-      html += `<p style="color:var(--text-secondary);margin-bottom:4px;font-weight:600;">${post.id}</p>`;
-      html += `<p style="color:var(--text-secondary);margin-bottom:16px;">Aktuell: ${formatGermanDate(post.date)} · ${post.time}</p>`;
-      html += `<label style="color:var(--text-secondary);font-size:12px;display:block;margin-bottom:4px;">Neues Datum:</label>`;
-      html += `<input type="date" id="newDate-${postId}" value="${post.date}" style="width:100%;padding:10px;margin-bottom:12px;background:var(--bg-tertiary);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);font-size:14px;">`;
-      html += `<label style="color:var(--text-secondary);font-size:12px;display:block;margin-bottom:4px;">Neue Uhrzeit:</label>`;
-      html += `<input type="time" id="newTime-${postId}" value="${post.time}" style="width:100%;padding:10px;margin-bottom:16px;background:var(--bg-tertiary);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);font-size:14px;">`;
-      html += `<button style="display:block;width:100%;padding:10px;margin-bottom:8px;background:#3b82f6;border:none;border-radius:6px;color:white;cursor:pointer;font-weight:600;" onclick="submitDateChange('${postId}');this.closest('.changes-summary-overlay').remove();">📅 Verschieben</button>`;
-      html += '<button class="changes-summary-close" style="background:#6b7280;" onclick="this.closest(\'.changes-summary-overlay\').remove()">Abbrechen</button>';
-      html += '</div></div>';
-      document.body.insertAdjacentHTML('beforeend', html);
-    }
-
-    async function submitDateChange(postId) {
-      const post = APP.data.posts.find(p => p.id === postId);
-      if (!post) return;
-      const newDate = document.getElementById(`newDate-${postId}`).value;
-      const newTime = document.getElementById(`newTime-${postId}`).value;
-      const oldDate = post.date;
-      const oldTime = post.time;
-      if (newDate === oldDate && newTime === oldTime) {
-        showToast('Datum und Uhrzeit unverändert', 'warning');
-        return;
-      }
-      post.date = newDate;
-      post.time = newTime;
-      if (!post.regen_requests) post.regen_requests = [];
-      post.regen_requests.push({ what: `Datum: ${oldDate} ${oldTime} → ${newDate} ${newTime}`, timestamp: new Date().toISOString() });
-      APP.unsavedChanges.add(postId);
-      renderPosts();
-
-      const { token, owner, repo } = APP.github;
-      const path = APP.activeClient ? getClientPath(APP.activeClient) : null;
-      if (token && owner && repo && path) {
-        try {
-          await saveDataToGitHub(path, `Datum verschoben: ${postId} → ${newDate} ${newTime}`);
-          APP.unsavedChanges.delete(postId);
-          showToast(`📅 ${postId} verschoben auf ${formatGermanDate(newDate)} · ${newTime} ✓`, 'success');
-          renderPosts();
-        } catch (err) {
-          showToast('Fehler beim Speichern: ' + err.message, 'error');
-        }
-      } else {
-        showToast(`📅 Verschiebung vorgemerkt — bitte manuell speichern`, 'warning');
-      }
+      // Kein Date-Picker — User sieht nicht welche Tage belegt sind
+      // Stattdessen: Wunsch markieren, Claude Code kümmert sich um Platzierung
+      // Typischer Grund: Motiv-Doppelung (QA-2) oder Termin passt nicht
+      submitRegenRequest(postId, 'Datum verschieben (Motiv zu nah an Nachbar-Post oder Termin unpassend)');
     }
 
     async function submitRegenRequest(postId, what) {
