@@ -193,7 +193,7 @@ def build_briefing(clients_data, target_date):
         date_str = target_date.strftime("%Y-%m-%d")
         posts_today = [p for p in all_posts if p.get("date") == date_str]
 
-        lines.append(f"━━━━━ *{name}* ━━━━━")
+        lines.append(f"━━ *{name}* ━━")
 
         if posts_today:
             for p in sorted(posts_today, key=lambda x: x.get("time", "")):
