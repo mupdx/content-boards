@@ -459,10 +459,6 @@
       <button class="filter-btn" onclick="filterByChannel('linkedin')">LinkedIn</button>
     </div>
 
-    <div id="approveAllBar" class="approve-all-bar">
-      <button class="approve-all-btn" onclick="approveAllPosts()">Alle freigeben</button>
-      <span class="approve-all-hint">Gibt alle Posts frei, die keine offenen Änderungswünsche haben</span>
-    </div>
     <div id="allApprovedBanner" style="display:none;" class="all-approved-banner">
       <span class="banner-text">Alle Posts freigegeben</span>
       <button class="banner-action" onclick="exportCSV()">Export starten</button>
@@ -676,7 +672,6 @@
         if(post.tags&&post.tags.length>0)html+=`<div class="tags">${post.tags.map(tag=>`<div class="tag">${tag}</div>`).join('')}</div>`;
         if(post.channel!=='instagram_story'){
         html+=`<div class="post-actions">`;
-        html+=`<button class="action-btn-approve ${isA?'approved':''}" onclick="approvePost('${post.id}')">${isA?'Freigegeben':'Freigabe'}</button>`;
         html+=`<div class="action-row">`;
         html+=`<button class="action-btn-secondary ${hCR?(isChanged?'changed':'requested'):''}" onclick="submitRegenRequest('${post.id}','Caption neu')">Caption</button>`;
         html+=`<button class="action-btn-secondary ${hIR?(isChanged?'changed':'requested'):''}" onclick="submitRegenRequest('${post.id}','Bild/Crop neu')">Ausschnitt</button>`;
