@@ -156,45 +156,57 @@ def build_briefing(clients_data, target_date):
     morgen_feiertag = feiertage.get(target_date + timedelta(days=1))
 
     lines = []
-    lines.append(f"Briefing {wt}, {tag}. {monat} | Zwickau {wetter_str}")
+    lines.append(f":sunny: *Briefing {wt}, {tag}. {monat}*  |  :thermometer: Zwickau {wetter_str}")
     lines.append("")
 
     if heute_feiertag:
-        lines.append(f"FEIERTAG HEUTE: {heute_feiertag}")
+        lines.append(f":rotating_light: *FEIERTAG HEUTE: {heute_feiertag}*")
         lines.append("")
     if morgen_feiertag:
-        lines.append(f"Morgen Feiertag: {morgen_feiertag}")
+        lines.append(f":warning: Morgen Feiertag: _{morgen_feiertag}_")
         lines.append("")
 
     for client, all_posts in clients_data:
-        name = client["name"].upper()
+        name = client["name"]
         branch = client.get("branch", "")
         date_str = target_date.strftime("%Y-%m-%d")
         posts_today = [p for p in all_posts if p.get("date") == date_str]
 
-        lines.append(f"--- {name} ---")
+        lines.append(f"━━━ *{name}* ━━━")
 
         if posts_today:
             for p in sorted(posts_today, key=lambda x: x.get("time", "")):
-                kanal = KANAL_ICONS.get(p.get("channel", ""), p.get("channel", ""))
+                channel = p.get("channel", "")
+                if channel == "instagram_feed":
+                    icon = ":camera:"
+                elif channel == "instagram_story":
+                    icon = ":iphone:"
+                elif channel == "facebook":
+                    icon = ":blue_book:"
+                elif channel == "linkedin":
+                    icon = ":briefcase:"
+                else:
+                    icon = ":memo:"
+
+                kanal = KANAL_ICONS.get(channel, channel)
                 zeit = p.get("time", "?")
                 desc = p.get("image_description", "")
                 if not desc:
                     caption = p.get("caption", p.get("caption_ig", ""))
                     if caption:
-                        desc = caption[:40] + ("..." if len(caption) > 40 else "")
+                        desc = caption[:45] + ("..." if len(caption) > 45 else "")
                 if desc:
-                    lines.append(f"  {kanal} {zeit} | {desc}")
+                    lines.append(f"  {icon} `{kanal}` *{zeit}*  _{desc}_")
                 else:
-                    lines.append(f"  {kanal} {zeit}")
+                    lines.append(f"  {icon} `{kanal}` *{zeit}*")
         else:
-            lines.append("  Nichts heute.")
+            lines.append("  :zzz: _Nichts heute._")
 
         # Branchenspezifischer Trigger
         if temp is not None and branch in BRANCH_TRIGGERS:
             trigger = BRANCH_TRIGGERS[branch](temp, wetter_code or 0)
             if trigger:
-                lines.append(f"  -> {trigger}")
+                lines.append(f"  :bulb: {trigger}")
 
         # 14-Tage-Warnung
         future_dates = []
@@ -209,9 +221,9 @@ def build_briefing(clients_data, target_date):
             last = max(future_dates)
             tage_rest = (last - target_date).days
             if tage_rest <= 14:
-                lines.append(f"  WARNUNG: Noch {tage_rest} Tage Content! Letzter Post: {last.strftime('%d.%m.')}")
+                lines.append(f"  :warning: *Noch {tage_rest} Tage Content!* Letzter Post: {last.strftime('%d.%m.')}")
         else:
-            lines.append("  WARNUNG: KEIN Content geplant!")
+            lines.append("  :rotating_light: *KEIN Content geplant!*")
 
         lines.append("")
 
